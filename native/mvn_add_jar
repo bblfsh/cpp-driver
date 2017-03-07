@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=lib/org.eclipse.cdt.core_5.6.0.201402142303.jar -DgroupId=org.eclipse.cdt.core -DartifactId=cdtcore -Dversion=5.6.0 -Dpackaging=jar
