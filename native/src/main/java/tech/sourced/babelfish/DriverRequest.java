@@ -40,7 +40,6 @@ class DriverRequest {
 
         // TODO: check if this "new" can be avoided since it will be called in the loop
         ObjectMapper mapper = new ObjectMapper();
-        System.err.println("XXX input string: |" + in + "|");
 
         try {
             return mapper.readValue(in, DriverRequest.class);

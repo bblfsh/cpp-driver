@@ -51,7 +51,7 @@ class EclipseCPPParser {
         return scanner;
     }
 
-    IASTTranslationUnit parseCPP(String code) {
+    TranslationUnit parseCPP(String code) {
         AbstractGNUSourceCodeParser parser;
         ICPPParserExtensionConfiguration config;
         IScanner scanner = createScanner(code, ParserLanguage.CPP, GNU_SCANNER_INFO);
@@ -62,7 +62,7 @@ class EclipseCPPParser {
 
         IASTTranslationUnit parsed = parser.parse();
         commentMap = ASTCommenter.getCommentedNodeMap(parsed);
-        return parsed;
+        return new TranslationUnit(parsed, commentMap);
     }
 
     IASTTranslationUnit parseC(String code) {
@@ -80,7 +80,8 @@ class EclipseCPPParser {
     void printAST(String code)
             throws Exception {
         // TODO: use C or CPP depending on the specified language
-        IASTTranslationUnit translationUnit = parseCPP(code);
+        TranslationUnit tuWrapper = parseCPP(code);
+        IASTTranslationUnit translationUnit = tuWrapper.rootNode;
 //        System.out.println("XXX comments:");
 //        for (IASTComment comment : translationUnit.getComments()) {
 //            System.out.print("toStr: ");
@@ -182,7 +183,6 @@ class EclipseCPPParser {
         // location line (same line as the associated node = leading in the same line)
 
         List<IASTComment> leadingComments = commentMap.getLeadingCommentsForNode(node);
-        System.out.println("XXX leadingComments: ");
         for (IASTComment comment : leadingComments) {
             System.out.println(comment.toString());
         }
@@ -194,7 +194,6 @@ class EclipseCPPParser {
         //   // this is a freestandingComment associated with the IASTFunctionDeclaration
         // }
         List<IASTComment> freestandingComments = commentMap.getFreestandingCommentsForNode(node);
-        System.out.println("XXX freestandingComments: ");
         for (IASTComment comment : freestandingComments) {
             System.out.println(comment.toString());
         }
@@ -203,7 +202,6 @@ class EclipseCPPParser {
         // int a = 3; // this comment will be a trailingComment of the root node of the full IASTDeclaration (int a = 3)
         // int a /* trailing comment of the ASTName (a) node */ = 3;
         List<IASTComment> trailingComments = commentMap.getTrailingCommentsForNode(node);
-        System.out.println("XXX trailingComments: ");
         for (IASTComment comment : trailingComments) {
             System.out.println(comment.toString());
         }

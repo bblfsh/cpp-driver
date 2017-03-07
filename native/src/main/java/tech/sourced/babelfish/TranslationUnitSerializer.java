@@ -4,84 +4,284 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.eclipse.cdt.core.dom.ast.*;
+import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 
 import java.io.IOException;
+import java.util.List;
+
+/* TODO: other interesting methods from IASTNode implementers that are not given as children:
+ * http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcdt%2Fcore%2Fdom%2Fast%2FIASTNode.html
+ * ASMDeclaration.getAssembly() (String)
+ * Attribute.getName() (String)
+ * ASTBinaryTypeIdExpression.getOperator() (there is only one)
+ * ASTCastExpression.getOperator()
+ * CompositeTypeSpecifier.TYPE_NAME? getKey()(is k_union, k_last or k_struct), .getScope().getScopeName()
+ * CompoundStatement.getScope().getScopeName()
+ * Next: IASTDeclarator
+ */
 
 /**
  * Custom Jackson serializer for org.eclipse.cdt.core.dom.IASTTranslationUnit
  */
-public class TranslationUnitSerializer extends StdSerializer<IASTTranslationUnit>
+public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
 {
+    // TODO: add the includes and other macro information to the root node
+    // in the JSON
+
+    NodeCommentMap commentMap;
+    JsonGenerator json;
+
     TranslationUnitSerializer() {
         this(null);
     }
 
-    private TranslationUnitSerializer(Class<IASTTranslationUnit> t) {
+    private TranslationUnitSerializer(Class<TranslationUnit> t) {
         super(t);
     }
 
     @Override
-    public void serialize(IASTTranslationUnit translationUnit, JsonGenerator jsonGenerator,
+    public void serialize(TranslationUnit unit, JsonGenerator jsonGenerator,
                           SerializerProvider provider) throws IOException {
 
-        System.err.println("XXX in TUSerializer.serialize");
-        serializeNode(translationUnit, jsonGenerator);
+        this.json = jsonGenerator;
+        this.commentMap = unit.commentMap;
+
+        serializeNode(unit.rootNode);
         // TODO: close the jsonGenerator? Check that this doesnt close the associated
         // outputstream
     }
 
-    private void serializeNode(IASTNode node, JsonGenerator json) throws IOException {
+    private void serializeNode(IASTNode node) throws IOException {
+        // FIXME: divide this into several methods by node type
         json.writeStartObject();
-        json.writeFieldName("IASTClass");
-        json.writeString(node.getClass().getSimpleName());
+        try {
+            json.writeFieldName("IASTClass");
+            json.writeString(node.getClass().getSimpleName());
 
-        json.writeFieldName("Snippet");
-        json.writeString(EclipseCPPParser.getSnippet(node));
+            json.writeFieldName("Snippet");
+            // FIXME: move getSnippet here
+            json.writeString(EclipseCPPParser.getSnippet(node));
 
-        json.writeFieldName("Location");
-        json.writeString(EclipseCPPParser.getNodeLocationStr(node));
+            serializeNodeLocation(node);
 
-        ASTNodeProperty propInParent = node.getPropertyInParent();
-        if (propInParent != null) {
-            json.writeFieldName("Role");
-            json.writeString(propInParent.getName());
-        }
-
-        if (node instanceof IASTLiteralExpression) {
-            IASTLiteralExpression lit = (IASTLiteralExpression) node;
-
-            json.writeFieldName("LiteralKind");
-            json.writeString(lit.getExpressionType().toString());
-
-            json.writeFieldName("LiteralValue");
-            json.writeString(lit.toString());
-
-        }
-
-        if (node instanceof IASTName) {
-            IASTName name = (IASTName) node;
-            json.writeFieldName("SymbolName");
-            json.writeString(node.toString());
-        }
-
-        // FIXME: add the comments, how can we access commentMap without an instance? Probably
-        // I need to create a boxing class for the IASTTranslationUnit with a reference to the commentMap.
-        // This will be returned but the parseCPP method
-
-        // Leading comments
-//        jsonGenerator.writeStartObject();
-//        jsonGenerator.writeString("LeadingComments");
-
-
-        IASTNode[] children = node.getChildren();
-        if (children != null && children.length > 0) {
-            json.writeFieldName("childs");
-            json.writeStartArray();
-            for (IASTNode child : children) {
-                serializeNode(child, json);
+            ASTNodeProperty propInParent = node.getPropertyInParent();
+            if (propInParent != null) {
+                json.writeFieldName("Role");
+                json.writeString(propInParent.getName());
             }
-            json.writeEndArray();
+
+            if (node instanceof IASTLiteralExpression) {
+                IASTLiteralExpression lit = (IASTLiteralExpression) node;
+
+                json.writeFieldName("LiteralKind");
+                json.writeString(lit.getExpressionType().toString());
+
+                json.writeFieldName("LiteralValue");
+                json.writeString(lit.toString());
+            }
+
+            if (node instanceof IASTName) {
+                IASTName name = (IASTName) node;
+                json.writeFieldName("SymbolName");
+                json.writeString(name.toString());
+            }
+
+            if (node instanceof IASTExpression) {
+                IASTExpression expr = (IASTExpression) node;
+                json.writeFieldName("ExpressionType");
+                json.writeString(expr.getExpressionType().toString());
+                json.writeFieldName("ExpressionValueCategory");
+                json.writeString(expr.getValueCategory().toString());
+            }
+
+            if (node instanceof IASTBinaryExpression) {
+                serializeBinaryOperator(node);
+            }
+
+            serializeComments(node);
+
+            IASTNode[] children = node.getChildren();
+            if (children != null && children.length > 0) {
+                json.writeFieldName("childs");
+                json.writeStartArray();
+                try {
+                    for (IASTNode child : children) {
+                        serializeNode(child);
+                    }
+                } finally {
+                    json.writeEndArray();
+                }
+            }
+        } finally {
+            json.writeEndObject();
         }
-        json.writeEndObject();
+    }
+
+    private void serializeNodeLocation(IASTNode node) throws IOException {
+        IASTFileLocation loc = node.getFileLocation();
+        int lineStart = -1;
+        int lineEnd = -1;
+        int offsetStart = -1;
+        int offsetLength = -1;
+
+        if (loc != null) {
+            lineStart = loc.getStartingLineNumber();
+            lineEnd = loc.getEndingLineNumber();
+            offsetStart = loc.getNodeOffset();
+            offsetLength = loc.getNodeLength();
+        }
+        json.writeFieldName("LocLineStart");
+        json.writeNumber(lineStart);
+        json.writeFieldName("LocLineEnd");
+        json.writeNumber(lineEnd);
+        json.writeFieldName("LocOffsetStart");
+        json.writeNumber(offsetStart);
+        json.writeFieldName("LocOffsetLength");
+        json.writeNumber(offsetLength);
+    }
+
+    private void serializeBinaryOperator(IASTNode node) throws IOException {
+        IASTBinaryExpression binExpr = (IASTBinaryExpression) node;
+        int op = binExpr.getOperator();
+        String opStr = "UNKOWN OPERATOR WITH CODE " + Integer.toString(op);
+        switch (op) {
+            case IASTBinaryExpression.op_assign:
+                opStr = "assignement =";
+                break;
+            case IASTBinaryExpression.op_binaryAnd:
+                opStr = "binary And &";
+                break;
+            case IASTBinaryExpression.op_binaryAndAssign:
+                opStr = "binary And assign &=";
+                break;
+            case IASTBinaryExpression.op_binaryOr:
+                opStr = "binary or |";
+                break;
+            case IASTBinaryExpression.op_binaryOrAssign:
+                opStr = "Or assign |=";
+                break;
+            case IASTBinaryExpression.op_binaryXor:
+                opStr = "Xor ^";
+                break;
+            case IASTBinaryExpression.op_binaryXorAssign:
+                opStr = "Xor assign ^=";
+                break;
+            case IASTBinaryExpression.op_divide:
+                opStr = "/";
+                break;
+            case IASTBinaryExpression.op_divideAssign:
+                opStr = "assignemnt /=";
+                break;
+            case IASTBinaryExpression.op_ellipses:
+                opStr = "gcc compilers, only.";
+                break;
+            case IASTBinaryExpression.op_equals:
+                opStr = "==";
+                break;
+            case IASTBinaryExpression.op_greaterEqual:
+                opStr = "than or equals >=";
+                break;
+            case IASTBinaryExpression.op_greaterThan:
+                opStr = "than >";
+                break;
+            case IASTBinaryExpression.op_lessEqual:
+                opStr = "than or equals <=";
+                break;
+            case IASTBinaryExpression.op_lessThan:
+                opStr = "than <";
+                break;
+            case IASTBinaryExpression.op_logicalAnd:
+                opStr = "and &&";
+                break;
+            case IASTBinaryExpression.op_logicalOr:
+                opStr = "or ||";
+                break;
+            case IASTBinaryExpression.op_max:
+                opStr = "g++, only.";
+                break;
+            case IASTBinaryExpression.op_min:
+                opStr = "g++, only.";
+                break;
+            case IASTBinaryExpression.op_minus:
+                opStr = "-";
+                break;
+            case IASTBinaryExpression.op_minusAssign:
+                opStr = "assignment -=";
+                break;
+            case IASTBinaryExpression.op_modulo:
+                opStr = "%";
+                break;
+            case IASTBinaryExpression.op_moduloAssign:
+                opStr = "assignment %=";
+                break;
+            case IASTBinaryExpression.op_multiply:
+                opStr = "*";
+                break;
+            case IASTBinaryExpression.op_multiplyAssign:
+                opStr = "assignment *=";
+                break;
+            case IASTBinaryExpression.op_notequals:
+                opStr = "equals !";
+                break;
+            case IASTBinaryExpression.op_plus:
+                opStr = "+";
+                break;
+            case IASTBinaryExpression.op_plusAssign:
+                opStr = "assignment +=";
+                break;
+            case IASTBinaryExpression.op_pmarrow:
+                opStr = "c++, only.";
+                break;
+            case IASTBinaryExpression.op_pmdot:
+                opStr = "c==, only.";
+                break;
+            case IASTBinaryExpression.op_shiftLeft:
+                opStr = "left <<";
+                break;
+            case IASTBinaryExpression.op_shiftLeftAssign:
+                opStr = "left assignment <<=";
+                break;
+            case IASTBinaryExpression.op_shiftRight:
+                opStr = "right >>";
+                break;
+            case IASTBinaryExpression.op_shiftRightAssign:
+                opStr = "right assign >>=";
+                break;
+        }
+        json.writeFieldName("Operator");
+        json.writeString(opStr);
+    }
+
+    private void serializeCommentList(List<IASTComment> comments, String commentType) throws IOException {
+        if (comments != null && comments.size() > 0) {
+            json.writeFieldName(commentType + "Comments");
+            json.writeStartArray();
+            try {
+                for (IASTComment comment : comments) {
+                    json.writeStartObject();
+                    try {
+                        json.writeFieldName(commentType + "Comment");
+                        json.writeString(comment.toString());
+
+                        json.writeFieldName("IsBlockComment");
+                        json.writeBoolean(comment.isBlockComment());
+
+                        serializeNodeLocation(comment);
+                        json.writeFieldName("Location");
+                        json.writeString(EclipseCPPParser.getNodeLocationStr(comment));
+                    } finally {
+                        json.writeEndObject();
+                    }
+                }
+            } finally {
+                json.writeEndArray();
+            }
+        }
+    }
+
+    private void serializeComments(IASTNode node) throws IOException {
+        serializeCommentList(commentMap.getLeadingCommentsForNode(node), "Leading");
+        serializeCommentList(commentMap.getFreestandingCommentsForNode(node), "Freestading");
+        serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
     }
 }

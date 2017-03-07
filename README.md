@@ -5,7 +5,7 @@ Current status: pre-alpha
 
 - [X] Experimentation for finding the best plan of attack against this beast (result: org.eclipse.cdt + some adaptation for dealing with the preproccesor).
 - [X] Extraction of the AST including unknown or syntactically incorrect symbols.
-- [X] Extraction of leading and trailing line or block comments as node properties (note: the comments are parsed but not currently included in the JSON output)
+- [X] Extraction of leading and trailing line or block comments as node propertie
 - [X] Request and Response cycle including the reading and writing of the JSON messages.
 - [ ] Unrolling of constant-style and function-style preprocessor macros (estimated 2 days, I found some code from Google also using CDT that does basically the same, trough it would have to be adapted to my data and class structure).
 - [ ] Generate code paths for all the possibilities caused by all existing #if or #ifdef macros and incorporate them into a branch (estimated 4-5 days).

@@ -21,7 +21,6 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
     private ByteArrayOutputStream byteOutputStream;
 
     TranslationUnitJSONMapper(boolean prettyPrint, ByteArrayOutputStream byteOutput) throws IOException {
-        System.err.println("XXX inside the TranslationUnitJSONMapperConstructor");
         this.byteOutputStream = byteOutput;
 
         generator = jsonFactory.createGenerator(byteOutputStream, JsonEncoding.UTF8);
@@ -33,12 +32,11 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         mapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
         SimpleModule module = new SimpleModule();
-        module.addSerializer(IASTTranslationUnit.class, new TranslationUnitSerializer());
+        module.addSerializer(TranslationUnit.class, new TranslationUnitSerializer());
         mapper.registerModule(module);
     }
 
     public void writeValue(DriverResponse response) throws IOException {
-        System.err.println("XXX Calling TUJSONMapper.writeValue to serialize the translationUnit");
         mapper.writeValue(generator, response);
     }
 

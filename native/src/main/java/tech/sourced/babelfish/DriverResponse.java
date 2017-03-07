@@ -1,12 +1,8 @@
 package tech.sourced.babelfish;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.eclipse.cdt.core.dom.ast.IASTTranslationUnit;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -23,7 +19,8 @@ public class DriverResponse {
     public String status = "ok";
     public ArrayList<String> errors = new ArrayList<String>(0);
     @JsonProperty("ast")
-    private IASTTranslationUnit translationUnit;
+
+    private TranslationUnit translationUnit;
     private IExchangeFormatWritter formatWritter;
 
     DriverResponse(IExchangeFormatWritter mapper) {
@@ -42,6 +39,7 @@ public class DriverResponse {
     }
 
     void send(OutputStream out) throws ResponseSendException {
+        // FIXME: this includes the errors in the already started document
         try {
             formatWritter.writeValue(this);
             ByteArrayOutputStream byteOut = formatWritter.getByteOutputStream();
@@ -60,6 +58,10 @@ public class DriverResponse {
         translationUnit = null;
         errors.add(e.getClass().getCanonicalName());
         errors.add(errorString + e.getMessage());
+        StringWriter sw = new StringWriter();
+        PrintWriter pw = new PrintWriter(sw);
+        e.printStackTrace(pw);
+        errors.add(sw.toString());
         status = "fatal";
         send(bufferOutputStream);
     }

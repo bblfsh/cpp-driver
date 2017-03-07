@@ -16,7 +16,7 @@ public class Main {
             System.err.println("Program args: " + Arrays.toString(args));
             final EclipseCPPParser parser = new EclipseCPPParser();
             try {
-                // XXX testing code
+                // TODO: remove this testing code
                 String testfile = "src/test/resources/test.cpp";
                 String code = new Scanner(new File(testfile)).useDelimiter("\\Z").next();
                 parser.printAST(code);
@@ -39,22 +39,20 @@ public class Main {
     //
     //Try to send and error trough the response driver, print to stdout and stop and print on stderr if that fails
     //
-    private static ProcessCycle trySendError(BufferedOutputStream out, DriverResponse response, String msg, Exception e) {
-        if (response != null) {
-            try {
-                response.sendError(out, e, msg);
-                return ProcessCycle.CONTINUE;
-            } catch (IOException j) {
-                System.err.println(e.getMessage());
-                System.err.println("BAILING OUT, CANT WRITE ERRORS");
-                System.err.println("ADITTIONAL ERROR WHILE SENDING ERROR BELOW!");
-                j.printStackTrace();
-                System.err.println(j.getMessage());
-                return ProcessCycle.STOP;
-            }
-        } else {
+    private static ProcessCycle trySendError(BufferedOutputStream out, String msg, Exception e) {
+        // TODO: debug, remove
+        e.printStackTrace();
+        try {
+            final TranslationUnitJSONMapper responseJSONMapper =
+                    new TranslationUnitJSONMapper(false, new ByteArrayOutputStream());
+            DriverResponse response = new DriverResponse(responseJSONMapper);
+            response.sendError(out, e, msg);
+            return ProcessCycle.CONTINUE;
+        } catch (Exception j) {
             System.err.println(e.getMessage());
-            System.err.println("BAILING OUT, CANT WRITE ERRORS!");
+            System.err.println("BAILING OUT, CANT WRITE ERRORS");
+            System.err.println("ADITTIONAL ERROR WHILE SENDING ERROR BELOW!");
+            System.err.println(j.getMessage());
             return ProcessCycle.STOP;
         }
     }
@@ -66,7 +64,6 @@ public class Main {
 
     static private ProcessCycle process(BufferedReader bufferInputStream, BufferedOutputStream bufferOutputStream,
                                         boolean prettyPrint) {
-
         DriverResponse response = null;
             try {
                 final EclipseCPPParser parser = new EclipseCPPParser();
@@ -91,14 +88,11 @@ public class Main {
                 return ProcessCycle.CONTINUE;
 
             } catch (DriverRequest.RequestLoadException e) {
-                return trySendError(bufferOutputStream, response,
-                        "Error reading the petition: ", e);
+                return trySendError(bufferOutputStream, "Error reading the petition: ", e);
             } catch (DriverResponse.ResponseSendException e) {
-                return trySendError(bufferOutputStream, response,
-                        "Error serializing the AST to JSON: ", e);
+                return trySendError(bufferOutputStream, "Error serializing the AST to JSON: ", e);
             } catch (IOException e) {
-                return trySendError(bufferOutputStream, response,
-                        "A problem occurred while processing the petition: ", e);
+                return trySendError(bufferOutputStream, "A problem occurred while processing the petition: ", e);
             }
     }
 }
