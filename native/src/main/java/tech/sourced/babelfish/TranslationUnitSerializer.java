@@ -11,13 +11,55 @@ import java.util.List;
 
 /* TODO: other interesting methods from IASTNode implementers that are not given as children:
  * http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcdt%2Fcore%2Fdom%2Fast%2FIASTNode.html
- * ASMDeclaration.getAssembly() (String)
- * Attribute.getName() (String)
- * ASTBinaryTypeIdExpression.getOperator() (there is only one)
- * ASTCastExpression.getOperator()
- * CompositeTypeSpecifier.TYPE_NAME? getKey()(is k_union, k_last or k_struct), .getScope().getScopeName()
- * CompoundStatement.getScope().getScopeName()
- * Next: IASTDeclarator
+ * ASMDeclaration.getAssembly (String)
+ * Attribute.getName (String)
+ * UnaryExpression getOperator
+ * TypeIdExpression getOperator
+ * BinaryTypeIdExpression.getOperator (there is only one)
+ * CastExpression.getOperator
+ * CompositeTypeSpecifier.TYPE_NAME? getKey(is k_union, k_last or k_struct), .getScope.getScopeName
+ * CompoundStatement.getScope.getScopeName
+ * DeclSpecifier.getStorageClass .isConst .isInlice .isVolatile
+ * ElaboratedTypeSpecifier .getKind
+ * FieldReference .isPointerDereference (uses pointer instead of arrow)
+ * ForStatement .getScope.getName
+ * FunctionDefinition .getScope.getName
+ * FunctionStyleMacroParameter .getParameter
+ * ImplicitName isAlternate isOperator (overloaded operator)
+ * InitializerList getSize
+ * Name: getLastName, getRoleOfName, isQualified
+ * Pointer isConst, isRestrict, isVolatile, setConst, setRestrict, setVolatile
+ * Preprocessor MACRO_NAME.toString
+ * PreprocessorStatement MACRO_NAME.toString
+ * PreprocessorIfStatement getCondition taken
+ * PreprocessorElifStatement getCondition taken
+ * PreprocessorElseStatement taken
+ * PreprocessorIfDefStatement getCondition getMacroReference taken
+ * PreprocessorIfDefStatement getCondition getMacroReference taken
+ * PreprocessorMacroDefinition getExpansion getExpansionLocation getName isActive
+ * PreprocessorMacroExpansion getMacroDefinition getMacroReference getNestedMacroReference
+ * PreprocessorFunctionStyleMacroDefinition PARAMETER? getParameters
+ * PreprocessorPragmaStatement getMessage isPragmaOperator
+ * PreprocessorUndefStatement getMacroName isActive
+ * SimpleDeclSpecifier getType (hacer switch) isComplex isImaginary isLong isLongLong isShort
+ *      isSigned isUnsigned
+ * StandardFunctionDeclarator getFunctionScope.toString takesVarArgs
+ * Token getTokenCharImage getTokenStyle
+ * TokenList getTokenType
+ *
+ * SPECIAL: TranslationUnit
+ *      getAllPreprocessorStatements
+ *      getBuiltInMacroDefinitions
+ *      getComments
+ *      getIncludeDirectives
+ *      getMacroDefinitions
+ *      getMacroExpansions
+ *      getNodeSelector => This finds nodes by file offsets, can be useful when branching
+ *          the AST by preprocessor branches or unrolling macros.
+ *      getOriginalTranslationUnit
+ *      getPreprocessorProblems
+ *      getScope
+ *      hasNodesOmitted
  */
 
 /**
@@ -92,6 +134,7 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
                 json.writeString(expr.getExpressionType().toString());
                 json.writeFieldName("ExpressionValueCategory");
                 json.writeString(expr.getValueCategory().toString());
+                // FIXME: add isLValue
             }
 
             if (node instanceof IASTBinaryExpression) {
@@ -267,8 +310,6 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
                         json.writeBoolean(comment.isBlockComment());
 
                         serializeNodeLocation(comment);
-                        json.writeFieldName("Location");
-                        json.writeString(EclipseCPPParser.getNodeLocationStr(comment));
                     } finally {
                         json.writeEndObject();
                     }
