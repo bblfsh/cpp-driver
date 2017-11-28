@@ -4,30 +4,24 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.eclipse.cdt.core.dom.ast.*;
+import org.eclipse.cdt.core.dom.ast.cpp.CPPASTVisitor;
+import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTCompositeTypeSpecifier;
+import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTVisitor;
 import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
+import org.eclipse.cdt.internal.core.pdom.indexer.IndexerASTVisitor;
+import org.eclipse.jdt.core.dom.CastExpression;
 
 import java.io.IOException;
 import java.util.List;
 
 /* TODO: other interesting methods from IASTNode implementers that are not given as children:
- * http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcdt%2Fcore%2Fdom%2Fast%2FIASTNode.html
- * ASMDeclaration.getAssembly (String)
- * Attribute.getName (String)
- * UnaryExpression getOperator
- * TypeIdExpression getOperator
- * BinaryTypeIdExpression.getOperator (there is only one)
- * CastExpression.getOperator
- * CompositeTypeSpecifier.TYPE_NAME? getKey(is k_union, k_last or k_struct), .getScope.getScopeName
+ * http://help.eclipse.org/neon/index.jsp
  * CompoundStatement.getScope.getScopeName
- * DeclSpecifier.getStorageClass .isConst .isInlice .isVolatile
  * ElaboratedTypeSpecifier .getKind
- * FieldReference .isPointerDereference (uses pointer instead of arrow)
  * ForStatement .getScope.getName
  * FunctionDefinition .getScope.getName
  * FunctionStyleMacroParameter .getParameter
- * ImplicitName isAlternate isOperator (overloaded operator)
  * InitializerList getSize
- * Name: getLastName, getRoleOfName, isQualified
  * Pointer isConst, isRestrict, isVolatile, setConst, setRestrict, setVolatile
  * Preprocessor MACRO_NAME.toString
  * PreprocessorStatement MACRO_NAME.toString
@@ -44,7 +38,6 @@ import java.util.List;
  * SimpleDeclSpecifier getType (hacer switch) isComplex isImaginary isLong isLongLong isShort
  *      isSigned isUnsigned
  * StandardFunctionDeclarator getFunctionScope.toString takesVarArgs
- * Token getTokenCharImage getTokenStyle
  * TokenList getTokenType
  *
  * SPECIAL: TranslationUnit
@@ -70,7 +63,7 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
     // TODO: add the includes and other macro information to the root node
     // in the JSON
 
-    NodeCommentMap commentMap;
+    private NodeCommentMap commentMap;
     JsonGenerator json;
 
     TranslationUnitSerializer() {
@@ -85,82 +78,96 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
     public void serialize(TranslationUnit unit, JsonGenerator jsonGenerator,
                           SerializerProvider provider) throws IOException {
 
+        JsonASTVisitor visitor = new JsonASTVisitor(jsonGenerator, unit.commentMap);
+
         this.json = jsonGenerator;
         this.commentMap = unit.commentMap;
 
-        serializeNode(unit.rootNode);
+        unit.rootNode.accept(visitor);
+//      serializeNode(unit.rootNode);
+
+        if (visitor.hasError && visitor.error != null)  {
+            throw visitor.error;
+        }
         // TODO: close the jsonGenerator? Check that this doesnt close the associated
         // outputstream
     }
 
     private void serializeNode(IASTNode node) throws IOException {
         // FIXME: divide this into several methods by node type
-        json.writeStartObject();
-        try {
-            json.writeFieldName("IASTClass");
-            json.writeString(node.getClass().getSimpleName());
+        json.writeFieldName("IASTClass");
+        json.writeString(node.getClass().getSimpleName());
 
-            json.writeFieldName("Snippet");
-            // FIXME: move getSnippet here
-            json.writeString(EclipseCPPParser.getSnippet(node));
+        json.writeFieldName("Snippet");
+        // FIXME: move getSnippet here
+        json.writeString(EclipseCPPParser.getSnippet(node));
 
-            serializeNodeLocation(node);
+        serializeNodeLocation(node);
 
-            ASTNodeProperty propInParent = node.getPropertyInParent();
-            if (propInParent != null) {
-                json.writeFieldName("Role");
-                json.writeString(propInParent.getName());
-            }
+        ASTNodeProperty propInParent = node.getPropertyInParent();
+        if (propInParent != null) {
+            json.writeFieldName("Role");
+            json.writeString(propInParent.getName());
+        }
 
-            if (node instanceof IASTLiteralExpression) {
-                IASTLiteralExpression lit = (IASTLiteralExpression) node;
+        if (node instanceof IASTLiteralExpression) {
+            IASTLiteralExpression lit = (IASTLiteralExpression) node;
 
-                json.writeFieldName("LiteralKind");
-                json.writeString(lit.getExpressionType().toString());
+            json.writeFieldName("LiteralKind");
+            json.writeString(lit.getExpressionType().toString());
 
-                json.writeFieldName("LiteralValue");
-                json.writeString(lit.toString());
-            }
+            json.writeFieldName("LiteralValue");
+            json.writeString(lit.toString());
+        }
 
-            if (node instanceof IASTName) {
-                IASTName name = (IASTName) node;
-                json.writeFieldName("SymbolName");
-                json.writeString(name.toString());
-            }
+        if (node instanceof IASTName) {
+            IASTName name = (IASTName) node;
+            json.writeFieldName("SymbolName");
+            json.writeString(name.toString());
+        }
 
-            if (node instanceof IASTExpression) {
-                IASTExpression expr = (IASTExpression) node;
-                json.writeFieldName("ExpressionType");
-                json.writeString(expr.getExpressionType().toString());
-                json.writeFieldName("ExpressionValueCategory");
-                json.writeString(expr.getValueCategory().toString());
-                // FIXME: add isLValue
-            }
+        if (node instanceof IASTExpression) {
+            IASTExpression expr = (IASTExpression) node;
+            json.writeFieldName("ExpressionType");
+            json.writeString(expr.getExpressionType().toString());
+            json.writeFieldName("ExpressionValueCategory");
+            json.writeString(expr.getValueCategory().toString());
+            // FIXME: add isLValue
+        }
 
-            if (node instanceof IASTBinaryExpression) {
-                serializeBinaryOperator(node);
-            }
+        if (node instanceof IASTASMDeclaration) {
+            IASTASMDeclaration asm = (IASTASMDeclaration) node;
+            json.writeFieldName("ASMContent");
+            json.writeString(asm.getAssembly());
+        }
 
-            serializeComments(node);
+        if (node instanceof IASTBinaryExpression) {
+            serializeBinaryOperator(node);
+        }
 
-            IASTNode[] children = node.getChildren();
-            if (children != null && children.length > 0) {
-                json.writeFieldName("childs");
-                json.writeStartArray();
-                try {
-                    for (IASTNode child : children) {
+        serializeComments(node);
+
+        IASTNode[] children = node.getChildren();
+        if (children != null && children.length > 0) {
+            json.writeFieldName("childs");
+            json.writeStartArray();
+            try {
+                for (IASTNode child : children) {
+                    json.writeStartObject();
+                    try {
                         serializeNode(child);
+                    } finally {
+                        json.writeEndObject();
                     }
-                } finally {
-                    json.writeEndArray();
                 }
+            } finally {
+                json.writeEndArray();
             }
-        } finally {
-            json.writeEndObject();
         }
     }
 
-    private void serializeNodeLocation(IASTNode node) throws IOException {
+    // FIXME: remove
+    void serializeNodeLocation(IASTNode node) throws IOException {
         IASTFileLocation loc = node.getFileLocation();
         int lineStart = -1;
         int lineEnd = -1;
@@ -303,7 +310,7 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
                 for (IASTComment comment : comments) {
                     json.writeStartObject();
                     try {
-                        json.writeFieldName(commentType + "Comment");
+                        json.writeFieldName(commentType + "RelatedComments");
                         json.writeString(comment.toString());
 
                         json.writeFieldName("IsBlockComment");

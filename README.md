@@ -7,15 +7,13 @@ Current status: pre-alpha
 - [X] Extraction of the AST including unknown or syntactically incorrect symbols.
 - [X] Extraction of leading and trailing line or block comments as node propertie
 - [X] Request and Response cycle including the reading and writing of the JSON messages.
-- [ ] Unrolling of constant-style and function-style preprocessor macros (estimated 2 days, I found some code from Google also using CDT that does basically the same, trough it would have to be adapted to my data and class structure).
-- [ ] Generate code paths for all the possibilities caused by all existing #if or #ifdef macros and incorporate them into a branch (estimated 4-5 days).
+- [ ] Handling CPP preprocessor.
 - [ ] Code documentation and decent unit and integration tests.
 - [ ] Adapt/update the existing SDK infrastructure inherited from the Java one.
 - [ ] UAST translator.
 
 Bonus:
 - [ ] Extraction of whitespace.
-- [ ] Re-factorization of the preprocessor branches of the tree to reduce huge splits that could be reworked as a small "normal if" style branches.
 
 
 Development Environment
@@ -31,12 +29,3 @@ To execute the tests just execute `make test`, this will execute the test over t
 
 The build is done executing `make build`. To evaluate the result, a docker container, execute:
 `docker run -it bblfsh/cpp-driver:dev-<commit[:6]>`
-
-
-License
--------
-
-The driver and all the code under the native/ directory is MIT licensed except the
-org.cdt jar that is Eclipse 2.0 licensed.
-
-Everything else is GPLv3, see [LICENSE](LICENSE)
