@@ -1,4 +1,5 @@
-language = "java"
+name = "C++"
+language = "cpp"
 status = "pre-alpha"
 
 [runtime]
