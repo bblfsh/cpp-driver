@@ -7,12 +7,12 @@ services:
   - docker
 
 before_script:
-  - go get -v github.com/bblfsh/sdk/...
+  - go get -v gopkg.in/bblfsh/sdk.v1/...
   - bblfsh-sdk prepare-build .
-  - go get -v -t ./...
+  - go get -v -t ./driver/...
 
 script:
-  - make test
+  - make test integration-test
 
 after_success:
   - make push
