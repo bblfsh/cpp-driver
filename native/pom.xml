@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.eclipse.cdt.core</groupId>
             <artifactId>cdtcore</artifactId>
-            <version>6.2.0</version>
+            <version>6.5.0</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
