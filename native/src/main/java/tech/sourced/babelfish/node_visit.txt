@@ -1,230 +1,103 @@
-# Check the parents of these and find if they differ too on any method - remove
-# them if not
-
-IASTComment
-IASTFunctionStyleMacroParameter
-IASTImplicitDestructorNameOwner
-IASTImplicitNameOwner
-++ IASTProblem
-ICPPASTAmbiguousTemplateArgument
-ICPPASTClassVirtSpecifier
-ICPPASTCompositeTypeSpecifier.ICPPASTBaseSpecifier
-ICPPASTVirtSpecifier
-++ IASTParameterDeclaration
-ICPPASTCapture
-ICPPASTNameSpecifier
-ICPPASTDesignator
-IASTAlignmentSpecifier
-ICASTDesignator
-
-++ IASTAttribute
-    ICPPASTAttribute (+getScope, hasPackExpansion)
-
 IASTAttributeOwner
-    ICASTArrayModifier (+isConst, isRetrict, isStatic, isVariableSized, isVolatile)
-    ICPPASTDeclarator (+declaresParameterPack)
-    IASTStandardFunctionDeclarator (+getFunctionScope, takesVarArgs)
+    ICPPASTDeclarator (++)
+    IASTStandardFunctionDeclarator (++)
 
-    ICPPASTFunctionDeclarator
-        ICPPASTFunctionTryBlockDeclarator
+    + IASTDeclSpecifier
+        IASTSimpleDeclSpecifier (++)
+        IASTElaboratedTypeSpecifier (++)
+        ICASTDeclSpecifier (++)
 
-    + IASTDeclSpecifier (M)
-        ICASTElaboratedTypeSpecifier
-        ICASTEnumerationSpecifier
-        ICASTTypedefNameSpecifier
+        ICPPASTDeclSpecifier (++)
+            ICPPASTTypeTransformationSpecifier (++)
 
-        ICPPASTDeclSpecifier
-            ICPPASTTypeTransformationSpecifier
+        IASTNamedTypeSpecifier (++)
+            ICPPASTNamedTypeSpecifier (++)
 
-        IASTSimpleDeclSpecifier
-            ICASTSimpleDeclSpecifier
-            ICPPASTSimpleDeclSpecifier
-            IGCCASTSimpleDeclSpecifier
+        IASTEnumerationSpecifier + nested .IASTEnumerator (++)
+            ICPPASTEnumerationSpecifier (++)
 
-        IASTNamedTypeSpecifier
-            ICPPASTNamedTypeSpecifier
+        IASTCompositeTypeSpecifier (++)
+            ICPPASTCompositeTypeSpecifier (++)
 
-        IASTEnumerationSpecifier
-            ICPPASTEnumerationSpecifier
+    == IASTPointerOperator (++)
+        ICPPASTReferenceOperator (++)
+        + IASTPointer (++)
+            ICPPASTPointerToMember (++)
 
-        IASTElaboratedTypeSpecifier
-            ICPPASTElaboratedTypeSpecifier
+    + IASTStatement (--)
+        ICPPASTCatchHandler (++)
+        IASTCaseStatement (++)
+        IASTDeclarationStatement (++)
+        IASTDoStatement (++)
+        IASTExpressionStatement (++)
+        IASTLabelStatement (++)
+        IASTReturnStatement (++)
+        ICPPASTRangeBasedForStatement (++)
+        ICPPASTTryBlockStatement (++)
+        IASTCompoundStatement (++)
 
-        IASTCompositeTypeSpecifier
-            ICPPASTCompositeTypeSpecifier
+        IASTWhileStatement (++)
+            ICPPASTWhileStatement (++)
 
-        ICASTDeclSpecifier
-            ICASTCompositeTypeSpecifier
+        IASTGotoStatement (++)
+            IGNUASTGotoStatement (++)
 
-    IASTPointerOperator
-        ICPPASTReferenceOperator
-        + IASTPointer
-            ICASTPointer
-            ICPPASTPointerToMember
+        IASTSwitchStatement (++)
+            ICPPASTSwitchStatement (++)
 
-    + IASTStatement
-        ICPPASTCatchHandler
-        IASTBreakStatement
-        IASTCaseStatement
-        IASTContinueStatement
-        IASTDeclarationStatement
-        IASTDefaultStatement
-        IASTDoStatement
-        IASTExpressionStatement
-        IASTLabelStatement
-        IASTNullStatement
-        IASTProblemStatement
-        IASTReturnStatement
-        ICPPASTRangeBasedForStatement
-        ICPPASTTryBlockStatement
+        IASTIfStatement (++)
+            ICPPASTIfStatement (++)
 
-        IASTWhileStatement
-            ICPPASTWhileStatement
+        IASTForStatement (++)
+            ICPPASTForStatement (++)
 
-        IASTGotoStatement
-            IGNUASTGotoStatement
++ IASTDeclaration (--)
+    ICPPASTVisibilityLabel (++)
+    ICPPASTUsingDeclaration (++)
+    ICPPASTUsingDirective (++)
+    ICPPASTTemplateSpecialization (++)
+    ICPPASTTemplateDeclaration (++)
+    ICPPASTStaticAssertDeclaration (++)
+    ICPPASTNamespaceDefinition (++)
+    ICPPASTNamespaceAlias (++)
+    IASTSimpleDeclaration (++)
+    ICPPASTAliasDeclaration (++)
+    ICPPASTExplicitTemplateInstantiation (++)
+    ICPPASTLinkageSpecification (++)
 
-        IASTSwitchStatement
-            ICPPASTSwitchStatement
+    IASTFunctionDefinition (++)
+        ICPPASTFunctionDefinition (++)
+            ICPPASTFunctionWithTryBlock (++)
 
-        IASTIfStatement
-            ICPPASTIfStatement
+IASTInitializerClause (--)
+    ICPPASTInitializerClause (++)
+    IASTInitializerList (++)
 
-        IASTCompoundStatement
-            ICPPASTCompoundStatement
+    == IASTExpression (++)
+        IGNUASTCompoundStatementExpression (++)
+        ICPPASTTypeIdExpression (++)
+        IASTConditionalExpression (++)
+        IASTExpressionList (++)
+        IASTTypeIdInitializerExpression (++)
 
-        IASTForStatement
-            ICPPASTForStatement
+        IASTIdExpression (++)
+        == IASTTypeIdExpression (++)
 
-IASTAttributeSpecifier
-    IASTAttributeList
-        IGCCASTAttributeList
+        == IASTLiteralExpression (++)
+            ICPPASTLiteralExpression (++)
 
-+ IASTDeclaration
-    ICPPASTVisibilityLabel
-    ICPPASTUsingDeclaration
-    ICPPASTUsingDirective
-    ICPPASTTemplateSpecialization
-    ICPPASTTemplateDeclaration
-    ICPPASTStaticAssertDeclaration
-    ICPPASTNamespaceDefinition
-    ICPPASTNamespaceAlias
-    IASTASMDeclaration
-    IASTProblemDeclaration
-    IASTSimpleDeclaration
-    ICPPASTAliasDeclaration
-    ICPPASTExplicitTemplateInstantiation
-    ICPPASTLinkageSpecification
-
-    IASTFunctionDefinition
-        ICPPASTFunctionDefinition
-            ICPPASTFunctionWithTryBlock
-
-
-IASTDeclarationListOwner
-    + IASTTranslationUnit
-        ICPPASTTranslationUnit
-
-+ IASTInitializer
-    ICPPASTDesignatedInitializer
-    ICPPASTConstructorChainInitializer
-    ICPPASTConstructorInitializer
-    ICASTDesignatedInitializer
-
-    IASTEqualsInitializer
-        IASTInitializerExpression
-
-IASTInitializerClause
-    ICPPASTInitializerClause
-
-    IASTInitializerList
-        ICPPASTInitializerList
-
-    ++ IASTExpression
-        IGNUASTCompoundStatementExpression
-        IGNUASTTypeIdExpression
-        ICPPASTTypeIdExpression
-        ++ IASTBinaryTypeIdExpression
-        IASTConditionalExpression
-        IASTIdExpression
-        IASTProblemExpression
-        ++ IASTTypeIdExpression
-
-        ++ IASTUnaryExpression
-            IGNUASTUnaryExpression
-            ++ ICPPASTUnaryExpression
-
-        ++ IASTLiteralExpression
-            ICPPASTLiteralExpression
-
-        ++ IASTFieldReference
-            ICPPASTFieldReference
-
-        IASTExpressionList
-            ICPPASTExpressionList
-
-        IASTFunctionCallExpression
-            ICPPASTFunctionCallExpression
-
-        ICPPASTExpression
-            ICPPASTSimpleTypeConstructorExpression
-            ++ ICPPASTDeleteExpression
-            ICPPASTLambdaExpression
-            ++ ICPPASTNaryTypeIdExpression
-            ++ ICPPASTNewExpression
-            ICPPASTPackExpansionExpression
-
-        IASTCastExpression
-            ICPPASTCastExpression
-
-        ++ IASTBinaryExpression
-            ICPPASTBinaryExpression
-                IGPPASTBinaryExpression
-
-        IASTTypeIdInitializerExpression
-            ICASTTypeIdInitializerExpression
-
-        IASTArraySubscriptExpression
-            ICPPASTArraySubscriptExpression
-
-++ IASTName
-    ICPPASTName
-        ICPPASTConversionName
-        ICPPASTOperatorName
-        ICPPASTQualifiedName
-        ICPPASTTemplateId
-
-    IASTImplicitName
-        IASTImplicitDestructorName
-
-IASTPreprocessorMacroExpansion
-IASTPreprocessorStatement
-    IASTPreprocessorElifStatement
-    IASTPreprocessorElseStatement
-    IASTPreprocessorEndifStatement
-    IASTPreprocessorErrorStatement
-    IASTPreprocessorIfdefStatement
-    IASTPreprocessorIfndefStatement
-    IASTPreprocessorIfStatement
-    IASTPreprocessorIncludeStatement
-    IASTPreprocessorPragmaStatement
-    IASTPreprocessorUndefStatement
-
-    IASTPreprocessorMacroDefinition
-        IASTPreprocessorFunctionStyleMacroDefinition
-        IASTPreprocessorObjectStyleMacroDefinition
-
-++ IASTToken
-    IASTTokenList
-
-IASTTypeId
-    IASTProblemTypeId
-    ICPPASTTypeId
-
-ICPPASTAttributeSpecifier
-    ICPPASTAttributeList
-    IGCCASTAttributeSpecifier
-
-ICPPASTTemplateParameter
-    ICPPASTSimpleTypeTemplateParameter
-    ICPPASTTemplatedTypeTemplateParameter
+        == IASTFieldReference (++)
+            ICPPASTFieldReference (++)
+        IASTFunctionCallExpression (++)
+            ICPPASTFunctionCallExpression (++)
+        ICPPASTExpression (--)
+            ICPPASTSimpleTypeConstructorExpression (++)
+            ICPPASTLambdaExpression (++)
+            ICPPASTPackExpansionExpression (++)
+        IASTCastExpression (++)
+            ICPPASTCastExpression (++)
+        == IASTBinaryExpression (++)
+            ICPPASTBinaryExpression (++)
+                IGPPASTBinaryExpression (++)
+        IASTArraySubscriptExpression (++)
+            ICPPASTArraySubscriptExpression (++)

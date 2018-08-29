@@ -3,6 +3,7 @@ package tech.sourced.babelfish;
 import com.fasterxml.jackson.core.JsonGenerator;
 import org.eclipse.cdt.core.dom.ast.*;
 import org.eclipse.cdt.core.dom.ast.c.ICASTArrayModifier;
+import org.eclipse.cdt.core.dom.ast.c.ICASTDesignatedInitializer;
 import org.eclipse.cdt.core.dom.ast.c.ICASTDesignator;
 import org.eclipse.cdt.core.dom.ast.cpp.*;
 import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
@@ -131,7 +132,7 @@ public class JsonASTVisitor extends ASTVisitor {
     // We need to call this on each visitor instead of just retuning
     // PROCESS_SKIP and let the base clase do it automatically because
     // we need to start the child JSON array
-    public void visitChilds(IASTNode node) throws IOException {
+    private void visitChilds(IASTNode node) throws IOException {
         IASTNode[] children = node.getChildren();
 
         if (children != null && children.length > 0) {
@@ -145,37 +146,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeEndArray();
             }
         }
-    }
-
-    public int visit(IASTNode node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-
-    }
-
-    public int XXX(IASTASMDeclaration node) {
-        try {
-            serializeCommonData(node);
-            json.writeStringField("ASMContent", node.getAssembly());
-            serializeComments(node);
-            visitChilds(node);
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
     }
 
     private void serializeUnaryExpression(IASTUnaryExpression node) throws IOException {
@@ -236,9 +206,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 break;
             case IASTUnaryExpression.op_typeid:
                 opStr = "op_typeid";
-                break;
-            case IASTUnaryExpression.op_typeof:
-                opStr = "op_typeof";
                 break;
             default:
                 opStr = "op_unkown";
@@ -474,8 +441,28 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
-                    json.writeStringField("IsAlternate", String.valueOf(impl.isAlternate()));
-                    json.writeStringField("IsOverloadedOperator", String.valueOf(impl.isOperator()));
+                    json.writeBooleanField("IsAlternate", impl.isAlternate());
+                    json.writeBooleanField("IsOverloadedOperator", impl.isOperator());
+                }
+
+                if (node instanceof ICPPASTName) {
+                    if (node instanceof ICPPASTConversionName) {
+                        ICPPASTConversionName impl = (ICPPASTConversionName) node;
+                        json.writeStringField("Type_Id", impl.TYPE_ID.toString());
+                    }
+
+                    if (node instanceof ICPPASTQualifiedName) {
+                        ICPPASTQualifiedName impl = (ICPPASTQualifiedName) node;
+                        json.writeStringField("Segment_Name", impl.SEGMENT_NAME.toString());
+                        json.writeBooleanField("IsConversionOperator", impl.isConversionOrOperator());
+                        json.writeBooleanField("IsFullyQualified", impl.isFullyQualified());
+                    }
+
+                    if (node instanceof ICPPASTTemplateId) {
+                        ICPPASTTemplateId impl = (ICPPASTTemplateId) node;
+                        json.writeStringField("Template_Id_Argument", impl.TEMPLATE_ID_ARGUMENT.toString());
+                        json.writeStringField("Template_Name", impl.TEMPLATE_NAME.toString());
+                    }
                 }
 
                 serializeComments(node);
@@ -545,16 +532,17 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTUnaryExpression) {
                     serializeUnaryExpression((IASTUnaryExpression) node);
-                }
 
-                if (node instanceof ICPPASTUnaryExpression) {
-                    ICPPASTUnaryExpression uexp = (ICPPASTUnaryExpression) node;
+                    if (node instanceof ICPPASTUnaryExpression) {
+                        ICPPASTUnaryExpression uexp = (ICPPASTUnaryExpression) node;
 
-                    ICPPFunction overload = uexp.getOverload();
-                    if (overload != null) {
-                        json.writeStringField("OverloadedBy", overload.toString());
+                        ICPPFunction overload = uexp.getOverload();
+                        if (overload != null) {
+                            json.writeStringField("OverloadedBy", overload.toString());
+                        }
                     }
                 }
+
 
                 visitChilds(node);
             } finally {
@@ -703,26 +691,34 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                // FIXME:
-                // IASTInitializerList .getSize
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
+                if (node instanceof ICPPASTDesignatedInitializer) {
+                    ICPPASTDesignatedInitializer impl = (ICPPASTDesignatedInitializer) node;
+                    json.writeStringField("Designator", impl.DESIGNATOR.toString());
+                    json.writeStringField("Operand", impl.OPERAND.toString());
+                }
 
-    @Override
-    public int visit(IASTParameterDeclaration node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
+                if (node instanceof ICASTDesignatedInitializer) {
+                    ICASTDesignatedInitializer impl = (ICASTDesignatedInitializer) node;
+                    json.writeStringField("Designator", impl.DESIGNATOR.toString());
+                    json.writeStringField("Operand", impl.OPERAND.toString());
+                }
+
+                if (node instanceof ICPPASTConstructorChainInitializer) {
+                    ICPPASTConstructorChainInitializer impl = (ICPPASTConstructorChainInitializer) node;
+                    json.writeStringField("Initializer", impl.INITIALIZER.toString());
+                    json.writeStringField("Member_Id", impl.MEMBER_ID.toString());
+                }
+
+                if (node instanceof ICPPASTDesignatedInitializer) {
+                    ICPPASTConstructorInitializer impl = (ICPPASTConstructorInitializer) node;
+                    json.writeStringField("Argument", impl.
+                }
+
+                if (node instanceof IASTEqualsInitializer) {
+                    IASTEqualsInitializer impl = (IASTEqualsInitializer) node;
+                    json.writeStringField("Initializer", impl.INITIALIZER.toString());
+                }
+
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -744,24 +740,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 // FIXME:
                 // IASTPointer .isConst .isRestrict .isVolatile
                 // ICPPASTReferenceOperator .isRValueReference
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
-    @Override
-    public int visit(IASTProblem node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -802,6 +780,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 // FIXME:
                 // this.getTokenType .getTokenCharImage?
+                // IASTTokenList .getTokens
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -846,31 +825,14 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    // XXX continue here
     @Override
     public int visit(IASTTypeId node) {
         try {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
-    @Override
-    public int visit(ICASTDesignator node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
+                json.writeStringField("Abstract_Declarator", node.ABSTRACT_DECLARATOR.toString());
+                json.writeStringField("Decl_Specifier", node.DECL_SPECIFIER.toString());
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -889,6 +851,9 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
+                json.writeStringField("Identifier", node.IDENTIFIER.toString());
+                json.writeBooleanField("CapturesThisPointer", node.capturesThisPointer());
+                json.writeBooleanField("IsByReference", node.isByReference());
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -907,42 +872,9 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
-    //    @Override
-    public int visit(ICPPASTDecltypeSpecifier node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
-    @Override
-    public int visit(ICPPASTNamespaceDefinition node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
+                json.writeStringField("Name_Specifier", node.NAME_SPECIFIER.toString());
+                // getVisibility
+                json.writeBooleanField("IsVirtual", node.isVirtual());
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -961,6 +893,23 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
+                json.writeBooleanField("IsParameterPack", node.isParameterPack());
+
+                if (node instanceof ICPPASTSimpleTypeTemplateParameter) {
+                    ICPPASTSimpleTypeTemplateParameter impl = (ICPPASTSimpleTypeTemplateParameter) node;
+                    json.writeStringField("Default_Type", impl.DEFAULT_TYPE.toString());
+                    json.writeStringField("Parameter_Name", impl.PARAMETER_NAME.toString());
+                    // getParameterType
+                }
+
+                if (node instanceof ICPPASTTemplatedTypeTemplateParameter) {
+                    ICPPASTTemplatedTypeTemplateParameter impl = (ICPPASTTemplatedTypeTemplateParameter) node;
+                    json.writeStringField("Default_Value", impl.DEFAULT_VALUE.toString());
+                    json.writeStringField("Parameter", impl.PARAMETER.toString());
+                    json.writeStringField("Parameter_Name", impl.PARAMETER_NAME.toString());
+                    // asScope
+                }
+
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -979,6 +928,7 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
+                json.writeStringField("Attribute", node.ATTRIBUTE.toString());
                 serializeComments(node);
                 visitChilds(node);
             } finally {
@@ -991,40 +941,21 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    @Override
-    public int visit(ICPPASTDesignator node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
-    @Override
-    public int visit(ICPPASTVirtSpecifier node) {
-        try {
-            json.writeStartObject();
-            try {
-                serializeCommonData(node);
-                serializeComments(node);
-                visitChilds(node);
-            } finally {
-                json.writeEndObject();
-            }
-        } catch (IOException e) {
-            enableErrorState(e);
-            return PROCESS_ABORT;
-        }
-        return PROCESS_SKIP;
-    }
-
+//    @Override
+//    public int visit(IASTInitializer node) {
+//        try {
+//            json.writeStartObject();
+//            try {
+//                serializeCommonData(node);
+//                serializeComments(node);
+//                visitChilds(node);
+//            } finally {
+//                json.writeEndObject();
+//            }
+//        } catch (IOException e) {
+//            enableErrorState(e);
+//            return PROCESS_ABORT;
+//        }
+//        return PROCESS_SKIP;
+//    }
 }
