@@ -9,7 +9,7 @@ ICPPASTCompositeTypeSpecifier.ICPPASTBaseSpecifier
 ICPPASTVirtSpecifier
 
 ++ IASTParameterDeclaration
-    X ICPPASTParameterDeclaration
+    ICPPASTParameterDeclaration
 
 ICPPASTCapture
     ICPPASTInitCapture
@@ -155,7 +155,6 @@ IASTDeclarationListOwner
 
 + IASTInitializer
     ICPPASTDesignatedInitializer
-    ICPPASTConstructorChainInitializer
     ICPPASTConstructorInitializer
     ICASTDesignatedInitializer
 
