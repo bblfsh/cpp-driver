@@ -1,0 +1,21 @@
+sdk: '2'
+language: cpp
+go-runtime:
+  version: '1.10-alpine'
+native:
+  image: 'openjdk:8-jre-alpine'
+  static:
+    - path: 'native.sh'
+      dest: 'native'
+  build:
+    image: 'openjdk:8-slim'
+    deps:
+      - 'apt update && apt install -y maven'
+    run:
+      - 'mvn install:install-file -Dfile=lib/org.eclipse.cdt.core_6.5.0.201807181141.jar -DgroupId=org.eclipse.cdt.core -DartifactId=cdtcore -Dversion=6.5.0 -Dpackaging=jar'
+      - 'mvn package'
+    artifacts:
+      - path: '/native/target/native-jar-with-dependencies.jar'
+  test:
+    run:
+      - 'mvn test'

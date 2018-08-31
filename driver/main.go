@@ -1,25 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	_ "github.com/bblfsh/cpp-driver/driver/impl"
+	"github.com/bblfsh/cpp-driver/driver/normalizer"
 
-	"github.com/bblfsh/sdk"
-
-	_ "github.com/bblfsh/java-driver/driver/normalizer"
+	"gopkg.in/bblfsh/sdk.v2/driver/server"
 )
 
-var version string
-var build string
-
 func main() {
-	fmt.Printf("version: %s\nbuild: %s\n", version, build)
-
-	_, err := os.Stat(sdk.NativeBin)
-	if err == nil {
-		fmt.Println("native: ok")
-		return
-	}
-
-	fmt.Printf("native: %s\n", err)
+	server.Run(normalizer.Transforms)
 }
