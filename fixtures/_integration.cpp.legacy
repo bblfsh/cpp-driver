@@ -56,9 +56,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  Name: std
-.  .  .  .  .  .  PreBinding: Attempt to use symbol failed: std
-.  .  .  .  .  .  ResolvedBinding: Attempt to use symbol failed: std
-.  .  .  .  .  .  ResolvedPreBinding: Attempt to use symbol failed: std
 .  .  .  .  .  .  Role: ICPPASTUsingDirective.QUALIFIED_NAME - Name brought into local scope
 .  .  .  .  .  .  Snippet: std
 .  .  .  .  .  .  internalRole: childs
@@ -189,9 +186,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  Name: main
-.  .  .  .  .  .  .  .  PreBinding: main()
-.  .  .  .  .  .  .  .  ResolvedBinding: main()
-.  .  .  .  .  .  .  .  ResolvedPreBinding: main()
 .  .  .  .  .  .  .  .  Role: IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator
 .  .  .  .  .  .  .  .  Snippet: main
 .  .  .  .  .  .  .  .  internalRole: childs
@@ -256,7 +250,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  Col: 28
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@74e52303
+.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@619713e5
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
@@ -280,7 +274,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@74e52303
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@619713e5
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  .  .  ID_NAME: IASTIdExpression.ID_NAME - IASTName for IASTIdExpression
 .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
@@ -309,9 +303,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: cout
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  PreBinding: Attempt to use symbol failed: cout
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  ResolvedBinding: Attempt to use symbol failed: cout
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  ResolvedPreBinding: Attempt to use symbol failed: cout
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Role: IASTIdExpression.ID_NAME - IASTName for IASTIdExpression
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Snippet: cout
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: childs

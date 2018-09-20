@@ -14,13 +14,13 @@ const projectRoot = "../../"
 
 var Suite = &fixtures.Suite{
 	Lang: "cpp",
-	Ext:  ".java",
+	Ext:  ".cpp",
 	Path: filepath.Join(projectRoot, fixtures.Dir),
 	NewDriver: func() driver.Native {
 		return native.NewDriverAt(filepath.Join(projectRoot, "build/bin/native"), native.UTF8)
 	},
 	Transforms: normalizer.Transforms,
-	//BenchName: "fixture-name", // TODO: specify a largest file
+	BenchName: "huge",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
 			// TODO: list native types that should be converted to semantic UAST

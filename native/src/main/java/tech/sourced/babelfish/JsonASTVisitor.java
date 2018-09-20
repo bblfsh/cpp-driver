@@ -69,15 +69,14 @@ public class JsonASTVisitor extends ASTVisitor {
         int offsetLength = -1;
 
         if (loc != null) {
-            lineStart = loc.getStartingLineNumber();
-            lineEnd = loc.getEndingLineNumber();
+            //lineStart = loc.getStartingLineNumber();
+            //lineEnd = loc.getEndingLineNumber();
+            //json.writeNumberField("LocLineStart", lineStart);
+            //json.writeNumberField("LocLineEnd", lineEnd);
             offsetStart = loc.getNodeOffset();
-            offsetLength = loc.getNodeLength();
+            json.writeNumberField("LocOffsetStart", offsetStart);
+            json.writeNumberField("LocOffsetEnd", offsetStart + loc.getNodeLength());
         }
-        //json.writeNumberField("LocLineStart", lineStart);
-        //json.writeNumberField("LocLineEnd", lineEnd);
-        json.writeNumberField("LocOffsetStart", offsetStart);
-        json.writeNumberField("LocOffsetEnd", offsetStart + offsetLength);
     }
 
     private void serializeCommonData(IASTNode node) throws IOException {
@@ -415,9 +414,9 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStringField("Name", node.toString());
                 json.writeStringField("FullName", Arrays.toString(node.toCharArray()));
                 json.writeBooleanField("IsQualified", node.isQualified());
-                json.writeStringField("ResolvedBinding", node.resolveBinding().toString());
-                json.writeStringField("PreBinding", node.getPreBinding().toString());
-                json.writeStringField("ResolvedPreBinding", node.resolvePreBinding().toString());
+                //json.writeStringField("ResolvedBinding", node.resolveBinding().toString());
+                //json.writeStringField("PreBinding", node.getPreBinding().toString());
+                //json.writeStringField("ResolvedPreBinding", node.resolvePreBinding().toString());
 
                 if (node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
