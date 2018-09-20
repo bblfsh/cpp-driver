@@ -23,7 +23,7 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
     TranslationUnitJSONMapper(boolean prettyPrint, ByteArrayOutputStream byteOutput) throws IOException {
         this.byteOutputStream = byteOutput;
 
-        generator = jsonFactory.createGenerator(byteOutputStream, JsonEncoding.UTF8);
+        generator = jsonFactory.createGenerator(byteOutputStream);
         if (prettyPrint) {
             generator.setPrettyPrinter(new DefaultPrettyPrinter());
             mapper.enable(SerializationFeature.INDENT_OUTPUT);

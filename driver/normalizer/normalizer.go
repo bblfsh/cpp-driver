@@ -18,7 +18,11 @@ var Normalize = Transformers([][]Transformer{
 }...)
 
 var Preprocessors = []Mapping{
+	ObjectToNode{
+		InternalTypeKey: "IASTClass",
+		OffsetKey:       "LocOffsetStart",
+		EndOffsetKey:    "LocOffsetEnd",
+	}.Mapping(),
 }
 
-var Normalizers = []Mapping{
-}
+var Normalizers = []Mapping{}

@@ -74,10 +74,10 @@ public class JsonASTVisitor extends ASTVisitor {
             offsetStart = loc.getNodeOffset();
             offsetLength = loc.getNodeLength();
         }
-        json.writeNumberField("LocLineStart", lineStart);
-        json.writeNumberField("LocLineEnd", lineEnd);
+        //json.writeNumberField("LocLineStart", lineStart);
+        //json.writeNumberField("LocLineEnd", lineEnd);
         json.writeNumberField("LocOffsetStart", offsetStart);
-        json.writeNumberField("LocOffsetLength", offsetLength);
+        json.writeNumberField("LocOffsetEnd", offsetStart + offsetLength);
     }
 
     private void serializeCommonData(IASTNode node) throws IOException {
@@ -120,25 +120,6 @@ public class JsonASTVisitor extends ASTVisitor {
         serializeCommentList(commentMap.getFreestandingCommentsForNode(node), "Freestading");
         serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
     }
-
-//    private void serializeIASTNameOwner(IASTNameOwner node) throws IOException {
-//        int roleOfName = node.getRoleForName(node);
-//        json.writeFieldName("RoleForName");
-//
-//        switch (roleOfName) {
-//            case IASTNameOwner.r_declaration:
-//                json.writeString("declaration");
-//                break;
-//            case IASTNameOwner.r_definition:
-//                json.writeString("definition");
-//                break;
-//            case IASTNameOwner.r_reference:
-//                json.writeString("reference");
-//                break;
-//            default:
-//                json.writeString("unclear");
-//        }
-//    }
 
     // We need to call this on each visitor instead of just retuning
     // PROCESS_SKIP and let the base clase do it automatically because
@@ -434,11 +415,9 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStringField("Name", node.toString());
                 json.writeStringField("FullName", Arrays.toString(node.toCharArray()));
                 json.writeBooleanField("IsQualified", node.isQualified());
-                json.writeStringField("Binding", node.getBinding().toString());
                 json.writeStringField("ResolvedBinding", node.resolveBinding().toString());
                 json.writeStringField("PreBinding", node.getPreBinding().toString());
                 json.writeStringField("ResolvedPreBinding", node.resolvePreBinding().toString());
-//                serializeIASTNameOwner((IASTNameOwner) node);
 
                 if (node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
@@ -802,7 +781,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTUsingDeclaration impl = (ICPPASTUsingDeclaration) node;
                     json.writeStringField("Name", impl.NAME.toString());
                     json.writeBooleanField("IsTypeName", impl.isTypename());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                     json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                     json.writeStringField("Implicit_Name", ((IASTImplicitNameOwner) node).IMPLICIT_NAME.toString());
                 }
@@ -811,7 +789,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTUsingDeclaration impl = (ICPPASTUsingDeclaration) node;
                     json.writeStringField("Name", impl.NAME.toString());
                     json.writeBooleanField("IsTypeName", impl.isTypename());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                     json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                     json.writeStringField("Implicit_Name", ((IASTImplicitNameOwner) node).IMPLICIT_NAME.toString());
                 }
@@ -819,7 +796,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 if (node instanceof ICPPASTUsingDirective) {
                     ICPPASTUsingDirective impl = (ICPPASTUsingDirective) node;
                     json.writeStringField("Qualified_Name", impl.QUALIFIED_NAME.toString());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                     json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                 }
 
@@ -846,7 +822,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     json.writeStringField("Namespace_Name", impl.NAMESPACE_NAME.toString());
                     json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
                     json.writeBooleanField("IsInline", impl.isInline());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                     json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                 }
 
@@ -854,7 +829,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTNamespaceAlias impl = (ICPPASTNamespaceAlias) node;
                     json.writeStringField("Alias_Name", impl.ALIAS_NAME.toString());
                     json.writeStringField("Mapping_Name", impl.MAPPING_NAME.toString());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                 }
 
                 if (node instanceof IASTSimpleDeclaration) {
@@ -868,7 +842,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTAliasDeclaration impl = (ICPPASTAliasDeclaration) node;
                     json.writeStringField("Alias_Name", impl.ALIAS_NAME.toString());
                     json.writeStringField("Target_TypeID", impl.TARGET_TYPEID.toString());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
                     json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                 }
 

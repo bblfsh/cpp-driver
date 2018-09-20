@@ -2,7 +2,7 @@ package tech.sourced.babelfish;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Class for the C/C++ driver request.
@@ -20,11 +20,11 @@ class DriverRequest {
     public String language;
     public String languageVersion;
     public String content;
+    public String Encoding;
     @JsonIgnoreProperties(ignoreUnknown = true)
 
-    public DriverRequest() {
-        // Dummy constructor, jackson needs this
-    }
+    public DriverRequest() {} // Dummy constructor, jackson needs this
+
     // TODO: check if Jackson needs this
     DriverRequest(String action, String language, String languageVersion, String content) {
         this.content = content;
@@ -38,9 +38,7 @@ class DriverRequest {
         // intermediate interface (IExchangeFormatReader) like DriverResponse is, but for now with a single protocol is overkill
         // to add more layers
 
-        // TODO: check if this "new" can be avoided since it will be called in the loop
         ObjectMapper mapper = new ObjectMapper();
-
         try {
             return mapper.readValue(in, DriverRequest.class);
         } catch (IOException e) {
