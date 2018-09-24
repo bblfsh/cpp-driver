@@ -9,6 +9,8 @@ import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
+import java.util.Hashtable;
 
 // FIXME: Uppercase attribute fields (node.ATTR.toString())
 // FIXME: IASTProblem
@@ -123,15 +125,40 @@ public class JsonASTVisitor extends ASTVisitor {
     // We need to call this on each visitor instead of just retuning
     // PROCESS_SKIP and let the base clase do it automatically because
     // we need to start the child JSON array
-    private void visitChilds(IASTNode node) throws IOException {
+    private void visitChildren(IASTNode node) throws IOException {
         IASTNode[] children = node.getChildren();
+        if (children == null || children.length == 0)
+            return;
 
-        if (children != null && children.length > 0) {
-            json.writeFieldName("childs");
+        // Load the children into a hashtable, then write children with the same role
+        // inside an array value
+        Hashtable<String, Vector<IASTNode>> hash = new Hashtable<String, Vector<IASTNode>>();
+
+        for (IASTNode child : children) {
+            ASTNodeProperty role = child.getPropertyInParent();
+
+            if (role == null)
+                continue;
+
+            String key = role.getName().split(" ")[0];
+            Vector<IASTNode> l;
+
+            if (hash.containsKey(key)) {
+                l = hash.get(key);
+            } else {
+                l = new Vector<IASTNode>();
+                hash.put(key, l);
+            }
+
+            l.add(child);
+        }
+
+        for (String key: hash.keySet()) {
+            json.writeFieldName(key);
             json.writeStartArray();
             try {
-                for (IASTNode child : children) {
-                    child.accept(this);
+                for (IASTNode n: hash.get(key)) {
+                    n.accept(this);
                 }
             } finally {
                 json.writeEndArray();
@@ -412,7 +439,6 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeStringField("Name", node.toString());
-                json.writeStringField("FullName", Arrays.toString(node.toCharArray()));
                 json.writeBooleanField("IsQualified", node.isQualified());
                 //json.writeStringField("ResolvedBinding", node.resolveBinding().toString());
                 //json.writeStringField("PreBinding", node.getPreBinding().toString());
@@ -445,7 +471,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -661,7 +687,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
 
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -686,7 +712,7 @@ public class JsonASTVisitor extends ASTVisitor {
                     json.writeBooleanField("IsVolatile", carr.isVolatile());
                 }
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -711,7 +737,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -872,7 +898,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -922,7 +948,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1157,7 +1183,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1210,7 +1236,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1247,7 +1273,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1377,7 +1403,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1403,7 +1429,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1435,7 +1461,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 //
                 // Plus: ICPPASTTranslationUnit getNamespaceScope, getMemberBindings, isInline
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1455,7 +1481,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStringField("Abstract_Declarator", node.ABSTRACT_DECLARATOR.toString());
                 json.writeStringField("Decl_Specifier", node.DECL_SPECIFIER.toString());
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1476,7 +1502,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeBooleanField("CapturesThisPointer", node.capturesThisPointer());
                 json.writeBooleanField("IsByReference", node.isByReference());
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1497,7 +1523,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 // getVisibility
                 json.writeBooleanField("IsVirtual", node.isVirtual());
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1532,7 +1558,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }
@@ -1551,7 +1577,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 json.writeStringField("Attribute", node.ATTRIBUTE.toString());
                 serializeComments(node);
-                visitChilds(node);
+                visitChildren(node);
             } finally {
                 json.writeEndObject();
             }

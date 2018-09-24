@@ -51,7 +51,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 20
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  FullName: [s, t, d]
 .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  IsQualified: false
@@ -181,7 +180,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  FullName: [m, a, i, n]
 .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  IsQualified: false
@@ -298,7 +296,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  FullName: [c, o, u, t]
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
