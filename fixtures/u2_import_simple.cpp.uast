@@ -14,5 +14,4 @@
    },
    IsActive: true,
    IsFrozen: true,
-   Snippet: "#include <cstdio>  #...",
 }

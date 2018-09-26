@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
 
-// FIXME: Uppercase attribute fields (node.ATTR.toString())
 // FIXME: IASTProblem
+//
 
 /// Visitor pattern implementation for the CPP AST. This will write every
 /// node in the Json output. Since CDT unfortunately doesnt have something like JDT
@@ -33,8 +33,10 @@ public class JsonASTVisitor extends ASTVisitor {
 
     private JsonGenerator json;
     private NodeCommentMap commentMap;
+    private boolean verboseJson = false;
     IOException error;
     boolean hasError = false;
+
 
     JsonASTVisitor(JsonGenerator json, NodeCommentMap commentMap) {
         super();
@@ -83,14 +85,19 @@ public class JsonASTVisitor extends ASTVisitor {
 
     private void serializeCommonData(IASTNode node) throws IOException {
         json.writeStringField("IASTClass", node.getClass().getSimpleName());
-        json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
+        if (verboseJson)
+            json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
         json.writeBooleanField("IsActive", node.isActive());
         json.writeBooleanField("IsFrozen", node.isFrozen());
 
-        ASTNodeProperty propInParent = node.getPropertyInParent();
-        if (propInParent != null) {
-            json.writeStringField("Role", propInParent.getName());
-        }
+        // Unneded: now this is a property in the parent, uncomment code when the
+        // problem with the lambda expression is fixed (FIXME)
+        //if (verboseJson) {
+            ASTNodeProperty propInParent = node.getPropertyInParent();
+            if (propInParent != null) {
+                json.writeStringField("Role", propInParent.getName());
+            }
+        //}
 
         serializeNodeLocation(node);
     }
@@ -134,6 +141,8 @@ public class JsonASTVisitor extends ASTVisitor {
         // inside an array value
         Hashtable<String, Vector<IASTNode>> hash = new Hashtable<String, Vector<IASTNode>>();
 
+        // FIXME: this doesnt seem to work for CPPASTLambdaExpression (all children
+        // are dumped into ICPPASTLambdaExpression property)
         for (IASTNode child : children) {
             ASTNodeProperty role = child.getPropertyInParent();
 
@@ -440,9 +449,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 json.writeStringField("Name", node.toString());
                 json.writeBooleanField("IsQualified", node.isQualified());
-                //json.writeStringField("ResolvedBinding", node.resolveBinding().toString());
-                //json.writeStringField("PreBinding", node.getPreBinding().toString());
-                //json.writeStringField("ResolvedPreBinding", node.resolvePreBinding().toString());
 
                 if (node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
@@ -450,24 +456,10 @@ public class JsonASTVisitor extends ASTVisitor {
                     json.writeBooleanField("IsOverloadedOperator", impl.isOperator());
                 }
 
-                if (node instanceof ICPPASTName) {
-                    if (node instanceof ICPPASTConversionName) {
-                        ICPPASTConversionName impl = (ICPPASTConversionName) node;
-                        json.writeStringField("Type_Id", impl.TYPE_ID.toString());
-                    }
-
-                    if (node instanceof ICPPASTQualifiedName) {
-                        ICPPASTQualifiedName impl = (ICPPASTQualifiedName) node;
-                        json.writeStringField("Segment_Name", impl.SEGMENT_NAME.toString());
-                        json.writeBooleanField("IsConversionOperator", impl.isConversionOrOperator());
-                        json.writeBooleanField("IsFullyQualified", impl.isFullyQualified());
-                    }
-
-                    if (node instanceof ICPPASTTemplateId) {
-                        ICPPASTTemplateId impl = (ICPPASTTemplateId) node;
-                        json.writeStringField("Template_Id_Argument", impl.TEMPLATE_ID_ARGUMENT.toString());
-                        json.writeStringField("Template_Name", impl.TEMPLATE_NAME.toString());
-                    }
+                if (node instanceof ICPPASTQualifiedName) {
+                    ICPPASTQualifiedName impl = (ICPPASTQualifiedName) node;
+                    json.writeBooleanField("IsConversionOperator", impl.isConversionOrOperator());
+                    json.writeBooleanField("IsFullyQualified", impl.isFullyQualified());
                 }
 
                 serializeComments(node);
@@ -552,7 +544,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTTypeIdExpression) {
                     String opStr = serializeTypeIdExpression((IASTTypeIdExpression) node);
-                    json.writeStringField("TYPE_ID", ((IASTTypeIdExpression) node).TYPE_ID.toString());
 
                     if (node instanceof ICPPASTTypeIdExpression) {
                         ICPPASTTypeIdExpression impl = (ICPPASTTypeIdExpression) node;
@@ -612,8 +603,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTCastExpression) {
                     IASTCastExpression impl = (IASTCastExpression) node;
-                    json.writeStringField("OPERAND", impl.OPERAND.toString());
-                    json.writeStringField("TYPE_ID", impl.TYPE_ID.toString());
 
                     if (node instanceof ICPPASTCastExpression) {
                         ICPPASTCastExpression impl2 = (ICPPASTCastExpression) node;
@@ -639,53 +628,6 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeStringField("CastOperator", opStr);
                     }
                 }
-
-                if (node instanceof IASTConditionalExpression) {
-                    IASTConditionalExpression impl = (IASTConditionalExpression) node;
-                    json.writeStringField("LOGICAL_CONDITION", impl.LOGICAL_CONDITION.toString());
-                    json.writeStringField("NEGATIVE_RESULT", impl.NEGATIVE_RESULT.toString());
-                    json.writeStringField("POSITIVE_RESULT", impl.POSITIVE_RESULT.toString());
-                }
-
-                if (node instanceof IASTExpressionList) {
-                    IASTExpressionList impl = (IASTExpressionList) node;
-                    json.writeStringField("NESTED_EXPRESSION", impl.NESTED_EXPRESSION.toString());
-                }
-
-                if (node instanceof IASTTypeIdInitializerExpression) {
-                    IASTTypeIdInitializerExpression impl = (IASTTypeIdInitializerExpression) node;
-                    json.writeStringField("INITIALIZER", impl.INITIALIZER.toString());
-                    json.writeStringField("TYPE_ID", impl.TYPE_ID.toString());
-                }
-
-                if (node instanceof IASTIdExpression) {
-                    IASTIdExpression impl = (IASTIdExpression) node;
-                    json.writeStringField("ID_NAME", impl.ID_NAME.toString());
-                }
-
-                if (node instanceof ICPPASTSimpleTypeConstructorExpression) {
-                    ICPPASTSimpleTypeConstructorExpression impl = (ICPPASTSimpleTypeConstructorExpression) node;
-                    json.writeStringField("INITIALIZER", impl.INITIALIZER.toString());
-                }
-
-                if (node instanceof ICPPASTLambdaExpression) {
-                    ICPPASTLambdaExpression impl = (ICPPASTLambdaExpression) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CAPTURE", impl.CAPTURE.toString());
-                    json.writeStringField("DECLARATOR", impl.DECLARATOR.toString());
-                }
-
-                if (node instanceof ICPPASTPackExpansionExpression) {
-                    ICPPASTPackExpansionExpression impl = (ICPPASTPackExpansionExpression) node;
-                    json.writeStringField("PATTERN", impl.PATTERN.toString());
-                }
-
-                if (node instanceof IASTFunctionCallExpression) {
-                    IASTFunctionCallExpression impl = (IASTFunctionCallExpression) node;
-                    json.writeStringField("FUNCTION_NAME", impl.FUNCTION_NAME.toString());
-                    json.writeStringField("ARGUMENT", impl.ARGUMENT.toString());
-                }
-
 
                 visitChildren(node);
             } finally {
@@ -778,7 +720,6 @@ public class JsonASTVisitor extends ASTVisitor {
                             break;
                     }
                     json.writeStringField("Modifier", opMod);
-                    json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
                 }
 
                 if (node instanceof ICPPASTVisibilityLabel) {
@@ -806,94 +747,30 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTUsingDeclaration impl = (ICPPASTUsingDeclaration) node;
                     json.writeStringField("Name", impl.NAME.toString());
                     json.writeBooleanField("IsTypeName", impl.isTypename());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
-                    json.writeStringField("Implicit_Name", ((IASTImplicitNameOwner) node).IMPLICIT_NAME.toString());
-                }
-
-                if (node instanceof ICPPASTUsingDeclaration) {
-                    ICPPASTUsingDeclaration impl = (ICPPASTUsingDeclaration) node;
-                    json.writeStringField("Name", impl.NAME.toString());
-                    json.writeBooleanField("IsTypeName", impl.isTypename());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
-                    json.writeStringField("Implicit_Name", ((IASTImplicitNameOwner) node).IMPLICIT_NAME.toString());
-                }
-
-                if (node instanceof ICPPASTUsingDirective) {
-                    ICPPASTUsingDirective impl = (ICPPASTUsingDirective) node;
-                    json.writeStringField("Qualified_Name", impl.QUALIFIED_NAME.toString());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
-                }
-
-                if (node instanceof ICPPASTTemplateSpecialization) {
-                    ICPPASTTemplateSpecialization impl = (ICPPASTTemplateSpecialization) node;
-                    json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
                 }
 
                 if (node instanceof ICPPASTTemplateDeclaration) {
                     ICPPASTTemplateDeclaration impl = (ICPPASTTemplateDeclaration) node;
-                    json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
-                    json.writeStringField("Parameter", impl.PARAMETER.toString());
                     json.writeBooleanField("IsExported", impl.isExported());
-                }
-
-                if (node instanceof ICPPASTStaticAssertDeclaration) {
-                    ICPPASTStaticAssertDeclaration impl = (ICPPASTStaticAssertDeclaration) node;
-                    json.writeStringField("Condition", impl.CONDITION.toString());
-                    json.writeStringField("Message", impl.MESSAGE.toString());
                 }
 
                 if (node instanceof ICPPASTNamespaceDefinition) {
                     ICPPASTNamespaceDefinition impl = (ICPPASTNamespaceDefinition) node;
-                    json.writeStringField("Namespace_Name", impl.NAMESPACE_NAME.toString());
-                    json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
                     json.writeBooleanField("IsInline", impl.isInline());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
-                }
-
-                if (node instanceof ICPPASTNamespaceAlias) {
-                    ICPPASTNamespaceAlias impl = (ICPPASTNamespaceAlias) node;
-                    json.writeStringField("Alias_Name", impl.ALIAS_NAME.toString());
-                    json.writeStringField("Mapping_Name", impl.MAPPING_NAME.toString());
-                }
-
-                if (node instanceof IASTSimpleDeclaration) {
-                    IASTSimpleDeclaration impl = (IASTSimpleDeclaration) node;
-                    json.writeStringField("Decl_Specifier", impl.DECL_SPECIFIER.toString());
-                    json.writeStringField("Declarator", impl.DECLARATOR.toString());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
-                }
-
-                if (node instanceof ICPPASTAliasDeclaration) {
-                    ICPPASTAliasDeclaration impl = (ICPPASTAliasDeclaration) node;
-                    json.writeStringField("Alias_Name", impl.ALIAS_NAME.toString());
-                    json.writeStringField("Target_TypeID", impl.TARGET_TYPEID.toString());
-                    json.writeStringField("Attribute_Specifier", ((IASTAttributeOwner) node).ATTRIBUTE_SPECIFIER.toString());
                 }
 
                 if (node instanceof ICPPASTLinkageSpecification) {
                     ICPPASTLinkageSpecification impl = (ICPPASTLinkageSpecification) node;
-                    json.writeStringField("Owned_Declaration", impl.OWNED_DECLARATION.toString());
                     json.writeStringField("Literal", impl.getLiteral());
                 }
 
                 if (node instanceof IASTFunctionDefinition) {
                     IASTFunctionDefinition impl = (IASTFunctionDefinition) node;
-                    json.writeStringField("Decl_Specifier", impl.DECL_SPECIFIER.toString());
-                    json.writeStringField("Declarator", impl.DECLARATOR.toString());
-                    json.writeStringField("Function_Body", impl.FUNCTION_BODY.toString());
 
                     if (node instanceof ICPPASTFunctionDefinition) {
                         ICPPASTFunctionDefinition impl2 = (ICPPASTFunctionDefinition) node;
-                        json.writeStringField("Member_Initializer", impl2.MEMBER_INITIALIZER.toString());
-                        json.writeStringField("Attribute_Specifier", impl2.ATTRIBUTE_SPECIFIER.toString());
                         json.writeBooleanField("IsDefaulted", impl2.isDefaulted());
                         json.writeBooleanField("IsDeleted", impl2.isDeleted());
-                    }
-
-                    if (node instanceof ICPPASTFunctionWithTryBlock) {
-                        ICPPASTFunctionWithTryBlock impl2 = (ICPPASTFunctionWithTryBlock) node;
-                        json.writeStringField("Catch_Handler", impl2.CATCH_HANDLER.toString());
-                        json.writeStringField("Attribute_Specifier", impl2.ATTRIBUTE_SPECIFIER.toString());
                     }
                 }
 
@@ -915,24 +792,13 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("DECLARATOR_NAME", node.DECLARATOR_NAME.toString());
-                json.writeStringField("INITIALIZER", node.INITIALIZER.toString());
-                json.writeStringField("NESTED_DECLARATOR", node.NESTED_DECLARATOR.toString());
-                json.writeStringField("POINTER_OPERATOR", node.POINTER_OPERATOR.toString());
-//                serializeIASTNameOwner(node);
-                json.writeStringField("Attribute_Specifier", node.ATTRIBUTE_SPECIFIER.toString());
 
                 if (node instanceof IASTStandardFunctionDeclarator) {
                     IASTStandardFunctionDeclarator impl = (IASTStandardFunctionDeclarator) node;
-                    json.writeStringField("FUNCTION_PARAMETER", impl.FUNCTION_PARAMETER.toString());
                     json.writeBooleanField("TakesVarArgs", impl.takesVarArgs());
 
                     if (node instanceof ICPPASTFunctionDeclarator) {
                         ICPPASTFunctionDeclarator impl2 = (ICPPASTFunctionDeclarator) node;
-                        json.writeStringField("EXCEPTION_TYPEID", impl2.EXCEPTION_TYPEID.toString());
-                        json.writeStringField("NOEXCEPT_EXPRESSION", impl2.NOEXCEPT_EXPRESSION.toString());
-                        json.writeStringField("TRAILING_RETURN_TYPE", impl2.TRAILING_RETURN_TYPE.toString());
-                        json.writeStringField("VIRT_SPECIFIER", impl2.VIRT_SPECIFIER.toString());
                         json.writeBooleanField("IsConst", impl2.isConst());
                         json.writeBooleanField("IsFinal", impl2.isFinal());
                         json.writeBooleanField("IsMutable", impl2.isMutable());
@@ -965,7 +831,6 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Attribute_Specifier", node.ATTRIBUTE_SPECIFIER.toString());
                 json.writeBooleanField("IsConst", node.isConst());
                 json.writeBooleanField("IsInline", node.isInline());
                 json.writeBooleanField("IsRestrict", node.isRestrict());
@@ -1000,7 +865,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof ICASTDeclSpecifier) {
                     ICASTDeclSpecifier impl = (ICASTDeclSpecifier) node;
-                    json.writeStringField("ALIGNMENT_SPECIFIER", impl.ALIGNMENT_SPECIFIER.toString());
                 }
 
                 if (node instanceof ICPPASTDeclSpecifier) {
@@ -1014,8 +878,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTCompositeTypeSpecifier) {
                     IASTCompositeTypeSpecifier impl = (IASTCompositeTypeSpecifier) node;
-                    json.writeStringField("MEMBER_DECLARATION", impl.MEMBER_DECLARATION.toString());
-                    json.writeStringField("TYPE_NAME", impl.TYPE_NAME.toString());
 
                     String keyStr = "";
                     switch (impl.getKey()) {
@@ -1030,8 +892,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                     if (node instanceof ICPPASTCompositeTypeSpecifier) {
                         ICPPASTCompositeTypeSpecifier impl2 = (ICPPASTCompositeTypeSpecifier) node;
-                        json.writeStringField("BASE_SPECIFIER", impl2.BASE_SPECIFIER.toString());
-                        json.writeStringField("CLASS_VIRT_SPECIFIER", impl2.CLASS_VIRT_SPECIFIER.toString());
 
                         switch (impl2.getKey()) {
                             case ICPPASTCompositeTypeSpecifier.k_class:
@@ -1047,8 +907,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTElaboratedTypeSpecifier) {
                     IASTElaboratedTypeSpecifier impl = (IASTElaboratedTypeSpecifier) node;
-//                    serializeIASTNameOwner((IASTNameOwner)node);
-                    json.writeStringField("TYPE_NAME", impl.TYPE_NAME.toString());
 
                     String kindStr = "";
                     switch (impl.getKind()) {
@@ -1078,7 +936,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTSimpleDeclSpecifier) {
                     IASTSimpleDeclSpecifier impl = (IASTSimpleDeclSpecifier) node;
-                    json.writeStringField("DECLTYPE_EXPRESSION", impl.DECLTYPE_EXPRESSION.toString());
                     json.writeBooleanField("IsComplex", impl.isComplex());
                     json.writeBooleanField("IsImaginary", impl.isImaginary());
                     json.writeBooleanField("IsLong", impl.isLong());
@@ -1152,34 +1009,19 @@ public class JsonASTVisitor extends ASTVisitor {
                     json.writeStringField("Type", typeStr);
                 }
 
-                if (node instanceof IASTEnumerationSpecifier) {
-                    IASTEnumerationSpecifier impl = (IASTEnumerationSpecifier) node;
-                    json.writeStringField("ENUMERATION_NAME", impl.ENUMERATION_NAME.toString());
-                    json.writeStringField("ENUMERATOR", impl.ENUMERATOR.toString());
-//                    serializeIASTNameOwner((IASTNameOwner)node);
-
-                    if (node instanceof ICPPASTEnumerationSpecifier) {
-                        ICPPASTEnumerationSpecifier impl2 = (ICPPASTEnumerationSpecifier) node;
-                        json.writeStringField("BASE_TYPE", impl2.BASE_TYPE.toString());
-                        json.writeBooleanField("IsOpaque", impl2.isOpaque());
-                        json.writeBooleanField("IsScoped", impl2.isScoped());
-                    }
+                if (node instanceof ICPPASTEnumerationSpecifier) {
+                    ICPPASTEnumerationSpecifier impl2 = (ICPPASTEnumerationSpecifier) node;
+                    json.writeBooleanField("IsOpaque", impl2.isOpaque());
+                    json.writeBooleanField("IsScoped", impl2.isScoped());
                 }
 
                 if (node instanceof IASTNamedTypeSpecifier) {
                     IASTNamedTypeSpecifier impl = (IASTNamedTypeSpecifier) node;
-                    json.writeStringField("NAME", impl.NAME.toString());
 
                     if (node instanceof ICPPASTNamedTypeSpecifier) {
                         ICPPASTNamedTypeSpecifier impl2 = (ICPPASTNamedTypeSpecifier) node;
                         json.writeBooleanField("IsTypeName", impl2.isTypename());
                     }
-                }
-
-                if (node instanceof ICPPASTTypeTransformationSpecifier) {
-                    ICPPASTTypeTransformationSpecifier impl = (ICPPASTTypeTransformationSpecifier) node;
-                    json.writeStringField("OPERAND", impl.OPERAND.toString());
-                    json.writeStringField("Operator", impl.getOperator().toString());
                 }
 
                 serializeComments(node);
@@ -1200,38 +1042,8 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                if (node instanceof ICPPASTDesignatedInitializer) {
-                    ICPPASTDesignatedInitializer impl = (ICPPASTDesignatedInitializer) node;
-                    json.writeStringField("Designator", impl.DESIGNATOR.toString());
-                    json.writeStringField("Operand", impl.OPERAND.toString());
-                }
-
-                if (node instanceof ICASTDesignatedInitializer) {
-                    ICASTDesignatedInitializer impl = (ICASTDesignatedInitializer) node;
-                    json.writeStringField("Designator", impl.DESIGNATOR.toString());
-                    json.writeStringField("Operand", impl.OPERAND.toString());
-                }
-
-                if (node instanceof ICPPASTConstructorInitializer) {
-                    ICPPASTConstructorInitializer impl = (ICPPASTConstructorInitializer) node;
-                    json.writeStringField("Argument", impl.ARGUMENT.toString());
-                }
-
-                if (node instanceof ICPPASTConstructorChainInitializer) {
-                    ICPPASTConstructorChainInitializer impl = (ICPPASTConstructorChainInitializer) node;
-                    json.writeStringField("Initializer", impl.INITIALIZER.toString());
-                    json.writeStringField("Member_Id", impl.MEMBER_ID.toString());
-                }
-
-                if (node instanceof IASTEqualsInitializer) {
-                    IASTEqualsInitializer impl = (IASTEqualsInitializer) node;
-                    json.writeStringField("Initializer", impl.INITIALIZER.toString());
-
-                }
-
                 if (node instanceof IASTInitializerList) {
                     IASTInitializerList impl = (IASTInitializerList) node;
-                    json.writeStringField("Nested_Initializer", impl.NESTED_INITIALIZER.toString());
                     json.writeNumberField("Size", impl.getSize());
                 }
 
@@ -1253,7 +1065,6 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Attribute_Specifier", node.ATTRIBUTE_SPECIFIER.toString());
 
                 if (node instanceof IASTPointer) {
                     IASTPointer impl = (IASTPointer) node;
@@ -1263,7 +1074,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                     if (node instanceof ICPPASTPointerToMember) {
                         ICPPASTPointerToMember impl2 = (ICPPASTPointerToMember) node;
-                        json.writeStringField("NAME", impl2.NAME.toString());
                     }
                 }
 
@@ -1290,116 +1100,10 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Attribute_Specifier", node.ATTRIBUTE_SPECIFIER.toString());
-
-                if (node instanceof IASTCaseStatement) {
-                    IASTCaseStatement impl = (IASTCaseStatement) node;
-                    json.writeStringField("EXPRESSION", impl.EXPRESSION.toString());
-                }
-
-                if (node instanceof IASTExpressionStatement) {
-                    IASTExpressionStatement impl = (IASTExpressionStatement) node;
-                    json.writeStringField("EXPRESSION", impl.EXPRESSION.toString());
-                }
-
-                if (node instanceof IASTCompoundStatement) {
-                    IASTCompoundStatement impl = (IASTCompoundStatement) node;
-                    json.writeStringField("NESTED_STATEMENT", impl.NESTED_STATEMENT.toString());
-                }
-
-                if (node instanceof IASTGotoStatement) {
-                    IASTGotoStatement impl = (IASTGotoStatement) node;
-                    json.writeStringField("NAME", impl.NAME.toString());
-                }
-
-                if (node instanceof IASTDeclarationStatement) {
-                    IASTDeclarationStatement impl = (IASTDeclarationStatement) node;
-                    json.writeStringField("DECLARATION", impl.DECLARATION.toString());
-                }
-
-                if (node instanceof IASTReturnStatement) {
-                    IASTReturnStatement impl = (IASTReturnStatement) node;
-                    json.writeStringField("RETURNVALUE", impl.RETURNVALUE.toString());
-                }
-
-                if (node instanceof IASTDoStatement) {
-                    IASTDoStatement impl = (IASTDoStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CONDITION", impl.CONDITION.toString());
-                }
-
-                if (node instanceof IASTWhileStatement) {
-                    IASTWhileStatement impl = (IASTWhileStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CONDITIONEXPRESSION", impl.CONDITIONEXPRESSION.toString());
-
-                    if (node instanceof ICPPASTWhileStatement) {
-                        ICPPASTWhileStatement impl2 = (ICPPASTWhileStatement) node;
-                        json.writeStringField("CONDITIONDECLARATION", impl2.CONDITIONDECLARATION.toString());
-                    }
-                }
-
-                if (node instanceof IASTSwitchStatement) {
-                    IASTSwitchStatement impl = (IASTSwitchStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CONTROLLER_EXP", impl.CONTROLLER_EXP.toString());
-
-                    if (node instanceof ICPPASTSwitchStatement) {
-                        ICPPASTSwitchStatement impl2 = (ICPPASTSwitchStatement) node;
-                        json.writeStringField("CONTROLLER_DECLARATION", impl2.CONTROLLER_DECLARATION.toString());
-                        json.writeStringField("INIT_STATEMENT", impl2.INIT_STATEMENT.toString());
-                    }
-                }
-
-                if (node instanceof IASTLabelStatement) {
-                    IASTLabelStatement impl = (IASTLabelStatement) node;
-                    json.writeStringField("NAME", impl.NAME.toString());
-                    json.writeStringField("NESTED_STATEMENT", impl.NESTED_STATEMENT.toString());
-                }
-
-                if (node instanceof IASTIfStatement) {
-                    IASTIfStatement impl = (IASTIfStatement) node;
-                    json.writeStringField("CONDITION", impl.CONDITION.toString());
-                    json.writeStringField("THEN", impl.THEN.toString());
-                    json.writeStringField("ELSE", impl.ELSE.toString());
-
-                    if (node instanceof ICPPASTIfStatement) {
-                        ICPPASTIfStatement impl2 = (ICPPASTIfStatement) node;
-                        json.writeStringField("INIT_STATEMENT", impl2.INIT_STATEMENT.toString());
-                    }
-                }
 
                 if (node instanceof ICPPASTCatchHandler) {
                     ICPPASTCatchHandler impl = (ICPPASTCatchHandler) node;
-                    json.writeStringField("CATCH_BODY", impl.CATCH_BODY.toString());
-                    json.writeStringField("DECLARATION", impl.DECLARATION.toString());
                     json.writeBooleanField("IsCatchAll", impl.isCatchAll());
-                }
-
-                if (node instanceof IASTForStatement) {
-                    IASTForStatement impl = (IASTForStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CONDITION", impl.CONDITION.toString());
-                    json.writeStringField("INITIALIZER", impl.INITIALIZER.toString());
-                    json.writeStringField("ITERATION", impl.ITERATION.toString());
-
-                    if (node instanceof ICPPASTForStatement) {
-                        ICPPASTForStatement impl2 = (ICPPASTForStatement) node;
-                        json.writeStringField("CONDITION_DECLARATION", impl2.CONDITION_DECLARATION.toString());
-                    }
-                }
-
-                if (node instanceof ICPPASTRangeBasedForStatement) {
-                    ICPPASTRangeBasedForStatement impl = (ICPPASTRangeBasedForStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("DECLARATION", impl.DECLARATION.toString());
-                    json.writeStringField("INITIALIZER", impl.INITIALIZER.toString());
-                }
-
-                if (node instanceof ICPPASTTryBlockStatement) {
-                    ICPPASTTryBlockStatement impl = (ICPPASTTryBlockStatement) node;
-                    json.writeStringField("BODY", impl.BODY.toString());
-                    json.writeStringField("CATCH_HANDLER", impl.CATCH_HANDLER.toString());
                 }
 
                 serializeComments(node);
@@ -1423,10 +1127,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStringField("Image", String.valueOf(node.getTokenCharImage()));
                 // FIXME: this returns and int which meaning is undocumented... try to infer them?
                 json.writeNumberField("IntTokenType", node.getTokenType());
-
-                if (node instanceof IASTTokenList) {
-                    json.writeStringField("NESTED_TOKEN", ((IASTTokenList)node).NESTED_TOKEN.toString());
-                }
 
                 serializeComments(node);
                 visitChildren(node);
@@ -1472,14 +1172,13 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
+    // XXX try and check remove (common data, children, etc)
     @Override
     public int visit(IASTTypeId node) {
         try {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Abstract_Declarator", node.ABSTRACT_DECLARATOR.toString());
-                json.writeStringField("Decl_Specifier", node.DECL_SPECIFIER.toString());
                 serializeComments(node);
                 visitChildren(node);
             } finally {
@@ -1519,7 +1218,6 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Name_Specifier", node.NAME_SPECIFIER.toString());
                 // getVisibility
                 json.writeBooleanField("IsVirtual", node.isVirtual());
                 serializeComments(node);
@@ -1542,21 +1240,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 json.writeBooleanField("IsParameterPack", node.isParameterPack());
 
-                if (node instanceof ICPPASTSimpleTypeTemplateParameter) {
-                    ICPPASTSimpleTypeTemplateParameter impl = (ICPPASTSimpleTypeTemplateParameter) node;
-                    json.writeStringField("Default_Type", impl.DEFAULT_TYPE.toString());
-                    json.writeStringField("Parameter_Name", impl.PARAMETER_NAME.toString());
-                    // getParameterType
-                }
-
-                if (node instanceof ICPPASTTemplatedTypeTemplateParameter) {
-                    ICPPASTTemplatedTypeTemplateParameter impl = (ICPPASTTemplatedTypeTemplateParameter) node;
-                    json.writeStringField("Default_Value", impl.DEFAULT_VALUE.toString());
-                    json.writeStringField("Parameter", impl.PARAMETER.toString());
-                    json.writeStringField("Parameter_Name", impl.PARAMETER_NAME.toString());
-                    // asScope
-                }
-
                 serializeComments(node);
                 visitChildren(node);
             } finally {
@@ -1575,7 +1258,6 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Attribute", node.ATTRIBUTE.toString());
                 serializeComments(node);
                 visitChildren(node);
             } finally {

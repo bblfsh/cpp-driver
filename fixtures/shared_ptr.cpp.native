@@ -2,7 +2,6 @@
    IASTClass: "CPPASTTranslationUnit",
    'IASTTranslationUnit.OWNED_DECLARATION': [
       {
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
          IASTClass: "CPPASTUsingDirective",
          'ICPPASTUsingDirective.QUALIFIED_NAME': [
             {
@@ -14,27 +13,18 @@
                LocOffsetStart: 34,
                Name: "std",
                Role: "ICPPASTUsingDirective.QUALIFIED_NAME - Name brought into local scope",
-               Snippet: "std",
             },
          ],
          IsActive: true,
          IsFrozen: true,
          LocOffsetEnd: 38,
          LocOffsetStart: 18,
-         'Qualified_Name': "ICPPASTUsingDirective.QUALIFIED_NAME - Name brought into local scope",
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "using namespace std;...",
       },
       {
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-         'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-         Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
          IASTClass: "CPPASTSimpleDeclaration",
          'IASTSimpleDeclaration.DECL_SPECIFIER': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'BASE_SPECIFIER': "ICPPASTCompositeTypeSpecifier.BASE_SPECIFIER - Expresses the subclass role",
-               'CLASS_VIRT_SPECIFIER': "ICPPASTCompositeTypeSpecifier.CLASS_VIRT_SPECIFIER [ICPPASTClassVirtSpecifier]",
                IASTClass: "CPPASTCompositeTypeSpecifier",
                'IASTCompositeTypeSpecifier.TYPE_NAME': [
                   {
@@ -46,7 +36,6 @@
                      LocOffsetStart: 47,
                      Name: "Foo",
                      Role: "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
-                     Snippet: "Foo",
                   },
                ],
                IsActive: true,
@@ -64,11 +53,8 @@
                Key: "struct",
                LocOffsetEnd: 53,
                LocOffsetStart: 40,
-               'MEMBER_DECLARATION': "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-               Snippet: "struct Foo {}",
                StorageClass: "unspecified",
-               'TYPE_NAME': "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
             },
          ],
          IsActive: true,
@@ -76,21 +62,12 @@
          LocOffsetEnd: 54,
          LocOffsetStart: 40,
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "struct Foo {};",
       },
       {
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-         'Decl_Specifier': "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
-         Declarator: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
-         'Function_Body': "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
          IASTClass: "CPPASTFunctionDefinition",
          'IASTFunctionDefinition.DECLARATOR': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                DeclaresParameterPack: false,
-               'EXCEPTION_TYPEID': "ICPPASTFunctionDeclarator.EXCEPTION_TYPEID [IASTTypeId]",
-               'FUNCTION_PARAMETER': "IASTStandardFunctionDeclarator.FUNCTION_PARAMETER - IASTParameterDeclaration for IASTStandardFunctionDeclarator",
                IASTClass: "CPPASTFunctionDeclarator",
                'IASTDeclarator.DECLARATOR_NAME': [
                   {
@@ -102,10 +79,8 @@
                      LocOffsetStart: 60,
                      Name: "main",
                      Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                     Snippet: "main",
                   },
                ],
-               INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                IsActive: true,
                IsConst: false,
                IsFinal: false,
@@ -116,20 +91,12 @@
                IsVolatile: false,
                LocOffsetEnd: 66,
                LocOffsetStart: 60,
-               'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-               'NOEXCEPT_EXPRESSION': "ICPPASTFunctionDeclarator.NOEXCEPT_EXPRESSION [ICPPASTExpression]",
-               'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                Role: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
-               Snippet: "main()",
-               'TRAILING_RETURN_TYPE': "ICPPASTFunctionDeclarator.TRAILING_RETURN_TYPE [IASTTypeId]",
                TakesVarArgs: false,
-               'VIRT_SPECIFIER': "ICPPASTFunctionDeclarator.VIRT_SPECIFIER [ICPPASTVirtSpecifier]",
             },
          ],
          'IASTFunctionDefinition.DECL_SPECIFIER': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLTYPE_EXPRESSION': "IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]",
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
                IsComplex: false,
@@ -152,30 +119,21 @@
                LocOffsetEnd: 59,
                LocOffsetStart: 56,
                Role: "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
-               Snippet: "int",
                StorageClass: "unspecified",
                Type: "int",
             },
          ],
          'IASTFunctionDefinition.FUNCTION_BODY': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                IASTClass: "CPPASTCompoundStatement",
                'IASTCompoundStatement.NESTED_STATEMENT': [
                   {
-                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                     DECLARATION: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
                      IASTClass: "CPPASTDeclarationStatement",
                      'IASTDeclarationStatement.DECLARATION': [
                         {
-                           'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                           'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                           Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                            IASTClass: "CPPASTSimpleDeclaration",
                            'IASTSimpleDeclaration.DECLARATOR': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                 'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                  DeclaresParameterPack: false,
                                  IASTClass: "CPPASTDeclarator",
                                  'IASTDeclarator.DECLARATOR_NAME': [
@@ -188,7 +146,6 @@
                                        LocOffsetStart: 76,
                                        Name: "sp1",
                                        Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                                       Snippet: "sp1",
                                     },
                                  ],
                                  'IASTDeclarator.INITIALIZER': [
@@ -196,14 +153,12 @@
                                        IASTClass: "CPPASTEqualsInitializer",
                                        IASTEqualsInitializer: [
                                           {
-                                             ARGUMENT: "IASTFunctionCallExpression.ARGUMENT [IASTInitializerClause]",
                                              ExpressionType: "Attempt to use symbol failed: make_shared<Foo>",
                                              ExpressionValueCategory: "PRVALUE",
-                                             'FUNCTION_NAME': "IASTFunctionCallExpression.FUNCTION_NAME [IASTExpression]",
                                              IASTClass: "CPPASTFunctionCallExpression",
                                              'IASTFunctionCallExpression.FUNCTION_NAME': [
                                                 {
-                                                   ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@3c407114",
+                                                   ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                                    ExpressionValueCategory: "PRVALUE",
                                                    IASTClass: "CPPASTIdExpression",
                                                    'IASTIdExpression.ID_NAME': [
@@ -211,29 +166,20 @@
                                                          IASTClass: "CPPASTTemplateId",
                                                          'ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT': [
                                                             {
-                                                               'Abstract_Declarator': "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                               'Decl_Specifier': "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
                                                                IASTClass: "CPPASTTypeId",
                                                                'IASTTypeId.ABSTRACT_DECLARATOR': [
                                                                   {
-                                                                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                                                     'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                                                      DeclaresParameterPack: false,
                                                                      IASTClass: "CPPASTDeclarator",
-                                                                     INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                                                      IsActive: true,
                                                                      IsFrozen: true,
                                                                      LocOffsetEnd: 97,
                                                                      LocOffsetStart: 97,
-                                                                     'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                                                     'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                                                      Role: "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                                     Snippet: "",
                                                                   },
                                                                ],
                                                                'IASTTypeId.DECL_SPECIFIER': [
                                                                   {
-                                                                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                                                                      IASTClass: "CPPASTNamedTypeSpecifier",
                                                                      'IASTNamedTypeSpecifier.NAME': [
                                                                         {
@@ -245,7 +191,6 @@
                                                                            LocOffsetStart: 94,
                                                                            Name: "Foo",
                                                                            Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                                                                           Snippet: "Foo",
                                                                         },
                                                                      ],
                                                                      IsActive: true,
@@ -262,9 +207,7 @@
                                                                      IsVolatile: false,
                                                                      LocOffsetEnd: 97,
                                                                      LocOffsetStart: 94,
-                                                                     NAME: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
                                                                      Role: "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
-                                                                     Snippet: "Foo",
                                                                      StorageClass: "unspecified",
                                                                   },
                                                                ],
@@ -273,7 +216,6 @@
                                                                LocOffsetEnd: 97,
                                                                LocOffsetStart: 94,
                                                                Role: "ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT - TemplateId Argument",
-                                                               Snippet: "Foo",
                                                             },
                                                          ],
                                                          'ICPPASTTemplateId.TEMPLATE_NAME': [
@@ -286,7 +228,6 @@
                                                                LocOffsetStart: 82,
                                                                Name: "make_shared",
                                                                Role: "ICPPASTTemplateId.TEMPLATE_NAME - TemplateId Name",
-                                                               Snippet: "make_shared",
                                                             },
                                                          ],
                                                          IsActive: true,
@@ -296,19 +237,14 @@
                                                          LocOffsetStart: 82,
                                                          Name: "make_shared<Foo>",
                                                          Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
-                                                         Snippet: "make_shared<Foo>",
-                                                         'Template_Id_Argument': "ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT - TemplateId Argument",
-                                                         'Template_Name': "ICPPASTTemplateId.TEMPLATE_NAME - TemplateId Name",
                                                       },
                                                    ],
-                                                   'ID_NAME': "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                                    IsActive: true,
                                                    IsFrozen: true,
                                                    IsLValue: false,
                                                    LocOffsetEnd: 98,
                                                    LocOffsetStart: 82,
                                                    Role: "IASTFunctionCallExpression.FUNCTION_NAME [IASTExpression]",
-                                                   Snippet: "make_shared<Foo>",
                                                 },
                                              ],
                                              IsActive: true,
@@ -317,33 +253,24 @@
                                              LocOffsetEnd: 100,
                                              LocOffsetStart: 82,
                                              Role: "IASTEqualsInitializer - INITIALIZER [IASTInitializerClause]",
-                                             Snippet: "make_shared<Foo>()",
                                           },
                                        ],
-                                       Initializer: "IASTEqualsInitializer - INITIALIZER [IASTInitializerClause]",
                                        IsActive: true,
                                        IsFrozen: true,
                                        LocOffsetEnd: 100,
                                        LocOffsetStart: 80,
                                        Role: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
-                                       Snippet: "= make_shared<Foo>()...",
                                     },
                                  ],
-                                 INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                  IsActive: true,
                                  IsFrozen: true,
                                  LocOffsetEnd: 100,
                                  LocOffsetStart: 76,
-                                 'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                 'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                  Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
-                                 Snippet: "sp1 = make_shared<Fo...",
                               },
                            ],
                            'IASTSimpleDeclaration.DECL_SPECIFIER': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                 'DECLTYPE_EXPRESSION': "IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]",
                                  IASTClass: "CPPASTSimpleDeclSpecifier",
                                  IsActive: true,
                                  IsComplex: false,
@@ -366,7 +293,6 @@
                                  LocOffsetEnd: 75,
                                  LocOffsetStart: 71,
                                  Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                                 Snippet: "auto",
                                  StorageClass: "unspecified",
                                  Type: "auto",
                               },
@@ -376,7 +302,6 @@
                            LocOffsetEnd: 101,
                            LocOffsetStart: 71,
                            Role: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
-                           Snippet: "auto sp1 = make_shar...",
                         },
                      ],
                      IsActive: true,
@@ -384,22 +309,14 @@
                      LocOffsetEnd: 101,
                      LocOffsetStart: 71,
                      Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
-                     Snippet: "auto sp1 = make_shar...",
                   },
                   {
-                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                     DECLARATION: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
                      IASTClass: "CPPASTDeclarationStatement",
                      'IASTDeclarationStatement.DECLARATION': [
                         {
-                           'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                           'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                           Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                            IASTClass: "CPPASTSimpleDeclaration",
                            'IASTSimpleDeclaration.DECLARATOR': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                 'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                  DeclaresParameterPack: false,
                                  IASTClass: "CPPASTDeclarator",
                                  'IASTDeclarator.DECLARATOR_NAME': [
@@ -412,12 +329,10 @@
                                        LocOffsetStart: 120,
                                        Name: "sp2",
                                        Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                                       Snippet: "sp2",
                                     },
                                  ],
                                  'IASTDeclarator.INITIALIZER': [
                                     {
-                                       Argument: "ICPPASTConstructorInitializer.ARGUMENT - [IASTInitializerClause]",
                                        IASTClass: "CPPASTConstructorInitializer",
                                        'ICPPASTConstructorInitializer.ARGUMENT': [
                                           {
@@ -426,29 +341,20 @@
                                              IASTClass: "CPPASTNewExpression",
                                              'ICPPASTNewExpression.TYPE_ID': [
                                                 {
-                                                   'Abstract_Declarator': "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                   'Decl_Specifier': "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
                                                    IASTClass: "CPPASTTypeId",
                                                    'IASTTypeId.ABSTRACT_DECLARATOR': [
                                                       {
-                                                         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                                         'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                                          DeclaresParameterPack: false,
                                                          IASTClass: "CPPASTDeclarator",
-                                                         INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                                          IsActive: true,
                                                          IsFrozen: true,
                                                          LocOffsetEnd: 131,
                                                          LocOffsetStart: 131,
-                                                         'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                                         'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                                          Role: "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                         Snippet: "",
                                                       },
                                                    ],
                                                    'IASTTypeId.DECL_SPECIFIER': [
                                                       {
-                                                         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                                                          IASTClass: "CPPASTNamedTypeSpecifier",
                                                          'IASTNamedTypeSpecifier.NAME': [
                                                             {
@@ -460,7 +366,6 @@
                                                                LocOffsetStart: 128,
                                                                Name: "Foo",
                                                                Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                                                               Snippet: "Foo",
                                                             },
                                                          ],
                                                          IsActive: true,
@@ -477,9 +382,7 @@
                                                          IsVolatile: false,
                                                          LocOffsetEnd: 131,
                                                          LocOffsetStart: 128,
-                                                         NAME: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
                                                          Role: "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
-                                                         Snippet: "Foo",
                                                          StorageClass: "unspecified",
                                                       },
                                                    ],
@@ -488,7 +391,6 @@
                                                    LocOffsetEnd: 131,
                                                    LocOffsetStart: 128,
                                                    Role: "ICPPASTNewExpression.TYPE_ID - [IASTTypeId]",
-                                                   Snippet: "Foo",
                                                 },
                                              ],
                                              IsActive: true,
@@ -500,7 +402,6 @@
                                              LocOffsetEnd: 131,
                                              LocOffsetStart: 124,
                                              Role: "ICPPASTConstructorInitializer.ARGUMENT - [IASTInitializerClause]",
-                                             Snippet: "new Foo",
                                           },
                                        ],
                                        IsActive: true,
@@ -508,52 +409,37 @@
                                        LocOffsetEnd: 132,
                                        LocOffsetStart: 123,
                                        Role: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
-                                       Snippet: "(new Foo)",
                                     },
                                  ],
-                                 INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                  IsActive: true,
                                  IsFrozen: true,
                                  LocOffsetEnd: 132,
                                  LocOffsetStart: 120,
-                                 'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                 'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                  Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
-                                 Snippet: "sp2(new Foo)",
                               },
                            ],
                            'IASTSimpleDeclaration.DECL_SPECIFIER': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                                  IASTClass: "CPPASTNamedTypeSpecifier",
                                  'IASTNamedTypeSpecifier.NAME': [
                                     {
                                        IASTClass: "CPPASTTemplateId",
                                        'ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT': [
                                           {
-                                             'Abstract_Declarator': "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                             'Decl_Specifier': "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
                                              IASTClass: "CPPASTTypeId",
                                              'IASTTypeId.ABSTRACT_DECLARATOR': [
                                                 {
-                                                   'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                                   'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                                    DeclaresParameterPack: false,
                                                    IASTClass: "CPPASTDeclarator",
-                                                   INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                                    IsActive: true,
                                                    IsFrozen: true,
                                                    LocOffsetEnd: 118,
                                                    LocOffsetStart: 118,
-                                                   'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                                   'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                                    Role: "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                   Snippet: "",
                                                 },
                                              ],
                                              'IASTTypeId.DECL_SPECIFIER': [
                                                 {
-                                                   'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                                                    IASTClass: "CPPASTNamedTypeSpecifier",
                                                    'IASTNamedTypeSpecifier.NAME': [
                                                       {
@@ -565,7 +451,6 @@
                                                          LocOffsetStart: 115,
                                                          Name: "Foo",
                                                          Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                                                         Snippet: "Foo",
                                                       },
                                                    ],
                                                    IsActive: true,
@@ -582,9 +467,7 @@
                                                    IsVolatile: false,
                                                    LocOffsetEnd: 118,
                                                    LocOffsetStart: 115,
-                                                   NAME: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
                                                    Role: "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
-                                                   Snippet: "Foo",
                                                    StorageClass: "unspecified",
                                                 },
                                              ],
@@ -593,7 +476,6 @@
                                              LocOffsetEnd: 118,
                                              LocOffsetStart: 115,
                                              Role: "ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT - TemplateId Argument",
-                                             Snippet: "Foo",
                                           },
                                        ],
                                        'ICPPASTTemplateId.TEMPLATE_NAME': [
@@ -606,7 +488,6 @@
                                              LocOffsetStart: 104,
                                              Name: "shared_ptr",
                                              Role: "ICPPASTTemplateId.TEMPLATE_NAME - TemplateId Name",
-                                             Snippet: "shared_ptr",
                                           },
                                        ],
                                        IsActive: true,
@@ -616,9 +497,6 @@
                                        LocOffsetStart: 104,
                                        Name: "shared_ptr<Foo>",
                                        Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                                       Snippet: "shared_ptr<Foo>",
-                                       'Template_Id_Argument': "ICPPASTTemplateId.TEMPLATE_ID_ARGUMENT - TemplateId Argument",
-                                       'Template_Name': "ICPPASTTemplateId.TEMPLATE_NAME - TemplateId Name",
                                     },
                                  ],
                                  IsActive: true,
@@ -635,9 +513,7 @@
                                  IsVolatile: false,
                                  LocOffsetEnd: 119,
                                  LocOffsetStart: 104,
-                                 NAME: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
                                  Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                                 Snippet: "shared_ptr<Foo>",
                                  StorageClass: "unspecified",
                               },
                            ],
@@ -646,7 +522,6 @@
                            LocOffsetEnd: 133,
                            LocOffsetStart: 104,
                            Role: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
-                           Snippet: "shared_ptr<Foo> sp2(...",
                         },
                      ],
                      IsActive: true,
@@ -654,22 +529,14 @@
                      LocOffsetEnd: 133,
                      LocOffsetStart: 104,
                      Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
-                     Snippet: "shared_ptr<Foo> sp2(...",
                   },
                   {
-                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                     DECLARATION: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
                      IASTClass: "CPPASTDeclarationStatement",
                      'IASTDeclarationStatement.DECLARATION': [
                         {
-                           'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                           'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                           Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                            IASTClass: "CPPASTSimpleDeclaration",
                            'IASTSimpleDeclaration.DECLARATOR': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                 'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                  DeclaresParameterPack: false,
                                  IASTClass: "CPPASTDeclarator",
                                  'IASTDeclarator.DECLARATOR_NAME': [
@@ -682,7 +549,6 @@
                                        LocOffsetStart: 141,
                                        Name: "sp3",
                                        Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                                       Snippet: "sp3",
                                     },
                                  ],
                                  'IASTDeclarator.INITIALIZER': [
@@ -690,15 +556,15 @@
                                        IASTClass: "CPPASTEqualsInitializer",
                                        IASTEqualsInitializer: [
                                           {
-                                             ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@3c407114",
+                                             ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                              ExpressionValueCategory: "PRVALUE",
                                              'IASTBinaryExpression.OPERAND_ONE': [
                                                 {
-                                                   ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@3c407114",
+                                                   ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                                    ExpressionValueCategory: "PRVALUE",
                                                    'IASTBinaryExpression.OPERAND_ONE': [
                                                       {
-                                                         ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@3c407114",
+                                                         ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                                          ExpressionValueCategory: "PRVALUE",
                                                          IASTClass: "CPPASTIdExpression",
                                                          'IASTIdExpression.ID_NAME': [
@@ -711,22 +577,19 @@
                                                                LocOffsetStart: 147,
                                                                Name: "shared_ptr",
                                                                Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
-                                                               Snippet: "shared_ptr",
                                                             },
                                                          ],
-                                                         'ID_NAME': "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                                          IsActive: true,
                                                          IsFrozen: true,
                                                          IsLValue: false,
                                                          LocOffsetEnd: 157,
                                                          LocOffsetStart: 147,
                                                          Role: "IASTBinaryExpression.OPERAND_ONE - IASTExpression for LHS",
-                                                         Snippet: "shared_ptr",
                                                       },
                                                    ],
                                                    'IASTBinaryExpression.OPERAND_TWO': [
                                                       {
-                                                         ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@3c407114",
+                                                         ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                                          ExpressionValueCategory: "PRVALUE",
                                                          IASTClass: "CPPASTIdExpression",
                                                          'IASTIdExpression.ID_NAME': [
@@ -739,17 +602,14 @@
                                                                LocOffsetStart: 158,
                                                                Name: "Foo",
                                                                Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
-                                                               Snippet: "Foo",
                                                             },
                                                          ],
-                                                         'ID_NAME': "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                                          IsActive: true,
                                                          IsFrozen: true,
                                                          IsLValue: false,
                                                          LocOffsetEnd: 161,
                                                          LocOffsetStart: 158,
                                                          Role: "IASTBinaryExpression.OPERAND_TWO - IASTExpression for RHS",
-                                                         Snippet: "Foo",
                                                       },
                                                    ],
                                                    IASTClass: "CPPASTBinaryExpression",
@@ -760,7 +620,6 @@
                                                    LocOffsetStart: 147,
                                                    Operator: "than <",
                                                    Role: "IASTBinaryExpression.OPERAND_ONE - IASTExpression for LHS",
-                                                   Snippet: "shared_ptr<Foo",
                                                 },
                                              ],
                                              'IASTBinaryExpression.OPERAND_TWO': [
@@ -775,29 +634,20 @@
                                                          IASTClass: "CPPASTNewExpression",
                                                          'ICPPASTNewExpression.TYPE_ID': [
                                                             {
-                                                               'Abstract_Declarator': "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                               'Decl_Specifier': "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
                                                                IASTClass: "CPPASTTypeId",
                                                                'IASTTypeId.ABSTRACT_DECLARATOR': [
                                                                   {
-                                                                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                                                     'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                                                                      DeclaresParameterPack: false,
                                                                      IASTClass: "CPPASTDeclarator",
-                                                                     INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                                                      IsActive: true,
                                                                      IsFrozen: true,
                                                                      LocOffsetEnd: 170,
                                                                      LocOffsetStart: 170,
-                                                                     'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                                                     'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                                                      Role: "IASTTypeId.ABSTRACT_DECLARATOR - IASTDeclarator for IASTTypeId",
-                                                                     Snippet: "",
                                                                   },
                                                                ],
                                                                'IASTTypeId.DECL_SPECIFIER': [
                                                                   {
-                                                                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
                                                                      IASTClass: "CPPASTNamedTypeSpecifier",
                                                                      'IASTNamedTypeSpecifier.NAME': [
                                                                         {
@@ -809,7 +659,6 @@
                                                                            LocOffsetStart: 167,
                                                                            Name: "Foo",
                                                                            Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                                                                           Snippet: "Foo",
                                                                         },
                                                                      ],
                                                                      IsActive: true,
@@ -826,9 +675,7 @@
                                                                      IsVolatile: false,
                                                                      LocOffsetEnd: 170,
                                                                      LocOffsetStart: 167,
-                                                                     NAME: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
                                                                      Role: "IASTTypeId.DECL_SPECIFIER - IASTDeclSpecifier for IASTTypeId",
-                                                                     Snippet: "Foo",
                                                                      StorageClass: "unspecified",
                                                                   },
                                                                ],
@@ -837,7 +684,6 @@
                                                                LocOffsetEnd: 170,
                                                                LocOffsetStart: 167,
                                                                Role: "ICPPASTNewExpression.TYPE_ID - [IASTTypeId]",
-                                                               Snippet: "Foo",
                                                             },
                                                          ],
                                                          IsActive: true,
@@ -849,7 +695,6 @@
                                                          LocOffsetEnd: 170,
                                                          LocOffsetStart: 163,
                                                          Role: "IASTUnaryExpression.OPERAND - IASTExpression (operand) for IASTUnaryExpression",
-                                                         Snippet: "new Foo",
                                                       },
                                                    ],
                                                    IsActive: true,
@@ -858,7 +703,6 @@
                                                    LocOffsetEnd: 171,
                                                    LocOffsetStart: 162,
                                                    Role: "IASTBinaryExpression.OPERAND_TWO - IASTExpression for RHS",
-                                                   Snippet: "(new Foo)",
                                                    operator: "op_bracketedPrimary",
                                                 },
                                              ],
@@ -870,33 +714,24 @@
                                              LocOffsetStart: 147,
                                              Operator: "than >",
                                              Role: "IASTEqualsInitializer - INITIALIZER [IASTInitializerClause]",
-                                             Snippet: "shared_ptr<Foo>(new ...",
                                           },
                                        ],
-                                       Initializer: "IASTEqualsInitializer - INITIALIZER [IASTInitializerClause]",
                                        IsActive: true,
                                        IsFrozen: true,
                                        LocOffsetEnd: 171,
                                        LocOffsetStart: 145,
                                        Role: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
-                                       Snippet: "= shared_ptr<Foo>(ne...",
                                     },
                                  ],
-                                 INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                                  IsActive: true,
                                  IsFrozen: true,
                                  LocOffsetEnd: 171,
                                  LocOffsetStart: 141,
-                                 'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-                                 'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                                  Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
-                                 Snippet: "sp3 = shared_ptr<Foo...",
                               },
                            ],
                            'IASTSimpleDeclaration.DECL_SPECIFIER': [
                               {
-                                 'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                                 'DECLTYPE_EXPRESSION': "IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]",
                                  IASTClass: "CPPASTSimpleDeclSpecifier",
                                  IsActive: true,
                                  IsComplex: false,
@@ -919,7 +754,6 @@
                                  LocOffsetEnd: 140,
                                  LocOffsetStart: 136,
                                  Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                                 Snippet: "auto",
                                  StorageClass: "unspecified",
                                  Type: "auto",
                               },
@@ -929,7 +763,6 @@
                            LocOffsetEnd: 172,
                            LocOffsetStart: 136,
                            Role: "IASTDeclarationStatement.DECLARATION - Declaration for DeclarationStatement",
-                           Snippet: "auto sp3 = shared_pt...",
                         },
                      ],
                      IsActive: true,
@@ -937,16 +770,13 @@
                      LocOffsetEnd: 172,
                      LocOffsetStart: 136,
                      Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
-                     Snippet: "auto sp3 = shared_pt...",
                   },
                ],
                IsActive: true,
                IsFrozen: true,
                LocOffsetEnd: 174,
                LocOffsetStart: 67,
-               'NESTED_STATEMENT': "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
                Role: "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
-               Snippet: "{    auto sp1 = make...",
             },
          ],
          IsActive: true,
@@ -955,14 +785,11 @@
          IsFrozen: true,
          LocOffsetEnd: 174,
          LocOffsetStart: 56,
-         'Member_Initializer': "ICPPASTFunctionDefinition.MEMBER_INITIALIZER - Role of a member initializer",
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "int main() {    auto...",
       },
    ],
    IsActive: true,
    IsFrozen: true,
    LocOffsetEnd: 175,
    LocOffsetStart: 0,
-   Snippet: "#include <memory>  u...",
 }

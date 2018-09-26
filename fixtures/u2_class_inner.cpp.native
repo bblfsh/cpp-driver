@@ -2,27 +2,15 @@
    IASTClass: "CPPASTTranslationUnit",
    'IASTTranslationUnit.OWNED_DECLARATION': [
       {
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-         'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-         Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
          IASTClass: "CPPASTSimpleDeclaration",
          'IASTSimpleDeclaration.DECL_SPECIFIER': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'BASE_SPECIFIER': "ICPPASTCompositeTypeSpecifier.BASE_SPECIFIER - Expresses the subclass role",
-               'CLASS_VIRT_SPECIFIER': "ICPPASTCompositeTypeSpecifier.CLASS_VIRT_SPECIFIER [ICPPASTClassVirtSpecifier]",
                IASTClass: "CPPASTCompositeTypeSpecifier",
                'IASTCompositeTypeSpecifier.MEMBER_DECLARATION': [
                   {
-                     'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                     'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                     Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                      IASTClass: "CPPASTSimpleDeclaration",
                      'IASTSimpleDeclaration.DECL_SPECIFIER': [
                         {
-                           'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-                           'BASE_SPECIFIER': "ICPPASTCompositeTypeSpecifier.BASE_SPECIFIER - Expresses the subclass role",
-                           'CLASS_VIRT_SPECIFIER': "ICPPASTCompositeTypeSpecifier.CLASS_VIRT_SPECIFIER [ICPPASTClassVirtSpecifier]",
                            IASTClass: "CPPASTCompositeTypeSpecifier",
                            'IASTCompositeTypeSpecifier.TYPE_NAME': [
                               {
@@ -34,7 +22,6 @@
                                  LocOffsetStart: 25,
                                  Name: "testcls2",
                                  Role: "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
-                                 Snippet: "testcls2",
                               },
                            ],
                            IsActive: true,
@@ -52,11 +39,8 @@
                            Key: "class",
                            LocOffsetEnd: 36,
                            LocOffsetStart: 19,
-                           'MEMBER_DECLARATION': "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                            Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-                           Snippet: "class testcls2 {}",
                            StorageClass: "unspecified",
-                           'TYPE_NAME': "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
                         },
                      ],
                      IsActive: true,
@@ -64,7 +48,6 @@
                      LocOffsetEnd: 37,
                      LocOffsetStart: 19,
                      Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
-                     Snippet: "class testcls2 {};",
                   },
                ],
                'IASTCompositeTypeSpecifier.TYPE_NAME': [
@@ -77,7 +60,6 @@
                      LocOffsetStart: 6,
                      Name: "testcls1",
                      Role: "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
-                     Snippet: "testcls1",
                   },
                ],
                IsActive: true,
@@ -95,11 +77,8 @@
                Key: "class",
                LocOffsetEnd: 39,
                LocOffsetStart: 0,
-               'MEMBER_DECLARATION': "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-               Snippet: "class testcls1 {    ...",
                StorageClass: "unspecified",
-               'TYPE_NAME': "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
             },
          ],
          IsActive: true,
@@ -107,12 +86,10 @@
          LocOffsetEnd: 40,
          LocOffsetStart: 0,
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "class testcls1 {    ...",
       },
    ],
    IsActive: true,
    IsFrozen: true,
    LocOffsetEnd: 41,
    LocOffsetStart: 0,
-   Snippet: "class testcls1 {    ...",
 }

@@ -2,9 +2,6 @@
    IASTClass: "CPPASTTranslationUnit",
    'IASTTranslationUnit.OWNED_DECLARATION': [
       {
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-         'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-         Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
          FreestadingComments: [
             {
                Comment: "/* Multi line\n * comment */",
@@ -22,8 +19,6 @@
          IASTClass: "CPPASTSimpleDeclaration",
          'IASTSimpleDeclaration.DECLARATOR': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                DeclaresParameterPack: false,
                IASTClass: "CPPASTDeclarator",
                'IASTDeclarator.DECLARATOR_NAME': [
@@ -36,24 +31,17 @@
                      LocOffsetStart: 27,
                      Name: "a",
                      Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                     Snippet: "a",
                   },
                ],
-               INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                IsActive: true,
                IsFrozen: true,
                LocOffsetEnd: 28,
                LocOffsetStart: 27,
-               'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-               'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
-               Snippet: "a",
             },
          ],
          'IASTSimpleDeclaration.DECL_SPECIFIER': [
             {
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLTYPE_EXPRESSION': "IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]",
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
                IsComplex: false,
@@ -76,7 +64,6 @@
                LocOffsetEnd: 26,
                LocOffsetStart: 23,
                Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-               Snippet: "int",
                StorageClass: "unspecified",
                Type: "int",
             },
@@ -94,7 +81,6 @@
          LocOffsetEnd: 29,
          LocOffsetStart: 23,
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "int a;",
          TrailingComments: [
             {
                Comment: "// single line after",
@@ -109,5 +95,4 @@
    IsFrozen: true,
    LocOffsetEnd: 115,
    LocOffsetStart: 0,
-   Snippet: "// single line comme...",
 }

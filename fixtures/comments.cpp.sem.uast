@@ -27,9 +27,6 @@
                col: 7,
             },
          },
-         'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-         'Decl_Specifier': "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-         Declarator: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
          FreestadingComments: [
             {
                Comment: "/* Multi line\n * comment */",
@@ -59,8 +56,6 @@
                      col: 6,
                   },
                },
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLARATOR_NAME': "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                DeclaresParameterPack: false,
                'IASTDeclarator.DECLARATOR_NAME': [
                   { '@type': "CPPASTName",
@@ -82,16 +77,11 @@
                      IsQualified: false,
                      Name: "a",
                      Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                     Snippet: "a",
                   },
                ],
-               INITIALIZER: "IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator",
                IsActive: true,
                IsFrozen: true,
-               'NESTED_DECLARATOR': "IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator",
-               'POINTER_OPERATOR': "IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator",
                Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
-               Snippet: "a",
             },
          ],
          'IASTSimpleDeclaration.DECL_SPECIFIER': [
@@ -109,8 +99,6 @@
                      col: 4,
                   },
                },
-               'Attribute_Specifier': "IASTAttributeOwner.ATTRIBUTE_SPECIFIER",
-               'DECLTYPE_EXPRESSION': "IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]",
                IsActive: true,
                IsComplex: false,
                IsConst: false,
@@ -130,7 +118,6 @@
                IsVirtual: false,
                IsVolatile: false,
                Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
-               Snippet: "int",
                StorageClass: "unspecified",
                Type: "int",
             },
@@ -146,7 +133,6 @@
             },
          ],
          Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-         Snippet: "int a;",
          TrailingComments: [
             {
                Comment: "// single line after",
@@ -159,5 +145,4 @@
    ],
    IsActive: true,
    IsFrozen: true,
-   Snippet: "// single line comme...",
 }

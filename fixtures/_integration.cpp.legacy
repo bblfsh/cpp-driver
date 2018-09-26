@@ -13,7 +13,6 @@ CPPASTTranslationUnit {
 .  Properties: {
 .  .  IsActive: true
 .  .  IsFrozen: true
-.  .  Snippet: #include <iostream> ...
 .  }
 .  Children: {
 .  .  0: CPPASTUsingDirective {
@@ -29,13 +28,10 @@ CPPASTTranslationUnit {
 .  .  .  .  Col: 21
 .  .  .  }
 .  .  .  Properties: {
-.  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
 .  .  .  .  IsActive: true
 .  .  .  .  IsFrozen: true
-.  .  .  .  Qualified_Name: ICPPASTUsingDirective.QUALIFIED_NAME - Name brought into local scope
 .  .  .  .  Role: IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit
-.  .  .  .  Snippet: using namespace std;...
-.  .  .  .  internalRole: childs
+.  .  .  .  internalRole: IASTTranslationUnit.OWNED_DECLARATION
 .  .  .  }
 .  .  .  Children: {
 .  .  .  .  0: CPPASTName {
@@ -56,8 +52,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  Name: std
 .  .  .  .  .  .  Role: ICPPASTUsingDirective.QUALIFIED_NAME - Name brought into local scope
-.  .  .  .  .  .  Snippet: std
-.  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  internalRole: ICPPASTUsingDirective.QUALIFIED_NAME
 .  .  .  .  .  }
 .  .  .  .  }
 .  .  .  }
@@ -75,18 +70,12 @@ CPPASTTranslationUnit {
 .  .  .  .  Col: 2
 .  .  .  }
 .  .  .  Properties: {
-.  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
-.  .  .  .  Decl_Specifier: IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition
-.  .  .  .  Declarator: IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition
-.  .  .  .  Function_Body: IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition
 .  .  .  .  IsActive: true
 .  .  .  .  IsDefaulted: false
 .  .  .  .  IsDeleted: false
 .  .  .  .  IsFrozen: true
-.  .  .  .  Member_Initializer: ICPPASTFunctionDefinition.MEMBER_INITIALIZER - Role of a member initializer
 .  .  .  .  Role: IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit
-.  .  .  .  Snippet: int main()  {      c...
-.  .  .  .  internalRole: childs
+.  .  .  .  internalRole: IASTTranslationUnit.OWNED_DECLARATION
 .  .  .  }
 .  .  .  Children: {
 .  .  .  .  0: CPPASTSimpleDeclSpecifier {
@@ -102,8 +91,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 4
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
-.  .  .  .  .  .  DECLTYPE_EXPRESSION: IASTSimpleDeclSpecifier.EXPRESSION [IASTExpression]
 .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  IsComplex: false
 .  .  .  .  .  .  IsConst: false
@@ -123,10 +110,9 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsVirtual: false
 .  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  Role: IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition
-.  .  .  .  .  .  Snippet: int
 .  .  .  .  .  .  StorageClass: unspecified
 .  .  .  .  .  .  Type: int
-.  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  internalRole: IASTFunctionDefinition.DECL_SPECIFIER
 .  .  .  .  .  }
 .  .  .  .  }
 .  .  .  .  1: CPPASTFunctionDeclarator {
@@ -142,12 +128,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 11
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
-.  .  .  .  .  .  DECLARATOR_NAME: IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator
 .  .  .  .  .  .  DeclaresParameterPack: false
-.  .  .  .  .  .  EXCEPTION_TYPEID: ICPPASTFunctionDeclarator.EXCEPTION_TYPEID [IASTTypeId]
-.  .  .  .  .  .  FUNCTION_PARAMETER: IASTStandardFunctionDeclarator.FUNCTION_PARAMETER - IASTParameterDeclaration for IASTStandardFunctionDeclarator
-.  .  .  .  .  .  INITIALIZER: IASTDeclarator.INITIALIZER - IASTInitializer for IASTDeclarator
 .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  IsConst: false
 .  .  .  .  .  .  IsFinal: false
@@ -156,15 +137,9 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsOverride: false
 .  .  .  .  .  .  IsPureVirtual: false
 .  .  .  .  .  .  IsVolatile: false
-.  .  .  .  .  .  NESTED_DECLARATOR: IASTDeclarator.NESTED_DECLARATOR - Nested IASTDeclarator
-.  .  .  .  .  .  NOEXCEPT_EXPRESSION: ICPPASTFunctionDeclarator.NOEXCEPT_EXPRESSION [ICPPASTExpression]
-.  .  .  .  .  .  POINTER_OPERATOR: IASTDeclarator.POINTER_OPERATOR - IASTPointerOperator for IASTDeclarator
 .  .  .  .  .  .  Role: IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition
-.  .  .  .  .  .  Snippet: main()
-.  .  .  .  .  .  TRAILING_RETURN_TYPE: ICPPASTFunctionDeclarator.TRAILING_RETURN_TYPE [IASTTypeId]
 .  .  .  .  .  .  TakesVarArgs: false
-.  .  .  .  .  .  VIRT_SPECIFIER: ICPPASTFunctionDeclarator.VIRT_SPECIFIER [ICPPASTVirtSpecifier]
-.  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  internalRole: IASTFunctionDefinition.DECLARATOR
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTName {
@@ -185,8 +160,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  Name: main
 .  .  .  .  .  .  .  .  Role: IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator
-.  .  .  .  .  .  .  .  Snippet: main
-.  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  internalRole: IASTDeclarator.DECLARATOR_NAME
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
 .  .  .  .  .  }
@@ -204,13 +178,10 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 2
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
 .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  NESTED_STATEMENT: IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement
 .  .  .  .  .  .  Role: IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition
-.  .  .  .  .  .  Snippet: {      cout << "Hell...
-.  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  internalRole: IASTFunctionDefinition.FUNCTION_BODY
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTExpressionStatement {
@@ -226,13 +197,10 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  Col: 29
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
-.  .  .  .  .  .  .  .  EXPRESSION: IASTExpressionStatement.EXPRESSION - IASTExpression for IASTExpressionStatement
 .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  Role: IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement
-.  .  .  .  .  .  .  .  Snippet: cout << "Hello, Worl...
-.  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  internalRole: IASTCompoundStatement.NESTED_STATEMENT
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  0: CPPASTBinaryExpression {
@@ -248,15 +216,14 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  Col: 28
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@619713e5
+.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  Operator: left <<
 .  .  .  .  .  .  .  .  .  .  Role: IASTExpressionStatement.EXPRESSION - IASTExpression for IASTExpressionStatement
-.  .  .  .  .  .  .  .  .  .  Snippet: cout << "Hello, Worl...
-.  .  .  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  .  .  internalRole: IASTExpressionStatement.EXPRESSION
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  .  .  0: CPPASTIdExpression {
@@ -272,15 +239,13 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@619713e5
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
-.  .  .  .  .  .  .  .  .  .  .  .  ID_NAME: IASTIdExpression.ID_NAME - IASTName for IASTIdExpression
 .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  .  .  Role: IASTBinaryExpression.OPERAND_ONE - IASTExpression for LHS
-.  .  .  .  .  .  .  .  .  .  .  .  Snippet: cout
-.  .  .  .  .  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: IASTBinaryExpression.OPERAND_ONE
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  .  .  .  .  0: CPPASTName {
@@ -301,8 +266,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: cout
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Role: IASTIdExpression.ID_NAME - IASTName for IASTIdExpression
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Snippet: cout
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: IASTIdExpression.ID_NAME
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -327,8 +291,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  LiteralValue: "Hello, World!"
 .  .  .  .  .  .  .  .  .  .  .  .  Role: IASTBinaryExpression.OPERAND_TWO - IASTExpression for RHS
-.  .  .  .  .  .  .  .  .  .  .  .  Snippet: "Hello, World!"
-.  .  .  .  .  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: IASTBinaryExpression.OPERAND_TWO
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
@@ -349,13 +312,10 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  Attribute_Specifier: IASTAttributeOwner.ATTRIBUTE_SPECIFIER
 .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  RETURNVALUE: IASTReturnValue.RETURNVALUE - [IASTInitializerClause]
 .  .  .  .  .  .  .  .  Role: IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement
-.  .  .  .  .  .  .  .  Snippet: return 0;
-.  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  internalRole: IASTCompoundStatement.NESTED_STATEMENT
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  0: CPPASTLiteralExpression {
@@ -378,8 +338,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  LiteralValue: 0
 .  .  .  .  .  .  .  .  .  .  Role: IASTReturnValue.RETURNVALUE - [IASTInitializerClause]
-.  .  .  .  .  .  .  .  .  .  Snippet: 0
-.  .  .  .  .  .  .  .  .  .  internalRole: childs
+.  .  .  .  .  .  .  .  .  .  internalRole: IASTReturnValue.RETURNVALUE
 .  .  .  .  .  .  .  .  .  .  kind: integer_constant
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
