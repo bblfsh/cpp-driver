@@ -1,13 +1,33 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   'IASTTranslationUnit.OWNED_DECLARATION': [
+   IsActive: true,
+   IsFrozen: true,
+   LocOffsetEnd: 171,
+   LocOffsetStart: 0,
+   'Prop_OWNED_DECLARATION': [
       {
          IASTClass: "CPPASTFunctionDefinition",
-         'IASTFunctionDefinition.DECLARATOR': [
+         IsActive: true,
+         IsDefaulted: false,
+         IsDeleted: false,
+         IsFrozen: true,
+         LocOffsetEnd: 42,
+         LocOffsetStart: 19,
+         'Prop_DECLARATOR': [
             {
                DeclaresParameterPack: false,
                IASTClass: "CPPASTFunctionDeclarator",
-               'IASTDeclarator.DECLARATOR_NAME': [
+               IsActive: true,
+               IsConst: false,
+               IsFinal: false,
+               IsFrozen: true,
+               IsMutable: false,
+               IsOverride: false,
+               IsPureVirtual: false,
+               IsVolatile: false,
+               LocOffsetEnd: 39,
+               LocOffsetStart: 24,
+               'Prop_DECLARATOR_NAME': [
                   {
                      IASTClass: "CPPASTName",
                      IsActive: true,
@@ -16,10 +36,9 @@
                      LocOffsetEnd: 32,
                      LocOffsetStart: 24,
                      Name: "somefunc",
-                     Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                   },
                ],
-               'IASTStandardFunctionDeclarator.FUNCTION_PARAMETER': [
+               'Prop_FUNCTION_PARAMETER': [
                   {
                      IASTClass: "CPPASTSimpleDeclSpecifier",
                      IsActive: true,
@@ -42,14 +61,17 @@
                      IsVolatile: false,
                      LocOffsetEnd: 36,
                      LocOffsetStart: 33,
-                     Role: "IASTParameterDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTParameterDeclaration",
                      StorageClass: "unspecified",
                      Type: "int",
                   },
                   {
                      DeclaresParameterPack: false,
                      IASTClass: "CPPASTDeclarator",
-                     'IASTDeclarator.DECLARATOR_NAME': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 38,
+                     LocOffsetStart: 37,
+                     'Prop_DECLARATOR_NAME': [
                         {
                            IASTClass: "CPPASTName",
                            IsActive: true,
@@ -58,31 +80,14 @@
                            LocOffsetEnd: 38,
                            LocOffsetStart: 37,
                            Name: "a",
-                           Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 38,
-                     LocOffsetStart: 37,
-                     Role: "IASTParameterDeclaration.DECLARATOR - IASTDeclarator for IASTParameterDeclaration",
                   },
                ],
-               IsActive: true,
-               IsConst: false,
-               IsFinal: false,
-               IsFrozen: true,
-               IsMutable: false,
-               IsOverride: false,
-               IsPureVirtual: false,
-               IsVolatile: false,
-               LocOffsetEnd: 39,
-               LocOffsetStart: 24,
-               Role: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
                TakesVarArgs: false,
             },
          ],
-         'IASTFunctionDefinition.DECL_SPECIFIER': [
+         'Prop_DECL_SPECIFIER': [
             {
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
@@ -105,36 +110,43 @@
                IsVolatile: false,
                LocOffsetEnd: 23,
                LocOffsetStart: 19,
-               Role: "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
                StorageClass: "unspecified",
                Type: "void",
             },
          ],
-         'IASTFunctionDefinition.FUNCTION_BODY': [
+         'Prop_FUNCTION_BODY': [
             {
                IASTClass: "CPPASTCompoundStatement",
                IsActive: true,
                IsFrozen: true,
                LocOffsetEnd: 42,
                LocOffsetStart: 40,
-               Role: "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
             },
          ],
+      },
+      {
+         IASTClass: "CPPASTFunctionDefinition",
          IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
          IsFrozen: true,
-         LocOffsetEnd: 42,
-         LocOffsetStart: 19,
-         Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-      },
-      {
-         IASTClass: "CPPASTFunctionDefinition",
-         'IASTFunctionDefinition.DECLARATOR': [
+         LocOffsetEnd: 69,
+         LocOffsetStart: 43,
+         'Prop_DECLARATOR': [
             {
                DeclaresParameterPack: false,
                IASTClass: "CPPASTFunctionDeclarator",
-               'IASTDeclarator.DECLARATOR_NAME': [
+               IsActive: true,
+               IsConst: false,
+               IsFinal: false,
+               IsFrozen: true,
+               IsMutable: false,
+               IsOverride: false,
+               IsPureVirtual: false,
+               IsVolatile: false,
+               LocOffsetEnd: 66,
+               LocOffsetStart: 48,
+               'Prop_DECLARATOR_NAME': [
                   {
                      IASTClass: "CPPASTName",
                      IsActive: true,
@@ -143,10 +155,9 @@
                      LocOffsetEnd: 56,
                      LocOffsetStart: 48,
                      Name: "somefunc",
-                     Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                   },
                ],
-               'IASTStandardFunctionDeclarator.FUNCTION_PARAMETER': [
+               'Prop_FUNCTION_PARAMETER': [
                   {
                      IASTClass: "CPPASTSimpleDeclSpecifier",
                      IsActive: true,
@@ -169,14 +180,17 @@
                      IsVolatile: false,
                      LocOffsetEnd: 63,
                      LocOffsetStart: 57,
-                     Role: "IASTParameterDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTParameterDeclaration",
                      StorageClass: "unspecified",
                      Type: "double",
                   },
                   {
                      DeclaresParameterPack: false,
                      IASTClass: "CPPASTDeclarator",
-                     'IASTDeclarator.DECLARATOR_NAME': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 65,
+                     LocOffsetStart: 64,
+                     'Prop_DECLARATOR_NAME': [
                         {
                            IASTClass: "CPPASTName",
                            IsActive: true,
@@ -185,31 +199,14 @@
                            LocOffsetEnd: 65,
                            LocOffsetStart: 64,
                            Name: "b",
-                           Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 65,
-                     LocOffsetStart: 64,
-                     Role: "IASTParameterDeclaration.DECLARATOR - IASTDeclarator for IASTParameterDeclaration",
                   },
                ],
-               IsActive: true,
-               IsConst: false,
-               IsFinal: false,
-               IsFrozen: true,
-               IsMutable: false,
-               IsOverride: false,
-               IsPureVirtual: false,
-               IsVolatile: false,
-               LocOffsetEnd: 66,
-               LocOffsetStart: 48,
-               Role: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
                TakesVarArgs: false,
             },
          ],
-         'IASTFunctionDefinition.DECL_SPECIFIER': [
+         'Prop_DECL_SPECIFIER': [
             {
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
@@ -232,36 +229,43 @@
                IsVolatile: false,
                LocOffsetEnd: 47,
                LocOffsetStart: 43,
-               Role: "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
                StorageClass: "unspecified",
                Type: "void",
             },
          ],
-         'IASTFunctionDefinition.FUNCTION_BODY': [
+         'Prop_FUNCTION_BODY': [
             {
                IASTClass: "CPPASTCompoundStatement",
                IsActive: true,
                IsFrozen: true,
                LocOffsetEnd: 69,
                LocOffsetStart: 67,
-               Role: "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
             },
          ],
+      },
+      {
+         IASTClass: "CPPASTFunctionDefinition",
          IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
          IsFrozen: true,
-         LocOffsetEnd: 69,
-         LocOffsetStart: 43,
-         Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-      },
-      {
-         IASTClass: "CPPASTFunctionDefinition",
-         'IASTFunctionDefinition.DECLARATOR': [
+         LocOffsetEnd: 101,
+         LocOffsetStart: 70,
+         'Prop_DECLARATOR': [
             {
                DeclaresParameterPack: false,
                IASTClass: "CPPASTFunctionDeclarator",
-               'IASTDeclarator.DECLARATOR_NAME': [
+               IsActive: true,
+               IsConst: false,
+               IsFinal: false,
+               IsFrozen: true,
+               IsMutable: false,
+               IsOverride: false,
+               IsPureVirtual: false,
+               IsVolatile: false,
+               LocOffsetEnd: 98,
+               LocOffsetStart: 75,
+               'Prop_DECLARATOR_NAME': [
                   {
                      IASTClass: "CPPASTName",
                      IsActive: true,
@@ -270,48 +274,11 @@
                      LocOffsetEnd: 83,
                      LocOffsetStart: 75,
                      Name: "somefunc",
-                     Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                   },
                ],
-               'IASTStandardFunctionDeclarator.FUNCTION_PARAMETER': [
+               'Prop_FUNCTION_PARAMETER': [
                   {
                      IASTClass: "CPPASTNamedTypeSpecifier",
-                     'IASTNamedTypeSpecifier.NAME': [
-                        {
-                           IASTClass: "CPPASTQualifiedName",
-                           'ICPPASTQualifiedName.SEGMENT_NAME': [
-                              {
-                                 IASTClass: "CPPASTName",
-                                 IsActive: true,
-                                 IsFrozen: true,
-                                 IsQualified: false,
-                                 LocOffsetEnd: 87,
-                                 LocOffsetStart: 84,
-                                 Name: "std",
-                                 Role: "ICPPASTQualifiedName.SEGMENT_NAME - An ICPPASTNameSpecifier segment",
-                              },
-                              {
-                                 IASTClass: "CPPASTName",
-                                 IsActive: true,
-                                 IsFrozen: true,
-                                 IsQualified: true,
-                                 LocOffsetEnd: 95,
-                                 LocOffsetStart: 89,
-                                 Name: "string",
-                                 Role: "ICPPASTQualifiedName.SEGMENT_NAME - An ICPPASTNameSpecifier segment",
-                              },
-                           ],
-                           IsActive: true,
-                           IsConversionOperator: false,
-                           IsFrozen: true,
-                           IsFullyQualified: false,
-                           IsQualified: false,
-                           LocOffsetEnd: 95,
-                           LocOffsetStart: 84,
-                           Name: "std::string",
-                           Role: "IASTNamedTypeSpecifier.NAME - IASTName for IASTNamedTypeSpecifier",
-                        },
-                     ],
                      IsActive: true,
                      IsConst: false,
                      IsConstExpr: false,
@@ -326,13 +293,49 @@
                      IsVolatile: false,
                      LocOffsetEnd: 95,
                      LocOffsetStart: 84,
-                     Role: "IASTParameterDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTParameterDeclaration",
+                     'Prop_NAME': [
+                        {
+                           IASTClass: "CPPASTQualifiedName",
+                           IsActive: true,
+                           IsConversionOperator: false,
+                           IsFrozen: true,
+                           IsFullyQualified: false,
+                           IsQualified: false,
+                           LocOffsetEnd: 95,
+                           LocOffsetStart: 84,
+                           Name: "std::string",
+                           'Prop_SEGMENT_NAME': [
+                              {
+                                 IASTClass: "CPPASTName",
+                                 IsActive: true,
+                                 IsFrozen: true,
+                                 IsQualified: false,
+                                 LocOffsetEnd: 87,
+                                 LocOffsetStart: 84,
+                                 Name: "std",
+                              },
+                              {
+                                 IASTClass: "CPPASTName",
+                                 IsActive: true,
+                                 IsFrozen: true,
+                                 IsQualified: true,
+                                 LocOffsetEnd: 95,
+                                 LocOffsetStart: 89,
+                                 Name: "string",
+                              },
+                           ],
+                        },
+                     ],
                      StorageClass: "unspecified",
                   },
                   {
                      DeclaresParameterPack: false,
                      IASTClass: "CPPASTDeclarator",
-                     'IASTDeclarator.DECLARATOR_NAME': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 97,
+                     LocOffsetStart: 96,
+                     'Prop_DECLARATOR_NAME': [
                         {
                            IASTClass: "CPPASTName",
                            IsActive: true,
@@ -341,31 +344,14 @@
                            LocOffsetEnd: 97,
                            LocOffsetStart: 96,
                            Name: "s",
-                           Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 97,
-                     LocOffsetStart: 96,
-                     Role: "IASTParameterDeclaration.DECLARATOR - IASTDeclarator for IASTParameterDeclaration",
                   },
                ],
-               IsActive: true,
-               IsConst: false,
-               IsFinal: false,
-               IsFrozen: true,
-               IsMutable: false,
-               IsOverride: false,
-               IsPureVirtual: false,
-               IsVolatile: false,
-               LocOffsetEnd: 98,
-               LocOffsetStart: 75,
-               Role: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
                TakesVarArgs: false,
             },
          ],
-         'IASTFunctionDefinition.DECL_SPECIFIER': [
+         'Prop_DECL_SPECIFIER': [
             {
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
@@ -388,47 +374,32 @@
                IsVolatile: false,
                LocOffsetEnd: 74,
                LocOffsetStart: 70,
-               Role: "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
                StorageClass: "unspecified",
                Type: "void",
             },
          ],
-         'IASTFunctionDefinition.FUNCTION_BODY': [
+         'Prop_FUNCTION_BODY': [
             {
                IASTClass: "CPPASTCompoundStatement",
                IsActive: true,
                IsFrozen: true,
                LocOffsetEnd: 101,
                LocOffsetStart: 99,
-               Role: "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
             },
          ],
+      },
+      {
+         IASTClass: "CPPASTFunctionDefinition",
          IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
          IsFrozen: true,
-         LocOffsetEnd: 101,
-         LocOffsetStart: 70,
-         Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
-      },
-      {
-         IASTClass: "CPPASTFunctionDefinition",
-         'IASTFunctionDefinition.DECLARATOR': [
+         LocOffsetEnd: 170,
+         LocOffsetStart: 103,
+         'Prop_DECLARATOR': [
             {
                DeclaresParameterPack: false,
                IASTClass: "CPPASTFunctionDeclarator",
-               'IASTDeclarator.DECLARATOR_NAME': [
-                  {
-                     IASTClass: "CPPASTName",
-                     IsActive: true,
-                     IsFrozen: true,
-                     IsQualified: false,
-                     LocOffsetEnd: 111,
-                     LocOffsetStart: 107,
-                     Name: "main",
-                     Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
-                  },
-               ],
                IsActive: true,
                IsConst: false,
                IsFinal: false,
@@ -439,11 +410,21 @@
                IsVolatile: false,
                LocOffsetEnd: 113,
                LocOffsetStart: 107,
-               Role: "IASTFunctionDefinition.DECLARATOR - IASTFunctionDeclarator for IASTFunctionDefinition",
+               'Prop_DECLARATOR_NAME': [
+                  {
+                     IASTClass: "CPPASTName",
+                     IsActive: true,
+                     IsFrozen: true,
+                     IsQualified: false,
+                     LocOffsetEnd: 111,
+                     LocOffsetStart: 107,
+                     Name: "main",
+                  },
+               ],
                TakesVarArgs: false,
             },
          ],
-         'IASTFunctionDefinition.DECL_SPECIFIER': [
+         'Prop_DECL_SPECIFIER': [
             {
                IASTClass: "CPPASTSimpleDeclSpecifier",
                IsActive: true,
@@ -466,23 +447,35 @@
                IsVolatile: false,
                LocOffsetEnd: 106,
                LocOffsetStart: 103,
-               Role: "IASTFunctionDefinition.DECL_SPECIFIER - IASTDeclSpecifier for IASTFunctionDefinition",
                StorageClass: "unspecified",
                Type: "int",
             },
          ],
-         'IASTFunctionDefinition.FUNCTION_BODY': [
+         'Prop_FUNCTION_BODY': [
             {
                IASTClass: "CPPASTCompoundStatement",
-               'IASTCompoundStatement.NESTED_STATEMENT': [
+               IsActive: true,
+               IsFrozen: true,
+               LocOffsetEnd: 170,
+               LocOffsetStart: 114,
+               'Prop_NESTED_STATEMENT': [
                   {
                      IASTClass: "CPPASTExpressionStatement",
-                     'IASTExpressionStatement.EXPRESSION': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 131,
+                     LocOffsetStart: 118,
+                     'Prop_EXPRESSION': [
                         {
                            ExpressionType: "void",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTFunctionCallExpression",
-                           'IASTFunctionCallExpression.ARGUMENT': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           IsLValue: false,
+                           LocOffsetEnd: 130,
+                           LocOffsetStart: 118,
+                           'Prop_ARGUMENT': [
                               {
                                  ExpressionType: "int",
                                  ExpressionValueCategory: "PRVALUE",
@@ -493,16 +486,20 @@
                                  LiteralValue: "42",
                                  LocOffsetEnd: 129,
                                  LocOffsetStart: 127,
-                                 Role: "IASTFunctionCallExpression.ARGUMENT [IASTInitializerClause]",
                                  kind: "integer_constant",
                               },
                            ],
-                           'IASTFunctionCallExpression.FUNCTION_NAME': [
+                           'Prop_FUNCTION_NAME': [
                               {
                                  ExpressionType: "void (int)",
                                  ExpressionValueCategory: "LVALUE",
                                  IASTClass: "CPPASTIdExpression",
-                                 'IASTIdExpression.ID_NAME': [
+                                 IsActive: true,
+                                 IsFrozen: true,
+                                 IsLValue: true,
+                                 LocOffsetEnd: 126,
+                                 LocOffsetStart: 118,
+                                 'Prop_ID_NAME': [
                                     {
                                        IASTClass: "CPPASTName",
                                        IsActive: true,
@@ -511,39 +508,30 @@
                                        LocOffsetEnd: 126,
                                        LocOffsetStart: 118,
                                        Name: "somefunc",
-                                       Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                     },
                                  ],
-                                 IsActive: true,
-                                 IsFrozen: true,
-                                 IsLValue: true,
-                                 LocOffsetEnd: 126,
-                                 LocOffsetStart: 118,
-                                 Role: "IASTFunctionCallExpression.FUNCTION_NAME [IASTExpression]",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsLValue: false,
-                           LocOffsetEnd: 130,
-                           LocOffsetStart: 118,
-                           Role: "IASTExpressionStatement.EXPRESSION - IASTExpression for IASTExpressionStatement",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 131,
-                     LocOffsetStart: 118,
-                     Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
                   },
                   {
                      IASTClass: "CPPASTExpressionStatement",
-                     'IASTExpressionStatement.EXPRESSION': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 149,
+                     LocOffsetStart: 134,
+                     'Prop_EXPRESSION': [
                         {
                            ExpressionType: "void",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTFunctionCallExpression",
-                           'IASTFunctionCallExpression.ARGUMENT': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           IsLValue: false,
+                           LocOffsetEnd: 148,
+                           LocOffsetStart: 134,
+                           'Prop_ARGUMENT': [
                               {
                                  ExpressionType: "double",
                                  ExpressionValueCategory: "PRVALUE",
@@ -554,16 +542,20 @@
                                  LiteralValue: "3.14",
                                  LocOffsetEnd: 147,
                                  LocOffsetStart: 143,
-                                 Role: "IASTFunctionCallExpression.ARGUMENT [IASTInitializerClause]",
                                  kind: "float_constant",
                               },
                            ],
-                           'IASTFunctionCallExpression.FUNCTION_NAME': [
+                           'Prop_FUNCTION_NAME': [
                               {
                                  ExpressionType: "void (double)",
                                  ExpressionValueCategory: "LVALUE",
                                  IASTClass: "CPPASTIdExpression",
-                                 'IASTIdExpression.ID_NAME': [
+                                 IsActive: true,
+                                 IsFrozen: true,
+                                 IsLValue: true,
+                                 LocOffsetEnd: 142,
+                                 LocOffsetStart: 134,
+                                 'Prop_ID_NAME': [
                                     {
                                        IASTClass: "CPPASTName",
                                        IsActive: true,
@@ -572,39 +564,30 @@
                                        LocOffsetEnd: 142,
                                        LocOffsetStart: 134,
                                        Name: "somefunc",
-                                       Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                     },
                                  ],
-                                 IsActive: true,
-                                 IsFrozen: true,
-                                 IsLValue: true,
-                                 LocOffsetEnd: 142,
-                                 LocOffsetStart: 134,
-                                 Role: "IASTFunctionCallExpression.FUNCTION_NAME [IASTExpression]",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsLValue: false,
-                           LocOffsetEnd: 148,
-                           LocOffsetStart: 134,
-                           Role: "IASTExpressionStatement.EXPRESSION - IASTExpression for IASTExpressionStatement",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 149,
-                     LocOffsetStart: 134,
-                     Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
                   },
                   {
                      IASTClass: "CPPASTExpressionStatement",
-                     'IASTExpressionStatement.EXPRESSION': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 168,
+                     LocOffsetStart: 152,
+                     'Prop_EXPRESSION': [
                         {
                            ExpressionType: "Attempt to use symbol failed: somefunc",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTFunctionCallExpression",
-                           'IASTFunctionCallExpression.ARGUMENT': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           IsLValue: false,
+                           LocOffsetEnd: 167,
+                           LocOffsetStart: 152,
+                           'Prop_ARGUMENT': [
                               {
                                  ExpressionType: "const char [4]",
                                  ExpressionValueCategory: "LVALUE",
@@ -615,16 +598,20 @@
                                  LiteralValue: "\"foo\"",
                                  LocOffsetEnd: 166,
                                  LocOffsetStart: 161,
-                                 Role: "IASTFunctionCallExpression.ARGUMENT [IASTInitializerClause]",
                                  kind: "string_literal",
                               },
                            ],
-                           'IASTFunctionCallExpression.FUNCTION_NAME': [
+                           'Prop_FUNCTION_NAME': [
                               {
                                  ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@28eaa59a",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTIdExpression",
-                                 'IASTIdExpression.ID_NAME': [
+                                 IsActive: true,
+                                 IsFrozen: true,
+                                 IsLValue: false,
+                                 LocOffsetEnd: 160,
+                                 LocOffsetStart: 152,
+                                 'Prop_ID_NAME': [
                                     {
                                        IASTClass: "CPPASTName",
                                        IsActive: true,
@@ -633,50 +620,16 @@
                                        LocOffsetEnd: 160,
                                        LocOffsetStart: 152,
                                        Name: "somefunc",
-                                       Role: "IASTIdExpression.ID_NAME - IASTName for IASTIdExpression",
                                     },
                                  ],
-                                 IsActive: true,
-                                 IsFrozen: true,
-                                 IsLValue: false,
-                                 LocOffsetEnd: 160,
-                                 LocOffsetStart: 152,
-                                 Role: "IASTFunctionCallExpression.FUNCTION_NAME [IASTExpression]",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsLValue: false,
-                           LocOffsetEnd: 167,
-                           LocOffsetStart: 152,
-                           Role: "IASTExpressionStatement.EXPRESSION - IASTExpression for IASTExpressionStatement",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 168,
-                     LocOffsetStart: 152,
-                     Role: "IASTCompoundStatement.NESTED_STATEMENT - nested IASTStatement for IASTCompoundStatement",
                   },
                ],
-               IsActive: true,
-               IsFrozen: true,
-               LocOffsetEnd: 170,
-               LocOffsetStart: 114,
-               Role: "IASTFunctionDefinition.FUNCTION_BODY - Function Body for IASTFunctionDefinition",
             },
          ],
-         IsActive: true,
-         IsDefaulted: false,
-         IsDeleted: false,
-         IsFrozen: true,
-         LocOffsetEnd: 170,
-         LocOffsetStart: 103,
-         Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
       },
    ],
-   IsActive: true,
-   IsFrozen: true,
-   LocOffsetEnd: 171,
-   LocOffsetStart: 0,
 }

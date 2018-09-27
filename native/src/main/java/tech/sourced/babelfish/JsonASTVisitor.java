@@ -90,14 +90,12 @@ public class JsonASTVisitor extends ASTVisitor {
         json.writeBooleanField("IsActive", node.isActive());
         json.writeBooleanField("IsFrozen", node.isFrozen());
 
-        // Unneded: now this is a property in the parent, uncomment code when the
-        // problem with the lambda expression is fixed (FIXME)
-        //if (verboseJson) {
+        if (verboseJson) {
             ASTNodeProperty propInParent = node.getPropertyInParent();
             if (propInParent != null) {
                 json.writeStringField("Role", propInParent.getName());
             }
-        //}
+        }
 
         serializeNodeLocation(node);
     }
@@ -141,15 +139,20 @@ public class JsonASTVisitor extends ASTVisitor {
         // inside an array value
         Hashtable<String, Vector<IASTNode>> hash = new Hashtable<String, Vector<IASTNode>>();
 
-        // FIXME: this doesnt seem to work for CPPASTLambdaExpression (all children
-        // are dumped into ICPPASTLambdaExpression property)
         for (IASTNode child : children) {
-            ASTNodeProperty role = child.getPropertyInParent();
+            String role = child.getPropertyInParent().getName();
+            String key;
 
-            if (role == null)
-                continue;
+            if (role.indexOf('.') != -1) {
+                // Parent.PROP - blabla
+                key = role.split(" ")[0].split("\\.")[1];
 
-            String key = role.getName().split(" ")[0];
+            } else {
+                // Parent - PROP blabla
+                key = role.split(" ")[2];
+            }
+
+            key = "Prop_" + key;
             Vector<IASTNode> l;
 
             if (hash.containsKey(key)) {
@@ -1172,7 +1175,6 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    // XXX try and check remove (common data, children, etc)
     @Override
     public int visit(IASTTypeId node) {
         try {

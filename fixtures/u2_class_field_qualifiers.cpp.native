@@ -1,19 +1,50 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   'IASTTranslationUnit.OWNED_DECLARATION': [
+   IsActive: true,
+   IsFrozen: true,
+   LocOffsetEnd: 137,
+   LocOffsetStart: 0,
+   'Prop_OWNED_DECLARATION': [
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         'IASTSimpleDeclaration.DECL_SPECIFIER': [
+         IsActive: true,
+         IsFrozen: true,
+         LocOffsetEnd: 136,
+         LocOffsetStart: 0,
+         'Prop_DECL_SPECIFIER': [
             {
                IASTClass: "CPPASTCompositeTypeSpecifier",
-               'IASTCompositeTypeSpecifier.MEMBER_DECLARATION': [
+               IsActive: true,
+               IsConst: false,
+               IsConstExpr: false,
+               IsExplicit: false,
+               IsFinal: false,
+               IsFriend: false,
+               IsFrozen: true,
+               IsInline: false,
+               IsRestrict: false,
+               IsThreadLocal: false,
+               IsVirtual: false,
+               IsVolatile: false,
+               Key: "class",
+               LocOffsetEnd: 135,
+               LocOffsetStart: 0,
+               'Prop_MEMBER_DECLARATION': [
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 36,
+                     LocOffsetStart: 28,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 35,
+                           LocOffsetStart: 32,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -22,17 +53,11 @@
                                  LocOffsetEnd: 35,
                                  LocOffsetStart: 32,
                                  Name: "foo",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 35,
-                           LocOffsetStart: 32,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -55,24 +80,26 @@
                            IsVolatile: false,
                            LocOffsetEnd: 31,
                            LocOffsetStart: 28,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "unspecified",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 36,
-                     LocOffsetStart: 28,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 58,
+                     LocOffsetStart: 50,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 57,
+                           LocOffsetStart: 54,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -81,17 +108,11 @@
                                  LocOffsetEnd: 57,
                                  LocOffsetStart: 54,
                                  Name: "bar",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 57,
-                           LocOffsetStart: 54,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -114,24 +135,26 @@
                            IsVolatile: false,
                            LocOffsetEnd: 53,
                            LocOffsetStart: 50,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "unspecified",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 58,
-                     LocOffsetStart: 50,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 77,
+                     LocOffsetStart: 69,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 76,
+                           LocOffsetStart: 73,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -140,17 +163,11 @@
                                  LocOffsetEnd: 76,
                                  LocOffsetStart: 73,
                                  Name: "baz",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 76,
-                           LocOffsetStart: 73,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -173,24 +190,26 @@
                            IsVolatile: false,
                            LocOffsetEnd: 72,
                            LocOffsetStart: 69,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "unspecified",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 77,
-                     LocOffsetStart: 69,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 95,
+                     LocOffsetStart: 80,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 94,
+                           LocOffsetStart: 91,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -199,17 +218,11 @@
                                  LocOffsetEnd: 94,
                                  LocOffsetStart: 91,
                                  Name: "pok",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 94,
-                           LocOffsetStart: 91,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -232,24 +245,26 @@
                            IsVolatile: false,
                            LocOffsetEnd: 90,
                            LocOffsetStart: 80,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "static",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 95,
-                     LocOffsetStart: 80,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 115,
+                     LocOffsetStart: 98,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 114,
+                           LocOffsetStart: 111,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -258,17 +273,11 @@
                                  LocOffsetEnd: 114,
                                  LocOffsetStart: 111,
                                  Name: "pol",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 114,
-                           LocOffsetStart: 111,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -291,24 +300,26 @@
                            IsVolatile: true,
                            LocOffsetEnd: 110,
                            LocOffsetStart: 98,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "unspecified",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 115,
-                     LocOffsetStart: 98,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                   {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     'IASTSimpleDeclaration.DECLARATOR': [
+                     IsActive: true,
+                     IsFrozen: true,
+                     LocOffsetEnd: 133,
+                     LocOffsetStart: 118,
+                     'Prop_DECLARATOR': [
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           'IASTDeclarator.DECLARATOR_NAME': [
+                           IsActive: true,
+                           IsFrozen: true,
+                           LocOffsetEnd: 132,
+                           LocOffsetStart: 128,
+                           'Prop_DECLARATOR_NAME': [
                               {
                                  IASTClass: "CPPASTName",
                                  IsActive: true,
@@ -317,17 +328,11 @@
                                  LocOffsetEnd: 132,
                                  LocOffsetStart: 128,
                                  Name: "blah",
-                                 Role: "IASTDeclarator.DECLARATOR_NAME - IASTName for IASTDeclarator",
                               },
                            ],
-                           IsActive: true,
-                           IsFrozen: true,
-                           LocOffsetEnd: 132,
-                           LocOffsetStart: 128,
-                           Role: "IASTSimpleDeclaration.DECLARATOR - IASTDeclarator for IASTSimpleDeclaration",
                         },
                      ],
-                     'IASTSimpleDeclaration.DECL_SPECIFIER': [
+                     'Prop_DECL_SPECIFIER': [
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
                            IsActive: true,
@@ -350,19 +355,13 @@
                            IsVolatile: false,
                            LocOffsetEnd: 127,
                            LocOffsetStart: 118,
-                           Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                            StorageClass: "unspecified",
                            Type: "int",
                         },
                      ],
-                     IsActive: true,
-                     IsFrozen: true,
-                     LocOffsetEnd: 133,
-                     LocOffsetStart: 118,
-                     Role: "IASTCompositeTypeSpecifier.MEMBER_DECLARATION - Nested IASTDeclaration for IASTCompositeTypeSpecifier",
                   },
                ],
-               'IASTCompositeTypeSpecifier.TYPE_NAME': [
+               'Prop_TYPE_NAME': [
                   {
                      IASTClass: "CPPASTName",
                      IsActive: true,
@@ -371,17 +370,15 @@
                      LocOffsetEnd: 14,
                      LocOffsetStart: 6,
                      Name: "testcls1",
-                     Role: "IASTCompositeTypeSpecifier.TYPE_NAME - IASTName for IASTCompositeTypeSpecifier",
                   },
                ],
-               'ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL': [
+               'Prop_VISIBILITY_LABEL': [
                   {
                      IASTClass: "CPPASTVisibilityLabel",
                      IsActive: true,
                      IsFrozen: true,
                      LocOffsetEnd: 27,
                      LocOffsetStart: 19,
-                     Role: "ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL - Visibility label \"declaration\"",
                      Visibility: "private",
                   },
                   {
@@ -390,7 +387,6 @@
                      IsFrozen: true,
                      LocOffsetEnd: 49,
                      LocOffsetStart: 39,
-                     Role: "ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL - Visibility label \"declaration\"",
                      Visibility: "protected",
                   },
                   {
@@ -399,38 +395,12 @@
                      IsFrozen: true,
                      LocOffsetEnd: 68,
                      LocOffsetStart: 61,
-                     Role: "ICPPASTCompositeTypeSpecifier.VISIBILITY_LABEL - Visibility label \"declaration\"",
                      Visibility: "public",
                   },
                ],
-               IsActive: true,
-               IsConst: false,
-               IsConstExpr: false,
-               IsExplicit: false,
-               IsFinal: false,
-               IsFriend: false,
-               IsFrozen: true,
-               IsInline: false,
-               IsRestrict: false,
-               IsThreadLocal: false,
-               IsVirtual: false,
-               IsVolatile: false,
-               Key: "class",
-               LocOffsetEnd: 135,
-               LocOffsetStart: 0,
-               Role: "IASTSimpleDeclaration.DECL_SPECIFIER - IASTDeclSpecifier for IASTSimpleDeclaration",
                StorageClass: "unspecified",
             },
          ],
-         IsActive: true,
-         IsFrozen: true,
-         LocOffsetEnd: 136,
-         LocOffsetStart: 0,
-         Role: "IASTTranslationUnit.OWNED_DECLARATION - IASTDeclaration for IASTTranslationUnit",
       },
    ],
-   IsActive: true,
-   IsFrozen: true,
-   LocOffsetEnd: 137,
-   LocOffsetStart: 0,
 }
