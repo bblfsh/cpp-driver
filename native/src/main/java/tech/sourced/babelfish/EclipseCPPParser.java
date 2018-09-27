@@ -77,61 +77,61 @@ class EclipseCPPParser {
         return parser.parse();
     }
 
-    void printAST(String code)
+    void debugPrintAST(String code)
             throws Exception {
         // TODO: use C or CPP depending on the specified language
         TranslationUnit tuWrapper = parseCPP(code);
         IASTTranslationUnit translationUnit = tuWrapper.rootNode;
-//        System.out.println("XXX comments:");
-//        for (IASTComment comment : translationUnit.getComments()) {
-//            System.out.print("toStr: ");
-//            System.out.println(comment.toString());
-//            System.out.println("location: ");
-//            System.out.println(getNodeLocationStr(comment));
-//            System.out.print("parent: ");
-//            System.out.println(comment.getParent().toString());
-//            System.out.print("propertyInParent: ");
-//            System.out.println(comment.getPropertyInParent().toString());
-//            System.out.print("isBlockComment: ");
-//            System.out.println(comment.isBlockComment());
-//            System.out.println("");
-//        }
+        System.out.println("===Comments:");
+        for (IASTComment comment : translationUnit.getComments()) {
+            System.out.print("toStr: ");
+            System.out.println(comment.toString());
+            System.out.println("location: ");
+            System.out.println(getNodeLocationStr(comment));
+            System.out.print("parent: ");
+            System.out.println(comment.getParent().toString());
+            System.out.print("propertyInParent: ");
+            System.out.println(comment.getPropertyInParent().toString());
+            System.out.print("isBlockComment: ");
+            System.out.println(comment.isBlockComment());
+            System.out.println("");
+        }
 
-        System.err.println("XXX Includes:");
+        System.err.println("===Includes:");
         IASTPreprocessorIncludeStatement[] includes = translationUnit.getIncludeDirectives();
         for (IASTPreprocessorIncludeStatement include : includes) {
             System.err.println("include - " + include.getName());
         }
 
-//        System.out.println("XXX preprocStatements: ");
-//		IASTPreprocessorStatement[] preprocessorStatements = translationUnit.getAllPreprocessorStatements();
-//        for (IASTPreprocessorStatement ps : preprocessorStatements){
-//            System.out.println(ps.toString());
-//        }
+        System.out.println("===PreprocStatements: ");
+        IASTPreprocessorStatement[] preprocessorStatements = translationUnit.getAllPreprocessorStatements();
+        for (IASTPreprocessorStatement ps : preprocessorStatements){
+            System.out.println(ps.toString());
+        }
 
-//        System.out.println("XXX macroDefinitions: ");
-//        IASTPreprocessorMacroDefinition[] macroDefinitions = translationUnit.getMacroDefinitions();
-//        for (IASTPreprocessorMacroDefinition macroDefinition : macroDefinitions){
-//            System.out.println(macroDefinition);
-//            if(macroDefinition instanceof IASTPreprocessorFunctionStyleMacroDefinition){
-//                IASTPreprocessorFunctionStyleMacroDefinition styleDef = (IASTPreprocessorFunctionStyleMacroDefinition) macroDefinition;
-//
-//                IASTFunctionStyleMacroParameter[] macroParameters = styleDef.getParameters();
-//                for(IASTFunctionStyleMacroParameter mp : macroParameters){
-//                    System.out.println("macro parameter: "+mp.getParameter());
-//                }
-//            }
-//            System.out.println(macroDefinition.getName() );
-//            System.out.println(macroDefinition.getExpansion());
-//        }
+        System.out.println("===MacroDefinitions: ");
+        IASTPreprocessorMacroDefinition[] macroDefinitions = translationUnit.getMacroDefinitions();
+        for (IASTPreprocessorMacroDefinition macroDefinition : macroDefinitions){
+            System.out.println(macroDefinition);
+            if(macroDefinition instanceof IASTPreprocessorFunctionStyleMacroDefinition){
+                IASTPreprocessorFunctionStyleMacroDefinition styleDef = (IASTPreprocessorFunctionStyleMacroDefinition) macroDefinition;
 
-//        System.out.println("XXX macroExpansions: ");
-//        IASTPreprocessorMacroExpansion[] macroExpansions = translationUnit.getMacroExpansions();
-//        for(IASTPreprocessorMacroExpansion macroExpansion : macroExpansions){
-//            System.out.println(macroExpansion.getRawSignature());
-//            System.out.println(macroExpansion.getMacroReference());
-//            System.out.println(macroExpansion.getMacroDefinition());
-//        }
+                IASTFunctionStyleMacroParameter[] macroParameters = styleDef.getParameters();
+                for(IASTFunctionStyleMacroParameter mp : macroParameters){
+                    System.out.println("macro parameter: "+mp.getParameter());
+                }
+            }
+            System.out.println(macroDefinition.getName() );
+            System.out.println(macroDefinition.getExpansion());
+        }
+
+        System.out.println("===MacroExpansions: ");
+        IASTPreprocessorMacroExpansion[] macroExpansions = translationUnit.getMacroExpansions();
+        for(IASTPreprocessorMacroExpansion macroExpansion : macroExpansions){
+            System.out.println(macroExpansion.getRawSignature());
+            System.out.println(macroExpansion.getMacroReference());
+            System.out.println(macroExpansion.getMacroDefinition());
+        }
         System.out.println("\nAST Tree:");
         printTree(translationUnit, 1);
 
