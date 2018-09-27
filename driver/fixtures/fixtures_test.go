@@ -27,7 +27,7 @@ var Suite = &fixtures.Suite{
 		},
 	},
 	Docker:fixtures.DockerConfig{
-		//Image:"image:tag", // TODO: specify a docker image with language runtime
+		Image: "openjdk:8",
 	},
 }
 
