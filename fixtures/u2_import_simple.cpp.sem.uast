@@ -14,4 +14,8 @@
    },
    IsActive: true,
    IsFrozen: true,
+   'Prop_AllPreprocessorStatements': [],
+   'Prop_BuiltinMacroDefinitions': [],
+   'Prop_IncludeDirectives': [],
+   'Prop_PreprocessorProblems': [],
 }

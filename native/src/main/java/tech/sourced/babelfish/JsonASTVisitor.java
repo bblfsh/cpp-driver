@@ -1,6 +1,7 @@
 package tech.sourced.babelfish;
 
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonGenerationException;
 import org.eclipse.cdt.core.dom.ast.*;
 import org.eclipse.cdt.core.dom.ast.c.*;
 import org.eclipse.cdt.core.dom.ast.cpp.*;
@@ -11,6 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
+import java.util.HashSet;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 // FIXME: IASTProblem
 //
@@ -34,6 +38,7 @@ public class JsonASTVisitor extends ASTVisitor {
     private JsonGenerator json;
     private NodeCommentMap commentMap;
     private boolean verboseJson = false;
+    private HashSet<String> skipMethods;
     IOException error;
     boolean hasError = false;
 
@@ -53,11 +58,25 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNames = true;
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
+        shouldVisitImplicitNames = true;
         shouldVisitPointerOperators = true;
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
         shouldVisitTranslationUnit = true;
         shouldVisitTypeIds = true;
+        // FIXME: change when problem visiting is activated (and remove getProblem
+        // from skipMethods below)
+        shouldVisitProblems = false;
+
+        skipMethods = new HashSet<String>(Arrays.asList("getClass", "getChildren",
+                    "getCompletionContext", "getContainingFilename", "getFileLocation",
+                    "getImageLocation", "getOffset", "getParent", "getPropertyInParent",
+                    "getTranslationUnit", "getLeadingSyntax", "getLength",
+                    "getLinkage", "getOriginalNode", "getRawSignature",
+                    "getTrailingSyntax", "getSyntax", "getNodeLocations",
+                    "getExecution", "getDependencyTree", "getLastName",
+                    "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
+                    "getRoleForName", "getProblem"));
     }
 
     private void enableErrorState(IOException e) {
@@ -127,10 +146,69 @@ public class JsonASTVisitor extends ASTVisitor {
         serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
     }
 
-    // We need to call this on each visitor instead of just retuning
-    // PROCESS_SKIP and let the base clase do it automatically because
-    // we need to start the child JSON array
     private void visitChildren(IASTNode node) throws IOException {
+        // FIXME: Cache the members and type (array or single) of each class to avoid
+        // repeating the getMethods()/getName()/isArray()/getComponentType()/invoke()/
+        // etc calls which are slow (huge.cpp sometimes failing because of i/o timeout since this
+        // was implemented).
+        //
+        // Tier 2: autogenerate this cache on the project build as a java file and
+        // use it here.
+        for (Method method : node.getClass().getMethods()) {
+            String mname = method.getName();
+
+            if (!mname.startsWith("get") || skipMethods.contains(mname)
+                    || method.getParameterCount() > 0) {
+                continue;
+            }
+
+            String propName = "Prop_" + mname.substring(3);
+            Class<?> returnType = method.getReturnType();
+
+            if (returnType.getName().indexOf("AST") == -1)
+                continue;
+
+            try {
+                if (returnType.isArray()) {
+                    Class<?> baseType = returnType.getComponentType();
+                    Object[] oChildren = (Object[])method.invoke(node);
+
+                    if (oChildren == null || oChildren.length == 0 ||
+                        !(oChildren[0] instanceof IASTNode))
+                        continue;
+
+                    json.writeFieldName(propName);
+                    json.writeStartArray();
+
+                    try {
+                        for(Object oChild : oChildren) {
+                            ((IASTNode)oChild).accept(this);
+                        }
+                    } finally {
+                        json.writeEndArray();
+                    }
+
+                } else {
+                    Object oChild = method.invoke(node);
+
+                    if (oChild == null || !(oChild instanceof IASTNode))
+                        continue;
+
+                    json.writeFieldName(propName);
+                    ((IASTNode)oChild).accept(this);
+                }
+
+            } catch (IllegalAccessException e) {
+                continue;
+            } catch (InvocationTargetException e) {
+                continue;
+            }
+        }
+
+        // FIXME: count the number of visited children with the method above and
+        // compare with the old method below, ensure they're the same
+
+        /*
         IASTNode[] children = node.getChildren();
         if (children == null || children.length == 0)
             return;
@@ -176,6 +254,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeEndArray();
             }
         }
+        */
     }
 
     private void serializeUnaryExpression(IASTUnaryExpression node) throws IOException {
@@ -484,10 +563,8 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 serializeComments(node);
-                json.writeFieldName("ExpressionType");
-                json.writeString(node.getExpressionType().toString());
-                json.writeFieldName("ExpressionValueCategory");
-                json.writeString(node.getValueCategory().toString());
+                json.writeStringField("ExpressionType", node.getExpressionType().toString());
+                json.writeStringField("ExpressionValueCategory",node.getValueCategory().toString());
                 json.writeBooleanField("IsLValue", node.isLValue());
 
                 if (node instanceof IASTBinaryExpression) {
@@ -541,7 +618,6 @@ public class JsonASTVisitor extends ASTVisitor {
                         default:
                             kindStr = "unknow_literal_value";
                     }
-
                     json.writeStringField("kind", kindStr);
                 }
 
@@ -559,8 +635,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTBinaryTypeIdExpression) {
                     IASTBinaryTypeIdExpression impl = (IASTBinaryTypeIdExpression) node;
-                    json.writeStringField("OPERAND1", impl.OPERAND1.toString());
-                    json.writeStringField("OPERAND2", impl.OPERAND2.toString());
                     IASTBinaryTypeIdExpression.Operator operator = impl.getOperator();
                     json.writeStringField("BinaryTypeIdOperator", operator.toString());
                 }
@@ -748,7 +822,7 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof ICPPASTUsingDeclaration) {
                     ICPPASTUsingDeclaration impl = (ICPPASTUsingDeclaration) node;
-                    json.writeStringField("Name", impl.NAME.toString());
+                    json.writeStringField("Name", ICPPASTUsingDeclaration.NAME.toString());
                     json.writeBooleanField("IsTypeName", impl.isTypename());
                 }
 
@@ -1199,7 +1273,7 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeStringField("Identifier", node.IDENTIFIER.toString());
+                json.writeStringField("Identifier", ICPPASTCapture.IDENTIFIER.toString());
                 json.writeBooleanField("CapturesThisPointer", node.capturesThisPointer());
                 json.writeBooleanField("IsByReference", node.isByReference());
                 serializeComments(node);
