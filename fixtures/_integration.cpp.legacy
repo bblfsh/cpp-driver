@@ -30,7 +30,7 @@ CPPASTTranslationUnit {
 .  .  .  Properties: {
 .  .  .  .  IsActive: true
 .  .  .  .  IsFrozen: true
-.  .  .  .  internalRole: XXXProp_Declarations
+.  .  .  .  internalRole: Prop_Declarations
 .  .  .  }
 .  .  .  Children: {
 .  .  .  .  0: CPPASTName {
@@ -50,7 +50,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  Name: std
-.  .  .  .  .  .  internalRole: XXXProp_QualifiedName
+.  .  .  .  .  .  internalRole: Prop_QualifiedName
 .  .  .  .  .  }
 .  .  .  .  }
 .  .  .  }
@@ -72,7 +72,7 @@ CPPASTTranslationUnit {
 .  .  .  .  IsDefaulted: false
 .  .  .  .  IsDeleted: false
 .  .  .  .  IsFrozen: true
-.  .  .  .  internalRole: XXXProp_Declarations
+.  .  .  .  internalRole: Prop_Declarations
 .  .  .  }
 .  .  .  Children: {
 .  .  .  .  0: CPPASTSimpleDeclSpecifier {
@@ -108,7 +108,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  StorageClass: unspecified
 .  .  .  .  .  .  Type: int
-.  .  .  .  .  .  internalRole: XXXProp_DeclSpecifier
+.  .  .  .  .  .  internalRole: Prop_DeclSpecifier
 .  .  .  .  .  }
 .  .  .  .  }
 .  .  .  .  1: CPPASTFunctionDeclarator {
@@ -134,7 +134,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  IsPureVirtual: false
 .  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  TakesVarArgs: false
-.  .  .  .  .  .  internalRole: XXXProp_Declarator
+.  .  .  .  .  .  internalRole: Prop_Declarator
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTName {
@@ -154,7 +154,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  Name: main
-.  .  .  .  .  .  .  .  internalRole: XXXProp_Name
+.  .  .  .  .  .  .  .  internalRole: Prop_Name
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
 .  .  .  .  .  }
@@ -174,7 +174,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  internalRole: XXXProp_Body
+.  .  .  .  .  .  internalRole: Prop_Body
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTExpressionStatement {
@@ -192,7 +192,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  internalRole: XXXProp_Statements
+.  .  .  .  .  .  .  .  internalRole: Prop_Statements
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  0: CPPASTBinaryExpression {
@@ -214,7 +214,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  Operator: left <<
-.  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_Expression
+.  .  .  .  .  .  .  .  .  .  internalRole: Prop_Expression
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  .  .  0: CPPASTIdExpression {
@@ -235,7 +235,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: false
-.  .  .  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_Operand1
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  .  .  .  .  0: CPPASTName {
@@ -255,7 +255,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: cout
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_Name
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Name
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -279,7 +279,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  LiteralValue: "Hello, World!"
-.  .  .  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_InitOperand2
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_InitOperand2
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
@@ -302,7 +302,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  LiteralValue: "Hello, World!"
-.  .  .  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_Operand2
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand2
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
@@ -325,7 +325,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  internalRole: XXXProp_Statements
+.  .  .  .  .  .  .  .  internalRole: Prop_Statements
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  0: CPPASTLiteralExpression {
@@ -347,7 +347,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  LiteralValue: 0
-.  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_ReturnArgument
+.  .  .  .  .  .  .  .  .  .  internalRole: Prop_ReturnArgument
 .  .  .  .  .  .  .  .  .  .  kind: integer_constant
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
@@ -370,7 +370,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  LiteralValue: 0
-.  .  .  .  .  .  .  .  .  .  internalRole: XXXProp_ReturnValue
+.  .  .  .  .  .  .  .  .  .  internalRole: Prop_ReturnValue
 .  .  .  .  .  .  .  .  .  .  kind: integer_constant
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }

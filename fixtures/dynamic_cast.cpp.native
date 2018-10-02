@@ -1226,6 +1226,7 @@
                   TrailingComments: [
                      {
                         Comment: "// pderived = nullptr",
+                        IASTClass: "Comment",
                         IsBlockComment: false,
                         LocOffsetEnd: 340,
                         LocOffsetStart: 319,

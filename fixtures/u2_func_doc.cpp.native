@@ -16,6 +16,7 @@
          LeadingComments: [
             {
                Comment: "/**\n * Some doc\n */",
+               IASTClass: "Comment",
                IsBlockComment: true,
                LocOffsetEnd: 19,
                LocOffsetStart: 0,

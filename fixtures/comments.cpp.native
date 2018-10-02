@@ -11,12 +11,14 @@
          FreestadingComments: [
             {
                Comment: "/* Multi line\n * comment */",
+               IASTClass: "Comment",
                IsBlockComment: true,
                LocOffsetEnd: 79,
                LocOffsetStart: 52,
             },
             {
                Comment: "/** Unnoficial doxygen comment */",
+               IASTClass: "Comment",
                IsBlockComment: true,
                LocOffsetEnd: 114,
                LocOffsetStart: 81,
@@ -28,6 +30,7 @@
          LeadingComments: [
             {
                Comment: "// single line comment",
+               IASTClass: "Comment",
                IsBlockComment: false,
                LocOffsetEnd: 22,
                LocOffsetStart: 0,
@@ -82,6 +85,7 @@
          TrailingComments: [
             {
                Comment: "// single line after",
+               IASTClass: "Comment",
                IsBlockComment: false,
                LocOffsetEnd: 50,
                LocOffsetStart: 30,

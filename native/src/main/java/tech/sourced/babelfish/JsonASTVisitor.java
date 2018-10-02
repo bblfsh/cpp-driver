@@ -127,6 +127,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 for (IASTComment comment : comments) {
                     json.writeStartObject();
                     try {
+                        json.writeStringField("IASTClass", "Comment");
                         json.writeStringField("Comment", comment.toString());
                         json.writeBooleanField("IsBlockComment", comment.isBlockComment());
                         serializeNodeLocation(comment);
