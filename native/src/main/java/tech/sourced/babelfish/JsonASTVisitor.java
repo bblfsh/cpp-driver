@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
+
 // FIXME: IASTProblem
 //
 
@@ -32,16 +33,36 @@ import java.lang.reflect.InvocationTargetException;
 /// because the possible values are not even declarated in an enum but as final int
 /// class members (thank god for [Idea]Vim macros!).
 
-// Many Bothans died to bring us this class
+// Many Bothan agents died to bring us this class
 public class JsonASTVisitor extends ASTVisitor {
 
     private JsonGenerator json;
     private NodeCommentMap commentMap;
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
+    private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
     IOException error;
     boolean hasError = false;
 
+    // The visitChildren method uses reflection to get the methods and return values
+    // to retrieve children and assign them to properties instead of a flat list. That is
+    // slow so we'll cache every inspected node using this class and the childrenMethod
+    // cache below.
+    private class ChildrenTypeCacheValue
+    {
+        public String propertyName;
+        public Method method;
+        public String methodName;
+        public boolean returnsArray;
+
+        ChildrenTypeCacheValue(String propName, Method meth, String methName, boolean retArray)
+        {
+            propertyName = propName;
+            method = meth;
+            methodName = methName;
+            returnsArray = retArray;
+        }
+    }
 
     JsonASTVisitor(JsonGenerator json, NodeCommentMap commentMap) {
         super();
@@ -67,7 +88,6 @@ public class JsonASTVisitor extends ASTVisitor {
         // FIXME: change when problem visiting is activated (and remove getProblem
         // from skipMethods below)
         shouldVisitProblems = false;
-
         skipMethods = new HashSet<String>(Arrays.asList("getClass", "getChildren",
                     "getCompletionContext", "getContainingFilename", "getFileLocation",
                     "getImageLocation", "getOffset", "getParent", "getPropertyInParent",
@@ -77,6 +97,7 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
                     "getRoleForName", "getProblem"));
+        childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
     }
 
     private void enableErrorState(IOException e) {
@@ -147,115 +168,75 @@ public class JsonASTVisitor extends ASTVisitor {
         serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
     }
 
-    private void visitChildren(IASTNode node) throws IOException {
-        // FIXME: Cache the members and type (array or single) of each class to avoid
-        // repeating the getMethods()/getName()/isArray()/getComponentType()/invoke()/
-        // etc calls which are slow (huge.cpp sometimes failing because of i/o timeout since this
-        // was implemented).
-        //
-        // Tier 2: autogenerate this cache on the project build as a java file and
-        // use it here.
-        for (Method method : node.getClass().getMethods()) {
-            String mname = method.getName();
+    private void writeChildProperty(IASTNode parent, Method method,
+            String propertyName, boolean isArray) throws IOException {
+        try {
+            if (isArray) {
+                Object[] oChildren = (Object[])method.invoke(parent);
 
-            if (!mname.startsWith("get") || skipMethods.contains(mname)
-                    || method.getParameterCount() > 0) {
-                continue;
-            }
+                if (oChildren == null || oChildren.length == 0 ||
+                    !(oChildren[0] instanceof IASTNode))
+                    return;
 
-            String propName = "Prop_" + mname.substring(3);
-            Class<?> returnType = method.getReturnType();
+                json.writeFieldName(propertyName);
+                json.writeStartArray();
 
-            if (returnType.getName().indexOf("AST") == -1)
-                continue;
-
-            try {
-                if (returnType.isArray()) {
-                    Class<?> baseType = returnType.getComponentType();
-                    Object[] oChildren = (Object[])method.invoke(node);
-
-                    if (oChildren == null || oChildren.length == 0 ||
-                        !(oChildren[0] instanceof IASTNode))
-                        continue;
-
-                    json.writeFieldName(propName);
-                    json.writeStartArray();
-
-                    try {
-                        for(Object oChild : oChildren) {
-                            ((IASTNode)oChild).accept(this);
-                        }
-                    } finally {
-                        json.writeEndArray();
-                    }
-
-                } else {
-                    Object oChild = method.invoke(node);
-
-                    if (oChild == null || !(oChild instanceof IASTNode))
-                        continue;
-
-                    json.writeFieldName(propName);
-                    ((IASTNode)oChild).accept(this);
+                try {
+                    for(Object oChild : oChildren)
+                        ((IASTNode)oChild).accept(this);
+                } finally {
+                    json.writeEndArray();
                 }
+            } else {
+                Object oChild = method.invoke(parent);
 
-            } catch (IllegalAccessException e) {
-                continue;
-            } catch (InvocationTargetException e) {
-                continue;
+                if (oChild == null || !(oChild instanceof IASTNode))
+                    return;
+
+                json.writeFieldName(propertyName);
+                ((IASTNode)oChild).accept(this);
             }
-        }
-
-        // FIXME: count the number of visited children with the method above and
-        // compare with the old method below, ensure they're the same
-
-        /*
-        IASTNode[] children = node.getChildren();
-        if (children == null || children.length == 0)
+        } catch (IllegalAccessException e) {
             return;
-
-        // Load the children into a hashtable, then write children with the same role
-        // inside an array value
-        Hashtable<String, Vector<IASTNode>> hash = new Hashtable<String, Vector<IASTNode>>();
-
-        for (IASTNode child : children) {
-            String role = child.getPropertyInParent().getName();
-            String key;
-
-            if (role.indexOf('.') != -1) {
-                // Parent.PROP - blabla
-                key = role.split(" ")[0].split("\\.")[1];
-
-            } else {
-                // Parent - PROP blabla
-                key = role.split(" ")[2];
-            }
-
-            key = "Prop_" + key;
-            Vector<IASTNode> l;
-
-            if (hash.containsKey(key)) {
-                l = hash.get(key);
-            } else {
-                l = new Vector<IASTNode>();
-                hash.put(key, l);
-            }
-
-            l.add(child);
+        } catch (InvocationTargetException e) {
+            return;
         }
+    }
 
-        for (String key: hash.keySet()) {
-            json.writeFieldName(key);
-            json.writeStartArray();
-            try {
-                for (IASTNode n: hash.get(key)) {
-                    n.accept(this);
-                }
-            } finally {
-                json.writeEndArray();
+    private void visitChildren(IASTNode node) throws IOException {
+        String nodeClass = node.getClass().getSimpleName();
+        Vector<ChildrenTypeCacheValue> catched = childrenMethodsCache.get(nodeClass);
+
+        if (catched != null) {
+            for (ChildrenTypeCacheValue val : catched) {
+                writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
+                json.writeBooleanField("__MethodCatched", true);
+            }
+
+        } else {
+            for (Method method : node.getClass().getMethods()) {
+                String mname = method.getName();
+
+                if (!mname.startsWith("get") || skipMethods.contains(mname)
+                        || method.getParameterCount() > 0)
+                    continue;
+
+                String propName = "Prop_" + mname.substring(3);
+                Class<?> returnType = method.getReturnType();
+
+                if (returnType.getName().indexOf("AST") == -1)
+                    continue;
+
+                writeChildProperty(node, method, propName, returnType.isArray());
+
+                // Add the node and method information to the cache
+                ChildrenTypeCacheValue cacheVal = new ChildrenTypeCacheValue(
+                        propName, method, mname, returnType.isArray());
+
+                if (!childrenMethodsCache.containsKey(nodeClass))
+                    childrenMethodsCache.put(nodeClass, new Vector<ChildrenTypeCacheValue>());
             }
         }
-        */
     }
 
     private void serializeUnaryExpression(IASTUnaryExpression node) throws IOException {
