@@ -57,7 +57,6 @@
                         LocOffsetStart: 15,
                         StorageClass: "unspecified",
                         Type: "int",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -138,7 +137,6 @@
                                  IsQualified: false,
                                  Name: "",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -164,7 +162,6 @@
                               LocOffsetStart: 40,
                               StorageClass: "unspecified",
                               Type: "int",
-                              '__MethodCatched': true,
                            },
                         },
                      },
@@ -207,7 +204,6 @@
                            LiteralValue: "42",
                            LocOffsetEnd: 47,
                            LocOffsetStart: 45,
-                           '__MethodCatched': true,
                            kind: "integer_constant",
                         },
                         'Prop_TypeId': {
@@ -230,7 +226,6 @@
                                  IsQualified: false,
                                  Name: "",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -256,11 +251,8 @@
                               LocOffsetStart: 40,
                               StorageClass: "unspecified",
                               Type: "int",
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
-                        '__MethodCatched': true,
                      },
                   },
                },

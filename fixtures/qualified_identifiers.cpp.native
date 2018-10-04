@@ -36,31 +36,6 @@
                   IsFrozen: true,
                   LocOffsetEnd: 21,
                   LocOffsetStart: 15,
-                  'Prop_DeclSpecifier': {
-                     IASTClass: "CPPASTSimpleDeclSpecifier",
-                     IsActive: true,
-                     IsComplex: false,
-                     IsConst: false,
-                     IsConstExpr: false,
-                     IsExplicit: false,
-                     IsFriend: false,
-                     IsFrozen: true,
-                     IsImaginary: false,
-                     IsInline: false,
-                     IsLong: false,
-                     IsLongLong: false,
-                     IsRestrict: false,
-                     IsShort: false,
-                     IsSigned: false,
-                     IsThreadLocal: false,
-                     IsUnsigned: false,
-                     IsVirtual: false,
-                     IsVolatile: false,
-                     LocOffsetEnd: 18,
-                     LocOffsetStart: 15,
-                     StorageClass: "unspecified",
-                     Type: "int",
-                  },
                   'Prop_Declarators': [
                      {
                         DeclaresParameterPack: false,
@@ -150,7 +125,6 @@
                         Name: "Foo",
                      },
                      StorageClass: "unspecified",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarators': [
                      {
@@ -169,10 +143,8 @@
                            LocOffsetStart: 45,
                            Name: "f",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
             'Prop_Name': {
@@ -185,9 +157,7 @@
                Name: "Bar",
             },
             StorageClass: "unspecified",
-            '__MethodCatched': true,
          },
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTFunctionDefinition",
@@ -242,7 +212,6 @@
                            Name: "Bar",
                         },
                         StorageClass: "unspecified",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -274,10 +243,8 @@
                               LocOffsetStart: 71,
                               Name: "b",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
                },
                {
@@ -339,15 +306,6 @@
                            IsTemplate: false,
                            LocOffsetEnd: 79,
                            LocOffsetStart: 76,
-                           'Prop_FieldName': {
-                              IASTClass: "CPPASTName",
-                              IsActive: true,
-                              IsFrozen: true,
-                              IsQualified: false,
-                              LocOffsetEnd: 79,
-                              LocOffsetStart: 78,
-                              Name: "f",
-                           },
                            'Prop_FieldOwner': {
                               ExpressionType: "Bar",
                               ExpressionValueCategory: "LVALUE",
@@ -367,7 +325,6 @@
                                  Name: "b",
                               },
                            },
-                           '__MethodCatched': true,
                         },
                      },
                      'Prop_Operand2': {
@@ -380,7 +337,6 @@
                         LiteralValue: "10",
                         LocOffsetEnd: 86,
                         LocOffsetStart: 84,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
                   },
@@ -411,7 +367,6 @@
             LocOffsetStart: 52,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,

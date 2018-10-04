@@ -207,7 +207,6 @@
                      LocOffsetStart: 91,
                      StorageClass: "unspecified",
                      Type: "int",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarators': [
                      {
@@ -228,7 +227,6 @@
                         },
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
             'Prop_Name': {
@@ -241,9 +239,7 @@
                Name: "Derived",
             },
             StorageClass: "unspecified",
-            '__MethodCatched': true,
          },
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTFunctionDefinition",
@@ -358,7 +354,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -386,7 +381,6 @@
                                           Name: "Derived",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
                                  },
                               },
@@ -435,7 +429,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -463,11 +456,8 @@
                                           Name: "Derived",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
                            },
                            'Prop_Name': {
@@ -491,10 +481,8 @@
                                  LocOffsetStart: 124,
                               },
                            ],
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
                },
                {
@@ -535,7 +523,6 @@
                            Name: "Base",
                         },
                         StorageClass: "unspecified",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -596,7 +583,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -624,11 +610,8 @@
                                           Name: "Base",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
                               'Prop_InitializerClause': {
                                  ExpressionType: "Base *",
@@ -675,7 +658,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -703,13 +685,9 @@
                                           Name: "Base",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -730,15 +708,11 @@
                                  IsVolatile: false,
                                  LocOffsetEnd: 165,
                                  LocOffsetStart: 164,
-                                 '__MethodCatched': true,
                               },
                            ],
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
@@ -778,7 +752,6 @@
                            Name: "Derived",
                         },
                         StorageClass: "unspecified",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -807,15 +780,11 @@
                                  IsVolatile: false,
                                  LocOffsetEnd: 202,
                                  LocOffsetStart: 201,
-                                 '__MethodCatched': true,
                               },
                            ],
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -861,7 +830,6 @@
                               LocOffsetStart: 252,
                               Name: "pbase_derived",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_TypeId': {
                            IASTClass: "CPPASTTypeId",
@@ -893,10 +861,8 @@
                                     IsVolatile: false,
                                     LocOffsetEnd: 250,
                                     LocOffsetStart: 249,
-                                    '__MethodCatched': true,
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -924,9 +890,7 @@
                                  Name: "Derived",
                               },
                               StorageClass: "unspecified",
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
                      },
                      'Prop_Operand1': {
@@ -976,7 +940,6 @@
                               LocOffsetStart: 252,
                               Name: "pbase_derived",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_TypeId': {
                            IASTClass: "CPPASTTypeId",
@@ -1008,10 +971,8 @@
                                     IsVolatile: false,
                                     LocOffsetEnd: 250,
                                     LocOffsetStart: 249,
-                                    '__MethodCatched': true,
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -1039,11 +1000,8 @@
                                  Name: "Derived",
                               },
                               StorageClass: "unspecified",
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
-                        '__MethodCatched': true,
                      },
                   },
                },
@@ -1091,7 +1049,6 @@
                               LocOffsetStart: 306,
                               Name: "pbase_base",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_TypeId': {
                            IASTClass: "CPPASTTypeId",
@@ -1123,10 +1080,8 @@
                                     IsVolatile: false,
                                     LocOffsetEnd: 304,
                                     LocOffsetStart: 303,
-                                    '__MethodCatched': true,
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -1154,11 +1109,8 @@
                                  Name: "Derived",
                               },
                               StorageClass: "unspecified",
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "Derived *",
@@ -1178,7 +1130,6 @@
                            LocOffsetStart: 272,
                            Name: "pderived",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         CastOperator: "dynamic_cast",
@@ -1208,7 +1159,6 @@
                               LocOffsetStart: 306,
                               Name: "pbase_base",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_TypeId': {
                            IASTClass: "CPPASTTypeId",
@@ -1240,10 +1190,8 @@
                                     IsVolatile: false,
                                     LocOffsetEnd: 304,
                                     LocOffsetStart: 303,
-                                    '__MethodCatched': true,
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -1271,13 +1219,9 @@
                                  Name: "Derived",
                               },
                               StorageClass: "unspecified",
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
                   TrailingComments: [
                      {
@@ -1288,10 +1232,8 @@
                         LocOffsetStart: 319,
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
-            '__MethodCatched': true,
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -1317,7 +1259,6 @@
             LocOffsetStart: 102,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,
@@ -1342,9 +1283,7 @@
                Name: "main",
             },
             TakesVarArgs: false,
-            '__MethodCatched': true,
          },
-         '__MethodCatched': true,
       },
    ],
 }

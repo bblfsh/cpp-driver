@@ -45,7 +45,6 @@
             LocOffsetStart: 0,
             StorageClass: "unspecified",
             Type: "void",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,
@@ -94,7 +93,6 @@
                   LocOffsetStart: 14,
                   StorageClass: "unspecified",
                   Type: "char",
-                  '__MethodCatched': true,
                },
                {
                   DeclaresParameterPack: false,
@@ -122,10 +120,8 @@
                         IsVolatile: false,
                         LocOffsetEnd: 25,
                         LocOffsetStart: 24,
-                        '__MethodCatched': true,
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
             TakesVarArgs: true,

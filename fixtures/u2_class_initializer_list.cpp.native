@@ -36,31 +36,6 @@
                   IsFrozen: true,
                   LocOffsetEnd: 30,
                   LocOffsetStart: 19,
-                  'Prop_DeclSpecifier': {
-                     IASTClass: "CPPASTSimpleDeclSpecifier",
-                     IsActive: true,
-                     IsComplex: false,
-                     IsConst: false,
-                     IsConstExpr: false,
-                     IsExplicit: false,
-                     IsFriend: false,
-                     IsFrozen: true,
-                     IsImaginary: false,
-                     IsInline: false,
-                     IsLong: false,
-                     IsLongLong: false,
-                     IsRestrict: false,
-                     IsShort: false,
-                     IsSigned: false,
-                     IsThreadLocal: false,
-                     IsUnsigned: false,
-                     IsVirtual: false,
-                     IsVolatile: false,
-                     LocOffsetEnd: 22,
-                     LocOffsetStart: 19,
-                     StorageClass: "unspecified",
-                     Type: "int",
-                  },
                   'Prop_Declarators': [
                      {
                         DeclaresParameterPack: false,
@@ -95,7 +70,6 @@
                            LocOffsetStart: 27,
                            Name: "_b",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
                },
@@ -138,7 +112,6 @@
                      LocOffsetStart: 34,
                      StorageClass: "unspecified",
                      Type: "unexpecified",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarator': {
                      DeclaresParameterPack: false,
@@ -185,7 +158,6 @@
                                        LocOffsetStart: 62,
                                        Name: "a",
                                     },
-                                    '__MethodCatched': true,
                                  },
                               ],
                               'Prop_Expression': {
@@ -209,7 +181,7 @@
                               },
                            },
                            'Prop_InitializerValue': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsActive: true,
@@ -226,7 +198,6 @@
                                  LocOffsetStart: 62,
                                  Name: "a",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_MemberInitializerId': {
                               IASTClass: "CPPASTName",
@@ -269,7 +240,6 @@
                                        LocOffsetStart: 69,
                                        Name: "b",
                                     },
-                                    '__MethodCatched': true,
                                  },
                               ],
                               'Prop_Expression': {
@@ -290,12 +260,10 @@
                                     LocOffsetStart: 69,
                                     Name: "b",
                                  },
-                                 '__MethodCatched': true,
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_InitializerValue': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsActive: true,
@@ -312,7 +280,6 @@
                                  LocOffsetStart: 69,
                                  Name: "b",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_MemberInitializerId': {
                               IASTClass: "CPPASTName",
@@ -323,7 +290,6 @@
                               LocOffsetStart: 66,
                               Name: "_b",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      'Prop_Name': {
@@ -360,7 +326,6 @@
                            LocOffsetStart: 43,
                            StorageClass: "unspecified",
                            Type: "int",
-                           '__MethodCatched': true,
                         },
                         {
                            DeclaresParameterPack: false,
@@ -378,7 +343,6 @@
                               LocOffsetStart: 47,
                               Name: "a",
                            },
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -404,7 +368,6 @@
                            LocOffsetStart: 50,
                            StorageClass: "unspecified",
                            Type: "int",
-                           '__MethodCatched': true,
                         },
                         {
                            DeclaresParameterPack: false,
@@ -422,7 +385,6 @@
                               LocOffsetStart: 54,
                               Name: "b",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      TakesVarArgs: false,
@@ -459,7 +421,6 @@
                                     LocOffsetStart: 62,
                                     Name: "a",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            'Prop_Expression': {
@@ -480,12 +441,10 @@
                                  LocOffsetStart: 62,
                                  Name: "a",
                               },
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_InitializerValue': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsActive: true,
@@ -502,7 +461,6 @@
                               LocOffsetStart: 62,
                               Name: "a",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_MemberInitializerId': {
                            IASTClass: "CPPASTName",
@@ -513,7 +471,6 @@
                            LocOffsetStart: 59,
                            Name: "_a",
                         },
-                        '__MethodCatched': true,
                      },
                      {
                         IASTClass: "CPPASTConstructorChainInitializer",
@@ -546,7 +503,6 @@
                                     LocOffsetStart: 69,
                                     Name: "b",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            'Prop_Expression': {
@@ -567,12 +523,10 @@
                                  LocOffsetStart: 69,
                                  Name: "b",
                               },
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_InitializerValue': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsActive: true,
@@ -589,7 +543,6 @@
                               LocOffsetStart: 69,
                               Name: "b",
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_MemberInitializerId': {
                            IASTClass: "CPPASTName",
@@ -600,7 +553,6 @@
                            LocOffsetStart: 66,
                            Name: "_b",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
                },
@@ -618,7 +570,6 @@
                      IsFrozen: true,
                      LocOffsetEnd: 113,
                      LocOffsetStart: 111,
-                     '__MethodCatched': true,
                   },
                   'Prop_DeclSpecifier': {
                      IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -644,7 +595,6 @@
                      LocOffsetStart: 77,
                      StorageClass: "unspecified",
                      Type: "unexpecified",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarator': {
                      DeclaresParameterPack: false,
@@ -691,7 +641,6 @@
                                        LocOffsetStart: 104,
                                        Name: "a",
                                     },
-                                    '__MethodCatched': true,
                                  },
                                  {
                                     ExpressionType: "int",
@@ -703,7 +652,6 @@
                                     LiteralValue: "10",
                                     LocOffsetEnd: 109,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                               ],
@@ -733,7 +681,6 @@
                                           LocOffsetStart: 104,
                                           Name: "a",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     {
                                        ExpressionType: "int",
@@ -749,7 +696,6 @@
                                     },
                                  ],
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_InitializerValue': {
                               ExpressionType: "int",
@@ -760,7 +706,7 @@
                               IsLValue: false,
                               'Prop_Expressions': [
                                  {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTIdExpression",
                                     IsActive: true,
@@ -777,7 +723,6 @@
                                        LocOffsetStart: 104,
                                        Name: "a",
                                     },
-                                    '__MethodCatched': true,
                                  },
                                  {
                                     ExpressionType: "int",
@@ -789,11 +734,9 @@
                                     LiteralValue: "10",
                                     LocOffsetEnd: 109,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
                            'Prop_MemberInitializerId': {
                               IASTClass: "CPPASTName",
@@ -804,7 +747,6 @@
                               LocOffsetStart: 95,
                               Name: "testcls1",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      'Prop_Name': {
@@ -841,7 +783,6 @@
                            LocOffsetStart: 86,
                            StorageClass: "unspecified",
                            Type: "int",
-                           '__MethodCatched': true,
                         },
                         {
                            DeclaresParameterPack: false,
@@ -859,11 +800,9 @@
                               LocOffsetStart: 90,
                               Name: "a",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      TakesVarArgs: false,
-                     '__MethodCatched': true,
                   },
                   'Prop_MemberInitializers': [
                      {
@@ -897,7 +836,6 @@
                                     LocOffsetStart: 104,
                                     Name: "a",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  ExpressionType: "int",
@@ -909,7 +847,6 @@
                                  LiteralValue: "10",
                                  LocOffsetEnd: 109,
                                  LocOffsetStart: 107,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -939,7 +876,6 @@
                                        LocOffsetStart: 104,
                                        Name: "a",
                                     },
-                                    '__MethodCatched': true,
                                  },
                                  {
                                     ExpressionType: "int",
@@ -951,13 +887,10 @@
                                     LiteralValue: "10",
                                     LocOffsetEnd: 109,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                               ],
-                              '__MethodCatched': true,
                            },
-                           '__MethodCatched': true,
                         },
                         'Prop_InitializerValue': {
                            ExpressionType: "int",
@@ -968,7 +901,7 @@
                            IsLValue: false,
                            'Prop_Expressions': [
                               {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType@a514af7",
+                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTIdExpression",
                                  IsActive: true,
@@ -985,7 +918,6 @@
                                     LocOffsetStart: 104,
                                     Name: "a",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  ExpressionType: "int",
@@ -997,11 +929,9 @@
                                  LiteralValue: "10",
                                  LocOffsetEnd: 109,
                                  LocOffsetStart: 107,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
-                           '__MethodCatched': true,
                         },
                         'Prop_MemberInitializerId': {
                            IASTClass: "CPPASTName",
@@ -1012,10 +942,8 @@
                            LocOffsetStart: 95,
                            Name: "testcls1",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
             'Prop_Name': {

@@ -71,7 +71,6 @@
                            LocOffsetStart: 46,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                   },
                ],
@@ -102,7 +101,6 @@
                   Name: "T",
                },
                StorageClass: "unspecified",
-               '__MethodCatched': true,
             },
             'Prop_Declarator': {
                DeclaresParameterPack: false,
@@ -153,7 +151,6 @@
                         Name: "T",
                      },
                      StorageClass: "unspecified",
-                     '__MethodCatched': true,
                   },
                   {
                      DeclaresParameterPack: false,
@@ -171,7 +168,6 @@
                         LocOffsetStart: 34,
                         Name: "a",
                      },
-                     '__MethodCatched': true,
                   },
                ],
                TakesVarArgs: false,
@@ -243,7 +239,6 @@
                            LocOffsetStart: 95,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_ReturnValue': {
                         ExpressionType: "T",
@@ -263,12 +258,9 @@
                            LocOffsetStart: 95,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
                ],
-               '__MethodCatched': true,
             },
             'Prop_DeclSpecifier': {
                IASTClass: "CPPASTNamedTypeSpecifier",
@@ -296,7 +288,6 @@
                   Name: "T",
                },
                StorageClass: "unspecified",
-               '__MethodCatched': true,
             },
             'Prop_Declarator': {
                DeclaresParameterPack: false,
@@ -347,7 +338,6 @@
                         Name: "T",
                      },
                      StorageClass: "unspecified",
-                     '__MethodCatched': true,
                   },
                   {
                      DeclaresParameterPack: false,
@@ -365,13 +355,10 @@
                         LocOffsetStart: 83,
                         Name: "a",
                      },
-                     '__MethodCatched': true,
                   },
                ],
                TakesVarArgs: false,
-               '__MethodCatched': true,
             },
-            '__MethodCatched': true,
          },
          'Prop_TemplateParameters': [
             {
@@ -390,10 +377,8 @@
                   LocOffsetStart: 67,
                   Name: "T",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
    ],
 }

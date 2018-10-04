@@ -92,7 +92,6 @@
                   IsQualified: false,
                   Name: "",
                },
-               '__MethodCatched': true,
             },
             'Prop_DeclSpecifier': {
                IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -118,7 +117,6 @@
                LocOffsetStart: 43,
                StorageClass: "unspecified",
                Type: "unexpecified",
-               '__MethodCatched': true,
             },
          },
       },
@@ -176,7 +174,6 @@
                      LocOffsetStart: 78,
                      StorageClass: "unspecified",
                      Type: "int",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarators': [
                      {
@@ -195,10 +192,8 @@
                            LocOffsetStart: 82,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTSimpleDeclaration",
@@ -230,7 +225,6 @@
                      LocOffsetStart: 87,
                      StorageClass: "unspecified",
                      Type: "int",
-                     '__MethodCatched': true,
                   },
                   'Prop_Declarators': [
                      {
@@ -249,10 +243,8 @@
                            LocOffsetStart: 91,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                   ],
-                  '__MethodCatched': true,
                },
             ],
             'Prop_Name': {
@@ -281,7 +273,6 @@
                   LocOffsetStart: 96,
                   Name: "S",
                },
-               '__MethodCatched': true,
             },
             {
                DeclaresParameterPack: false,
@@ -311,10 +302,8 @@
                      LocOffsetStart: 99,
                   },
                ],
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTFunctionDefinition",
@@ -387,10 +376,8 @@
                               LocOffsetStart: 126,
                               Name: "g",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
                },
                {
@@ -431,7 +418,6 @@
                            Name: "olong",
                         },
                         StorageClass: "unspecified",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -450,12 +436,9 @@
                               LocOffsetStart: 137,
                               Name: "h",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
@@ -495,7 +478,6 @@
                            Name: "S",
                         },
                         StorageClass: "unspecified",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -527,12 +509,9 @@
                               LocOffsetStart: 144,
                               Name: "s",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
             ],
          },
@@ -560,7 +539,6 @@
             LocOffsetStart: 105,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,

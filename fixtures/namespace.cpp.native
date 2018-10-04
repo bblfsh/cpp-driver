@@ -82,7 +82,6 @@
                      LiteralValue: "1",
                      LocOffsetEnd: 27,
                      LocOffsetStart: 26,
-                     '__MethodCatched': true,
                      kind: "integer_constant",
                   },
                },
@@ -137,7 +136,6 @@
             LocOffsetStart: 52,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarators': [
             {
@@ -163,7 +161,6 @@
                      LiteralValue: "2",
                      LocOffsetEnd: 61,
                      LocOffsetStart: 60,
-                     '__MethodCatched': true,
                      kind: "integer_constant",
                   },
                   'Prop_InitializerClause': {
@@ -176,10 +173,8 @@
                      LiteralValue: "2",
                      LocOffsetEnd: 61,
                      LocOffsetStart: 60,
-                     '__MethodCatched': true,
                      kind: "integer_constant",
                   },
-                  '__MethodCatched': true,
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
@@ -190,10 +185,8 @@
                   LocOffsetStart: 56,
                   Name: "b",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTName",
@@ -234,7 +227,6 @@
             LocOffsetStart: 88,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarators': [
             {
@@ -260,7 +252,6 @@
                      LiteralValue: "3",
                      LocOffsetEnd: 97,
                      LocOffsetStart: 96,
-                     '__MethodCatched': true,
                      kind: "integer_constant",
                   },
                   'Prop_InitializerClause': {
@@ -273,10 +264,8 @@
                      LiteralValue: "3",
                      LocOffsetEnd: 97,
                      LocOffsetStart: 96,
-                     '__MethodCatched': true,
                      kind: "integer_constant",
                   },
-                  '__MethodCatched': true,
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
@@ -287,10 +276,8 @@
                   LocOffsetStart: 92,
                   Name: "c",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTUsingDirective",
@@ -349,7 +336,6 @@
                         LiteralValue: "1",
                         LocOffsetEnd: 150,
                         LocOffsetStart: 149,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
                      'Prop_Operand1': {
@@ -414,7 +400,6 @@
                         LiteralValue: "1",
                         LocOffsetEnd: 150,
                         LocOffsetStart: 149,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
                   },
@@ -445,7 +430,6 @@
                         LiteralValue: "3",
                         LocOffsetEnd: 170,
                         LocOffsetStart: 169,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
                      'Prop_Operand1': {
@@ -516,9 +500,7 @@
                                  Name: "bar",
                               },
                            ],
-                           '__MethodCatched': true,
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -530,12 +512,9 @@
                         LiteralValue: "3",
                         LocOffsetEnd: 170,
                         LocOffsetStart: 169,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -563,7 +542,6 @@
                         LiteralValue: "1",
                         LocOffsetEnd: 181,
                         LocOffsetStart: 180,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
                      'Prop_Operand1': {
@@ -584,7 +562,6 @@
                            LocOffsetStart: 175,
                            Name: "c",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -596,12 +573,9 @@
                         LiteralValue: "1",
                         LocOffsetEnd: 181,
                         LocOffsetStart: 180,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
             ],
          },
@@ -629,7 +603,6 @@
             LocOffsetStart: 124,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,

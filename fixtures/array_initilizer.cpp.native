@@ -82,7 +82,6 @@
                      LiteralValue: "\"abc\"",
                      LocOffsetEnd: 18,
                      LocOffsetStart: 13,
-                     '__MethodCatched': true,
                      kind: "string_literal",
                   },
                },
@@ -128,7 +127,6 @@
             LocOffsetStart: 20,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarators': [
             {
@@ -145,7 +143,6 @@
                      IsFrozen: true,
                      LocOffsetEnd: 27,
                      LocOffsetStart: 25,
-                     '__MethodCatched': true,
                   },
                ],
                'Prop_Initializer': {
@@ -171,7 +168,6 @@
                            LiteralValue: "1",
                            LocOffsetEnd: 32,
                            LocOffsetStart: 31,
-                           '__MethodCatched': true,
                            kind: "integer_constant",
                         },
                         {
@@ -184,7 +180,6 @@
                            LiteralValue: "2",
                            LocOffsetEnd: 35,
                            LocOffsetStart: 34,
-                           '__MethodCatched': true,
                            kind: "integer_constant",
                         },
                         {
@@ -197,7 +192,6 @@
                            LiteralValue: "3",
                            LocOffsetEnd: 38,
                            LocOffsetStart: 37,
-                           '__MethodCatched': true,
                            kind: "integer_constant",
                         },
                      ],
@@ -216,7 +210,6 @@
                               LiteralValue: "1",
                               LocOffsetEnd: 32,
                               LocOffsetStart: 31,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
                            'Prop_InitializerClause': {
@@ -229,10 +222,8 @@
                               LiteralValue: "1",
                               LocOffsetEnd: 32,
                               LocOffsetStart: 31,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTEqualsInitializer",
@@ -248,7 +239,6 @@
                               LiteralValue: "2",
                               LocOffsetEnd: 35,
                               LocOffsetStart: 34,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
                            'Prop_InitializerClause': {
@@ -261,10 +251,8 @@
                               LiteralValue: "2",
                               LocOffsetEnd: 35,
                               LocOffsetStart: 34,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTEqualsInitializer",
@@ -280,7 +268,6 @@
                               LiteralValue: "3",
                               LocOffsetEnd: 38,
                               LocOffsetStart: 37,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
                            'Prop_InitializerClause': {
@@ -293,15 +280,12 @@
                               LiteralValue: "3",
                               LocOffsetEnd: 38,
                               LocOffsetStart: 37,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      Size: 3,
                   },
-                  '__MethodCatched': true,
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
@@ -312,10 +296,8 @@
                   LocOffsetStart: 24,
                   Name: "y",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTSimpleDeclaration",
@@ -347,7 +329,6 @@
             LocOffsetStart: 41,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarators': [
             {
@@ -374,10 +355,8 @@
                         LiteralValue: "3",
                         LocOffsetEnd: 48,
                         LocOffsetStart: 47,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
-                     '__MethodCatched': true,
                   },
                ],
                'Prop_Initializer': {
@@ -403,7 +382,6 @@
                            LiteralValue: "0",
                            LocOffsetEnd: 54,
                            LocOffsetStart: 53,
-                           '__MethodCatched': true,
                            kind: "integer_constant",
                         },
                      ],
@@ -422,7 +400,6 @@
                               LiteralValue: "0",
                               LocOffsetEnd: 54,
                               LocOffsetStart: 53,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
                            'Prop_InitializerClause': {
@@ -435,16 +412,12 @@
                               LiteralValue: "0",
                               LocOffsetEnd: 54,
                               LocOffsetStart: 53,
-                              '__MethodCatched': true,
                               kind: "integer_constant",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
                      Size: 1,
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
@@ -455,10 +428,8 @@
                   LocOffsetStart: 45,
                   Name: "z",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
       {
          IASTClass: "CPPASTSimpleDeclaration",
@@ -490,7 +461,6 @@
             LocOffsetStart: 57,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarators': [
             {
@@ -517,10 +487,8 @@
                         LiteralValue: "4",
                         LocOffsetEnd: 66,
                         LocOffsetStart: 65,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
-                     '__MethodCatched': true,
                   },
                   {
                      IASTClass: "CPPASTArrayModifier",
@@ -538,10 +506,8 @@
                         LiteralValue: "3",
                         LocOffsetEnd: 69,
                         LocOffsetStart: 68,
-                        '__MethodCatched': true,
                         kind: "integer_constant",
                      },
-                     '__MethodCatched': true,
                   },
                ],
                'Prop_Initializer': {
@@ -574,7 +540,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 79,
                                  LocOffsetStart: 78,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -587,7 +552,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 82,
                                  LocOffsetStart: 81,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -600,7 +564,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 85,
                                  LocOffsetStart: 84,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -619,7 +582,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 79,
                                     LocOffsetStart: 78,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -632,10 +594,8 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 79,
                                     LocOffsetStart: 78,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -651,7 +611,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 82,
                                     LocOffsetStart: 81,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -664,10 +623,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 82,
                                     LocOffsetStart: 81,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -683,7 +640,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 85,
                                     LocOffsetStart: 84,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -696,14 +652,11 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 85,
                                     LocOffsetStart: 84,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTInitializerList",
@@ -722,7 +675,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 92,
                                  LocOffsetStart: 91,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -735,7 +687,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 95,
                                  LocOffsetStart: 94,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -748,7 +699,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 98,
                                  LocOffsetStart: 97,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -767,7 +717,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 92,
                                     LocOffsetStart: 91,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -780,10 +729,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 92,
                                     LocOffsetStart: 91,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -799,7 +746,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 95,
                                     LocOffsetStart: 94,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -812,10 +758,8 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 95,
                                     LocOffsetStart: 94,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -831,7 +775,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 98,
                                     LocOffsetStart: 97,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -844,14 +787,11 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 98,
                                     LocOffsetStart: 97,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTInitializerList",
@@ -870,7 +810,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 105,
                                  LocOffsetStart: 104,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -883,7 +822,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 108,
                                  LocOffsetStart: 107,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -896,7 +834,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 111,
                                  LocOffsetStart: 110,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -915,7 +852,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 105,
                                     LocOffsetStart: 104,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -928,10 +864,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 105,
                                     LocOffsetStart: 104,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -947,7 +881,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 108,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -960,10 +893,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 108,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -979,7 +910,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 111,
                                     LocOffsetStart: 110,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -992,14 +922,11 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 111,
                                     LocOffsetStart: 110,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                      ],
                      'Prop_Initializers': [
@@ -1020,7 +947,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 79,
                                  LocOffsetStart: 78,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1033,7 +959,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 82,
                                  LocOffsetStart: 81,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1046,7 +971,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 85,
                                  LocOffsetStart: 84,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -1065,7 +989,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 79,
                                     LocOffsetStart: 78,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1078,10 +1001,8 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 79,
                                     LocOffsetStart: 78,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1097,7 +1018,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 82,
                                     LocOffsetStart: 81,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1110,10 +1030,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 82,
                                     LocOffsetStart: 81,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1129,7 +1047,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 85,
                                     LocOffsetStart: 84,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1142,14 +1059,11 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 85,
                                     LocOffsetStart: 84,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTInitializerList",
@@ -1168,7 +1082,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 92,
                                  LocOffsetStart: 91,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1181,7 +1094,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 95,
                                  LocOffsetStart: 94,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1194,7 +1106,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 98,
                                  LocOffsetStart: 97,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -1213,7 +1124,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 92,
                                     LocOffsetStart: 91,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1226,10 +1136,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 92,
                                     LocOffsetStart: 91,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1245,7 +1153,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 95,
                                     LocOffsetStart: 94,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1258,10 +1165,8 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 95,
                                     LocOffsetStart: 94,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1277,7 +1182,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 98,
                                     LocOffsetStart: 97,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1290,14 +1194,11 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 98,
                                     LocOffsetStart: 97,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                         {
                            IASTClass: "CPPASTInitializerList",
@@ -1316,7 +1217,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 105,
                                  LocOffsetStart: 104,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1329,7 +1229,6 @@
                                  LiteralValue: "0",
                                  LocOffsetEnd: 108,
                                  LocOffsetStart: 107,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               {
@@ -1342,7 +1241,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 111,
                                  LocOffsetStart: 110,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            ],
@@ -1361,7 +1259,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 105,
                                     LocOffsetStart: 104,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1374,10 +1271,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 105,
                                     LocOffsetStart: 104,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1393,7 +1288,6 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 108,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1406,10 +1300,8 @@
                                     LiteralValue: "0",
                                     LocOffsetEnd: 108,
                                     LocOffsetStart: 107,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                               {
                                  IASTClass: "CPPASTEqualsInitializer",
@@ -1425,7 +1317,6 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 111,
                                     LocOffsetStart: 110,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
                                  'Prop_InitializerClause': {
@@ -1438,20 +1329,15 @@
                                     LiteralValue: "1",
                                     LocOffsetEnd: 111,
                                     LocOffsetStart: 110,
-                                    '__MethodCatched': true,
                                     kind: "integer_constant",
                                  },
-                                 '__MethodCatched': true,
                               },
                            ],
                            Size: 3,
-                           '__MethodCatched': true,
                         },
                      ],
                      Size: 3,
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
@@ -1462,10 +1348,8 @@
                   LocOffsetStart: 61,
                   Name: "foo",
                },
-               '__MethodCatched': true,
             },
          ],
-         '__MethodCatched': true,
       },
    ],
 }

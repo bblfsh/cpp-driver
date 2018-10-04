@@ -57,7 +57,6 @@
                         LocOffsetStart: 15,
                         StorageClass: "unspecified",
                         Type: "bool",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -95,7 +94,6 @@
                                  LiteralValue: "true",
                                  LocOffsetEnd: 28,
                                  LocOffsetStart: 24,
-                                 '__MethodCatched': true,
                                  kind: "true",
                               },
                            },
@@ -148,7 +146,6 @@
                         LocOffsetStart: 32,
                         StorageClass: "unspecified",
                         Type: "bool",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -174,7 +171,6 @@
                                  LiteralValue: "false",
                                  LocOffsetEnd: 46,
                                  LocOffsetStart: 41,
-                                 '__MethodCatched': true,
                                  kind: "false",
                               },
                               'Prop_InitializerClause': {
@@ -187,10 +183,8 @@
                                  LiteralValue: "false",
                                  LocOffsetEnd: 46,
                                  LocOffsetStart: 41,
-                                 '__MethodCatched': true,
                                  kind: "false",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -201,12 +195,9 @@
                               LocOffsetStart: 37,
                               Name: "b",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -242,7 +233,6 @@
                            LocOffsetStart: 55,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "bool",
@@ -281,7 +271,6 @@
                            LocOffsetStart: 55,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                   },
                },
@@ -319,7 +308,6 @@
                            LocOffsetStart: 65,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "bool",
@@ -339,7 +327,6 @@
                            LocOffsetStart: 60,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "bool",
@@ -359,11 +346,8 @@
                            LocOffsetStart: 65,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -398,11 +382,9 @@
                            LocOffsetStart: 71,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      operator: "op_not",
                   },
-                  '__MethodCatched': true,
                },
             ],
          },

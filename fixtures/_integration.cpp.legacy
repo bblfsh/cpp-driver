@@ -6,8 +6,8 @@ CPPASTTranslationUnit {
 .  .  Col: 1
 .  }
 .  EndPosition: {
-.  .  Offset: 100
-.  .  Line: 9
+.  .  Offset: 70
+.  .  Line: 7
 .  .  Col: 1
 .  }
 .  Properties: {
@@ -15,56 +15,16 @@ CPPASTTranslationUnit {
 .  .  IsFrozen: true
 .  }
 .  Children: {
-.  .  0: CPPASTUsingDirective {
+.  .  0: CPPASTFunctionDefinition {
 .  .  .  Roles: Unannotated
 .  .  .  StartPosition: {
-.  .  .  .  Offset: 20
-.  .  .  .  Line: 2
+.  .  .  .  Offset: 21
+.  .  .  .  Line: 3
 .  .  .  .  Col: 1
 .  .  .  }
 .  .  .  EndPosition: {
-.  .  .  .  Offset: 40
-.  .  .  .  Line: 2
-.  .  .  .  Col: 21
-.  .  .  }
-.  .  .  Properties: {
-.  .  .  .  IsActive: true
-.  .  .  .  IsFrozen: true
-.  .  .  .  internalRole: Prop_Declarations
-.  .  .  }
-.  .  .  Children: {
-.  .  .  .  0: CPPASTName {
-.  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  Offset: 36
-.  .  .  .  .  .  Line: 2
-.  .  .  .  .  .  Col: 17
-.  .  .  .  .  }
-.  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  Offset: 39
-.  .  .  .  .  .  Line: 2
-.  .  .  .  .  .  Col: 20
-.  .  .  .  .  }
-.  .  .  .  .  Properties: {
-.  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  IsQualified: false
-.  .  .  .  .  .  Name: std
-.  .  .  .  .  .  internalRole: Prop_QualifiedName
-.  .  .  .  .  }
-.  .  .  .  }
-.  .  .  }
-.  .  }
-.  .  1: CPPASTFunctionDefinition {
-.  .  .  Roles: Unannotated
-.  .  .  StartPosition: {
-.  .  .  .  Offset: 42
-.  .  .  .  Line: 4
-.  .  .  .  Col: 1
-.  .  .  }
-.  .  .  EndPosition: {
-.  .  .  .  Offset: 99
-.  .  .  .  Line: 8
+.  .  .  .  Offset: 69
+.  .  .  .  Line: 6
 .  .  .  .  Col: 2
 .  .  .  }
 .  .  .  Properties: {
@@ -78,13 +38,13 @@ CPPASTTranslationUnit {
 .  .  .  .  0: CPPASTSimpleDeclSpecifier {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  Offset: 42
-.  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  Offset: 21
+.  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  Offset: 45
-.  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  Offset: 24
+.  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  Col: 4
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
@@ -114,13 +74,13 @@ CPPASTTranslationUnit {
 .  .  .  .  1: CPPASTFunctionDeclarator {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  Offset: 46
-.  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  Offset: 25
+.  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  Col: 5
 .  .  .  .  .  }
 .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  Offset: 52
-.  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  Offset: 31
+.  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  Col: 11
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
@@ -140,13 +100,13 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  0: CPPASTName {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  Offset: 46
-.  .  .  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  .  .  Offset: 25
+.  .  .  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  .  .  Col: 5
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  Offset: 50
-.  .  .  .  .  .  .  .  Line: 4
+.  .  .  .  .  .  .  .  Offset: 29
+.  .  .  .  .  .  .  .  Line: 3
 .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
@@ -162,13 +122,13 @@ CPPASTTranslationUnit {
 .  .  .  .  2: CPPASTCompoundStatement {
 .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  Offset: 53
-.  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  Offset: 32
+.  .  .  .  .  .  Line: 4
 .  .  .  .  .  .  Col: 1
 .  .  .  .  .  }
 .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  Offset: 99
-.  .  .  .  .  .  Line: 8
+.  .  .  .  .  .  Offset: 69
+.  .  .  .  .  .  Line: 6
 .  .  .  .  .  .  Col: 2
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
@@ -180,14 +140,14 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  0: CPPASTExpressionStatement {
 .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  Offset: 59
-.  .  .  .  .  .  .  .  Line: 6
+.  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  Line: 5
 .  .  .  .  .  .  .  .  Col: 5
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  Offset: 83
-.  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  Col: 29
+.  .  .  .  .  .  .  .  Offset: 67
+.  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  Col: 34
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  IsActive: true
@@ -198,17 +158,17 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  0: CPPASTBinaryExpression {
 .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 59
-.  .  .  .  .  .  .  .  .  .  Line: 6
+.  .  .  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  .  .  Line: 5
 .  .  .  .  .  .  .  .  .  .  Col: 5
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 82
-.  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  Col: 28
+.  .  .  .  .  .  .  .  .  .  Offset: 66
+.  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  Col: 33
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@694abbdc
+.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  IsFrozen: true
@@ -220,17 +180,17 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  0: CPPASTIdExpression {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 59
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 5
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 63
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  Col: 9
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 47
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType@694abbdc
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
@@ -238,24 +198,88 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand1
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  .  .  .  .  0: CPPASTName {
+.  .  .  .  .  .  .  .  .  .  .  .  0: CPPASTQualifiedName {
 .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 59
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 6
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 5
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 63
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 9
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 47
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  IsConversionOperator: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFullyQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: cout
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: std::cout
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Name
+.  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  Children: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  0: CPPASTName {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 41
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 8
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: std
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_AllSegments
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  1: CPPASTName {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 38
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 41
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 8
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: std
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Qualifier
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  2: CPPASTName {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 43
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 10
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Offset: 47
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: true
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: cout
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_AllSegments
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -263,14 +287,14 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  1: CPPASTLiteralExpression {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 67
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  Col: 13
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 51
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 18
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 82
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  Col: 28
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 66
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 33
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: const char [14]
@@ -286,14 +310,14 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  2: CPPASTLiteralExpression {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Unannotated
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 67
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  Col: 13
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 51
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 18
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  .  .  Offset: 82
-.  .  .  .  .  .  .  .  .  .  .  .  Line: 6
-.  .  .  .  .  .  .  .  .  .  .  .  Col: 28
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 66
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 33
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: const char [14]
@@ -302,76 +326,11 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  LiteralValue: "Hello, World!"
+.  .  .  .  .  .  .  .  .  .  .  .  __MethodCatched: true
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand2
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  }
-.  .  .  .  .  .  }
-.  .  .  .  .  .  1: CPPASTReturnStatement {
-.  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  Offset: 88
-.  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  Col: 5
-.  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  Offset: 97
-.  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  Col: 14
-.  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  internalRole: Prop_Statements
-.  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  Children: {
-.  .  .  .  .  .  .  .  0: CPPASTLiteralExpression {
-.  .  .  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 95
-.  .  .  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  .  .  Col: 12
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 96
-.  .  .  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  .  .  Col: 13
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: int
-.  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
-.  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  .  .  IsLValue: false
-.  .  .  .  .  .  .  .  .  .  LiteralValue: 0
-.  .  .  .  .  .  .  .  .  .  internalRole: Prop_ReturnArgument
-.  .  .  .  .  .  .  .  .  .  kind: integer_constant
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  1: CPPASTLiteralExpression {
-.  .  .  .  .  .  .  .  .  Roles: Unannotated
-.  .  .  .  .  .  .  .  .  StartPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 95
-.  .  .  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  .  .  Col: 12
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  EndPosition: {
-.  .  .  .  .  .  .  .  .  .  Offset: 96
-.  .  .  .  .  .  .  .  .  .  Line: 7
-.  .  .  .  .  .  .  .  .  .  Col: 13
-.  .  .  .  .  .  .  .  .  }
-.  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: int
-.  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
-.  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  .  .  IsLValue: false
-.  .  .  .  .  .  .  .  .  .  LiteralValue: 0
-.  .  .  .  .  .  .  .  .  .  internalRole: Prop_ReturnValue
-.  .  .  .  .  .  .  .  .  .  kind: integer_constant
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  }

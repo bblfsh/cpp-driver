@@ -58,7 +58,6 @@
                         LocOffsetStart: 35,
                         StorageClass: "unspecified",
                         Type: "auto",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -96,7 +95,6 @@
                                  LiteralValue: "false",
                                  LocOffsetEnd: 48,
                                  LocOffsetStart: 44,
-                                 '__MethodCatched': true,
                                  kind: "false",
                               },
                            },

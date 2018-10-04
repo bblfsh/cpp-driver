@@ -93,7 +93,6 @@
                         LocOffsetStart: 47,
                         StorageClass: "unspecified",
                         Type: "auto",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -229,7 +228,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -257,11 +255,8 @@
                                           Name: "Foo",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
                            },
                            'Prop_Name': {
@@ -275,7 +270,6 @@
                            },
                         },
                      ],
-                     '__MethodCatched': true,
                   },
                },
                {
@@ -314,7 +308,6 @@
                         LocOffsetStart: 67,
                         StorageClass: "unspecified",
                         Type: "auto",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -366,7 +359,6 @@
                                        LiteralValue: "5",
                                        LocOffsetEnd: 85,
                                        LocOffsetStart: 84,
-                                       '__MethodCatched': true,
                                        kind: "integer_constant",
                                     },
                                  ],
@@ -400,10 +392,8 @@
                                                 LiteralValue: "5",
                                                 LocOffsetEnd: 85,
                                                 LocOffsetStart: 84,
-                                                '__MethodCatched': true,
                                                 kind: "integer_constant",
                                              },
-                                             '__MethodCatched': true,
                                           },
                                        ],
                                        'Prop_Name': {
@@ -413,7 +403,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -441,11 +430,8 @@
                                           Name: "Foo",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
                               'Prop_InitializerClause': {
                                  ExpressionType: "Foo *",
@@ -483,7 +469,6 @@
                                        LiteralValue: "5",
                                        LocOffsetEnd: 85,
                                        LocOffsetStart: 84,
-                                       '__MethodCatched': true,
                                        kind: "integer_constant",
                                     },
                                  ],
@@ -517,10 +502,8 @@
                                                 LiteralValue: "5",
                                                 LocOffsetEnd: 85,
                                                 LocOffsetStart: 84,
-                                                '__MethodCatched': true,
                                                 kind: "integer_constant",
                                              },
-                                             '__MethodCatched': true,
                                           },
                                        ],
                                        'Prop_Name': {
@@ -530,7 +513,6 @@
                                           IsQualified: false,
                                           Name: "",
                                        },
-                                       '__MethodCatched': true,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -558,13 +540,9 @@
                                           Name: "Foo",
                                        },
                                        StorageClass: "unspecified",
-                                       '__MethodCatched': true,
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -575,12 +553,9 @@
                               LocOffsetStart: 72,
                               Name: "g",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -668,11 +643,8 @@
                            LocOffsetStart: 111,
                            Name: "g",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
             ],
          },

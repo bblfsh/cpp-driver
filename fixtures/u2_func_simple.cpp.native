@@ -55,7 +55,6 @@
                            LocOffsetStart: 40,
                            Name: "w",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -94,7 +93,6 @@
                            LocOffsetStart: 40,
                            Name: "w",
                         },
-                        '__MethodCatched': true,
                      },
                   },
                   'Prop_ReturnValue': {
@@ -125,7 +123,6 @@
                            LocOffsetStart: 40,
                            Name: "w",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -145,7 +142,6 @@
                            LocOffsetStart: 38,
                            Name: "v",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -165,9 +161,7 @@
                            LocOffsetStart: 40,
                            Name: "w",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
                },
             ],
@@ -196,7 +190,6 @@
             LocOffsetStart: 0,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,
@@ -245,7 +238,6 @@
                   LocOffsetStart: 13,
                   StorageClass: "unspecified",
                   Type: "int",
-                  '__MethodCatched': true,
                },
                {
                   DeclaresParameterPack: false,
@@ -263,7 +255,6 @@
                      LocOffsetStart: 17,
                      Name: "v",
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -289,7 +280,6 @@
                   LocOffsetStart: 20,
                   StorageClass: "unspecified",
                   Type: "int",
-                  '__MethodCatched': true,
                },
                {
                   DeclaresParameterPack: false,
@@ -307,7 +297,6 @@
                      LocOffsetStart: 24,
                      Name: "w",
                   },
-                  '__MethodCatched': true,
                },
             ],
             TakesVarArgs: false,

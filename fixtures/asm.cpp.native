@@ -135,7 +135,6 @@
                         LocOffsetStart: 185,
                         StorageClass: "unspecified",
                         Type: "int",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -207,9 +206,7 @@
                                        LocOffsetStart: 193,
                                        Name: "func",
                                     },
-                                    '__MethodCatched': true,
                                  },
-                                 '__MethodCatched': true,
                               },
                            },
                            'Prop_Name': {
@@ -223,7 +220,6 @@
                            },
                         },
                      ],
-                     '__MethodCatched': true,
                   },
                },
                {
@@ -249,7 +245,6 @@
                      LocOffsetEnd: 302,
                      LocOffsetStart: 237,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
@@ -274,7 +269,6 @@
                      LocOffsetEnd: 416,
                      LocOffsetStart: 340,
                   },
-                  '__MethodCatched': true,
                },
             ],
          },
@@ -302,7 +296,6 @@
             LocOffsetStart: 168,
             StorageClass: "unspecified",
             Type: "int",
-            '__MethodCatched': true,
          },
          'Prop_Declarator': {
             DeclaresParameterPack: false,
@@ -327,7 +320,6 @@
                Name: "main",
             },
             TakesVarArgs: false,
-            '__MethodCatched': true,
          },
       },
    ],

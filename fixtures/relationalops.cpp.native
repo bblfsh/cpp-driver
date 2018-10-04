@@ -57,7 +57,6 @@
                         LocOffsetStart: 15,
                         StorageClass: "unspecified",
                         Type: "int",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -95,7 +94,6 @@
                                  LiteralValue: "1",
                                  LocOffsetEnd: 24,
                                  LocOffsetStart: 23,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                            },
@@ -148,7 +146,6 @@
                         LocOffsetStart: 28,
                         StorageClass: "unspecified",
                         Type: "int",
-                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -174,7 +171,6 @@
                                  LiteralValue: "2",
                                  LocOffsetEnd: 37,
                                  LocOffsetStart: 36,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
                               'Prop_InitializerClause': {
@@ -187,10 +183,8 @@
                                  LiteralValue: "2",
                                  LocOffsetEnd: 37,
                                  LocOffsetStart: 36,
-                                 '__MethodCatched': true,
                                  kind: "integer_constant",
                               },
-                              '__MethodCatched': true,
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -201,12 +195,9 @@
                               LocOffsetStart: 32,
                               Name: "b",
                            },
-                           '__MethodCatched': true,
                         },
                      ],
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -242,7 +233,6 @@
                            LocOffsetStart: 47,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -281,7 +271,6 @@
                            LocOffsetStart: 47,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                   },
                },
@@ -319,7 +308,6 @@
                            LocOffsetStart: 56,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -339,7 +327,6 @@
                            LocOffsetStart: 52,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -359,11 +346,8 @@
                            LocOffsetStart: 56,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -399,7 +383,6 @@
                            LocOffsetStart: 66,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -419,7 +402,6 @@
                            LocOffsetStart: 61,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -439,11 +421,8 @@
                            LocOffsetStart: 66,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -479,7 +458,6 @@
                            LocOffsetStart: 75,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -499,7 +477,6 @@
                            LocOffsetStart: 71,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -519,11 +496,8 @@
                            LocOffsetStart: 75,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -559,7 +533,6 @@
                            LocOffsetStart: 85,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -579,7 +552,6 @@
                            LocOffsetStart: 80,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -599,11 +571,8 @@
                            LocOffsetStart: 85,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -639,7 +608,6 @@
                            LocOffsetStart: 95,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand1': {
                         ExpressionType: "int",
@@ -659,7 +627,6 @@
                            LocOffsetStart: 90,
                            Name: "a",
                         },
-                        '__MethodCatched': true,
                      },
                      'Prop_Operand2': {
                         ExpressionType: "int",
@@ -679,11 +646,8 @@
                            LocOffsetStart: 95,
                            Name: "b",
                         },
-                        '__MethodCatched': true,
                      },
-                     '__MethodCatched': true,
                   },
-                  '__MethodCatched': true,
                },
             ],
          },

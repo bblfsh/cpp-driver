@@ -13,12 +13,10 @@ import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
 import java.util.HashSet;
+import java.lang.Comparable;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-
-// FIXME: IASTProblem
-//
 
 /// Visitor pattern implementation for the CPP AST. This will write every
 /// node in the Json output. Since CDT unfortunately doesnt have something like JDT
@@ -63,6 +61,25 @@ public class JsonASTVisitor extends ASTVisitor {
             returnsArray = retArray;
         }
     }
+
+    // Used to sort arrays of Methods, see the comment in visitChildren
+    private class MethodWrapper implements Comparable<MethodWrapper>
+    {
+        Method method;
+        String name;
+
+        MethodWrapper(Method meth, String name_) {
+            method = meth;
+            name = name_;
+        }
+
+
+        @Override
+        public int compareTo(MethodWrapper m) {
+            return m.name.compareTo(name);
+        }
+    }
+
 
     JsonASTVisitor(JsonGenerator json, NodeCommentMap commentMap) {
         super();
@@ -210,28 +227,42 @@ public class JsonASTVisitor extends ASTVisitor {
         if (catched != null) {
             for (ChildrenTypeCacheValue val : catched) {
                 writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
-                json.writeBooleanField("__MethodCatched", true);
             }
 
         } else {
-            for (Method method : node.getClass().getMethods()) {
-                String mname = method.getName();
+            // Order of getMethods() changes between runs so we need to do this to
+            // ensure that integration tests do not break
+            Method[] methods = node.getClass().getMethods();
+            MethodWrapper[] methodWrappers = new MethodWrapper[methods.length];
+            int idx = 0;
+
+            for (Method m : methods) {
+                methodWrappers[idx] = new MethodWrapper(m, m.getName());
+                ++idx;
+            }
+
+            // FIXME: insert sorted? (list should be tiny most of the cases)
+            Arrays.sort(methodWrappers);
+
+            for (MethodWrapper mw : methodWrappers) {
+                String mname = mw.name;
 
                 if (!mname.startsWith("get") || skipMethods.contains(mname)
-                        || method.getParameterCount() > 0)
+                        || mw.method.getParameterCount() > 0)
                     continue;
 
                 String propName = "Prop_" + mname.substring(3);
-                Class<?> returnType = method.getReturnType();
+                Class<?> returnType = mw.method.getReturnType();
 
                 if (returnType.getName().indexOf("AST") == -1)
                     continue;
 
-                writeChildProperty(node, method, propName, returnType.isArray());
+                writeChildProperty(node, mw.method, propName, returnType.isArray());
 
                 // Add the node and method information to the cache
                 ChildrenTypeCacheValue cacheVal = new ChildrenTypeCacheValue(
-                        propName, method, mname, returnType.isArray());
+                        propName, mw.method, mname, returnType.isArray()
+                );
 
                 if (!childrenMethodsCache.containsKey(nodeClass))
                     childrenMethodsCache.put(nodeClass, new Vector<ChildrenTypeCacheValue>());
@@ -547,7 +578,18 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 serializeComments(node);
-                json.writeStringField("ExpressionType", node.getExpressionType().toString());
+                String exprType = node.getExpressionType().toString();
+
+                if (exprType.indexOf("dom.parser.ProblemType@") != -1) {
+                    // Trying to get the type of some untyped expressions give something
+                    // like:
+                    // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
+                    // The last part is variable so integration tests will fail (and
+                    // it doesn't give any information) so we remove it
+                    exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
+                }
+
+                json.writeStringField("ExpressionType", exprType);
                 json.writeStringField("ExpressionValueCategory",node.getValueCategory().toString());
                 json.writeBooleanField("IsLValue", node.isLValue());
 
