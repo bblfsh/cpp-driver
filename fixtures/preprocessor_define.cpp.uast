@@ -118,6 +118,7 @@
                         IsVolatile: false,
                         StorageClass: "unspecified",
                         Type: "auto",
+                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         { '@type': "CPPASTDeclarator",
@@ -195,6 +196,7 @@
                                  IsFrozen: true,
                                  IsLValue: false,
                                  LiteralValue: "false",
+                                 '__MethodCatched': true,
                                  kind: "false",
                               },
                            },

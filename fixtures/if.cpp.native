@@ -57,6 +57,7 @@
                         LocOffsetStart: 15,
                         StorageClass: "unspecified",
                         Type: "int",
+                        '__MethodCatched': true,
                      },
                      'Prop_Declarators': [
                         {
@@ -95,6 +96,7 @@
                      LiteralValue: "true",
                      LocOffsetEnd: 33,
                      LocOffsetStart: 29,
+                     '__MethodCatched': true,
                      kind: "true",
                   },
                   'Prop_ElseClause': {
@@ -121,6 +123,7 @@
                         IsFrozen: true,
                         LocOffsetEnd: 106,
                         LocOffsetStart: 90,
+                        '__MethodCatched': true,
                      },
                      'Prop_ThenClause': {
                         IASTClass: "CPPASTCompoundStatement",
@@ -128,6 +131,7 @@
                         IsFrozen: true,
                         LocOffsetEnd: 84,
                         LocOffsetStart: 68,
+                        '__MethodCatched': true,
                      },
                   },
                   'Prop_ThenClause': {
@@ -136,6 +140,7 @@
                      IsFrozen: true,
                      LocOffsetEnd: 51,
                      LocOffsetStart: 35,
+                     '__MethodCatched': true,
                   },
                },
             ],

@@ -235,6 +235,8 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (!childrenMethodsCache.containsKey(nodeClass))
                     childrenMethodsCache.put(nodeClass, new Vector<ChildrenTypeCacheValue>());
+
+                childrenMethodsCache.get(nodeClass).add(cacheVal);
             }
         }
     }
