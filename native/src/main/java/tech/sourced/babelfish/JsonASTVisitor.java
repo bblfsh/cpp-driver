@@ -17,7 +17,6 @@ import java.lang.Comparable;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-
 /// Visitor pattern implementation for the CPP AST. This will write every
 /// node in the Json output. Since CDT unfortunately doesnt have something like JDT
 /// "structuralPropertiesForType", we must visit ALL the base nodes and check
@@ -79,7 +78,6 @@ public class JsonASTVisitor extends ASTVisitor {
             return m.name.compareTo(name);
         }
     }
-
 
     JsonASTVisitor(JsonGenerator json, NodeCommentMap commentMap) {
         super();
@@ -580,7 +578,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeComments(node);
                 String exprType = node.getExpressionType().toString();
 
-                if (exprType.indexOf("dom.parser.ProblemType@") != -1) {
+                if (exprType.indexOf("ProblemType@") != -1) {
                     // Trying to get the type of some untyped expressions give something
                     // like:
                     // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
