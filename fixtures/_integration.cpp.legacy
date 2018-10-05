@@ -326,7 +326,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  LiteralValue: "Hello, World!"
-.  .  .  .  .  .  .  .  .  .  .  .  __MethodCatched: true
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand2
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
 .  .  .  .  .  .  .  .  .  .  .  }
