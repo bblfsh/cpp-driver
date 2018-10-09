@@ -38,21 +38,19 @@ public class DriverResponse {
         translationUnit = parser.parseCPP(source);
     }
 
-    void send(OutputStream out) throws ResponseSendException {
+    void send() throws ResponseSendException {
         // FIXME: this includes the errors in the already started document
         try {
             formatWritter.writeValue(this);
             ByteArrayOutputStream byteOut = formatWritter.getByteOutputStream();
-            out.write(byteOut.toByteArray());
-            byteOut.flush();
-            byteOut.reset();
-            out.flush();
+            System.out.write(byteOut.toByteArray());
+            System.out.write('\n');
         } catch (IOException e) {
             throw new DriverResponse.ResponseSendException(e);
         }
     }
 
-    void sendError(BufferedOutputStream bufferOutputStream, Exception e, String errorString)
+    void sendError(Exception e, String errorString)
             throws IOException {
 
         translationUnit = null;
@@ -63,6 +61,6 @@ public class DriverResponse {
         e.printStackTrace(pw);
         errors.add(sw.toString());
         status = "fatal";
-        send(bufferOutputStream);
+        send();
     }
 }

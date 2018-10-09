@@ -4,12 +4,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.eclipse.cdt.core.dom.ast.*;
-import org.eclipse.cdt.core.dom.ast.cpp.CPPASTVisitor;
-import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTCompositeTypeSpecifier;
-import org.eclipse.cdt.core.dom.ast.cpp.ICPPASTVisitor;
 import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
-import org.eclipse.cdt.internal.core.pdom.indexer.IndexerASTVisitor;
-import org.eclipse.jdt.core.dom.CastExpression;
 
 import java.io.IOException;
 import java.util.List;
@@ -84,7 +79,7 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
         this.commentMap = unit.commentMap;
 
         unit.rootNode.accept(visitor);
-//      serializeNode(unit.rootNode);
+        serializeNode(unit.rootNode);
 
         if (visitor.hasError && visitor.error != null)  {
             throw visitor.error;
