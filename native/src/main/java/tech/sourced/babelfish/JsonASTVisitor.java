@@ -111,7 +111,12 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getRoleForName", "getProblem"));
+                    "getProblem",
+                    "getRoleForName",
+                    "getReturnValue", // Removed because gives the same as getReturnArgument
+                    "getInitOperand2", // Removed because it's the same as getOperand2 for BinaryExpression
+                    "getInitializerClause" // ditto as getExpression for IASTInitializer
+        ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
     }
 
@@ -427,106 +432,106 @@ public class JsonASTVisitor extends ASTVisitor {
         String opStr;
         switch (op) {
             case IASTBinaryExpression.op_assign:
-                opStr = "assignement =";
+                opStr = "=";
                 break;
             case IASTBinaryExpression.op_binaryAnd:
-                opStr = "binary And &";
+                opStr = "&";
                 break;
             case IASTBinaryExpression.op_binaryAndAssign:
-                opStr = "binary And assign &=";
+                opStr = "&=";
                 break;
             case IASTBinaryExpression.op_binaryOr:
-                opStr = "binary or |";
+                opStr = "|";
                 break;
             case IASTBinaryExpression.op_binaryOrAssign:
-                opStr = "Or assign |=";
+                opStr = "|=";
                 break;
             case IASTBinaryExpression.op_binaryXor:
-                opStr = "Xor ^";
+                opStr = "^";
                 break;
             case IASTBinaryExpression.op_binaryXorAssign:
-                opStr = "Xor assign ^=";
+                opStr = "^=";
                 break;
             case IASTBinaryExpression.op_divide:
                 opStr = "/";
                 break;
             case IASTBinaryExpression.op_divideAssign:
-                opStr = "assignemnt /=";
+                opStr = "/=";
                 break;
             case IASTBinaryExpression.op_ellipses:
-                opStr = "gcc compilers, only.";
+                opStr = "...";
                 break;
             case IASTBinaryExpression.op_equals:
                 opStr = "==";
                 break;
-            case IASTBinaryExpression.op_greaterEqual:
-                opStr = "than or equals >=";
+            case IASTBinaryExpression.op_notequals:
+                opStr = "!=";
                 break;
             case IASTBinaryExpression.op_greaterThan:
-                opStr = "than >";
+                opStr = ">";
+                break;
+            case IASTBinaryExpression.op_greaterEqual:
+                opStr = ">=";
                 break;
             case IASTBinaryExpression.op_lessEqual:
-                opStr = "than or equals <=";
+                opStr = "<=";
                 break;
             case IASTBinaryExpression.op_lessThan:
-                opStr = "than <";
+                opStr = "<";
                 break;
             case IASTBinaryExpression.op_logicalAnd:
-                opStr = "and &&";
+                opStr = "&&";
                 break;
             case IASTBinaryExpression.op_logicalOr:
-                opStr = "or ||";
+                opStr = "||";
                 break;
             case IASTBinaryExpression.op_max:
-                opStr = "g++, only.";
+                opStr = "max";
                 break;
             case IASTBinaryExpression.op_min:
-                opStr = "g++, only.";
+                opStr = "min";
                 break;
             case IASTBinaryExpression.op_minus:
                 opStr = "-";
                 break;
             case IASTBinaryExpression.op_minusAssign:
-                opStr = "assignment -=";
+                opStr = "-=";
                 break;
             case IASTBinaryExpression.op_modulo:
                 opStr = "%";
                 break;
             case IASTBinaryExpression.op_moduloAssign:
-                opStr = "assignment %=";
+                opStr = "%=";
                 break;
             case IASTBinaryExpression.op_multiply:
                 opStr = "*";
                 break;
             case IASTBinaryExpression.op_multiplyAssign:
-                opStr = "assignment *=";
-                break;
-            case IASTBinaryExpression.op_notequals:
-                opStr = "equals !";
+                opStr = "*=";
                 break;
             case IASTBinaryExpression.op_plus:
                 opStr = "+";
                 break;
             case IASTBinaryExpression.op_plusAssign:
-                opStr = "assignment +=";
+                opStr = "+=";
                 break;
             case IASTBinaryExpression.op_pmarrow:
-                opStr = "c++, only.";
+                opStr = "->";
                 break;
             case IASTBinaryExpression.op_pmdot:
-                opStr = "c==, only.";
+                opStr = ".";
                 break;
             case IASTBinaryExpression.op_shiftLeft:
-                opStr = "left <<";
+                opStr = "<<";
                 break;
             case IASTBinaryExpression.op_shiftLeftAssign:
-                opStr = "left assignment <<=";
+                opStr = "<<=";
                 break;
             case IASTBinaryExpression.op_shiftRight:
-                opStr = "right >>";
+                opStr = ">>";
                 break;
             case IASTBinaryExpression.op_shiftRightAssign:
-                opStr = "right assign >>=";
+                opStr = ">>=";
                 break;
             default:
                 opStr = "unkown_operator";
@@ -545,7 +550,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStringField("Name", node.toString());
                 json.writeBooleanField("IsQualified", node.isQualified());
 
-                if (node instanceof IASTImplicitName) {
+                if (shouldVisitImplicitNames && node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
                     json.writeBooleanField("IsAlternate", impl.isAlternate());
                     json.writeBooleanField("IsOverloadedOperator", impl.isOperator());
@@ -1103,7 +1108,7 @@ public class JsonASTVisitor extends ASTVisitor {
                             typeStr = "wchar_t";
                             break;
                         default:
-                            typeStr = "unexpecified";
+                            typeStr = "unespecified";
                             break;
                     }
 

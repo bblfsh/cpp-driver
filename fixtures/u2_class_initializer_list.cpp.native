@@ -111,7 +111,7 @@
                      LocOffsetEnd: 34,
                      LocOffsetStart: 34,
                      StorageClass: "unspecified",
-                     Type: "unexpecified",
+                     Type: "unespecified",
                   },
                   'Prop_Declarator': {
                      DeclaresParameterPack: false,
@@ -594,7 +594,7 @@
                      LocOffsetEnd: 77,
                      LocOffsetStart: 77,
                      StorageClass: "unspecified",
-                     Type: "unexpecified",
+                     Type: "unespecified",
                   },
                   'Prop_Declarator': {
                      DeclaresParameterPack: false,

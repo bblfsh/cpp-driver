@@ -88,18 +88,6 @@
                               LocOffsetStart: 40,
                               kind: "integer_constant",
                            },
-                           'Prop_InitializerClause': {
-                              ExpressionType: "int",
-                              ExpressionValueCategory: "PRVALUE",
-                              IASTClass: "CPPASTLiteralExpression",
-                              IsActive: true,
-                              IsFrozen: true,
-                              IsLValue: false,
-                              LiteralValue: "3",
-                              LocOffsetEnd: 41,
-                              LocOffsetStart: 40,
-                              kind: "integer_constant",
-                           },
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",

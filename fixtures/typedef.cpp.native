@@ -35,7 +35,7 @@
             LocOffsetEnd: 21,
             LocOffsetStart: 0,
             StorageClass: "typedef",
-            Type: "unexpecified",
+            Type: "unespecified",
          },
          'Prop_Declarators': [
             {
@@ -116,7 +116,7 @@
                LocOffsetEnd: 56,
                LocOffsetStart: 43,
                StorageClass: "unspecified",
-               Type: "unexpecified",
+               Type: "unespecified",
             },
          },
       },
