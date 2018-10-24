@@ -293,6 +293,7 @@
   name = "gopkg.in/bblfsh/sdk.v2"
   packages = [
     "driver",
+    "driver/errors",
     "driver/fixtures",
     "driver/manifest",
     "driver/native",
@@ -311,8 +312,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "966e28c602fb968fc52e27e14762bdf9307da229"
-  version = "v2.1.0"
+  revision = "422edc29a23d6d79d6f8fbe0a6f9dffcc3ff9ab2"
+  version = "v2.4.1"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -329,6 +330,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "06068e3184ac0e69d3184e33656fb04125124576fd47fa96e41a649448b92986"
+  inputs-digest = "ac98011894f1d10668d341c24a1e32e9e153771c05c41e8087121b8432fd526f"
   solver-name = "gps-cdcl"
   solver-version = 1
