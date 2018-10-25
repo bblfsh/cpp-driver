@@ -53,7 +53,7 @@
             },
          ],
          'Prop_DeclSpecifier': { '@type': "CPPASTCompositeTypeSpecifier",
-            '@role': [Unannotated],
+            '@role': [Declaration, Type],
             '@pos': { '@type': "uast:Positions",
                start: { '@type': "uast:Position",
                   offset: 27,

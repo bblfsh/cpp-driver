@@ -45,7 +45,7 @@ var (
 		"float128": {role.Type, role.Number},
 		"typeof": {role.Type, role.Incomplete},
 		"void": {role.Type, role.Null},
-		"unespecified": {role.Type, role.Noop},
+		"unespecified": {role.Type},
 	})
 
 	litExprRoles = StringToRolesMap(map[string][]role.Role{
@@ -96,24 +96,65 @@ var (
 		">>=": {role.Binary, role.Expression, role.Bitwise, role.RightShift, role.Assignment},
 		"unknown_operator": {role.Binary, role.Expression, role.Incomplete},
 	})
+
+	compositeTypeRoles = StringToRolesMap(map[string][]role.Role{
+		"union": {role.Type, role.Declaration, role.Incomplete},
+		"struct": {role.Type, role.Declaration, role.Incomplete},
+		"class": {role.Type, role.Declaration},
+	})
+
+	unaryExprRoles = StringToRolesMap(map[string][]role.Role{
+		"op_alignof": {role.Unary, role.Incomplete},
+		"op_amper": {role.Unary, role.Incomplete},
+		"op_bracketedPrimary": {role.Unary, role.Incomplete},
+		"op_labelReference": {role.Unary, role.Incomplete},
+		"op_plus": {role.Unary, role.Noop},
+		"op_minus": {role.Unary, role.Arithmetic, role.Incomplete},
+		"op_noexcept": {role.Unary, role.Incomplete},
+		"op_not": {role.Unary, role.Relational, role.Not},
+		"op_postFixIncr": {role.Unary, role.Arithmetic, role.Add},
+		"op_postFixDecr": {role.Unary, role.Arithmetic, role.Substract},
+		"op_prefixIncr": {role.Unary, role.Arithmetic, role.Add},
+		"op_prefixDecr": {role.Unary, role.Arithmetic, role.Substract},
+		"op_sizeof": {role.Unary, role.Incomplete},
+		"op_sizeofParameterPack": {role.Unary, role.Incomplete},
+		"op_star": {role.Unary, role.Dereference},
+		"op_throw": {role.Unary, role.Throw},
+		"op_tilde": {role.Unary, role.Bitwise, role.Not},
+		"op_typeid": {role.Unary, role.Incomplete},
+		"op_unkown": {role.Unary, role.Incomplete},
+	})
 )
 
 var Annotations = []Mapping{
 	AnnotateType("internal-type", nil, role.Incomplete),
 	AnnotateType("CPPASTTranslationUnit", nil, role.File, role.Module),
-	// XXX isQualified field?
+	AnnotateType("CPPASTExpressionStatement", nil, role.Expression),
+	// XXX isQualified field? (for both)
 	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}},
+		role.Identifier),
+	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
 		role.Identifier),
 
 	// XXX ExpressionType, get all possible values
 	AnnotateType("CPPASTIdExpression", nil, role.Expression, role.Variable),
-
 	AnnotateType("CPPASTNullStatement", nil, role.Literal, role.Null, role.Expression,
 		role.Primitive),
 	AnnotateType("CPPASTGotoStatement", nil, role.Goto, role.Statement),
+	AnnotateType("CPPASTBreakStatement", nil, role.Break, role.Statement),
+	AnnotateType("CPPASTContinueStatement", nil, role.Continue, role.Statement),
 	AnnotateType("CPPASTLabelStatement", nil, role.Name, role.Incomplete),
 	AnnotateType("CPPASTSimpleDeclaration", nil, role.Declaration, role.Statement),
 	AnnotateType("CPPASTDeclarationStatement", nil, role.Declaration, role.Statement),
+	AnnotateType("CPPASTFieldReference", nil, role.Qualified, role.Expression),
+	AnnotateType("CPPASTBaseSpecifier", nil, role.Type, role.Declaration, role.Base),
+	AnnotateType("CPPASTNamedTypeSpecifier", nil, role.Type, role.Instance),
+
+	AnnotateTypeCustom("CPPASTUnaryExpression",
+		FieldRoles{
+			"operator": {Op: Var("operator")},
+		},
+		LookupArrOpVar("operator", unaryExprRoles)),
 
 	AnnotateTypeCustom("CPPASTSimpleDeclSpecifier",
 		FieldRoles {
@@ -140,13 +181,19 @@ var Annotations = []Mapping{
 
 	AnnotateType("CPPASTFunctionDeclarator", FieldRoles{
 		"Prop_Name": {Roles: role.Roles{role.Function, role.Declaration, role.Name}},
+		// SDK? FIXME: adding "Opt: true" fails since Arrays can't be optional, but without it the annotation won't
+		// match, thus the duplicated annotation below
 		"Prop_Parameters": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Argument}},
+	}, role.Function, role.Declaration),
+
+	AnnotateType("CPPASTFunctionDeclarator", FieldRoles{
+		"Prop_Name": {Roles: role.Roles{role.Function, role.Declaration, role.Name}},
 	}, role.Function, role.Declaration),
 
 	AnnotateType("CPPASTReturnStatement", ObjRoles{
 		"Prop_ReturnArgument": {role.Return, role.Value},
 	}, role.Statement, role.Return),
-
+	//
 	AnnotateTypeCustom("CPPASTBinaryExpression", FieldRoles{
 		"Operator": {Rename: uast.KeyToken, Op: Var("op")},
 		"Prop_Operand1": {Roles: role.Roles{role.Binary, role.Expression, role.Left}},
@@ -154,4 +201,52 @@ var Annotations = []Mapping{
 	}, LookupArrOpVar("op", binaryExprRoles)),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment, role.Expression, role.Right),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("struct")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
+	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("union")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
+	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("class")},
+	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("class")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration}},
+	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("class")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
+		"Prop_BaseSpecifiers": {Arr: true, Roles: role.Roles{role.Base, role.Declaration}},
+	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTWhileStatement", ObjRoles{
+		"Prop_Body": {role.While},
+		"Prop_Condition": {role.While, role.Condition},
+	}, role.Statement, role.While),
+
+	AnnotateType("CPPASTSwitchStatement", ObjRoles{
+		"Prop_Body": {role.Switch},
+		"Prop_ControllerExpression": {role.Switch, role.Condition, role.Expression},
+	}, role.Statement, role.Switch),
+	AnnotateType("CPPASTCaseStatement", nil, role.Switch, role.Case),
+	AnnotateType("CPPASTDefaultStatement", nil, role.Switch, role.Case, role.Default),
+
+	AnnotateType("CPPASTAliasDeclaration", ObjRoles{
+		"Prop_Alias": {role.Alias, role.Left},
+		"Prop_MappingTypeId": {role.Alias, role.Right},
+	}, role.Alias),
+
+	AnnotateType("CPPASTForExpression", ObjRoles{
+		"Prop_Body": {role.For},
+		"Prop_InitializerStatement": {role.For, role.Initialization},
+		"Prop_IterationExpression": {role.For, role.Update, role.Expression},
+	}, role.For, role.Statement),
 }
