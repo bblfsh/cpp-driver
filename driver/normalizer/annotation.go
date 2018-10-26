@@ -244,9 +244,20 @@ var Annotations = []Mapping{
 		"Prop_MappingTypeId": {role.Alias, role.Right},
 	}, role.Alias),
 
-	AnnotateType("CPPASTForExpression", ObjRoles{
+	AnnotateType("CPPASTForStatement", ObjRoles{
 		"Prop_Body": {role.For},
 		"Prop_InitializerStatement": {role.For, role.Initialization},
 		"Prop_IterationExpression": {role.For, role.Update, role.Expression},
 	}, role.For, role.Statement),
+
+	AnnotateType("CPPASTIfStatement", ObjRoles{
+		"Prop_ThenClause": {role.If, role.Then},
+		"Prop_ElseClause": {role.If, role.Else},
+		"Prop_ConditionalExpression": {role.If, role.Condition, role.Expression},
+	}, role.If, role.Statement),
+
+	AnnotateType("CPPASTFunctionCallExpression", FieldRoles{
+		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Function, role.Call, role.Argument}},
+		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call, role.Name}},
+	}, role.Function, role.Call, role.Expression),
 }

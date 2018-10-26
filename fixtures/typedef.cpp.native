@@ -487,19 +487,6 @@
                            IsFrozen: true,
                            LocOffsetEnd: 145,
                            LocOffsetStart: 144,
-                           'Prop_ImplicitNames': [
-                              {
-                                 IASTClass: "CPPASTImplicitName",
-                                 IsActive: true,
-                                 IsAlternate: false,
-                                 IsFrozen: false,
-                                 IsOverloadedOperator: false,
-                                 IsQualified: false,
-                                 LocOffsetEnd: 145,
-                                 LocOffsetStart: 144,
-                                 Name: "",
-                              },
-                           ],
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
                               IsActive: true,

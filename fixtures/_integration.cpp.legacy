@@ -72,7 +72,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  }
 .  .  .  .  }
 .  .  .  .  1: CPPASTFunctionDeclarator {
-.  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  Roles: Function,Declaration
 .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  Offset: 25
 .  .  .  .  .  .  Line: 3
@@ -98,7 +98,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTName {
-.  .  .  .  .  .  .  Roles: Identifier
+.  .  .  .  .  .  .  Roles: Identifier,Function,Declaration,Name
 .  .  .  .  .  .  .  TOKEN "main"
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 25
@@ -138,7 +138,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
 .  .  .  .  .  .  0: CPPASTExpressionStatement {
-.  .  .  .  .  .  .  Roles: Unannotated
+.  .  .  .  .  .  .  Roles: Expression
 .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  Offset: 38
 .  .  .  .  .  .  .  .  Line: 5

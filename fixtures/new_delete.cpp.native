@@ -120,19 +120,6 @@
                                  IsNewTypeId: true,
                                  LocOffsetEnd: 63,
                                  LocOffsetStart: 56,
-                                 'Prop_ImplicitNames': [
-                                    {
-                                       IASTClass: "CPPASTImplicitName",
-                                       IsActive: true,
-                                       IsAlternate: false,
-                                       IsFrozen: false,
-                                       IsOverloadedOperator: false,
-                                       IsQualified: false,
-                                       LocOffsetEnd: 63,
-                                       LocOffsetStart: 60,
-                                       Name: "Foo",
-                                    },
-                                 ],
                                  'Prop_TypeId': {
                                     IASTClass: "CPPASTTypeId",
                                     IsActive: true,
@@ -260,19 +247,6 @@
                                  IsNewTypeId: true,
                                  LocOffsetEnd: 86,
                                  LocOffsetStart: 76,
-                                 'Prop_ImplicitNames': [
-                                    {
-                                       IASTClass: "CPPASTImplicitName",
-                                       IsActive: true,
-                                       IsAlternate: false,
-                                       IsFrozen: false,
-                                       IsOverloadedOperator: false,
-                                       IsQualified: false,
-                                       LocOffsetEnd: 86,
-                                       LocOffsetStart: 80,
-                                       Name: "Foo",
-                                    },
-                                 ],
                                  'Prop_NewTypeIdArrayExpressions': [
                                     {
                                        ExpressionType: "int",
@@ -389,19 +363,6 @@
                      IsVectored: false,
                      LocOffsetEnd: 98,
                      LocOffsetStart: 90,
-                     'Prop_ImplicitNames': [
-                        {
-                           IASTClass: "CPPASTImplicitName",
-                           IsActive: true,
-                           IsAlternate: false,
-                           IsFrozen: false,
-                           IsOverloadedOperator: false,
-                           IsQualified: false,
-                           LocOffsetEnd: 96,
-                           LocOffsetStart: 90,
-                           Name: "~Foo",
-                        },
-                     ],
                      'Prop_Operand': {
                         ExpressionType: "Foo *",
                         ExpressionValueCategory: "LVALUE",

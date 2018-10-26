@@ -185,19 +185,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 106,
                                        LocOffsetStart: 99,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsActive: true,
-                                             IsAlternate: false,
-                                             IsFrozen: false,
-                                             IsOverloadedOperator: false,
-                                             IsQualified: false,
-                                             LocOffsetEnd: 106,
-                                             LocOffsetStart: 103,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           IsActive: true,

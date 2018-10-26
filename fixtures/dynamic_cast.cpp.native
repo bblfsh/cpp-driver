@@ -321,19 +321,6 @@
                                  IsNewTypeId: true,
                                  LocOffsetEnd: 153,
                                  LocOffsetStart: 142,
-                                 'Prop_ImplicitNames': [
-                                    {
-                                       IASTClass: "CPPASTImplicitName",
-                                       IsActive: true,
-                                       IsAlternate: false,
-                                       IsFrozen: false,
-                                       IsOverloadedOperator: false,
-                                       IsQualified: false,
-                                       LocOffsetEnd: 153,
-                                       LocOffsetStart: 146,
-                                       Name: "Derived",
-                                    },
-                                 ],
                                  'Prop_TypeId': {
                                     IASTClass: "CPPASTTypeId",
                                     IsActive: true,
@@ -475,19 +462,6 @@
                                  IsNewTypeId: true,
                                  LocOffsetEnd: 187,
                                  LocOffsetStart: 179,
-                                 'Prop_ImplicitNames': [
-                                    {
-                                       IASTClass: "CPPASTImplicitName",
-                                       IsActive: true,
-                                       IsAlternate: false,
-                                       IsFrozen: false,
-                                       IsOverloadedOperator: false,
-                                       IsQualified: false,
-                                       LocOffsetEnd: 187,
-                                       LocOffsetStart: 183,
-                                       Name: "Base",
-                                    },
-                                 ],
                                  'Prop_TypeId': {
                                     IASTClass: "CPPASTTypeId",
                                     IsActive: true,

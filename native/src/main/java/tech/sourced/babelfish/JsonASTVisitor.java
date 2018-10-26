@@ -94,8 +94,8 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNames = true;
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
-        shouldVisitImplicitNames = true;
-        shouldVisitPointerOperators = true;
+        shouldVisitImplicitNames = false;
+        shouldVisitPointerOperators = true; // XXX remove
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
         shouldVisitTranslationUnit = true;
@@ -111,11 +111,12 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getProblem",
-                    "getRoleForName",
+                    "getProblem", "getRoleForName",
                     "getReturnValue", // Removed because gives the same as getReturnArgument
                     "getInitOperand2", // Removed because it's the same as getOperand2 for BinaryExpression
-                    "getInitializerClause" // ditto as getExpression for IASTInitializer
+                    "getInitializerClause", // ditto as getExpression for IASTInitializer
+                    // ImplicitNames
+                    "getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
     }
