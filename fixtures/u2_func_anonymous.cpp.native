@@ -105,7 +105,7 @@
                                              LocOffsetStart: 59,
                                              Operator: "+",
                                              'Prop_Operand1': {
-                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTemplateTypeParameter@54a67a45",
+                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter",
                                                 ExpressionValueCategory: "LVALUE",
                                                 IASTClass: "CPPASTIdExpression",
                                                 IsActive: true,
@@ -124,7 +124,7 @@
                                                 },
                                              },
                                              'Prop_Operand2': {
-                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTemplateTypeParameter@20b12f8a",
+                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter",
                                                 ExpressionValueCategory: "LVALUE",
                                                 IASTClass: "CPPASTIdExpression",
                                                 IsActive: true,
@@ -449,7 +449,7 @@
                                                 },
                                              },
                                              'Prop_Operand2': {
-                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTemplateTypeParameter@68044f4",
+                                                ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter",
                                                 ExpressionValueCategory: "LVALUE",
                                                 IASTClass: "CPPASTIdExpression",
                                                 IsActive: true,

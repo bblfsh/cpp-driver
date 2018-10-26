@@ -592,6 +592,8 @@ public class JsonASTVisitor extends ASTVisitor {
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
                     exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
+                } else if (exprType.indexOf("TypeParameter@") != -1) { // ditto
+                    exprType = "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter";
                 }
 
                 json.writeStringField("ExpressionType", exprType);
