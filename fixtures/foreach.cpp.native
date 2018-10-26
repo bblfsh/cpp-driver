@@ -366,16 +366,7 @@
                                              LocOffsetStart: 129,
                                              Name: "n",
                                           },
-                                          'Prop_PointerOperators': [
-                                             {
-                                                IASTClass: "CPPASTReferenceOperator",
-                                                IsActive: true,
-                                                IsFrozen: true,
-                                                IsRValueReference: false,
-                                                LocOffsetEnd: 128,
-                                                LocOffsetStart: 127,
-                                             },
-                                          ],
+                                          'Prop_PointerOperators': [],
                                        },
                                     ],
                                     TakesVarArgs: false,

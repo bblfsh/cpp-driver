@@ -17,7 +17,7 @@
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       { '@type': "CPPASTTemplateDeclaration",
-         '@role': [Unannotated],
+         '@role': [Declaration, Incomplete, Type],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -306,7 +306,7 @@
          },
          'Prop_TemplateParameters': [
             { '@type': "CPPASTSimpleTypeTemplateParameter",
-               '@role': [Unannotated],
+               '@role': [Argument, Declaration, Incomplete, Type],
                '@pos': { '@type': "uast:Positions",
                   start: { '@type': "uast:Position",
                      offset: 9,
@@ -345,7 +345,7 @@
          ],
       },
       { '@type': "CPPASTTemplateDeclaration",
-         '@role': [Unannotated],
+         '@role': [Declaration, Incomplete, Type],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 52,
@@ -634,7 +634,7 @@
          },
          'Prop_TemplateParameters': [
             { '@type': "CPPASTSimpleTypeTemplateParameter",
-               '@role': [Unannotated],
+               '@role': [Argument, Declaration, Incomplete, Type],
                '@pos': { '@type': "uast:Positions",
                   start: { '@type': "uast:Position",
                      offset: 61,

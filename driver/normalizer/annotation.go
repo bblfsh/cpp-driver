@@ -149,6 +149,16 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTFieldReference", nil, role.Qualified, role.Expression),
 	AnnotateType("CPPASTBaseSpecifier", nil, role.Type, role.Declaration, role.Base),
 	AnnotateType("CPPASTNamedTypeSpecifier", nil, role.Type, role.Instance),
+	AnnotateType("CPPASTProblemStatement", nil, role.Incomplete),
+	AnnotateType("CPPASTUsingDirective", nil, role.Scope, role.Alias),
+	AnnotateType("CPPASTNewExpression", nil, role.Instance, role.Value),
+	AnnotateType("CPPASTTypeId", nil, role.Type),
+	AnnotateType("CPPASTTemplateDeclaration", nil, role.Type, role.Declaration, role.Incomplete),
+	AnnotateType("CPPASTSimpleTypeTemplateParameter", nil, role.Type, role.Declaration, role.Argument, role.Incomplete),
+	AnnotateType("CPPASTTemplateId", nil, role.Type, role.Incomplete),
+	AnnotateType("CPPASTDeleteExpression", nil, role.Call, role.Expression, role.Incomplete),
+	AnnotateType("CPPASTInitializerList", nil, role.Initialization, role.List),
+	AnnotateType("CPPASTCastExpression", nil, role.Expression, role.Incomplete),
 
 	AnnotateTypeCustom("CPPASTUnaryExpression",
 		FieldRoles{
@@ -163,6 +173,14 @@ var Annotations = []Mapping{
 		LookupArrOpVar("type", typeRoles),
 	),
 
+	AnnotateType("CPPASTASMDeclaration", FieldRoles{
+		"Assembly": {Rename: uast.KeyToken},
+	}, role.Declaration, role.Block, role.Incomplete),
+
+	AnnotateType("CPPASTLinkageSpecification", FieldRoles{
+		"Literal": {Rename: uast.KeyToken},
+	}, role.Declaration, role.Block, role.Incomplete),
+
 	AnnotateTypeCustom("CPPASTLiteralExpression",
 		FieldRoles {
 			"LiteralValue": {Rename: uast.KeyToken},
@@ -172,6 +190,9 @@ var Annotations = []Mapping{
 	),
 
 	AnnotateType("CPPASTCompoundStatement", nil, role.Body),
+	AnnotateType("CPPASTDeclarator", FieldRoles{
+		"Name": {Rename: uast.KeyToken},
+	}, role.Declaration, role.Variable, role.Name),
 	AnnotateType("CPPASTDeclarator", nil, role.Declaration, role.Variable, role.Name),
 
 	AnnotateType("CPPASTFunctionDefinition", ObjRoles{
@@ -204,17 +225,26 @@ var Annotations = []Mapping{
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("struct")},
-		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
 	} , role.Declaration, role.Type),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
-		"Key": {Op: String("union")},
+		"Key": {Op: String("struct")},
 		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
 	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTElaboratedTypeSpecifier", FieldRoles{
+		"Kind": {Op: String("enum")},
+	} , role.Declaration, role.Type, role.Enumeration),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("class")},
 	} , role.Declaration, role.Type),
+
+	// No Union role
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("union")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+	} , role.Declaration, role.Type, role.Incomplete),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("class")},
@@ -228,6 +258,11 @@ var Annotations = []Mapping{
 	} , role.Declaration, role.Type),
 
 	AnnotateType("CPPASTWhileStatement", ObjRoles{
+		"Prop_Body": {role.While},
+		"Prop_Condition": {role.While, role.Condition},
+	}, role.Statement, role.While),
+
+	AnnotateType("CPPASTDoStatement", ObjRoles{
 		"Prop_Body": {role.While},
 		"Prop_Condition": {role.While, role.Condition},
 	}, role.Statement, role.While),
@@ -260,4 +295,60 @@ var Annotations = []Mapping{
 		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Function, role.Call, role.Argument}},
 		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call, role.Name}},
 	}, role.Function, role.Call, role.Expression),
+
+	AnnotateType("CPPASTFunctionCallExpression", FieldRoles{
+		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call, role.Name}},
+	}, role.Function, role.Call, role.Expression),
+
+	AnnotateType("CPPASTLambdaExpression", FieldRoles{
+		"Prop_Body": { Roles: role.Roles{role.Function, role.Declaration}},
+		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration, role.Type}},
+		//"Prop_Captures": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Incomplete}},
+	}, role.Function, role.Declaration, role.Anonymous, role.Expression),
+
+	AnnotateType("CPPASTArrayDeclarator", FieldRoles{
+		"Prop_Initializer": { Opt: true, Roles: role.Roles{role.List, role.Initialization, role.Right}},
+		// Dimensions and sizes
+		"Prop_ArrayModifiers": { Arr: true, Roles: role.Roles{role.List, role.Declaration}},
+	}, role.List, role.Declaration),
+
+	// Dimension
+	AnnotateType("CPPASTArrayModifier", nil, role.Type, role.Incomplete),
+	// Index (on usage, not declaration), like a[1]
+	AnnotateType("CPPASTArraySubscriptExpression", nil, role.List, role.Value, role.Incomplete),
+
+	AnnotateType("CPPASTTryBlockStatement", FieldRoles{
+		"Prop_TryBody": {Roles: role.Roles{role.Try, role.Body}},
+		"Prop_CatchHandlers": {Arr: true, Roles: role.Roles{role.Try, role.Catch}},
+	}, role.Try, role.Statement),
+
+	AnnotateType("CPPASTCatchHandler", ObjRoles{
+		"Prop_Declaration": {role.Catch, role.Type, role.Argument},
+		"Prop_CatchBody": {role.Catch, role.Body},
+	}),
+
+	AnnotateType("CPPASTQualifiedName", FieldRoles{
+		"Prop_AllSegments": {Arr: true, Roles: role.Roles{role.Qualified}},
+		"Prop_Qualifier": {Arr: true, Roles: role.Roles{role.Identifier}},
+	}, role.Qualified),
+
+	AnnotateType("CPPASTConstructorChainInitializer", ObjRoles{
+		"Prop_MemberInitializerId": {role.Type, role.Declaration, role.Initialization, role.Incomplete},
+	}, role.Type, role.Declaration, role.Initialization, role.Incomplete),
+
+	AnnotateType("CPPASTConstructorInitializer", FieldRoles{
+		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Initialization, role.Declaration, role.Argument, role.Value, role.Incomplete}},
+		"Prop_Expression": {Roles: role.Roles{role.Initialization, role.Declaration, role.Value, role.Incomplete}},
+	}, role.Initialization, role.Declaration, role.Incomplete),
+	AnnotateType("CPPASTConstructorInitializer", nil, role.Initialization, role.Declaration, role.Incomplete),
+
+	AnnotateType("Comment", MapObj(Obj{
+		"Comment": UncommentCLike("text"),
+	}, Obj{
+		uast.KeyToken: Var("text"),
+	}), role.Noop, role.Comment),
+
+	AnnotateType("CPPASTFieldDeclarator", ObjRoles{
+		"Prop_BitFieldSize": {role.Type, role.Declaration, role.Number, role.Incomplete},
+	}, role.Type, role.Declaration, role.Incomplete),
 }

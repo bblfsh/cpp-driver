@@ -35,7 +35,8 @@
          IsFrozen: true,
          LeadingComments: [
             { '@type': "Comment",
-               '@role': [Unannotated],
+               '@token': "*\n * This is the doc\n ",
+               '@role': [Comment, Noop],
                '@pos': { '@type': "uast:Positions",
                   start: { '@type': "uast:Position",
                      offset: 0,
@@ -48,7 +49,6 @@
                      col: 4,
                   },
                },
-               Comment: "/**\n * This is the doc\n */",
                IsBlockComment: true,
             },
          ],

@@ -95,7 +95,7 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
         shouldVisitImplicitNames = false;
-        shouldVisitPointerOperators = true; // XXX remove
+        shouldVisitPointerOperators = false;
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
         shouldVisitTranslationUnit = true;
@@ -115,6 +115,7 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getReturnValue", // Removed because gives the same as getReturnArgument
                     "getInitOperand2", // Removed because it's the same as getOperand2 for BinaryExpression
                     "getInitializerClause", // ditto as getExpression for IASTInitializer
+                    "getInitializerValue", // ditto as getInitialier.getArguments have the same
                     // ImplicitNames
                     "getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
