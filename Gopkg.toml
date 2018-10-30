@@ -2,8 +2,8 @@
 # for detailed Gopkg.toml documentation.
 
 [[constraint]]
-  version = "v2.4.x"
   name = "gopkg.in/bblfsh/sdk.v2"
+  version = "v2.5.x"
 
 [prune]
   go-tests = true
