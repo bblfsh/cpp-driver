@@ -50,23 +50,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsComplex: false
-.  .  .  .  .  .  IsConst: false
-.  .  .  .  .  .  IsConstExpr: false
-.  .  .  .  .  .  IsExplicit: false
-.  .  .  .  .  .  IsFriend: false
 .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  IsImaginary: false
-.  .  .  .  .  .  IsInline: false
-.  .  .  .  .  .  IsLong: false
-.  .  .  .  .  .  IsLongLong: false
-.  .  .  .  .  .  IsRestrict: false
-.  .  .  .  .  .  IsShort: false
-.  .  .  .  .  .  IsSigned: false
-.  .  .  .  .  .  IsThreadLocal: false
-.  .  .  .  .  .  IsUnsigned: false
-.  .  .  .  .  .  IsVirtual: false
-.  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  StorageClass: unspecified
 .  .  .  .  .  .  internalRole: Prop_DeclSpecifier
 .  .  .  .  .  }
@@ -86,13 +70,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  DeclaresParameterPack: false
 .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsConst: false
-.  .  .  .  .  .  IsFinal: false
 .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  IsMutable: false
-.  .  .  .  .  .  IsOverride: false
-.  .  .  .  .  .  IsPureVirtual: false
-.  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  TakesVarArgs: false
 .  .  .  .  .  .  internalRole: Prop_Declarator
 .  .  .  .  .  }
