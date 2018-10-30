@@ -149,8 +149,8 @@ public class JsonASTVisitor extends ASTVisitor {
         json.writeStringField("IASTClass", node.getClass().getSimpleName());
         if (verboseJson)
             json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
-        writeIfTrue("IsActive", node.isActive());
-        writeIfTrue("IsFrozen", node.isFrozen());
+        //writeIfTrue("IsActive", node.isActive());
+        //writeIfTrue("IsFrozen", node.isFrozen());
 
         if (verboseJson) {
             ASTNodeProperty propInParent = node.getPropertyInParent();
@@ -550,7 +550,7 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeStringField("Name", node.toString());
-                json.writeBooleanField("IsQualified", node.isQualified());
+                writeIfTrue("IsQualified", node.isQualified());
 
                 if (shouldVisitImplicitNames && node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
