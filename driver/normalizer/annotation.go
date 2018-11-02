@@ -159,6 +159,7 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTInitializerList", nil, role.Initialization, role.List),
 	AnnotateType("CPPASTCastExpression", nil, role.Expression, role.Incomplete),
 	AnnotateType("CPPASTDesignatedInitializer", nil, role.Expression, role.Initialization),
+	AnnotateType("CPPASTConditionalExpression", nil, role.Expression, role.Condition),
 
 	AnnotateTypeCustom("CPPASTUnaryExpression",
 		FieldRoles{
@@ -290,6 +291,12 @@ var Annotations = []Mapping{
 		"Prop_Body": {role.For},
 		"Prop_InitializerStatement": {role.For, role.Initialization},
 		"Prop_IterationExpression": {role.For, role.Update, role.Expression},
+	}, role.For, role.Statement),
+
+	AnnotateType("CPPASTRangeBasedForStatement", ObjRoles{
+		"Prop_Body": {role.For},
+		"Prop_Declaration": {role.For, role.Declaration, role.Variable},
+		"Prop_InitializerClause": {role.For, role.Iterator},
 	}, role.For, role.Statement),
 
 	AnnotateType("CPPASTIfStatement", ObjRoles{

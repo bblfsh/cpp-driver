@@ -20,7 +20,7 @@ var Suite = &fixtures.Suite{
 		return native.NewDriverAt(filepath.Join(projectRoot, "build/bin/native"), native.UTF8)
 	},
 	Transforms: normalizer.Transforms,
-	BenchName: "dynamic_cast",
+	BenchName: "huge",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
 			// TODO: list native types that should be converted to semantic UAST
