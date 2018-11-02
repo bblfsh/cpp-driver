@@ -1,6 +1,6 @@
 name = "C++"
 language = "cpp"
-status = "alpha"
+status = "beta"
 features = ["ast"]
 
 [runtime]
