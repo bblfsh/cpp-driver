@@ -41,6 +41,13 @@ public class JsonASTVisitor extends ASTVisitor {
     IOException error;
     boolean hasError = false;
 
+    public class SyntaxErrorException extends Exception {
+        public SyntaxErrorException() { super(); }
+        public SyntaxErrorException(String message) { super(message); }
+        public SyntaxErrorException(String message, Throwable cause) { super(message, cause); }
+        public SyntaxErrorException(Throwable cause) { super(cause); }
+    }
+
     // The visitChildren method uses reflection to get the methods and return values
     // to retrieve children and assign them to properties instead of a flat list. That is
     // slow so we'll cache every inspected node using this class and the childrenMethod
@@ -883,6 +890,10 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeBooleanField("IsDeleted", impl2.isDeleted());
                     }
                 }
+
+                //if (node instanceof IASTProblemDeclaration) {
+                    //throw new IOException("Syntax error on file");
+                //}
 
                 serializeComments(node);
                 visitChildren(node);
