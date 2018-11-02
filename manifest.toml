@@ -1,7 +1,7 @@
 name = "C++"
 language = "cpp"
 status = "beta"
-features = ["ast"]
+features = ["ast", "roles"]
 
 [runtime]
   os = "alpine"
