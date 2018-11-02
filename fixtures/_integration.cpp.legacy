@@ -10,10 +10,6 @@ CPPASTTranslationUnit {
 .  .  Line: 7
 .  .  Col: 1
 .  }
-.  Properties: {
-.  .  IsActive: true
-.  .  IsFrozen: true
-.  }
 .  Children: {
 .  .  0: CPPASTFunctionDefinition {
 .  .  .  Roles: Function,Declaration
@@ -28,10 +24,8 @@ CPPASTTranslationUnit {
 .  .  .  .  Col: 2
 .  .  .  }
 .  .  .  Properties: {
-.  .  .  .  IsActive: true
 .  .  .  .  IsDefaulted: false
 .  .  .  .  IsDeleted: false
-.  .  .  .  IsFrozen: true
 .  .  .  .  internalRole: Prop_Declarations
 .  .  .  }
 .  .  .  Children: {
@@ -49,8 +43,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 4
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  StorageClass: unspecified
 .  .  .  .  .  .  internalRole: Prop_DeclSpecifier
 .  .  .  .  .  }
@@ -69,8 +61,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
 .  .  .  .  .  .  DeclaresParameterPack: false
-.  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  TakesVarArgs: false
 .  .  .  .  .  .  internalRole: Prop_Declarator
 .  .  .  .  .  }
@@ -89,9 +79,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  Col: 9
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  internalRole: Prop_Name
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  }
@@ -110,8 +97,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 2
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  internalRole: Prop_Body
 .  .  .  .  .  }
 .  .  .  .  .  Children: {
@@ -128,8 +113,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  Col: 34
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  internalRole: Prop_Statements
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
@@ -149,8 +132,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
-.  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Expression
 .  .  .  .  .  .  .  .  .  }
@@ -170,8 +151,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
-.  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand1
 .  .  .  .  .  .  .  .  .  .  .  }
@@ -189,11 +168,8 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsConversionOperator: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFullyQualified: false
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  Name: std::cout
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Name
 .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -212,9 +188,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 8
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_AllSegments
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -232,9 +205,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 8
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: false
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Qualifier
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -252,8 +222,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_AllSegments
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -278,8 +246,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: const char [14]
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: LVALUE
-.  .  .  .  .  .  .  .  .  .  .  .  IsActive: true
-.  .  .  .  .  .  .  .  .  .  .  .  IsFrozen: true
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand2
 .  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
