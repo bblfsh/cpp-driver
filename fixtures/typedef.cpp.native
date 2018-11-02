@@ -277,6 +277,16 @@
                            IASTClass: "CPPASTDeclarator",
                            LocOffsetEnd: 145,
                            LocOffsetStart: 144,
+                           'Prop_ImplicitNames': [
+                              {
+                                 IASTClass: "CPPASTImplicitName",
+                                 IsAlternate: false,
+                                 IsOverloadedOperator: false,
+                                 LocOffsetEnd: 145,
+                                 LocOffsetStart: 144,
+                                 Name: "",
+                              },
+                           ],
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
                               LocOffsetEnd: 145,

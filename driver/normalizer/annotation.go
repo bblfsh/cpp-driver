@@ -130,7 +130,6 @@ var Annotations = []Mapping{
 	AnnotateType("internal-type", nil, role.Incomplete),
 	AnnotateType("CPPASTTranslationUnit", nil, role.File, role.Module),
 	AnnotateType("CPPASTExpressionStatement", nil, role.Expression),
-	// XXX isQualified field? (for both)
 	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}},
 		role.Identifier),
 	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
@@ -159,6 +158,7 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTDeleteExpression", nil, role.Call, role.Expression, role.Incomplete),
 	AnnotateType("CPPASTInitializerList", nil, role.Initialization, role.List),
 	AnnotateType("CPPASTCastExpression", nil, role.Expression, role.Incomplete),
+	AnnotateType("CPPASTDesignatedInitializer", nil, role.Expression, role.Initialization),
 
 	AnnotateTypeCustom("CPPASTUnaryExpression",
 		FieldRoles{
@@ -202,7 +202,7 @@ var Annotations = []Mapping{
 
 	AnnotateType("CPPASTFunctionDeclarator", FieldRoles{
 		"Prop_Name": {Roles: role.Roles{role.Function, role.Declaration, role.Name}},
-		// SDK? FIXME: adding "Opt: true" fails since Arrays can't be optional, but without it the annotation won't
+		// SDK TODO: adding "Opt: true" fails since Arrays can't be optional, but without it the annotation won't
 		// match, thus the duplicated annotation below
 		"Prop_Parameters": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Argument}},
 	}, role.Function, role.Declaration),
@@ -214,12 +214,18 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTReturnStatement", ObjRoles{
 		"Prop_ReturnArgument": {role.Return, role.Value},
 	}, role.Statement, role.Return),
-	//
-	AnnotateTypeCustom("CPPASTBinaryExpression", FieldRoles{
-		"Operator": {Rename: uast.KeyToken, Op: Var("op")},
-		"Prop_Operand1": {Roles: role.Roles{role.Binary, role.Expression, role.Left}},
-		"Prop_Operand2": {Roles: role.Roles{role.Binary, role.Expression, role.Left}},
-	}, LookupArrOpVar("op", binaryExprRoles)),
+
+	AnnotateTypeCustom("CPPASTBinaryExpression", MapObj(Obj{
+		"Operator": Var("operator"),
+		"Prop_Operand1": ObjectRoles("operand1"),
+		"Prop_Operand2": ObjectRoles("operand2"),
+		// Temporarily using the same name to detect if those are really duplicated
+		"Prop_InitOperand2": ObjectRoles("operand2"),
+	}, Obj{
+		uast.KeyToken: Var("operator"),
+		"Prop_Operand1": ObjectRoles("operand1", role.Binary, role.Expression, role.Left),
+		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
+	}), LookupArrOpVar("operator", binaryExprRoles)),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment, role.Expression, role.Right),
 
@@ -244,6 +250,7 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("union")},
 		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+		//"Prop_Clauses": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
 	} , role.Declaration, role.Type, role.Incomplete),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{

@@ -101,7 +101,7 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNames = true;
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
-        shouldVisitImplicitNames = false;
+        shouldVisitImplicitNames = true;
         shouldVisitPointerOperators = false;
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
@@ -118,13 +118,9 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getProblem", "getRoleForName",
-                    "getReturnValue", // Removed because gives the same as getReturnArgument
-                    "getInitOperand2", // Removed because it's the same as getOperand2 for BinaryExpression
-                    "getInitializerClause", // ditto as getExpression for IASTInitializer
-                    "getInitializerValue", // ditto as getInitialier.getArguments have the same
+                    "getProblem", "getRoleForName"
                     // ImplicitNames
-                    "getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
+                    //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
     }
@@ -253,7 +249,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 ++idx;
             }
 
-            // FIXME: insert sorted? (list should be tiny most of the cases)
             Arrays.sort(methodWrappers);
 
             for (MethodWrapper mw : methodWrappers) {

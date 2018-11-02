@@ -105,6 +105,28 @@
                                     },
                                  },
                               },
+                              'Prop_InitializerClause': {
+                                 ExpressionType: "int",
+                                 ExpressionValueCategory: "PRVALUE",
+                                 IASTClass: "CPPASTFunctionCallExpression",
+                                 IsLValue: false,
+                                 LocOffsetEnd: 199,
+                                 LocOffsetStart: 193,
+                                 'Prop_FunctionNameExpression': {
+                                    ExpressionType: "int ()",
+                                    ExpressionValueCategory: "LVALUE",
+                                    IASTClass: "CPPASTIdExpression",
+                                    IsLValue: true,
+                                    LocOffsetEnd: 197,
+                                    LocOffsetStart: 193,
+                                    'Prop_Name': {
+                                       IASTClass: "CPPASTName",
+                                       LocOffsetEnd: 197,
+                                       LocOffsetStart: 193,
+                                       Name: "func",
+                                    },
+                                 },
+                              },
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",

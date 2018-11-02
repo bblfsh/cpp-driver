@@ -193,7 +193,7 @@
                         },
                      },
                      'Prop_Operand2': { '@type': "CPPASTCastExpression",
-                        '@role': [Binary, Expression, Incomplete, Left],
+                        '@role': [Binary, Expression, Incomplete, Right],
                         '@pos': { '@type': "uast:Positions",
                            start: { '@type': "uast:Position",
                               offset: 28,

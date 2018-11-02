@@ -78,6 +78,16 @@
                               LocOffsetEnd: 170,
                               LocOffsetStart: 165,
                               Operator: "=",
+                              'Prop_InitOperand2': {
+                                 ExpressionType: "int",
+                                 ExpressionValueCategory: "PRVALUE",
+                                 IASTClass: "CPPASTLiteralExpression",
+                                 IsLValue: false,
+                                 LiteralValue: "2",
+                                 LocOffsetEnd: 170,
+                                 LocOffsetStart: 169,
+                                 kind: "integer_constant",
+                              },
                               'Prop_Operand1': {
                                  ExpressionType: "int",
                                  ExpressionValueCategory: "LVALUE",
@@ -123,6 +133,16 @@
                               LocOffsetEnd: 148,
                               LocOffsetStart: 143,
                               Operator: "=",
+                              'Prop_InitOperand2': {
+                                 ExpressionType: "int",
+                                 ExpressionValueCategory: "PRVALUE",
+                                 IASTClass: "CPPASTLiteralExpression",
+                                 IsLValue: false,
+                                 LiteralValue: "1",
+                                 LocOffsetEnd: 148,
+                                 LocOffsetStart: 147,
+                                 kind: "integer_constant",
+                              },
                               'Prop_Operand1': {
                                  ExpressionType: "int",
                                  ExpressionValueCategory: "LVALUE",

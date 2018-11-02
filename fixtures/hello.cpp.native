@@ -39,6 +39,16 @@
                      LocOffsetEnd: 82,
                      LocOffsetStart: 59,
                      Operator: "<<",
+                     'Prop_InitOperand2': {
+                        ExpressionType: "const char [14]",
+                        ExpressionValueCategory: "LVALUE",
+                        IASTClass: "CPPASTLiteralExpression",
+                        IsLValue: true,
+                        LiteralValue: "\"Hello, World!\"",
+                        LocOffsetEnd: 82,
+                        LocOffsetStart: 67,
+                        kind: "string_literal",
+                     },
                      'Prop_Operand1': {
                         ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
                         ExpressionValueCategory: "PRVALUE",
@@ -70,6 +80,16 @@
                   LocOffsetEnd: 97,
                   LocOffsetStart: 88,
                   'Prop_ReturnArgument': {
+                     ExpressionType: "int",
+                     ExpressionValueCategory: "PRVALUE",
+                     IASTClass: "CPPASTLiteralExpression",
+                     IsLValue: false,
+                     LiteralValue: "0",
+                     LocOffsetEnd: 96,
+                     LocOffsetStart: 95,
+                     kind: "integer_constant",
+                  },
+                  'Prop_ReturnValue': {
                      ExpressionType: "int",
                      ExpressionValueCategory: "PRVALUE",
                      IASTClass: "CPPASTLiteralExpression",

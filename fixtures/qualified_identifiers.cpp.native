@@ -135,6 +135,16 @@
                            IASTClass: "CPPASTDeclarator",
                            LocOffsetEnd: 72,
                            LocOffsetStart: 71,
+                           'Prop_ImplicitNames': [
+                              {
+                                 IASTClass: "CPPASTImplicitName",
+                                 IsAlternate: false,
+                                 IsOverloadedOperator: false,
+                                 LocOffsetEnd: 72,
+                                 LocOffsetStart: 71,
+                                 Name: "Bar",
+                              },
+                           ],
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
                               LocOffsetEnd: 72,
@@ -157,6 +167,16 @@
                      LocOffsetEnd: 86,
                      LocOffsetStart: 76,
                      Operator: "=",
+                     'Prop_InitOperand2': {
+                        ExpressionType: "int",
+                        ExpressionValueCategory: "PRVALUE",
+                        IASTClass: "CPPASTLiteralExpression",
+                        IsLValue: false,
+                        LiteralValue: "10",
+                        LocOffsetEnd: 86,
+                        LocOffsetStart: 84,
+                        kind: "integer_constant",
+                     },
                      'Prop_Operand1': {
                         ExpressionType: "int",
                         ExpressionValueCategory: "LVALUE",

@@ -105,6 +105,49 @@
                               IASTClass: "CPPASTEqualsInitializer",
                               LocOffsetEnd: 58,
                               LocOffsetStart: 53,
+                              'Prop_InitializerClause': {
+                                 IASTClass: "CPPASTInitializerList",
+                                 LocOffsetEnd: 58,
+                                 LocOffsetStart: 55,
+                                 'Prop_Clauses': [
+                                    {
+                                       ExpressionType: "int",
+                                       ExpressionValueCategory: "PRVALUE",
+                                       IASTClass: "CPPASTLiteralExpression",
+                                       IsLValue: false,
+                                       LiteralValue: "1",
+                                       LocOffsetEnd: 57,
+                                       LocOffsetStart: 56,
+                                       kind: "integer_constant",
+                                    },
+                                 ],
+                                 'Prop_Initializers': [
+                                    {
+                                       IASTClass: "CPPASTEqualsInitializer",
+                                       'Prop_Expression': {
+                                          ExpressionType: "int",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1",
+                                          LocOffsetEnd: 57,
+                                          LocOffsetStart: 56,
+                                          kind: "integer_constant",
+                                       },
+                                       'Prop_InitializerClause': {
+                                          ExpressionType: "int",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1",
+                                          LocOffsetEnd: 57,
+                                          LocOffsetStart: 56,
+                                          kind: "integer_constant",
+                                       },
+                                    },
+                                 ],
+                                 Size: 1,
+                              },
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -147,6 +190,62 @@
                               IASTClass: "CPPASTEqualsInitializer",
                               LocOffsetEnd: 76,
                               LocOffsetStart: 68,
+                              'Prop_InitializerClause': {
+                                 IASTClass: "CPPASTInitializerList",
+                                 LocOffsetEnd: 76,
+                                 LocOffsetStart: 70,
+                                 'Prop_Clauses': [
+                                    {
+                                       IASTClass: "CPPASTDesignatedInitializer",
+                                       LocOffsetEnd: 75,
+                                       LocOffsetStart: 71,
+                                       'Prop_Designators': [
+                                          {
+                                             IASTClass: "CPPASTName",
+                                             LocOffsetEnd: 73,
+                                             LocOffsetStart: 72,
+                                             Name: "a",
+                                          },
+                                       ],
+                                       'Prop_Operand': {
+                                          ExpressionType: "int",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1",
+                                          LocOffsetEnd: 75,
+                                          LocOffsetStart: 74,
+                                          kind: "integer_constant",
+                                       },
+                                    },
+                                 ],
+                                 'Prop_Initializers': [
+                                    {
+                                       IASTClass: "CPPASTDesignatedInitializer",
+                                       LocOffsetEnd: 75,
+                                       LocOffsetStart: 71,
+                                       'Prop_Designators': [
+                                          {
+                                             IASTClass: "CPPASTName",
+                                             LocOffsetEnd: 73,
+                                             LocOffsetStart: 72,
+                                             Name: "a",
+                                          },
+                                       ],
+                                       'Prop_Operand': {
+                                          ExpressionType: "int",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1",
+                                          LocOffsetEnd: 75,
+                                          LocOffsetStart: 74,
+                                          kind: "integer_constant",
+                                       },
+                                    },
+                                 ],
+                                 Size: 1,
+                              },
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
@@ -189,6 +288,62 @@
                               IASTClass: "CPPASTEqualsInitializer",
                               LocOffsetEnd: 96,
                               LocOffsetStart: 86,
+                              'Prop_InitializerClause': {
+                                 IASTClass: "CPPASTInitializerList",
+                                 LocOffsetEnd: 96,
+                                 LocOffsetStart: 88,
+                                 'Prop_Clauses': [
+                                    {
+                                       IASTClass: "CPPASTDesignatedInitializer",
+                                       LocOffsetEnd: 95,
+                                       LocOffsetStart: 89,
+                                       'Prop_Designators': [
+                                          {
+                                             IASTClass: "CPPASTName",
+                                             LocOffsetEnd: 91,
+                                             LocOffsetStart: 90,
+                                             Name: "b",
+                                          },
+                                       ],
+                                       'Prop_Operand': {
+                                          ExpressionType: "double",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1.0",
+                                          LocOffsetEnd: 95,
+                                          LocOffsetStart: 92,
+                                          kind: "float_constant",
+                                       },
+                                    },
+                                 ],
+                                 'Prop_Initializers': [
+                                    {
+                                       IASTClass: "CPPASTDesignatedInitializer",
+                                       LocOffsetEnd: 95,
+                                       LocOffsetStart: 89,
+                                       'Prop_Designators': [
+                                          {
+                                             IASTClass: "CPPASTName",
+                                             LocOffsetEnd: 91,
+                                             LocOffsetStart: 90,
+                                             Name: "b",
+                                          },
+                                       ],
+                                       'Prop_Operand': {
+                                          ExpressionType: "double",
+                                          ExpressionValueCategory: "PRVALUE",
+                                          IASTClass: "CPPASTLiteralExpression",
+                                          IsLValue: false,
+                                          LiteralValue: "1.0",
+                                          LocOffsetEnd: 95,
+                                          LocOffsetStart: 92,
+                                          kind: "float_constant",
+                                       },
+                                    },
+                                 ],
+                                 Size: 1,
+                              },
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",

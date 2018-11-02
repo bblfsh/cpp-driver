@@ -169,7 +169,7 @@
                      },
                      'Prop_Operand2': { '@type': "CPPASTLiteralExpression",
                         '@token': "\"test\"",
-                        '@role': [Binary, Expression, Left, Literal, String],
+                        '@role': [Binary, Expression, Literal, Right, String],
                         '@pos': { '@type': "uast:Positions",
                            start: { '@type': "uast:Position",
                               offset: 83,
