@@ -1,30 +1,22 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 37,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTFunctionDefinition",
-         IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
-         IsFrozen: true,
          LocOffsetEnd: 36,
          LocOffsetStart: 0,
          'Prop_Body': {
             IASTClass: "CPPASTCompoundStatement",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 36,
             LocOffsetStart: 34,
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 4,
             LocOffsetStart: 0,
             StorageClass: "unspecified",
@@ -33,15 +25,10 @@
          'Prop_Declarator': {
             DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 33,
             LocOffsetStart: 5,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 13,
                LocOffsetStart: 5,
                Name: "testfnc1",
@@ -49,9 +36,7 @@
             'Prop_Parameters': [
                {
                   IASTClass: "CPPASTSimpleDeclSpecifier",
-                  IsActive: true,
                   IsConst: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 24,
                   LocOffsetStart: 14,
                   StorageClass: "unspecified",
@@ -60,15 +45,10 @@
                {
                   DeclaresParameterPack: false,
                   IASTClass: "CPPASTDeclarator",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 29,
                   LocOffsetStart: 24,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsActive: true,
-                     IsFrozen: true,
-                     IsQualified: false,
                      LocOffsetEnd: 29,
                      LocOffsetStart: 26,
                      Name: "fmt",

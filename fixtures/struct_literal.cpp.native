@@ -1,45 +1,32 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 70,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         IsActive: true,
-         IsFrozen: true,
          LocOffsetEnd: 29,
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
-            IsActive: true,
             IsFinal: false,
-            IsFrozen: true,
             Key: "struct",
             LocOffsetEnd: 28,
             LocOffsetStart: 0,
             'Prop_Members': [
                {
                   IASTClass: "CPPASTSimpleDeclaration",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 26,
                   LocOffsetStart: 14,
                   'Prop_Declarators': [
                      {
                         DeclaresParameterPack: false,
                         IASTClass: "CPPASTDeclarator",
-                        IsActive: true,
-                        IsFrozen: true,
                         LocOffsetEnd: 22,
                         LocOffsetStart: 21,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsQualified: false,
                            LocOffsetEnd: 22,
                            LocOffsetStart: 21,
                            Name: "x",
@@ -48,15 +35,10 @@
                      {
                         DeclaresParameterPack: false,
                         IASTClass: "CPPASTDeclarator",
-                        IsActive: true,
-                        IsFrozen: true,
                         LocOffsetEnd: 25,
                         LocOffsetStart: 24,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsQualified: false,
                            LocOffsetEnd: 25,
                            LocOffsetStart: 24,
                            Name: "y",
@@ -67,9 +49,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 12,
                LocOffsetStart: 7,
                Name: "point",
@@ -79,43 +58,30 @@
       },
       {
          IASTClass: "CPPASTFunctionDefinition",
-         IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
-         IsFrozen: true,
          LocOffsetEnd: 69,
          LocOffsetStart: 31,
          'Prop_Body': {
             IASTClass: "CPPASTCompoundStatement",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 69,
             LocOffsetStart: 42,
             'Prop_Statements': [
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 67,
                   LocOffsetStart: 46,
                   'Prop_Declaration': {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     IsActive: true,
-                     IsFrozen: true,
                      LocOffsetEnd: 67,
                      LocOffsetStart: 46,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTNamedTypeSpecifier",
-                        IsActive: true,
-                        IsFrozen: true,
                         IsTypeName: false,
                         LocOffsetEnd: 51,
                         LocOffsetStart: 46,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsQualified: false,
                            LocOffsetEnd: 51,
                            LocOffsetStart: 46,
                            Name: "point",
@@ -126,22 +92,15 @@
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           IsActive: true,
-                           IsFrozen: true,
                            LocOffsetEnd: 66,
                            LocOffsetStart: 52,
                            'Prop_Initializer': {
                               IASTClass: "CPPASTEqualsInitializer",
-                              IsActive: true,
-                              IsFrozen: true,
                               LocOffsetEnd: 66,
                               LocOffsetStart: 54,
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsActive: true,
-                              IsFrozen: true,
-                              IsQualified: false,
                               LocOffsetEnd: 53,
                               LocOffsetStart: 52,
                               Name: "p",
@@ -154,8 +113,6 @@
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 34,
             LocOffsetStart: 31,
             StorageClass: "unspecified",
@@ -164,15 +121,10 @@
          'Prop_Declarator': {
             DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 41,
             LocOffsetStart: 35,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 39,
                LocOffsetStart: 35,
                Name: "main",

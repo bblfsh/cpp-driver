@@ -1,7 +1,5 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 419,
    LocOffsetStart: 0,
    'Prop_AllPreprocessorStatements': [],
@@ -10,22 +8,16 @@
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTLinkageSpecification",
-         IsActive: true,
-         IsFrozen: true,
          Literal: "\"C\"",
          LocOffsetEnd: 43,
          LocOffsetStart: 21,
          'Prop_Declarations': [
             {
                IASTClass: "CPPASTSimpleDeclaration",
-               IsActive: true,
-               IsFrozen: true,
                LocOffsetEnd: 43,
                LocOffsetStart: 32,
                'Prop_DeclSpecifier': {
                   IASTClass: "CPPASTSimpleDeclSpecifier",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 35,
                   LocOffsetStart: 32,
                   StorageClass: "unspecified",
@@ -35,15 +27,10 @@
                   {
                      DeclaresParameterPack: false,
                      IASTClass: "CPPASTFunctionDeclarator",
-                     IsActive: true,
-                     IsFrozen: true,
                      LocOffsetEnd: 42,
                      LocOffsetStart: 36,
                      'Prop_Name': {
                         IASTClass: "CPPASTName",
-                        IsActive: true,
-                        IsFrozen: true,
-                        IsQualified: false,
                         LocOffsetEnd: 40,
                         LocOffsetStart: 36,
                         Name: "func",
@@ -57,42 +44,30 @@
       {
          Assembly: "R\"(\n.globl func\n    .type func, @function\n    func:\n    .cfi_startproc\n    movl $7, %eax\n    ret\n    .cfi_endproc\n)\"",
          IASTClass: "CPPASTASMDeclaration",
-         IsActive: true,
-         IsFrozen: true,
          LocOffsetEnd: 166,
          LocOffsetStart: 44,
       },
       {
          IASTClass: "CPPASTFunctionDefinition",
-         IsActive: true,
          IsDefaulted: false,
          IsDeleted: false,
-         IsFrozen: true,
          LocOffsetEnd: 418,
          LocOffsetStart: 168,
          'Prop_Body': {
             IASTClass: "CPPASTCompoundStatement",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 418,
             LocOffsetStart: 179,
             'Prop_Statements': [
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 200,
                   LocOffsetStart: 185,
                   'Prop_Declaration': {
                      IASTClass: "CPPASTSimpleDeclaration",
-                     IsActive: true,
-                     IsFrozen: true,
                      LocOffsetEnd: 200,
                      LocOffsetStart: 185,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTSimpleDeclSpecifier",
-                        IsActive: true,
-                        IsFrozen: true,
                         LocOffsetEnd: 188,
                         LocOffsetStart: 185,
                         StorageClass: "unspecified",
@@ -102,22 +77,16 @@
                         {
                            DeclaresParameterPack: false,
                            IASTClass: "CPPASTDeclarator",
-                           IsActive: true,
-                           IsFrozen: true,
                            LocOffsetEnd: 199,
                            LocOffsetStart: 189,
                            'Prop_Initializer': {
                               IASTClass: "CPPASTEqualsInitializer",
-                              IsActive: true,
-                              IsFrozen: true,
                               LocOffsetEnd: 199,
                               LocOffsetStart: 191,
                               'Prop_Expression': {
                                  ExpressionType: "int",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTFunctionCallExpression",
-                                 IsActive: true,
-                                 IsFrozen: true,
                                  IsLValue: false,
                                  LocOffsetEnd: 199,
                                  LocOffsetStart: 193,
@@ -125,16 +94,11 @@
                                     ExpressionType: "int ()",
                                     ExpressionValueCategory: "LVALUE",
                                     IASTClass: "CPPASTIdExpression",
-                                    IsActive: true,
-                                    IsFrozen: true,
                                     IsLValue: true,
                                     LocOffsetEnd: 197,
                                     LocOffsetStart: 193,
                                     'Prop_Name': {
                                        IASTClass: "CPPASTName",
-                                       IsActive: true,
-                                       IsFrozen: true,
-                                       IsQualified: false,
                                        LocOffsetEnd: 197,
                                        LocOffsetStart: 193,
                                        Name: "func",
@@ -144,9 +108,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsActive: true,
-                              IsFrozen: true,
-                              IsQualified: false,
                               LocOffsetEnd: 190,
                               LocOffsetStart: 189,
                               Name: "n",
@@ -157,8 +118,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  IsActive: true,
-                  IsFrozen: true,
                   LeadingComments: [
                      {
                         Comment: "// extended inline assembly",
@@ -173,16 +132,12 @@
                   'Prop_Declaration': {
                      Assembly: "\"leal (%0,%0,4),%0\" : \"=r\" n : \"0\" n",
                      IASTClass: "CPPASTASMDeclaration",
-                     IsActive: true,
-                     IsFrozen: true,
                      LocOffsetEnd: 302,
                      LocOffsetStart: 237,
                   },
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  IsActive: true,
-                  IsFrozen: true,
                   LeadingComments: [
                      {
                         Comment: "// standard inline assembly",
@@ -197,8 +152,6 @@
                   'Prop_Declaration': {
                      Assembly: "\"movq $60, %rax\\n\\tmovq $2,  %rdi\\n\\tsyscall\"",
                      IASTClass: "CPPASTASMDeclaration",
-                     IsActive: true,
-                     IsFrozen: true,
                      LocOffsetEnd: 416,
                      LocOffsetStart: 340,
                   },
@@ -207,8 +160,6 @@
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 171,
             LocOffsetStart: 168,
             StorageClass: "unspecified",
@@ -217,15 +168,10 @@
          'Prop_Declarator': {
             DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
-            IsActive: true,
-            IsFrozen: true,
             LocOffsetEnd: 178,
             LocOffsetStart: 172,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 176,
                LocOffsetStart: 172,
                Name: "main",

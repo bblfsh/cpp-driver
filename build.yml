@@ -3,12 +3,12 @@ language: cpp
 go-runtime:
   version: '1.10-alpine'
 native:
-  image: 'openjdk:9-jre-alpine'
+  image: 'openjdk:8-jre-alpine'
   static:
     - path: 'native.sh'
       dest: 'native'
   build:
-    image: 'openjdk:9-slim'
+    image: 'openjdk:8-slim'
     deps:
       - 'apt update && apt install -y maven'
     run:

@@ -1,7 +1,5 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 37,
    LocOffsetStart: 0,
    'Prop_AllPreprocessorStatements': [],

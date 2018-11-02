@@ -1,45 +1,32 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 43,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         IsActive: true,
-         IsFrozen: true,
          LocOffsetEnd: 42,
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
-            IsActive: true,
             IsFinal: false,
-            IsFrozen: true,
             Key: "class",
             LocOffsetEnd: 41,
             LocOffsetStart: 0,
             'Prop_Members': [
                {
                   IASTClass: "CPPASTSimpleDeclaration",
-                  IsActive: true,
-                  IsFrozen: true,
                   LocOffsetEnd: 39,
                   LocOffsetStart: 19,
                   'Prop_Declarators': [
                      {
                         DeclaresParameterPack: false,
                         IASTClass: "CPPASTDeclarator",
-                        IsActive: true,
-                        IsFrozen: true,
                         LocOffsetEnd: 38,
                         LocOffsetStart: 30,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsActive: true,
-                           IsFrozen: true,
-                           IsQualified: false,
                            LocOffsetEnd: 38,
                            LocOffsetStart: 30,
                            Name: "classvar",
@@ -50,9 +37,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",
