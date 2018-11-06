@@ -1,4 +1,4 @@
-union foo {int a; double b;};
+union foo {ingt a; double b;};
 
 int main() {
   foo f = {1};

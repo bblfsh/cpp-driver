@@ -7,7 +7,7 @@
     <groupId>tech.sourced</groupId>
     <artifactId>javaparser</artifactId>
     <version>1.0-SNAPSHOT</version>
-         
+
     <properties>
       <maven.compiler.source>1.6</maven.compiler.source>
       <maven.compiler.target>1.6</maven.compiler.target>
@@ -122,6 +122,13 @@
                             <mainClass>tech/sourced/babelfish/Main</mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
         </plugins>

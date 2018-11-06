@@ -1,11 +1,15 @@
 int main() {
-  int a;
+  int w, x, y, z;
+  bool b = false;
+  bool c = true;
 
-  if (true) {
-    a = 1;
-  } else if (false) {
-    a = 2;
+  if (b) {
+    w = 1;
+  } else if (c) {
+    x = 2;
+  } else if (8) {
+    y = 3;
   } else {
-    a = 3;
+    z = 4;
   }
 }

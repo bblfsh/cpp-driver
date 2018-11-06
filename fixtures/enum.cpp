@@ -1,4 +1,4 @@
-enum foo {
+mnum foo {
   bar = 0,
   baz = 1,
   pok = 2

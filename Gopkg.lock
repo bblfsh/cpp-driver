@@ -13,8 +13,8 @@
 [[projects]]
   name = "github.com/BurntSushi/toml"
   packages = ["."]
-  revision = "b26d9c308763d68093482582cea63d69be07a0f0"
-  version = "v0.3.0"
+  revision = "3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005"
+  version = "v0.3.1"
 
 [[projects]]
   name = "github.com/Microsoft/go-winio"
@@ -38,7 +38,7 @@
   branch = "master"
   name = "github.com/containerd/continuity"
   packages = ["pathdriver"]
-  revision = "f44b615e492bdfb371aae2f76ec694d9da1db537"
+  revision = "bea7585dbfac2847dbf49a6b8e7738a36c09bc75"
 
 [[projects]]
   name = "github.com/davecgh/go-spew"
@@ -81,6 +81,12 @@
   ]
   revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
   version = "v1.2.0"
+
+[[projects]]
+  name = "github.com/konsorten/go-windows-terminal-sequences"
+  packages = ["."]
+  revision = "5c8c8bd35d3832f5d134ae1e1e375b69a4d25242"
+  version = "v1.0.1"
 
 [[projects]]
   name = "github.com/mattn/go-colorable"
@@ -172,8 +178,8 @@
 [[projects]]
   name = "github.com/sirupsen/logrus"
   packages = ["."]
-  revision = "3e01752db0189b9157070a0e1668a620f9a85da2"
-  version = "v1.0.6"
+  revision = "bcd833dfe83d3cebad139e4a29ed79cb2318bf95"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/stretchr/testify"
@@ -194,7 +200,7 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "182538f80094b6a8efaade63a8fd8e0d9d5843dd"
+  revision = "4d3f4d9ffa16a13f451c3b2999e9c49e9750bf06"
 
 [[projects]]
   branch = "master"
@@ -208,7 +214,7 @@
     "internal/timeseries",
     "trace"
   ]
-  revision = "8a410e7b638dca158bf9e766925842f6651ff828"
+  revision = "c10e9556a7bc0e7c942242b606f0acf024ad5d6a"
 
 [[projects]]
   branch = "master"
@@ -217,7 +223,7 @@
     "unix",
     "windows"
   ]
-  revision = "fa5fdf94c78965f1aa8423f0cc50b8b8d728b05a"
+  revision = "9b800f95dbbc54abff0acf7ee32d88ba4e328c89"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -244,7 +250,7 @@
   branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "c66870c02cf823ceb633bcd05be3c7cda29976f4"
+  revision = "c830210a61dfaa790e1920f8d0470fc27bc2efbe"
 
 [[projects]]
   name = "google.golang.org/grpc"
@@ -276,8 +282,8 @@
     "status",
     "tap"
   ]
-  revision = "32fb0ac620c32ba40a4626ddf94d90d12cce3455"
-  version = "v1.14.0"
+  revision = "2e463a05d100327ca47ac218281906921038fd95"
+  version = "v1.16.0"
 
 [[projects]]
   name = "gopkg.in/bblfsh/sdk.v1"
@@ -312,8 +318,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "422edc29a23d6d79d6f8fbe0a6f9dffcc3ff9ab2"
-  version = "v2.4.1"
+  revision = "d932d3391d5e12c1d6af03e39e0e75f0d2d44107"
+  version = "v2.7.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -330,6 +336,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ac98011894f1d10668d341c24a1e32e9e153771c05c41e8087121b8432fd526f"
+  inputs-digest = "17fc987c114e8c90c11a62e261b17c1e700ac6b6144fc80f421783b0be4895ba"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -1,7 +1,5 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   IsActive: true,
-   IsFrozen: true,
    LocOffsetEnd: 46,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -9,8 +7,6 @@
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         IsActive: true,
-         IsFrozen: true,
          LeadingComments: [
             {
                Comment: "/**\n * This is the doc\n */",
@@ -24,26 +20,12 @@
          LocOffsetStart: 27,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
-            IsActive: true,
-            IsConst: false,
-            IsConstExpr: false,
-            IsExplicit: false,
             IsFinal: false,
-            IsFriend: false,
-            IsFrozen: true,
-            IsInline: false,
-            IsRestrict: false,
-            IsThreadLocal: false,
-            IsVirtual: false,
-            IsVolatile: false,
             Key: "class",
             LocOffsetEnd: 44,
             LocOffsetStart: 27,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsActive: true,
-               IsFrozen: true,
-               IsQualified: false,
                LocOffsetEnd: 41,
                LocOffsetStart: 33,
                Name: "testcls1",

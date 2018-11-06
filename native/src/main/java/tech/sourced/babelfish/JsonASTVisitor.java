@@ -41,6 +41,13 @@ public class JsonASTVisitor extends ASTVisitor {
     IOException error;
     boolean hasError = false;
 
+    public class SyntaxErrorException extends Exception {
+        public SyntaxErrorException() { super(); }
+        public SyntaxErrorException(String message) { super(message); }
+        public SyntaxErrorException(String message, Throwable cause) { super(message, cause); }
+        public SyntaxErrorException(Throwable cause) { super(cause); }
+    }
+
     // The visitChildren method uses reflection to get the methods and return values
     // to retrieve children and assign them to properties instead of a flat list. That is
     // slow so we'll cache every inspected node using this class and the childrenMethod
@@ -95,7 +102,7 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
         shouldVisitImplicitNames = true;
-        shouldVisitPointerOperators = true;
+        shouldVisitPointerOperators = false;
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
         shouldVisitTranslationUnit = true;
@@ -111,7 +118,10 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getRoleForName", "getProblem"));
+                    "getProblem", "getRoleForName"
+                    // ImplicitNames
+                    //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
+        ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
     }
 
@@ -142,8 +152,8 @@ public class JsonASTVisitor extends ASTVisitor {
         json.writeStringField("IASTClass", node.getClass().getSimpleName());
         if (verboseJson)
             json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
-        json.writeBooleanField("IsActive", node.isActive());
-        json.writeBooleanField("IsFrozen", node.isFrozen());
+        //writeIfTrue("IsActive", node.isActive());
+        //writeIfTrue("IsFrozen", node.isFrozen());
 
         if (verboseJson) {
             ASTNodeProperty propInParent = node.getPropertyInParent();
@@ -239,7 +249,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 ++idx;
             }
 
-            // FIXME: insert sorted? (list should be tiny most of the cases)
             Arrays.sort(methodWrappers);
 
             for (MethodWrapper mw : methodWrappers) {
@@ -427,106 +436,106 @@ public class JsonASTVisitor extends ASTVisitor {
         String opStr;
         switch (op) {
             case IASTBinaryExpression.op_assign:
-                opStr = "assignement =";
+                opStr = "=";
                 break;
             case IASTBinaryExpression.op_binaryAnd:
-                opStr = "binary And &";
+                opStr = "&";
                 break;
             case IASTBinaryExpression.op_binaryAndAssign:
-                opStr = "binary And assign &=";
+                opStr = "&=";
                 break;
             case IASTBinaryExpression.op_binaryOr:
-                opStr = "binary or |";
+                opStr = "|";
                 break;
             case IASTBinaryExpression.op_binaryOrAssign:
-                opStr = "Or assign |=";
+                opStr = "|=";
                 break;
             case IASTBinaryExpression.op_binaryXor:
-                opStr = "Xor ^";
+                opStr = "^";
                 break;
             case IASTBinaryExpression.op_binaryXorAssign:
-                opStr = "Xor assign ^=";
+                opStr = "^=";
                 break;
             case IASTBinaryExpression.op_divide:
                 opStr = "/";
                 break;
             case IASTBinaryExpression.op_divideAssign:
-                opStr = "assignemnt /=";
+                opStr = "/=";
                 break;
             case IASTBinaryExpression.op_ellipses:
-                opStr = "gcc compilers, only.";
+                opStr = "...";
                 break;
             case IASTBinaryExpression.op_equals:
                 opStr = "==";
                 break;
-            case IASTBinaryExpression.op_greaterEqual:
-                opStr = "than or equals >=";
+            case IASTBinaryExpression.op_notequals:
+                opStr = "!=";
                 break;
             case IASTBinaryExpression.op_greaterThan:
-                opStr = "than >";
+                opStr = ">";
+                break;
+            case IASTBinaryExpression.op_greaterEqual:
+                opStr = ">=";
                 break;
             case IASTBinaryExpression.op_lessEqual:
-                opStr = "than or equals <=";
+                opStr = "<=";
                 break;
             case IASTBinaryExpression.op_lessThan:
-                opStr = "than <";
+                opStr = "<";
                 break;
             case IASTBinaryExpression.op_logicalAnd:
-                opStr = "and &&";
+                opStr = "&&";
                 break;
             case IASTBinaryExpression.op_logicalOr:
-                opStr = "or ||";
+                opStr = "||";
                 break;
             case IASTBinaryExpression.op_max:
-                opStr = "g++, only.";
+                opStr = "max";
                 break;
             case IASTBinaryExpression.op_min:
-                opStr = "g++, only.";
+                opStr = "min";
                 break;
             case IASTBinaryExpression.op_minus:
                 opStr = "-";
                 break;
             case IASTBinaryExpression.op_minusAssign:
-                opStr = "assignment -=";
+                opStr = "-=";
                 break;
             case IASTBinaryExpression.op_modulo:
                 opStr = "%";
                 break;
             case IASTBinaryExpression.op_moduloAssign:
-                opStr = "assignment %=";
+                opStr = "%=";
                 break;
             case IASTBinaryExpression.op_multiply:
                 opStr = "*";
                 break;
             case IASTBinaryExpression.op_multiplyAssign:
-                opStr = "assignment *=";
-                break;
-            case IASTBinaryExpression.op_notequals:
-                opStr = "equals !";
+                opStr = "*=";
                 break;
             case IASTBinaryExpression.op_plus:
                 opStr = "+";
                 break;
             case IASTBinaryExpression.op_plusAssign:
-                opStr = "assignment +=";
+                opStr = "+=";
                 break;
             case IASTBinaryExpression.op_pmarrow:
-                opStr = "c++, only.";
+                opStr = "->";
                 break;
             case IASTBinaryExpression.op_pmdot:
-                opStr = "c==, only.";
+                opStr = ".";
                 break;
             case IASTBinaryExpression.op_shiftLeft:
-                opStr = "left <<";
+                opStr = "<<";
                 break;
             case IASTBinaryExpression.op_shiftLeftAssign:
-                opStr = "left assignment <<=";
+                opStr = "<<=";
                 break;
             case IASTBinaryExpression.op_shiftRight:
-                opStr = "right >>";
+                opStr = ">>";
                 break;
             case IASTBinaryExpression.op_shiftRightAssign:
-                opStr = "right assign >>=";
+                opStr = ">>=";
                 break;
             default:
                 opStr = "unkown_operator";
@@ -543,9 +552,9 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeStringField("Name", node.toString());
-                json.writeBooleanField("IsQualified", node.isQualified());
+                writeIfTrue("IsQualified", node.isQualified());
 
-                if (node instanceof IASTImplicitName) {
+                if (shouldVisitImplicitNames && node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
                     json.writeBooleanField("IsAlternate", impl.isAlternate());
                     json.writeBooleanField("IsOverloadedOperator", impl.isOperator());
@@ -585,6 +594,8 @@ public class JsonASTVisitor extends ASTVisitor {
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
                     exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
+                } else if (exprType.indexOf("TypeParameter@") != -1) { // ditto
+                    exprType = "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter";
                 }
 
                 json.writeStringField("ExpressionType", exprType);
@@ -749,10 +760,10 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 if (node instanceof ICASTArrayModifier) {
                     ICASTArrayModifier carr = (ICASTArrayModifier) node;
-                    json.writeBooleanField("IsConst", carr.isConst());
-                    json.writeBooleanField("IsRestrict", carr.isRestrict());
-                    json.writeBooleanField("IsStatic", carr.isStatic());
-                    json.writeBooleanField("IsVolatile", carr.isVolatile());
+                    writeIfTrue("IsConst", carr.isConst());
+                    writeIfTrue("IsRestrict", carr.isRestrict());
+                    writeIfTrue("IsStatic", carr.isStatic());
+                    writeIfTrue("IsVolatile", carr.isVolatile());
                 }
                 serializeComments(node);
                 visitChildren(node);
@@ -875,6 +886,10 @@ public class JsonASTVisitor extends ASTVisitor {
                     }
                 }
 
+                //if (node instanceof IASTProblemDeclaration) {
+                    //throw new IOException("Syntax error on file");
+                //}
+
                 serializeComments(node);
                 visitChildren(node);
             } finally {
@@ -885,6 +900,12 @@ public class JsonASTVisitor extends ASTVisitor {
             return PROCESS_ABORT;
         }
         return PROCESS_SKIP;
+    }
+
+    private void writeIfTrue(String name, boolean field) throws IOException {
+        if (field) {
+            json.writeBooleanField(name, true);
+        }
     }
 
     @Override
@@ -900,12 +921,12 @@ public class JsonASTVisitor extends ASTVisitor {
 
                     if (node instanceof ICPPASTFunctionDeclarator) {
                         ICPPASTFunctionDeclarator impl2 = (ICPPASTFunctionDeclarator) node;
-                        json.writeBooleanField("IsConst", impl2.isConst());
-                        json.writeBooleanField("IsFinal", impl2.isFinal());
-                        json.writeBooleanField("IsMutable", impl2.isMutable());
-                        json.writeBooleanField("IsOverride", impl2.isOverride());
-                        json.writeBooleanField("IsPureVirtual", impl2.isPureVirtual());
-                        json.writeBooleanField("IsVolatile", impl2.isVolatile());
+                        writeIfTrue("IsConst", impl2.isConst());
+                        writeIfTrue("IsFinal", impl2.isFinal());
+                        writeIfTrue("IsMutable", impl2.isMutable());
+                        writeIfTrue("IsOverride", impl2.isOverride());
+                        writeIfTrue("IsPureVirtual", impl2.isPureVirtual());
+                        writeIfTrue("IsVolatile", impl2.isVolatile());
                     }
                 }
 
@@ -932,10 +953,10 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                json.writeBooleanField("IsConst", node.isConst());
-                json.writeBooleanField("IsInline", node.isInline());
-                json.writeBooleanField("IsRestrict", node.isRestrict());
-                json.writeBooleanField("IsVolatile", node.isVolatile());
+                writeIfTrue("IsConst", node.isConst());
+                writeIfTrue("IsInline", node.isInline());
+                writeIfTrue("IsRestrict", node.isRestrict());
+                writeIfTrue("IsVolatile", node.isVolatile());
 
                 String stStr;
                 switch (node.getStorageClass()) {
@@ -970,11 +991,11 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof ICPPASTDeclSpecifier) {
                     ICPPASTDeclSpecifier impl = (ICPPASTDeclSpecifier) node;
-                    json.writeBooleanField("IsConstExpr", impl.isConstexpr());
-                    json.writeBooleanField("IsExplicit", impl.isExplicit());
-                    json.writeBooleanField("IsFriend", impl.isFriend());
-                    json.writeBooleanField("IsThreadLocal", impl.isThreadLocal());
-                    json.writeBooleanField("IsVirtual", impl.isVirtual());
+                    writeIfTrue("IsConstExpr", impl.isConstexpr());
+                    writeIfTrue("IsExplicit", impl.isExplicit());
+                    writeIfTrue("IsFriend", impl.isFriend());
+                    writeIfTrue("IsThreadLocal", impl.isThreadLocal());
+                    writeIfTrue("IsVirtual", impl.isVirtual());
                 }
 
                 if (node instanceof IASTCompositeTypeSpecifier) {
@@ -1037,13 +1058,13 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTSimpleDeclSpecifier) {
                     IASTSimpleDeclSpecifier impl = (IASTSimpleDeclSpecifier) node;
-                    json.writeBooleanField("IsComplex", impl.isComplex());
-                    json.writeBooleanField("IsImaginary", impl.isImaginary());
-                    json.writeBooleanField("IsLong", impl.isLong());
-                    json.writeBooleanField("IsLongLong", impl.isLongLong());
-                    json.writeBooleanField("IsShort", impl.isShort());
-                    json.writeBooleanField("IsSigned", impl.isSigned());
-                    json.writeBooleanField("IsUnsigned", impl.isUnsigned());
+                    writeIfTrue("IsComplex", impl.isComplex());
+                    writeIfTrue("IsImaginary", impl.isImaginary());
+                    writeIfTrue("IsLong", impl.isLong());
+                    writeIfTrue("IsLongLong", impl.isLongLong());
+                    writeIfTrue("IsShort", impl.isShort());
+                    writeIfTrue("IsSigned", impl.isSigned());
+                    writeIfTrue("IsUnsigned", impl.isUnsigned());
 
                     String typeStr;
 
@@ -1103,7 +1124,7 @@ public class JsonASTVisitor extends ASTVisitor {
                             typeStr = "wchar_t";
                             break;
                         default:
-                            typeStr = "unexpecified";
+                            typeStr = "unespecified";
                             break;
                     }
 
@@ -1169,9 +1190,9 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTPointer) {
                     IASTPointer impl = (IASTPointer) node;
-                    json.writeBooleanField("IsConst", impl.isConst());
-                    json.writeBooleanField("IsRestrict", impl.isRestrict());
-                    json.writeBooleanField("IsVolatile", impl.isVolatile());
+                    writeIfTrue("IsConst", impl.isConst());
+                    writeIfTrue("IsRestrict", impl.isRestrict());
+                    writeIfTrue("IsVolatile", impl.isVolatile());
 
                     if (node instanceof ICPPASTPointerToMember) {
                         ICPPASTPointerToMember impl2 = (ICPPASTPointerToMember) node;
