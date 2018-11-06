@@ -31,7 +31,7 @@
 [[projects]]
   name = "github.com/bblfsh/sdk"
   packages = ["."]
-  revision = "422edc29a23d6d79d6f8fbe0a6f9dffcc3ff9ab2"
+  revision = "1359c9931edf588eb90360a21dc693225ca08e0e"
   version = "v0.1.0"
 
 [[projects]]
@@ -318,8 +318,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "422edc29a23d6d79d6f8fbe0a6f9dffcc3ff9ab2"
-  version = "v2.4.1"
+  revision = "d932d3391d5e12c1d6af03e39e0e75f0d2d44107"
+  version = "v2.7.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -336,6 +336,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d6d801202975e23278e8860fe35a7095e5f25c9534215bedb5d1ae0903da9f0e"
+  inputs-digest = "8ba2f8d30f394a6b2fb8c342015fcb95868802fadf1a6ff981988ea19b9534a3"
   solver-name = "gps-cdcl"
   solver-version = 1

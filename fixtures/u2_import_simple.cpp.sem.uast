@@ -1,4 +1,4 @@
-{ '@type': "CPPASTTranslationUnit",
+{ '@type': "cpp:CPPASTTranslationUnit",
    '@role': [File, Module],
    '@pos': { '@type': "uast:Positions",
       start: { '@type': "uast:Position",
