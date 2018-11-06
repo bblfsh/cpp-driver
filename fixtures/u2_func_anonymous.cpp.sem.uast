@@ -1463,7 +1463,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 156,
@@ -1829,7 +1829,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 156,
@@ -2611,7 +2611,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 234,
@@ -2898,7 +2898,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 234,
@@ -3629,7 +3629,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 307,
@@ -3916,7 +3916,7 @@
                                  'Prop_Captures': [
                                     { '@type': "cpp:CPPASTName",
                                        '@token': "a",
-                                       '@role': [Identifier],
+                                       '@role': [Declaration, Function, Identifier, Incomplete],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 307,

@@ -251,7 +251,12 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("union")},
 		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
-		//"Prop_Clauses": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+		"Prop_Clauses": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+	} , role.Declaration, role.Type, role.Incomplete),
+
+	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
+		"Key": {Op: String("union")},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
 	} , role.Declaration, role.Type, role.Incomplete),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
@@ -317,7 +322,12 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTLambdaExpression", FieldRoles{
 		"Prop_Body": { Roles: role.Roles{role.Function, role.Declaration}},
 		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration, role.Type}},
-		//"Prop_Captures": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Incomplete}},
+		"Prop_Captures": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Incomplete}},
+	}, role.Function, role.Declaration, role.Anonymous, role.Expression),
+
+	AnnotateType("CPPASTLambdaExpression", FieldRoles{
+		"Prop_Body": { Roles: role.Roles{role.Function, role.Declaration}},
+		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration, role.Type}},
 	}, role.Function, role.Declaration, role.Anonymous, role.Expression),
 
 	AnnotateType("CPPASTArrayDeclarator", FieldRoles{
