@@ -108,6 +108,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -242,6 +243,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -309,6 +311,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -390,6 +393,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -416,6 +420,7 @@
                               LocOffsetStart: 55,
                               Name: "fptr1",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -493,6 +498,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -627,6 +633,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -694,6 +701,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -828,6 +836,7 @@
                                                 IASTClass: "CPPASTName",
                                                 Name: "",
                                              },
+                                             'Prop_TypeNode': ~,
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
@@ -854,6 +863,7 @@
                               LocOffsetStart: 101,
                               Name: "fptr2",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -1016,6 +1026,7 @@
                               LocOffsetStart: 148,
                               Name: "fptr3",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -1030,7 +1041,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 45,
             LocOffsetStart: 39,

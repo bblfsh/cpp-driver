@@ -24,7 +24,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 39,
             LocOffsetStart: 24,
@@ -36,13 +35,6 @@
             },
             'Prop_Parameters': [
                {
-                  IASTClass: "CPPASTSimpleDeclSpecifier",
-                  LocOffsetEnd: 36,
-                  LocOffsetStart: 33,
-                  StorageClass: "unspecified",
-                  Type: "int",
-               },
-               {
                   DeclaresParameterPack: false,
                   IASTClass: "CPPASTDeclarator",
                   LocOffsetEnd: 38,
@@ -52,6 +44,13 @@
                      LocOffsetEnd: 38,
                      LocOffsetStart: 37,
                      Name: "a",
+                  },
+                  'Prop_TypeNode': {
+                     IASTClass: "CPPASTSimpleDeclSpecifier",
+                     LocOffsetEnd: 36,
+                     LocOffsetStart: 33,
+                     StorageClass: "unspecified",
+                     Type: "int",
                   },
                },
             ],
@@ -77,7 +76,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 66,
             LocOffsetStart: 48,
@@ -89,13 +87,6 @@
             },
             'Prop_Parameters': [
                {
-                  IASTClass: "CPPASTSimpleDeclSpecifier",
-                  LocOffsetEnd: 63,
-                  LocOffsetStart: 57,
-                  StorageClass: "unspecified",
-                  Type: "double",
-               },
-               {
                   DeclaresParameterPack: false,
                   IASTClass: "CPPASTDeclarator",
                   LocOffsetEnd: 65,
@@ -105,6 +96,13 @@
                      LocOffsetEnd: 65,
                      LocOffsetStart: 64,
                      Name: "b",
+                  },
+                  'Prop_TypeNode': {
+                     IASTClass: "CPPASTSimpleDeclSpecifier",
+                     LocOffsetEnd: 63,
+                     LocOffsetStart: 57,
+                     StorageClass: "unspecified",
+                     Type: "double",
                   },
                },
             ],
@@ -130,7 +128,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 98,
             LocOffsetStart: 75,
@@ -142,44 +139,6 @@
             },
             'Prop_Parameters': [
                {
-                  IASTClass: "CPPASTNamedTypeSpecifier",
-                  IsTypeName: false,
-                  LocOffsetEnd: 95,
-                  LocOffsetStart: 84,
-                  'Prop_Name': {
-                     IASTClass: "CPPASTQualifiedName",
-                     IsConversionOperator: false,
-                     IsFullyQualified: false,
-                     LocOffsetEnd: 95,
-                     LocOffsetStart: 84,
-                     Name: "std::string",
-                     'Prop_AllSegments': [
-                        {
-                           IASTClass: "CPPASTName",
-                           LocOffsetEnd: 87,
-                           LocOffsetStart: 84,
-                           Name: "std",
-                        },
-                        {
-                           IASTClass: "CPPASTName",
-                           IsQualified: true,
-                           LocOffsetEnd: 95,
-                           LocOffsetStart: 89,
-                           Name: "string",
-                        },
-                     ],
-                     'Prop_Qualifier': [
-                        {
-                           IASTClass: "CPPASTName",
-                           LocOffsetEnd: 87,
-                           LocOffsetStart: 84,
-                           Name: "std",
-                        },
-                     ],
-                  },
-                  StorageClass: "unspecified",
-               },
-               {
                   DeclaresParameterPack: false,
                   IASTClass: "CPPASTDeclarator",
                   LocOffsetEnd: 97,
@@ -189,6 +148,44 @@
                      LocOffsetEnd: 97,
                      LocOffsetStart: 96,
                      Name: "s",
+                  },
+                  'Prop_TypeNode': {
+                     IASTClass: "CPPASTNamedTypeSpecifier",
+                     IsTypeName: false,
+                     LocOffsetEnd: 95,
+                     LocOffsetStart: 84,
+                     'Prop_Name': {
+                        IASTClass: "CPPASTQualifiedName",
+                        IsConversionOperator: false,
+                        IsFullyQualified: false,
+                        LocOffsetEnd: 95,
+                        LocOffsetStart: 84,
+                        Name: "std::string",
+                        'Prop_AllSegments': [
+                           {
+                              IASTClass: "CPPASTName",
+                              LocOffsetEnd: 87,
+                              LocOffsetStart: 84,
+                              Name: "std",
+                           },
+                           {
+                              IASTClass: "CPPASTName",
+                              IsQualified: true,
+                              LocOffsetEnd: 95,
+                              LocOffsetStart: 89,
+                              Name: "string",
+                           },
+                        ],
+                        'Prop_Qualifier': [
+                           {
+                              IASTClass: "CPPASTName",
+                              LocOffsetEnd: 87,
+                              LocOffsetStart: 84,
+                              Name: "std",
+                           },
+                        ],
+                     },
+                     StorageClass: "unspecified",
                   },
                },
             ],
@@ -333,7 +330,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 113,
             LocOffsetStart: 107,

@@ -67,6 +67,7 @@
                               LocOffsetStart: 19,
                               Name: "i",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -133,6 +134,7 @@
                               Name: "ref",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -217,6 +219,7 @@
                               Name: "ptr",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -279,6 +282,7 @@
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -373,6 +377,7 @@
                                        Name: "",
                                     },
                                     'Prop_PointerOperators': [],
+                                    'Prop_TypeNode': ~,
                                  },
                                  'Prop_DeclSpecifier': {
                                     IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -409,7 +414,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 10,
             LocOffsetStart: 4,

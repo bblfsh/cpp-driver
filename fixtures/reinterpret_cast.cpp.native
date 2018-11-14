@@ -31,6 +31,7 @@
                            LocOffsetStart: 14,
                            Name: "a",
                         },
+                        'Prop_TypeNode': ~,
                      },
                   ],
                },
@@ -65,6 +66,7 @@
                   LocOffsetStart: 18,
                   Name: "s",
                },
+               'Prop_TypeNode': ~,
             },
          ],
       },
@@ -149,6 +151,7 @@
                                           Name: "",
                                        },
                                        'Prop_PointerOperators': [],
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -204,6 +207,7 @@
                                           Name: "",
                                        },
                                        'Prop_PointerOperators': [],
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -222,6 +226,7 @@
                               Name: "pint",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -236,7 +241,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 32,
             LocOffsetStart: 26,

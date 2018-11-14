@@ -53,6 +53,7 @@
                   LocOffsetStart: 27,
                   Name: "a",
                },
+               'Prop_TypeNode': ~,
             },
          ],
          TrailingComments: [

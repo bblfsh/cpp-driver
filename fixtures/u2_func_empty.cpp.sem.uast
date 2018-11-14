@@ -76,7 +76,6 @@
                   col: 16,
                },
             },
-            DeclaresParameterPack: false,
             'Prop_Name': { '@type': "uast:Identifier",
                '@role': [Declaration, Function, Name],
                '@pos': { '@type': "uast:Positions",

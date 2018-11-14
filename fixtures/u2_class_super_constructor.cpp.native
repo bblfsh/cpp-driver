@@ -40,7 +40,6 @@
                      Type: "unespecified",
                   },
                   'Prop_Declarator': {
-                     DeclaresParameterPack: false,
                      IASTClass: "CPPASTFunctionDeclarator",
                      LocOffsetEnd: 41,
                      LocOffsetStart: 31,
@@ -113,7 +112,6 @@
                      Type: "unespecified",
                   },
                   'Prop_Declarator': {
-                     DeclaresParameterPack: false,
                      IASTClass: "CPPASTFunctionDeclarator",
                      LocOffsetEnd: 89,
                      LocOffsetStart: 79,

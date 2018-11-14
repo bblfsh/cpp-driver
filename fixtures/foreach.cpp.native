@@ -63,6 +63,7 @@
                                              IASTClass: "CPPASTName",
                                              Name: "",
                                           },
+                                          'Prop_TypeNode': ~,
                                        },
                                        'Prop_DeclSpecifier': {
                                           IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -104,6 +105,7 @@
                               LocOffsetStart: 72,
                               Name: "foo",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -219,19 +221,10 @@
                                     Name: "",
                                  },
                                  'Prop_Declarator': {
-                                    DeclaresParameterPack: false,
                                     IASTClass: "CPPASTFunctionDeclarator",
                                     LocOffsetEnd: 131,
                                     LocOffsetStart: 117,
                                     'Prop_Parameters': [
-                                       {
-                                          IASTClass: "CPPASTSimpleDeclSpecifier",
-                                          IsConst: true,
-                                          LocOffsetEnd: 127,
-                                          LocOffsetStart: 118,
-                                          StorageClass: "unspecified",
-                                          Type: "int",
-                                       },
                                        {
                                           DeclaresParameterPack: false,
                                           IASTClass: "CPPASTDeclarator",
@@ -244,6 +237,14 @@
                                              Name: "n",
                                           },
                                           'Prop_PointerOperators': [],
+                                          'Prop_TypeNode': {
+                                             IASTClass: "CPPASTSimpleDeclSpecifier",
+                                             IsConst: true,
+                                             LocOffsetEnd: 127,
+                                             LocOffsetStart: 118,
+                                             StorageClass: "unspecified",
+                                             Type: "int",
+                                          },
                                        },
                                     ],
                                     TakesVarArgs: false,
@@ -296,19 +297,10 @@
                                     Name: "",
                                  },
                                  'Prop_Declarator': {
-                                    DeclaresParameterPack: false,
                                     IASTClass: "CPPASTFunctionDeclarator",
                                     LocOffsetEnd: 131,
                                     LocOffsetStart: 117,
                                     'Prop_Parameters': [
-                                       {
-                                          IASTClass: "CPPASTSimpleDeclSpecifier",
-                                          IsConst: true,
-                                          LocOffsetEnd: 127,
-                                          LocOffsetStart: 118,
-                                          StorageClass: "unspecified",
-                                          Type: "int",
-                                       },
                                        {
                                           DeclaresParameterPack: false,
                                           IASTClass: "CPPASTDeclarator",
@@ -321,6 +313,14 @@
                                              Name: "n",
                                           },
                                           'Prop_PointerOperators': [],
+                                          'Prop_TypeNode': {
+                                             IASTClass: "CPPASTSimpleDeclSpecifier",
+                                             IsConst: true,
+                                             LocOffsetEnd: 127,
+                                             LocOffsetStart: 118,
+                                             StorageClass: "unspecified",
+                                             Type: "int",
+                                          },
                                        },
                                     ],
                                     TakesVarArgs: false,
@@ -359,6 +359,7 @@
                               LocOffsetStart: 105,
                               Name: "foofunc",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -517,7 +518,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 50,
             LocOffsetStart: 44,

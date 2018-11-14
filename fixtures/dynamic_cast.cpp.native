@@ -47,7 +47,6 @@
                      Type: "void",
                   },
                   'Prop_Declarator': {
-                     DeclaresParameterPack: false,
                      IASTClass: "CPPASTFunctionDeclarator",
                      LocOffsetEnd: 55,
                      LocOffsetStart: 48,
@@ -124,6 +123,7 @@
                            LocOffsetStart: 95,
                            Name: "a",
                         },
+                        'Prop_TypeNode': ~,
                      },
                   ],
                },
@@ -212,6 +212,7 @@
                                           IASTClass: "CPPASTName",
                                           Name: "",
                                        },
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -261,6 +262,7 @@
                                           IASTClass: "CPPASTName",
                                           Name: "",
                                        },
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -285,6 +287,7 @@
                               Name: "pbase_derived",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -353,6 +356,7 @@
                                           IASTClass: "CPPASTName",
                                           Name: "",
                                        },
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -402,6 +406,7 @@
                                           IASTClass: "CPPASTName",
                                           Name: "",
                                        },
+                                       'Prop_TypeNode': ~,
                                     },
                                     'Prop_DeclSpecifier': {
                                        IASTClass: "CPPASTNamedTypeSpecifier",
@@ -426,6 +431,7 @@
                               Name: "pbase_base",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -464,6 +470,7 @@
                               Name: "pderived",
                            },
                            'Prop_PointerOperators': [],
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -516,6 +523,7 @@
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -582,6 +590,7 @@
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -648,6 +657,7 @@
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -714,6 +724,7 @@
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTNamedTypeSpecifier",
@@ -751,7 +762,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 112,
             LocOffsetStart: 106,

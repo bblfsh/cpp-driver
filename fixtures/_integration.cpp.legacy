@@ -60,7 +60,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 11
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
-.  .  .  .  .  .  DeclaresParameterPack: false
 .  .  .  .  .  .  TakesVarArgs: false
 .  .  .  .  .  .  internalRole: Prop_Declarator
 .  .  .  .  .  }

@@ -42,6 +42,7 @@
                               LocOffsetStart: 19,
                               Name: "n",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -89,6 +90,7 @@
                                  IASTClass: "CPPASTName",
                                  Name: "",
                               },
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -144,6 +146,7 @@
                                  IASTClass: "CPPASTName",
                                  Name: "",
                               },
+                              'Prop_TypeNode': ~,
                            },
                            'Prop_DeclSpecifier': {
                               IASTClass: "CPPASTSimpleDeclSpecifier",
@@ -166,7 +169,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 10,
             LocOffsetStart: 4,

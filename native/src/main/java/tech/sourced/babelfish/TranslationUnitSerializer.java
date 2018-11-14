@@ -11,13 +11,6 @@ import java.util.List;
 
 /* TODO: other interesting methods from IASTNode implementers that are not given as children:
  * http://help.eclipse.org/neon/index.jsp
- * CompoundStatement.getScope.getScopeName
- * ElaboratedTypeSpecifier .getKind
- * ForStatement .getScope.getName
- * FunctionDefinition .getScope.getName
- * FunctionStyleMacroParameter .getParameter
- * InitializerList getSize
- * Pointer isConst, isRestrict, isVolatile, setConst, setRestrict, setVolatile
  * Preprocessor MACRO_NAME.toString
  * PreprocessorStatement MACRO_NAME.toString
  * PreprocessorIfStatement getCondition taken
@@ -30,11 +23,6 @@ import java.util.List;
  * PreprocessorFunctionStyleMacroDefinition PARAMETER? getParameters
  * PreprocessorPragmaStatement getMessage isPragmaOperator
  * PreprocessorUndefStatement getMacroName isActive
- * SimpleDeclSpecifier getType (hacer switch) isComplex isImaginary isLong isLongLong isShort
- *      isSigned isUnsigned
- * StandardFunctionDeclarator getFunctionScope.toString takesVarArgs
- * TokenList getTokenType
- *
  * SPECIAL: TranslationUnit
  *      getAllPreprocessorStatements
  *      getBuiltInMacroDefinitions

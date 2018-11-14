@@ -90,6 +90,7 @@
                            },
                            Name: "classvar",
                         },
+                        'Prop_TypeNode': ~,
                      },
                   ],
                },

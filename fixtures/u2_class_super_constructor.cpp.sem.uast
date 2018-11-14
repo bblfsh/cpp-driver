@@ -123,7 +123,6 @@
                            col: 15,
                         },
                      },
-                     DeclaresParameterPack: false,
                      'Prop_Name': { '@type': "uast:Identifier",
                         '@role': [Declaration, Function, Name],
                         '@pos': { '@type': "uast:Positions",
@@ -303,7 +302,6 @@
                            col: 13,
                         },
                      },
-                     DeclaresParameterPack: false,
                      'Prop_ConstructorChain': [
                         { '@type': "cpp:CPPASTConstructorChainInitializer",
                            '@role': [Declaration, Incomplete, Initialization, Type],

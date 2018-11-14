@@ -253,7 +253,6 @@
                   col: 11,
                },
             },
-            DeclaresParameterPack: false,
             'Prop_Name': { '@type': "CPPASTName",
                '@token': "main",
                '@role': [Declaration, Function, Identifier, Name],

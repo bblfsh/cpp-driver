@@ -138,6 +138,7 @@
                   },
                   Name: "a",
                },
+               'Prop_TypeNode': ~,
             },
          ],
          TrailingComments: [
