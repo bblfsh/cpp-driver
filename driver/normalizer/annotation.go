@@ -79,21 +79,28 @@ var (
 		"max": {role.Binary, role.Expression, role.Incomplete},
 		"min": {role.Binary, role.Expression, role.Incomplete},
 		"-": {role.Binary, role.Expression, role.Arithmetic, role.Substract},
-		"-=": {role.Binary, role.Expression, role.Arithmetic, role.Substract, role.Assignment},
+		"-=": {role.Binary, role.Expression, role.Arithmetic, role.Substract,
+			role.Assignment},
 		"+": {role.Binary, role.Expression, role.Arithmetic, role.Add},
-		"+=": {role.Binary, role.Expression, role.Arithmetic, role.Add, role.Assignment},
+		"+=": {role.Binary, role.Expression, role.Arithmetic, role.Add,
+			role.Assignment},
 		"%": {role.Binary, role.Expression, role.Arithmetic, role.Modulo},
-		"%=": {role.Binary, role.Expression, role.Arithmetic, role.Modulo, role.Assignment},
+		"%=": {role.Binary, role.Expression, role.Arithmetic, role.Modulo,
+			role.Assignment},
 		"*": {role.Binary, role.Expression, role.Arithmetic, role.Multiply},
-		"*=": {role.Binary, role.Expression, role.Arithmetic, role.Multiply, role.Assignment},
+		"*=": {role.Binary, role.Expression, role.Arithmetic, role.Multiply,
+			role.Assignment},
 		"/": {role.Binary, role.Expression, role.Arithmetic, role.Divide},
-		"/=": {role.Binary, role.Expression, role.Arithmetic, role.Divide, role.Assignment},
+		"/=": {role.Binary, role.Expression, role.Arithmetic, role.Divide,
+			role.Assignment},
 		"->": {role.Binary, role.Expression, role.Incomplete},
 		".": {role.Binary, role.Expression, role.Incomplete},
 		"<<": {role.Binary, role.Expression, role.Bitwise, role.LeftShift},
-		"<<=": {role.Binary, role.Expression, role.Bitwise, role.LeftShift, role.Assignment},
+		"<<=": {role.Binary, role.Expression, role.Bitwise, role.LeftShift,
+			role.Assignment},
 		">>": {role.Binary, role.Expression, role.Bitwise, role.RightShift},
-		">>=": {role.Binary, role.Expression, role.Bitwise, role.RightShift, role.Assignment},
+		">>=": {role.Binary, role.Expression, role.Bitwise, role.RightShift,
+			role.Assignment},
 		"unknown_operator": {role.Binary, role.Expression, role.Incomplete},
 	})
 
@@ -152,13 +159,17 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTUsingDirective", nil, role.Scope, role.Alias),
 	AnnotateType("CPPASTNewExpression", nil, role.Instance, role.Value),
 	AnnotateType("CPPASTTypeId", nil, role.Type),
-	AnnotateType("CPPASTTemplateDeclaration", nil, role.Type, role.Declaration, role.Incomplete),
-	AnnotateType("CPPASTSimpleTypeTemplateParameter", nil, role.Type, role.Declaration, role.Argument, role.Incomplete),
+	AnnotateType("CPPASTTemplateDeclaration", nil, role.Type, role.Declaration,
+		role.Incomplete),
+	AnnotateType("CPPASTSimpleTypeTemplateParameter", nil, role.Type, role.Declaration,
+		role.Argument, role.Incomplete),
 	AnnotateType("CPPASTTemplateId", nil, role.Type, role.Incomplete),
-	AnnotateType("CPPASTDeleteExpression", nil, role.Call, role.Expression, role.Incomplete),
+	AnnotateType("CPPASTDeleteExpression", nil, role.Call, role.Expression,
+		role.Incomplete),
 	AnnotateType("CPPASTInitializerList", nil, role.Initialization, role.List),
 	AnnotateType("CPPASTCastExpression", nil, role.Expression, role.Incomplete),
-	AnnotateType("CPPASTDesignatedInitializer", nil, role.Expression, role.Initialization),
+	AnnotateType("CPPASTDesignatedInitializer", nil, role.Expression,
+		role.Initialization),
 	AnnotateType("CPPASTConditionalExpression", nil, role.Expression, role.Condition),
 
 	AnnotateTypeCustom("CPPASTUnaryExpression",
@@ -203,9 +214,10 @@ var Annotations = []Mapping{
 
 	AnnotateType("CPPASTFunctionDeclarator", FieldRoles{
 		"Prop_Name": {Roles: role.Roles{role.Function, role.Declaration, role.Name}},
-		// SDK TODO: adding "Opt: true" fails since Arrays can't be optional, but without it the annotation won't
-		// match, thus the duplicated annotation below
-		"Prop_Parameters": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Argument}},
+		// SDK TODO: adding "Opt: true" fails since Arrays can't be optional, but without
+		// it the annotation won't match, thus the duplicated annotation below
+		"Prop_Parameters": {Arr: true, Roles: role.Roles{role.Function, role.Declaration,
+			role.Argument}},
 	}, role.Function, role.Declaration),
 
 	AnnotateType("CPPASTFunctionDeclarator", FieldRoles{
@@ -228,7 +240,8 @@ var Annotations = []Mapping{
 		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
 	}), LookupArrOpVar("operator", binaryExprRoles)),
 
-	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment, role.Expression, role.Right),
+	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment,
+		role.Expression, role.Right),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("struct")},
@@ -250,13 +263,16 @@ var Annotations = []Mapping{
 	// No Union role
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("union")},
-		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
-		"Prop_Clauses": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type,
+			role.Incomplete}},
+		"Prop_Clauses": {Arr: true, Roles: role.Roles{role.Declaration, role.Type,
+			role.Incomplete}},
 	} , role.Declaration, role.Type, role.Incomplete),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("union")},
-		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type, role.Incomplete}},
+		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type,
+			role.Incomplete}},
 	} , role.Declaration, role.Type, role.Incomplete),
 
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
@@ -267,7 +283,8 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTCompositeTypeSpecifier", FieldRoles{
 		"Key": {Op: String("class")},
 		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
-		"Prop_BaseSpecifiers": {Arr: true, Roles: role.Roles{role.Base, role.Declaration}},
+		"Prop_BaseSpecifiers": {Arr: true, Roles: role.Roles{role.Base,
+			role.Declaration}},
 	} , role.Declaration, role.Type),
 
 	AnnotateType("CPPASTWhileStatement", ObjRoles{
@@ -311,35 +328,44 @@ var Annotations = []Mapping{
 	}, role.If, role.Statement),
 
 	AnnotateType("CPPASTFunctionCallExpression", FieldRoles{
-		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Function, role.Call, role.Argument}},
-		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call, role.Name}},
+		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Function, role.Call,
+			role.Argument}},
+		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call,
+			role.Name}},
 	}, role.Function, role.Call, role.Expression),
 
 	AnnotateType("CPPASTFunctionCallExpression", FieldRoles{
-		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call, role.Name}},
+		"Prop_FunctionNameExpression": {Roles: role.Roles{role.Function, role.Call,
+			role.Name}},
 	}, role.Function, role.Call, role.Expression),
 
 	AnnotateType("CPPASTLambdaExpression", FieldRoles{
 		"Prop_Body": { Roles: role.Roles{role.Function, role.Declaration}},
-		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration, role.Type}},
-		"Prop_Captures": {Arr: true, Roles: role.Roles{role.Function, role.Declaration, role.Incomplete}},
+		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration,
+			role.Type}},
+		"Prop_Captures": {Arr: true, Roles: role.Roles{role.Function, role.Declaration,
+			role.Incomplete}},
 	}, role.Function, role.Declaration, role.Anonymous, role.Expression),
 
 	AnnotateType("CPPASTLambdaExpression", FieldRoles{
 		"Prop_Body": { Roles: role.Roles{role.Function, role.Declaration}},
-		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration, role.Type}},
+		"Prop_Declarator": { Roles: role.Roles{role.Function, role.Declaration,
+			role.Type}},
 	}, role.Function, role.Declaration, role.Anonymous, role.Expression),
 
 	AnnotateType("CPPASTArrayDeclarator", FieldRoles{
-		"Prop_Initializer": { Opt: true, Roles: role.Roles{role.List, role.Initialization, role.Right}},
+		"Prop_Initializer": { Opt: true, Roles: role.Roles{role.List, role.Initialization,
+			role.Right}},
 		// Dimensions and sizes
-		"Prop_ArrayModifiers": { Arr: true, Roles: role.Roles{role.List, role.Declaration}},
+		"Prop_ArrayModifiers": { Arr: true, Roles: role.Roles{role.List,
+			role.Declaration}},
 	}, role.List, role.Declaration),
 
 	// Dimension
 	AnnotateType("CPPASTArrayModifier", nil, role.Type, role.Incomplete),
 	// Index (on usage, not declaration), like a[1]
-	AnnotateType("CPPASTArraySubscriptExpression", nil, role.List, role.Value, role.Incomplete),
+	AnnotateType("CPPASTArraySubscriptExpression", nil, role.List, role.Value,
+		role.Incomplete),
 
 	AnnotateType("CPPASTTryBlockStatement", FieldRoles{
 		"Prop_TryBody": {Roles: role.Roles{role.Try, role.Body}},
@@ -357,14 +383,18 @@ var Annotations = []Mapping{
 	}, role.Qualified),
 
 	AnnotateType("CPPASTConstructorChainInitializer", ObjRoles{
-		"Prop_MemberInitializerId": {role.Type, role.Declaration, role.Initialization, role.Incomplete},
+		"Prop_MemberInitializerId": {role.Type, role.Declaration, role.Initialization,
+			role.Incomplete},
 	}, role.Type, role.Declaration, role.Initialization, role.Incomplete),
 
 	AnnotateType("CPPASTConstructorInitializer", FieldRoles{
-		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Initialization, role.Declaration, role.Argument, role.Value, role.Incomplete}},
-		"Prop_Expression": {Roles: role.Roles{role.Initialization, role.Declaration, role.Value, role.Incomplete}},
+		"Prop_Arguments": {Arr: true, Roles: role.Roles{role.Initialization,
+			role.Declaration, role.Argument, role.Value, role.Incomplete}},
+		"Prop_Expression": {Roles: role.Roles{role.Initialization, role.Declaration,
+			role.Value, role.Incomplete}},
 	}, role.Initialization, role.Declaration, role.Incomplete),
-	AnnotateType("CPPASTConstructorInitializer", nil, role.Initialization, role.Declaration, role.Incomplete),
+	AnnotateType("CPPASTConstructorInitializer", nil, role.Initialization,
+		role.Declaration, role.Incomplete),
 
 	AnnotateType("Comment", MapObj(Obj{
 		"Comment": UncommentCLike("text"),
