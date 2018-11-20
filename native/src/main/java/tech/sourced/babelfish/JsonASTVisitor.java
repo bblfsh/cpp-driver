@@ -155,9 +155,6 @@ public class JsonASTVisitor extends ASTVisitor {
         if (verboseJson)
             json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
 
-        //writeIfTrue("IsActive", node.isActive());
-        //writeIfTrue("IsFrozen", node.isFrozen());
-
         if (verboseJson) {
             ASTNodeProperty propInParent = node.getPropertyInParent();
             if (propInParent != null) {
@@ -888,10 +885,6 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeBooleanField("IsDeleted", impl2.isDeleted());
                     }
                 }
-
-                //if (node instanceof IASTProblemDeclaration) {
-                    //throw new IOException("Syntax error on file");
-                //}
 
                 serializeComments(node);
                 visitChildren(node);

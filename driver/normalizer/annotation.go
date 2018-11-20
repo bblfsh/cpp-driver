@@ -104,12 +104,6 @@ var (
 		"unknown_operator": {role.Binary, role.Expression, role.Incomplete},
 	})
 
-	compositeTypeRoles = StringToRolesMap(map[string][]role.Role{
-		"union": {role.Type, role.Declaration, role.Incomplete},
-		"struct": {role.Type, role.Declaration, role.Incomplete},
-		"class": {role.Type, role.Declaration},
-	})
-
 	unaryExprRoles = StringToRolesMap(map[string][]role.Role{
 		"op_alignof": {role.Unary, role.Incomplete},
 		"op_amper": {role.Unary, role.Incomplete},
