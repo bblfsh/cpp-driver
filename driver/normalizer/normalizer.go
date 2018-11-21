@@ -198,21 +198,21 @@ var Normalizers = []Mapping{
 
 							{Name: "Arguments", Optional: "optArgs", Op: Cases("takesVarArgs",
 								// True, append a synthetic arg with Name = "..." and Variadic = true
-								// FIXME: doesnt work
+								// FIXME: commented code doesnt work
 								Each("args", UASTType(uast.Argument{}, Obj{
 									"Name": Var("aname"),
 									"Type": Var("atype"),
 								})),
 								//Append(
-								//	Each("args", UASTType(uast.Argument{}, Obj{
-								//		"Name": Var("aname"),
-								//		"Type": Var("atype"),
-								//	})),
 								//	UASTType(uast.Argument{}, Obj{
-								//		"Name": String("..."),
+								//		"Name":     UASTType(uast.Identifier{}, Obj{ "Name": String("...")}),
 								//		"Variadic": Bool(true),
 								//	}),
-								//	),
+								//	Arr(Each("args", UASTType(uast.Argument{}, Obj{
+								//		"Name": Var("aname"),
+								//		"Type": Var("atype"),
+								//	}))),
+								//),
 								// False, no varargs
 								Each("args", UASTType(uast.Argument{}, Obj{
 									"Name": Var("aname"),

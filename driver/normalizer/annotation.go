@@ -136,7 +136,6 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
 		role.Identifier),
 
-	// XXX ExpressionType, get all possible values
 	AnnotateType("CPPASTIdExpression", nil, role.Expression, role.Variable),
 	AnnotateType("CPPASTNullStatement", nil, role.Literal, role.Null, role.Expression,
 		role.Primitive),

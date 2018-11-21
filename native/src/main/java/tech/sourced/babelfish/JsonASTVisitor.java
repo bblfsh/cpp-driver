@@ -588,8 +588,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 String exprType = node.getExpressionType().toString();
 
                 if (exprType.indexOf("ProblemType@") != -1) {
-                    // Trying to get the type of some untyped expressions give something
-                    // like:
+                    // Trying to get the type of some untyped expressions give something like:
                     // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
