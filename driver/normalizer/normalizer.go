@@ -99,6 +99,9 @@ var Normalizers = []Mapping{
 
 	MapSemantic("CPPASTFunctionDefinition", uast.FunctionGroup{}, MapObj(
 		Fields{
+			//{Name: "IsDefaulted", Optional: "optDefaulted", Op: Var("ignDefaulted")},
+			//{Name: "IsDeleted", Optional: "optDeleted", Op: Var("ignDeleted")},
+
 			// TODO: optional modifiers that only appear when true
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
@@ -107,16 +110,34 @@ var Normalizers = []Mapping{
 				Fields{
 					{Name: uast.KeyType, Op: Var("ignTypeRet")},
 					{Name: uast.KeyPos, Op: Var("ignPosRet")},
-					{Name: "IsTypeName", Op: Var("ignIsTypeName")},
+					//{Name: "IsTypeName", Op: Var("ignIsTypeName")},
 					{Name: "StorageClass", Op: Var("StorageClass")},
+					{Name: "IsVirtual", Optional: "optIsVirtual", Op: Var("ignIsVirtual")},
+					{Name: "IsConstExpr", Optional: "optIsConstExpr", Op: Var("ignIsConstExpr")},
+					{Name: "IsExplicit", Optional: "optIsExplicit", Op: Var("ignIsExplicit")},
+					{Name: "IsFriend", Optional: "optIsFriend", Op: Var("ignIsFriend")},
+					{Name: "IsThreadLocal", Optional: "optIsThreadLocal", Op: Var("ignIsThreadLocal")},
+					{Name: "IsComplex", Optional: "optIsComplex", Op: Var("ignIsComplex")},
+					{Name: "IsImaginary", Optional: "optIsImaginary", Op: Var("ignIsImaginary")},
+					{Name: "IsLong", Optional: "optIsLong", Op: Var("ignIsLong")},
+					{Name: "IsLongLong", Optional: "optIsLongLong", Op: Var("ignIsLongLong")},
+					{Name: "IsShort", Optional: "optIsShort", Op: Var("ignIsShort")},
+					{Name: "IsSigned", Optional: "optIsSigned", Op: Var("ignIsSigned")},
+					{Name: "IsUnsigned", Optional: "optIsUnsigned", Op: Var("ignIsUnsigned")},
 					{Name: "Type", Op: Var("retType")},
 				},
 				// NamedTypeSpecifier
 				Fields{
 					{Name: uast.KeyType, Op: Var("ignTypeRet")},
 					{Name: uast.KeyPos, Op: Var("ignPosRet")},
-					{Name: "IsTypeName", Op: Var("ignIsTypeName")},
+					//{Name: "IsTypeName", Op: Var("ignIsTypeName")},
 					{Name: "StorageClass", Op: Var("StorageClass")},
+					{Name: "IsVirtual", Optional: "optIsVirtual", Op: Var("ignIsVirtual")},
+					{Name: "IsConstExpr", Optional: "optIsConstExpr", Op: Var("ignIsConstExpr")},
+					{Name: "IsExplicit", Optional: "optIsExplicit", Op: Var("ignIsExplicit")},
+					{Name: "IsFriend", Optional: "optIsFriend", Op: Var("ignIsFriend")},
+					{Name: "IsThreadLocal", Optional: "optIsThreadLocal", Op: Var("ignIsThreadLocal")},
+					{Name: "IsTypeName", Optional: "optIsTypeName", Op: Var("ignIsTypeName")},
 					{Name: "Prop_Name", Op: Var("retType")},
 				},
 			)},
@@ -137,6 +158,7 @@ var Normalizers = []Mapping{
 
 				{Name: "TakesVarArgs", Op: Cases("takesVarArgs", Bool(true), Bool(false))},
 				{Name: "Prop_ConstructorChain", Op: Var("ignConsChain"), Optional: "optConsChain"},
+				{Name: "IsConst", Optional: "optIsConst", Op: Var("ignIsConst")},
 
 				{Name: "Prop_Parameters", Optional: "optArgs", Op: Each("args", Fields{
 					{Name: uast.KeyType, Op: String("CPPASTDeclarator")},
