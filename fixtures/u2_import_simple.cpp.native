@@ -1,6 +1,9 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   Includes: [
+   LocOffsetEnd: 37,
+   LocOffsetStart: 0,
+   'Prop_BuiltinMacroDefinitions': [],
+   'Prop_Includes': [
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
@@ -20,11 +23,17 @@
          Resolved: false,
       },
    ],
-   LocOffsetEnd: 37,
-   LocOffsetStart: 0,
-   'NumIncludes: ': "2",
-   'Prop_AllPreprocessorStatements': [],
-   'Prop_BuiltinMacroDefinitions': [],
-   'Prop_IncludeDirectives': [],
+   'Prop_PreprocStatements': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         LocOffsetEnd: 17,
+         LocOffsetStart: 0,
+      },
+      {
+         IASTClass: "ASTInclusionStatement",
+         LocOffsetEnd: 36,
+         LocOffsetStart: 18,
+      },
+   ],
    'Prop_PreprocessorProblems': [],
 }

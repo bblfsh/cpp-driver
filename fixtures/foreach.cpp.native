@@ -1,29 +1,7 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   Includes: [
-      {
-         IASTClass: "ASTInclusionStatement",
-         IsSystem: true,
-         LocOffsetEnd: 20,
-         LocOffsetStart: 0,
-         Name: "algorithm",
-         Path: "",
-         Resolved: false,
-      },
-      {
-         IASTClass: "ASTInclusionStatement",
-         IsSystem: true,
-         LocOffsetEnd: 38,
-         LocOffsetStart: 21,
-         Name: "vector",
-         Path: "",
-         Resolved: false,
-      },
-   ],
    LocOffsetEnd: 189,
    LocOffsetStart: 0,
-   'NumIncludes: ': "2",
-   'Prop_AllPreprocessorStatements': [],
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
@@ -552,6 +530,37 @@
          },
       },
    ],
-   'Prop_IncludeDirectives': [],
+   'Prop_Includes': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         IsSystem: true,
+         LocOffsetEnd: 20,
+         LocOffsetStart: 0,
+         Name: "algorithm",
+         Path: "",
+         Resolved: false,
+      },
+      {
+         IASTClass: "ASTInclusionStatement",
+         IsSystem: true,
+         LocOffsetEnd: 38,
+         LocOffsetStart: 21,
+         Name: "vector",
+         Path: "",
+         Resolved: false,
+      },
+   ],
+   'Prop_PreprocStatements': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         LocOffsetEnd: 20,
+         LocOffsetStart: 0,
+      },
+      {
+         IASTClass: "ASTInclusionStatement",
+         LocOffsetEnd: 38,
+         LocOffsetStart: 21,
+      },
+   ],
    'Prop_PreprocessorProblems': [],
 }

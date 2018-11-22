@@ -1,10 +1,7 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   Includes: [],
    LocOffsetEnd: 52,
    LocOffsetStart: 0,
-   'NumIncludes: ': "0",
-   'Prop_AllPreprocessorStatements': [],
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
@@ -98,6 +95,21 @@
          },
       },
    ],
+   'Prop_Includes': [],
    'Prop_MacroDefinitions': [],
    'Prop_MacroExpansions': [],
+   'Prop_PreprocStatements': [
+      {
+         Expansion: "false",
+         ExpansionPosition: {
+            LocOffsetEnd: 18,
+            LocOffsetStart: 13,
+         },
+         IASTClass: "ASTMacroDefinition",
+         IsActive: true,
+         LocOffsetEnd: 18,
+         LocOffsetStart: 0,
+         Name: "true",
+      },
+   ],
 }

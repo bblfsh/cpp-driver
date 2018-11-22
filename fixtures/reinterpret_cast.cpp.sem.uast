@@ -12,8 +12,6 @@
          col: 1,
       },
    },
-   Includes: [],
-   'NumIncludes: ': "0",
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       { '@type': "cpp:CPPASTSimpleDeclaration",
@@ -565,4 +563,6 @@
          ],
       },
    ],
+   'Prop_Includes': [],
+   'Prop_PreprocStatements': [],
 }

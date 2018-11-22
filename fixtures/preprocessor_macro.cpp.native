@@ -1,20 +1,7 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   Includes: [
-      {
-         IASTClass: "ASTInclusionStatement",
-         IsSystem: true,
-         LocOffsetEnd: 19,
-         LocOffsetStart: 0,
-         Name: "iostream",
-         Path: "",
-         Resolved: false,
-      },
-   ],
    LocOffsetEnd: 93,
    LocOffsetStart: 0,
-   'NumIncludes: ': "1",
-   'Prop_AllPreprocessorStatements': [],
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
@@ -124,8 +111,38 @@
          },
       },
    ],
-   'Prop_IncludeDirectives': [],
+   'Prop_Includes': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         IsSystem: true,
+         LocOffsetEnd: 19,
+         LocOffsetStart: 0,
+         Name: "iostream",
+         Path: "",
+         Resolved: false,
+      },
+   ],
    'Prop_MacroDefinitions': [],
    'Prop_MacroExpansions': [],
+   'Prop_PreprocStatements': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         LocOffsetEnd: 19,
+         LocOffsetStart: 0,
+      },
+      {
+         Expansion: "a ## b",
+         ExpansionPosition: {
+            LocOffsetEnd: 45,
+            LocOffsetStart: 39,
+         },
+         IASTClass: "ASTFunctionStyleMacroDefinition",
+         IsActive: true,
+         LocOffsetEnd: 45,
+         LocOffsetStart: 21,
+         Name: "join",
+         Parameters: [a, b],
+      },
+   ],
    'Prop_PreprocessorProblems': [],
 }

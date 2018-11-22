@@ -120,7 +120,9 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getProblem", "getRoleForName"
+                    "getProblem", "getRoleForName",
+                    // Called manually:
+                    "getIncludeDirectives", "getAllPreprocessorStatements"
                     // ImplicitNames
                     //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
@@ -132,8 +134,7 @@ public class JsonASTVisitor extends ASTVisitor {
         hasError = true;
     }
 
-    private void serializeNodeLocation(IASTNode node) throws IOException {
-        IASTFileLocation loc = node.getFileLocation();
+    private void serializeLocation(IASTFileLocation loc) throws IOException {
         int lineStart = -1;
         int lineEnd = -1;
         int offsetStart = -1;
@@ -162,7 +163,7 @@ public class JsonASTVisitor extends ASTVisitor {
             }
         }
 
-        serializeNodeLocation(node);
+        serializeLocation(node.getFileLocation());
     }
 
     private void serializeCommentList(List<IASTComment> comments, String commentType) throws IOException {
@@ -176,7 +177,7 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeStringField("IASTClass", "Comment");
                         json.writeStringField("Comment", comment.toString());
                         json.writeBooleanField("IsBlockComment", comment.isBlockComment());
-                        serializeNodeLocation(comment);
+                        serializeLocation(comment.getFileLocation());
                     } finally {
                         json.writeEndObject();
                     }
@@ -1272,36 +1273,125 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
+    private void serializeIncludes(IASTTranslationUnit unit) throws IOException {
+        IASTPreprocessorIncludeStatement[] includes = unit.getIncludeDirectives();
+        json.writeFieldName("Prop_Includes");
+        json.writeStartArray();
+        try {
+            for (IASTPreprocessorIncludeStatement include : includes) {
+                json.writeStartObject();
+                try {
+                    // For some reason, include.accept(this) wont work with these
+                    // so we visit manually
+                    serializeCommonData(include);
+                    json.writeStringField("Name", include.getName().toString());
+                    json.writeStringField("Path", include.getPath());
+                    json.writeBooleanField("Resolved", include.isResolved());
+                    json.writeBooleanField("IsSystem", include.isSystemInclude());
+                } finally {
+                    json.writeEndObject();
+                }
+            }
+        } finally {
+            json.writeEndArray();
+        }
+    }
+
+    private void serializePreproStatements(IASTTranslationUnit unit) throws IOException {
+        IASTPreprocessorStatement[] stmts = unit.getAllPreprocessorStatements();
+        json.writeFieldName("Prop_PreprocStatements");
+        json.writeStartArray();
+        try {
+            for (IASTPreprocessorStatement stmt : stmts) {
+                json.writeStartObject();
+                try {
+                    serializeCommonData(stmt);
+
+                    if (stmt instanceof IASTPreprocessorIncludeStatement) {
+                        continue; // handled in serializeIncludes
+                    }
+
+                    if (stmt instanceof IASTPreprocessorMacroDefinition) {
+                        IASTPreprocessorMacroDefinition s = (IASTPreprocessorMacroDefinition)stmt;
+                        json.writeStringField("Name", s.getName().toString());
+                        json.writeBooleanField("IsActive", s.isActive());
+                        json.writeStringField("Expansion", s.getExpansion());
+
+                        json.writeFieldName("ExpansionPosition");
+                        json.writeStartObject();
+                        try {
+                            serializeLocation(s.getExpansionLocation());
+                        } finally {
+                            json.writeEndObject();
+                        }
+                    }
+
+                    if (stmt instanceof IASTPreprocessorIfStatement) {
+                        IASTPreprocessorIfStatement s = (IASTPreprocessorIfStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorIfndefStatement) {
+                        IASTPreprocessorIfndefStatement s = (IASTPreprocessorIfndefStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                    } else if (stmt instanceof IASTPreprocessorIfdefStatement) {
+                        IASTPreprocessorIfdefStatement s = (IASTPreprocessorIfdefStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                    } else if (stmt instanceof IASTPreprocessorElifStatement) {
+                        IASTPreprocessorElifStatement s = (IASTPreprocessorElifStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorElseStatement) {
+                        IASTPreprocessorElseStatement s = (IASTPreprocessorElseStatement)stmt;
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorErrorStatement) {
+                        IASTPreprocessorErrorStatement s = (IASTPreprocessorErrorStatement)stmt;
+                        json.writeStringField("ErrorMsg", new String(s.getMessage()));
+                    } else if (stmt instanceof IASTPreprocessorFunctionStyleMacroDefinition) {
+                        IASTPreprocessorFunctionStyleMacroDefinition s = (IASTPreprocessorFunctionStyleMacroDefinition)stmt;
+                        IASTFunctionStyleMacroParameter[] params = s.getParameters();
+                        json.writeFieldName("Parameters");
+                        json.writeStartArray();
+                        try {
+                            for (IASTFunctionStyleMacroParameter param : params) {
+                                json.writeString(param.getParameter());
+                            }
+                        } finally {
+                            json.writeEndArray();
+                        }
+
+                    } else if (stmt instanceof IASTPreprocessorPragmaStatement) {
+                        IASTPreprocessorPragmaStatement s = (IASTPreprocessorPragmaStatement)stmt;
+                        json.writeStringField("Message", new String(s.getMessage()));
+                        json.writeBooleanField("IsPragmaOperator", s.isPragmaOperator());
+                    } else if (stmt instanceof IASTPreprocessorUndefStatement) {
+                        IASTPreprocessorUndefStatement s = (IASTPreprocessorUndefStatement)stmt;
+                        json.writeStringField("Name", s.getMacroName().toString());
+                        json.writeBooleanField("IsActive", s.isActive());
+                    }
+
+                } finally {
+                    json.writeEndObject();
+                }
+            }
+        } finally {
+            json.writeEndArray();
+        }
+    }
+
     @Override
     public int visit(IASTTranslationUnit node) {
         try {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
+                serializeIncludes(node);
+                serializePreproStatements(node);
 
                 // Include directives
-                IASTPreprocessorIncludeStatement[] includes = node.getIncludeDirectives();
-                json.writeStringField("NumIncludes: ", String.valueOf(includes.length));
-                json.writeFieldName("Includes");
-                json.writeStartArray();
-                try {
-                    for (IASTPreprocessorIncludeStatement include : includes) {
-                        json.writeStartObject();
-                        try {
-                            // For some reason, node.accept(this) wont work with these
-                            //json.writeStringField("IASTClass", "PreProInclude");
-                            serializeCommonData(include);
-                            json.writeStringField("Name", include.getName().toString());
-                            json.writeStringField("Path", include.getPath());
-                            json.writeBooleanField("Resolved", include.isResolved());
-                            json.writeBooleanField("IsSystem", include.isSystemInclude());
-                        } finally {
-                            json.writeEndObject();
-                        }
-                    }
-                } finally {
-                    json.writeEndArray();
-                }
                 // FIXME:
                 // This must be explored to get the preprocessor directives with:
                 // THIS

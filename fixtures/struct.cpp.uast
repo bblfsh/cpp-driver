@@ -12,8 +12,6 @@
          col: 1,
       },
    },
-   Includes: [],
-   'NumIncludes: ': "0",
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       { '@type': "CPPASTSimpleDeclaration",
@@ -1484,4 +1482,6 @@
          },
       },
    ],
+   'Prop_Includes': [],
+   'Prop_PreprocStatements': [],
 }

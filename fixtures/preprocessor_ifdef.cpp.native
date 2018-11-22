@@ -1,10 +1,7 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   Includes: [],
    LocOffsetEnd: 207,
    LocOffsetStart: 0,
-   'NumIncludes: ': "0",
-   'Prop_AllPreprocessorStatements': [],
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
@@ -198,5 +195,83 @@
          },
       },
    ],
+   'Prop_Includes': [],
    'Prop_MacroDefinitions': [],
+   'Prop_PreprocStatements': [
+      {
+         Expansion: "1",
+         ExpansionPosition: {
+            LocOffsetEnd: 13,
+            LocOffsetStart: 12,
+         },
+         IASTClass: "ASTMacroDefinition",
+         IsActive: true,
+         LocOffsetEnd: 13,
+         LocOffsetStart: 0,
+         Name: "FOO",
+      },
+      {
+         Expansion: "10",
+         ExpansionPosition: {
+            LocOffsetEnd: 28,
+            LocOffsetStart: 26,
+         },
+         IASTClass: "ASTMacroDefinition",
+         IsActive: true,
+         LocOffsetEnd: 28,
+         LocOffsetStart: 14,
+         Name: "BAR",
+      },
+      {
+         Condition: "FOO",
+         IASTClass: "ASTIfdef",
+         IsTaken: true,
+         LocOffsetEnd: 40,
+         LocOffsetStart: 30,
+         MacroReference: "FOO",
+      },
+      {
+         Expansion: "",
+         ExpansionPosition: {
+            LocOffsetEnd: 54,
+            LocOffsetStart: 54,
+         },
+         IASTClass: "ASTMacroDefinition",
+         IsActive: true,
+         LocOffsetEnd: 54,
+         LocOffsetStart: 43,
+         Name: "BAZ",
+      },
+      {
+         Condition: "BAR>5",
+         IASTClass: "ASTElif",
+         IsTaken: false,
+         LocOffsetEnd: 66,
+         LocOffsetStart: 55,
+      },
+      {
+         IASTClass: "ASTEndif",
+         LocOffsetEnd: 86,
+         LocOffsetStart: 80,
+      },
+      {
+         Condition: "FOO",
+         IASTClass: "ASTIfdef",
+         IsTaken: true,
+         LocOffsetEnd: 138,
+         LocOffsetStart: 128,
+         MacroReference: "FOO",
+      },
+      {
+         IASTClass: "ASTElse",
+         IsTaken: false,
+         LocOffsetEnd: 181,
+         LocOffsetStart: 176,
+      },
+      {
+         IASTClass: "ASTEndif",
+         LocOffsetEnd: 203,
+         LocOffsetStart: 197,
+      },
+   ],
 }
