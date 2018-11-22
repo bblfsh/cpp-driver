@@ -2,7 +2,6 @@ package normalizer
 
 import (
 	"gopkg.in/bblfsh/sdk.v2/uast"
-	//"gopkg.in/bblfsh/sdk.v2/uast/role"
 	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
 )
 
@@ -233,5 +232,4 @@ var Normalizers = []Mapping{
 				}),
 			),
 		},
-	),
-	)}
+	))}

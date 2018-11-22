@@ -1278,6 +1278,30 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
+
+                // Include directives
+                IASTPreprocessorIncludeStatement[] includes = node.getIncludeDirectives();
+                json.writeStringField("NumIncludes: ", String.valueOf(includes.length));
+                json.writeFieldName("Includes");
+                json.writeStartArray();
+                try {
+                    for (IASTPreprocessorIncludeStatement include : includes) {
+                        json.writeStartObject();
+                        try {
+                            // For some reason, node.accept(this) wont work with these
+                            //json.writeStringField("IASTClass", "PreProInclude");
+                            serializeCommonData(include);
+                            json.writeStringField("Name", include.getName().toString());
+                            json.writeStringField("Path", include.getPath());
+                            json.writeBooleanField("Resolved", include.isResolved());
+                            json.writeBooleanField("IsSystem", include.isSystemInclude());
+                        } finally {
+                            json.writeEndObject();
+                        }
+                    }
+                } finally {
+                    json.writeEndArray();
+                }
                 // FIXME:
                 // This must be explored to get the preprocessor directives with:
                 // THIS
