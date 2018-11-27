@@ -1053,7 +1053,7 @@
          },
       },
    ],
-   'Prop_Includes': [
+   'Prop_PreprocStatements': [
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
@@ -1062,13 +1062,6 @@
          Name: "memory",
          Path: "",
          Resolved: false,
-      },
-   ],
-   'Prop_PreprocStatements': [
-      {
-         IASTClass: "ASTInclusionStatement",
-         LocOffsetEnd: 17,
-         LocOffsetStart: 0,
       },
    ],
    'Prop_PreprocessorProblems': [],

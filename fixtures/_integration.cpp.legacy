@@ -28,26 +28,10 @@ CPPASTTranslationUnit {
 .  .  .  .  IsSystem: true
 .  .  .  .  Path: 
 .  .  .  .  Resolved: false
-.  .  .  .  internalRole: Prop_Includes
-.  .  .  }
-.  .  }
-.  .  1: ASTInclusionStatement {
-.  .  .  Roles: Unannotated
-.  .  .  StartPosition: {
-.  .  .  .  Offset: 0
-.  .  .  .  Line: 1
-.  .  .  .  Col: 1
-.  .  .  }
-.  .  .  EndPosition: {
-.  .  .  .  Offset: 19
-.  .  .  .  Line: 1
-.  .  .  .  Col: 20
-.  .  .  }
-.  .  .  Properties: {
 .  .  .  .  internalRole: Prop_PreprocStatements
 .  .  .  }
 .  .  }
-.  .  2: CPPASTFunctionDefinition {
+.  .  1: CPPASTFunctionDefinition {
 .  .  .  Roles: Function,Declaration
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 21

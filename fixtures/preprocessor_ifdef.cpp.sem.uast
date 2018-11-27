@@ -392,7 +392,6 @@
          ],
       },
    ],
-   'Prop_Includes': [],
    'Prop_MacroDefinitions': [],
    'Prop_PreprocStatements': [
       { '@type': "cpp:ASTMacroDefinition",

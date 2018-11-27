@@ -457,7 +457,7 @@
          },
       },
    ],
-   'Prop_Includes': [
+   'Prop_PreprocStatements': [
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
@@ -466,13 +466,6 @@
          Name: "new",
          Path: "",
          Resolved: false,
-      },
-   ],
-   'Prop_PreprocStatements': [
-      {
-         IASTClass: "ASTInclusionStatement",
-         LocOffsetEnd: 14,
-         LocOffsetStart: 0,
       },
    ],
    'Prop_PreprocessorProblems': [],

@@ -1273,30 +1273,6 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    private void serializeIncludes(IASTTranslationUnit unit) throws IOException {
-        IASTPreprocessorIncludeStatement[] includes = unit.getIncludeDirectives();
-        json.writeFieldName("Prop_Includes");
-        json.writeStartArray();
-        try {
-            for (IASTPreprocessorIncludeStatement include : includes) {
-                json.writeStartObject();
-                try {
-                    // For some reason, include.accept(this) wont work with these
-                    // so we visit manually
-                    serializeCommonData(include);
-                    json.writeStringField("Name", include.getName().toString());
-                    json.writeStringField("Path", include.getPath());
-                    json.writeBooleanField("Resolved", include.isResolved());
-                    json.writeBooleanField("IsSystem", include.isSystemInclude());
-                } finally {
-                    json.writeEndObject();
-                }
-            }
-        } finally {
-            json.writeEndArray();
-        }
-    }
-
     private void serializePreproStatements(IASTTranslationUnit unit) throws IOException {
         IASTPreprocessorStatement[] stmts = unit.getAllPreprocessorStatements();
         json.writeFieldName("Prop_PreprocStatements");
@@ -1306,10 +1282,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStartObject();
                 try {
                     serializeCommonData(stmt);
-
-                    if (stmt instanceof IASTPreprocessorIncludeStatement) {
-                        continue; // handled in serializeIncludes
-                    }
 
                     if (stmt instanceof IASTPreprocessorMacroDefinition) {
                         IASTPreprocessorMacroDefinition s = (IASTPreprocessorMacroDefinition)stmt;
@@ -1330,6 +1302,12 @@ public class JsonASTVisitor extends ASTVisitor {
                         IASTPreprocessorIfStatement s = (IASTPreprocessorIfStatement)stmt;
                         json.writeStringField("Condition", new String(s.getCondition()));
                         json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorIncludeStatement) {
+                        IASTPreprocessorIncludeStatement s = (IASTPreprocessorIncludeStatement)stmt;
+                        json.writeStringField("Name", s.getName().toString());
+                        json.writeStringField("Path", s.getPath());
+                        json.writeBooleanField("Resolved", s.isResolved());
+                        json.writeBooleanField("IsSystem", s.isSystemInclude());
                     } else if (stmt instanceof IASTPreprocessorIfndefStatement) {
                         IASTPreprocessorIfndefStatement s = (IASTPreprocessorIfndefStatement)stmt;
                         json.writeStringField("Condition", new String(s.getCondition()));
@@ -1388,7 +1366,7 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                serializeIncludes(node);
+                //serializeIncludes(node);
                 serializePreproStatements(node);
 
                 // Include directives
