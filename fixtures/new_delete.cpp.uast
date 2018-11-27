@@ -1059,7 +1059,8 @@
    ],
    'Prop_Includes': [
       { '@type': "ASTInclusionStatement",
-         '@role': [Unannotated],
+         '@token': "new",
+         '@role': [Import],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -1073,7 +1074,6 @@
             },
          },
          IsSystem: true,
-         Name: "new",
          Path: "",
          Resolved: false,
       },

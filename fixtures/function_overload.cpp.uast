@@ -834,7 +834,8 @@
    ],
    'Prop_Includes': [
       { '@type': "ASTInclusionStatement",
-         '@role': [Unannotated],
+         '@token': "string",
+         '@role': [Import],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -848,7 +849,6 @@
             },
          },
          IsSystem: true,
-         Name: "string",
          Path: "",
          Resolved: false,
       },

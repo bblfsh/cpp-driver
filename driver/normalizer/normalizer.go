@@ -27,6 +27,18 @@ var Preprocessors = []Mapping{
 }
 
 var Normalizers = []Mapping{
+
+	MapSemantic("ASTInclusionStatement", uast.Import{}, MapObj(
+		Obj{
+			"Name": Var("path"),
+		},
+		Obj{
+			"Path": UASTType(uast.Identifier{}, Obj{"Name": Var("path")}),
+			"All": Bool(true),
+			"Names": Arr(),
+		},
+	)),
+
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
 		Obj{
 			"Prop_Statements": Var("statements"),

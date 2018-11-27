@@ -243,7 +243,8 @@
    ],
    'Prop_Includes': [
       { '@type': "ASTInclusionStatement",
-         '@role': [Unannotated],
+         '@token': "iostream",
+         '@role': [Import],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -257,7 +258,6 @@
             },
          },
          IsSystem: true,
-         Name: "iostream",
          Path: "",
          Resolved: false,
       },

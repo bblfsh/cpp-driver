@@ -143,6 +143,7 @@ var Annotations = []Mapping{
 	}),
 
 	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}}, role.Identifier),
+	AnnotateType("ASTInclusionStatement", FieldRoles{"Name": {Rename: uast.KeyToken}}, role.Import),
 	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
 		role.Identifier),
 

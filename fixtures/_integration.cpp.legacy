@@ -12,7 +12,8 @@ CPPASTTranslationUnit {
 .  }
 .  Children: {
 .  .  0: ASTInclusionStatement {
-.  .  .  Roles: Unannotated
+.  .  .  Roles: Import
+.  .  .  TOKEN "iostream"
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 0
 .  .  .  .  Line: 1
@@ -25,7 +26,6 @@ CPPASTTranslationUnit {
 .  .  .  }
 .  .  .  Properties: {
 .  .  .  .  IsSystem: true
-.  .  .  .  Name: iostream
 .  .  .  .  Path: 
 .  .  .  .  Resolved: false
 .  .  .  .  internalRole: Prop_Includes

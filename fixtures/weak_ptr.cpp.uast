@@ -1269,7 +1269,8 @@
    ],
    'Prop_Includes': [
       { '@type': "ASTInclusionStatement",
-         '@role': [Unannotated],
+         '@token': "memory",
+         '@role': [Import],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -1283,7 +1284,6 @@
             },
          },
          IsSystem: true,
-         Name: "memory",
          Path: "",
          Resolved: false,
       },
