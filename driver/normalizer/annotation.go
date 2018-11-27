@@ -131,8 +131,18 @@ var Annotations = []Mapping{
 	AnnotateType("internal-type", nil, role.Incomplete),
 	AnnotateType("CPPASTTranslationUnit", nil, role.File, role.Module),
 	AnnotateType("CPPASTExpressionStatement", nil, role.Expression),
-	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}},
-		role.Identifier),
+
+	// Empty names i.e. for empty function arguments like: "void main(int, char**)"
+	Map(Obj{
+		"IASTClass": String("CPPASTName"),
+		"Name": String(""),
+	}, Obj{
+		uast.KeyType: String("CPPASTName"),
+		uast.KeyRoles: Roles(role.Identifier),
+		uast.KeyToken: String(""),
+	}),
+
+	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}}, role.Identifier),
 	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
 		role.Identifier),
 

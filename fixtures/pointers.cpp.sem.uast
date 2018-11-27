@@ -2027,9 +2027,8 @@
                                           },
                                        },
                                     },
-                                    'Prop_Name': {
+                                    'Prop_Name': { '@type': "uast:Identifier",
                                        '@role': [Declaration, Function, Name],
-                                       IASTClass: "CPPASTName",
                                        Name: "",
                                     },
                                     'Prop_NestedDeclarator': { '@type': "cpp:CPPASTDeclarator",

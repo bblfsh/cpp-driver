@@ -371,8 +371,7 @@
                                                    },
                                                 },
                                                 DeclaresParameterPack: false,
-                                                'Prop_Name': {
-                                                   IASTClass: "CPPASTName",
+                                                'Prop_Name': { '@type': "uast:Identifier",
                                                    Name: "",
                                                 },
                                                 'Prop_PointerOperators': [],
@@ -496,8 +495,7 @@
                                                    },
                                                 },
                                                 DeclaresParameterPack: false,
-                                                'Prop_Name': {
-                                                   IASTClass: "CPPASTName",
+                                                'Prop_Name': { '@type': "uast:Identifier",
                                                    Name: "",
                                                 },
                                                 'Prop_PointerOperators': [],

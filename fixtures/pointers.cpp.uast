@@ -2092,10 +2092,9 @@
                                  },
                               },
                            },
-                           'Prop_Name': {
-                              '@role': [Declaration, Function, Name],
-                              IASTClass: "CPPASTName",
-                              Name: "",
+                           'Prop_Name': { '@type': "CPPASTName",
+                              '@token': "",
+                              '@role': [Declaration, Function, Identifier, Name],
                            },
                            'Prop_NestedDeclarator': { '@type': "CPPASTDeclarator",
                               '@role': [Declaration, Name, Variable],

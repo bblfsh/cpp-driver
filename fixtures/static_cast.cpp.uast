@@ -260,9 +260,9 @@
                                  },
                               },
                               DeclaresParameterPack: false,
-                              'Prop_Name': {
-                                 IASTClass: "CPPASTName",
-                                 Name: "",
+                              'Prop_Name': { '@type': "CPPASTName",
+                                 '@token': "",
+                                 '@role': [Identifier],
                               },
                               'Prop_TypeNode': ~,
                            },

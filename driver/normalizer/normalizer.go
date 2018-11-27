@@ -70,6 +70,15 @@ var Normalizers = []Mapping{
 		CommentNode(false, "comm", nil),
 	)),
 
+	// Args in C can have type but be empty (typically in headers, but also in implementations): int main(int, char**)
+	Map(Obj{
+		"IASTClass": String("CPPASTName"),
+		"Name": String(""),
+	}, Obj{
+		uast.KeyType: String("uast:Identifier"),
+		"Name": String(""),
+	}),
+
 	MapSemantic("CPPASTName", uast.Identifier{}, MapObj(
 		Obj{
 			"Name": Var("name"),

@@ -44,8 +44,7 @@
             },
             IsFinal: false,
             Key: "class",
-            'Prop_Name': {
-               IASTClass: "CPPASTName",
+            'Prop_Name': { '@type': "uast:Identifier",
                Name: "",
             },
             StorageClass: "unspecified",
