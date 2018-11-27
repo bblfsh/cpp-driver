@@ -1,5 +1,5 @@
-#define true false
+#define notreplaced replaced
 
 int main() {
-  auto a = true;
+  auto notreplaced = 1;
 }

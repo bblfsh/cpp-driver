@@ -38,6 +38,7 @@ public class JsonASTVisitor extends ASTVisitor {
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
     private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
+    private Hashtable<IASTPreprocessorMacroDefinition, IASTNodeLocation[]> macroExpansions;
     private IASTNode lastTypeVisited = null;
 
     IOException error;
@@ -122,11 +123,13 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
                     "getProblem", "getRoleForName",
                     // Called manually:
-                    "getIncludeDirectives", "getAllPreprocessorStatements"
+                    "getIncludeDirectives", "getAllPreprocessorStatements", "getMacroExpansions",
+                    "getMacroDefinitions"
                     // ImplicitNames
                     //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
+        macroExpansions = new Hashtable<IASTPreprocessorMacroDefinition, IASTNodeLocation[]>();
     }
 
     private void enableErrorState(IOException e) {
@@ -141,10 +144,6 @@ public class JsonASTVisitor extends ASTVisitor {
         int offsetLength = -1;
 
         if (loc != null) {
-            //lineStart = loc.getStartingLineNumber();
-            //lineEnd = loc.getEndingLineNumber();
-            //json.writeNumberField("LocLineStart", lineStart);
-            //json.writeNumberField("LocLineEnd", lineEnd);
             offsetStart = loc.getNodeOffset();
             json.writeNumberField("LocOffsetStart", offsetStart);
             json.writeNumberField("LocOffsetEnd", offsetStart + loc.getNodeLength());
@@ -1273,6 +1272,22 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
+    // Store the macro expansions associated to their macro definitions in
+    // the macroExpansions hashtable so we can join the together later when
+    // writing the MacroDefinition nodes
+    private void storeMacroExpansions(IASTTranslationUnit unit) {
+        IASTPreprocessorMacroExpansion[] expansions = unit.getMacroExpansions();
+
+        for (IASTPreprocessorMacroExpansion exp : expansions) {
+            //IASTPreprocessorMacroDefinition def = exp.getMacroDefinition();
+            //if (def != null) {
+                //macroExpansions.put(def, exp.getNodeLocations());
+            //}
+            // XXX
+            macroExpansions.put(exp.getMacroDefinition(), exp.getNodeLocations());
+        }
+    }
+
     private void serializePreproStatements(IASTTranslationUnit unit) throws IOException {
         IASTPreprocessorStatement[] stmts = unit.getAllPreprocessorStatements();
         json.writeFieldName("Prop_PreprocStatements");
@@ -1287,15 +1302,40 @@ public class JsonASTVisitor extends ASTVisitor {
                         IASTPreprocessorMacroDefinition s = (IASTPreprocessorMacroDefinition)stmt;
                         json.writeStringField("Name", s.getName().toString());
                         json.writeBooleanField("IsActive", s.isActive());
-                        json.writeStringField("Expansion", s.getExpansion());
+                        json.writeStringField("MacroBodyText", s.getExpansion());
 
-                        json.writeFieldName("ExpansionPosition");
+                        json.writeFieldName("Prop_MacroBodyLocation");
                         json.writeStartObject();
                         try {
+                            json.writeStringField("IASTClass", "BodyPosition");
                             serializeLocation(s.getExpansionLocation());
                         } finally {
                             json.writeEndObject();
                         }
+
+                        IASTNodeLocation[] expLocs = macroExpansions.get(stmt);
+
+                        if (expLocs != null) {
+                            json.writeFieldName("Prop_Expansions");
+                            json.writeStartArray();
+                            try {
+                                for (IASTNodeLocation l : expLocs) {
+                                    json.writeStartObject();
+                                    try {
+                                        json.writeStringField("IASTClass", "ExpansionLocation");
+                                        serializeLocation(l.asFileLocation());
+                                    } finally {
+                                        json.writeEndObject();
+                                    }
+                                }
+
+                            } finally {
+                                json.writeEndArray();
+                            }
+
+                        }
+
+                        // TODO: serialize macro expansion positions
                     }
 
                     if (stmt instanceof IASTPreprocessorIfStatement) {
@@ -1366,24 +1406,12 @@ public class JsonASTVisitor extends ASTVisitor {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                //serializeIncludes(node);
+                storeMacroExpansions(node);
                 serializePreproStatements(node);
 
                 // Include directives
-                // FIXME:
-                // This must be explored to get the preprocessor directives with:
-                // THIS
-                // getMacroDefinitions (non built in macros defined in this file)
-                // getMacroExpansions (where are they expanded)
-                // getBuildtinMacroDefinitions
-                // getIncludeDirectives
-                // getAllPreprocessorStatements
-                // isHeaderUnit
+                // TODO:
                 // flattenLocationsToFile (try it)
-                // copy (to modify it)
-                // setSignificantMacros
-                //
-                // Plus: ICPPASTTranslationUnit getNamespaceScope, getMemberBindings, isInline
                 serializeComments(node);
                 visitChildren(node);
             } finally {

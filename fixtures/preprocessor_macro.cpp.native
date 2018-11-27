@@ -111,8 +111,6 @@
          },
       },
    ],
-   'Prop_MacroDefinitions': [],
-   'Prop_MacroExpansions': [],
    'Prop_PreprocStatements': [
       {
          IASTClass: "ASTInclusionStatement",
@@ -124,17 +122,25 @@
          Resolved: false,
       },
       {
-         Expansion: "a ## b",
-         ExpansionPosition: {
-            LocOffsetEnd: 45,
-            LocOffsetStart: 39,
-         },
          IASTClass: "ASTFunctionStyleMacroDefinition",
          IsActive: true,
          LocOffsetEnd: 45,
          LocOffsetStart: 21,
+         MacroBodyText: "a ## b",
          Name: "join",
          Parameters: [a, b],
+         'Prop_Expansions': [
+            {
+               IASTClass: "ExpansionLocation",
+               LocOffsetEnd: 79,
+               LocOffsetStart: 62,
+            },
+         ],
+         'Prop_MacroBodyLocation': {
+            IASTClass: "BodyPosition",
+            LocOffsetEnd: 45,
+            LocOffsetStart: 39,
+         },
       },
    ],
    'Prop_PreprocessorProblems': [],

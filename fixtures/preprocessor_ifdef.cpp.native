@@ -195,31 +195,32 @@
          },
       },
    ],
-   'Prop_MacroDefinitions': [],
    'Prop_PreprocStatements': [
       {
-         Expansion: "1",
-         ExpansionPosition: {
-            LocOffsetEnd: 13,
-            LocOffsetStart: 12,
-         },
          IASTClass: "ASTMacroDefinition",
          IsActive: true,
          LocOffsetEnd: 13,
          LocOffsetStart: 0,
+         MacroBodyText: "1",
          Name: "FOO",
+         'Prop_MacroBodyLocation': {
+            IASTClass: "BodyPosition",
+            LocOffsetEnd: 13,
+            LocOffsetStart: 12,
+         },
       },
       {
-         Expansion: "10",
-         ExpansionPosition: {
-            LocOffsetEnd: 28,
-            LocOffsetStart: 26,
-         },
          IASTClass: "ASTMacroDefinition",
          IsActive: true,
          LocOffsetEnd: 28,
          LocOffsetStart: 14,
+         MacroBodyText: "10",
          Name: "BAR",
+         'Prop_MacroBodyLocation': {
+            IASTClass: "BodyPosition",
+            LocOffsetEnd: 28,
+            LocOffsetStart: 26,
+         },
       },
       {
          Condition: "FOO",
@@ -230,16 +231,17 @@
          MacroReference: "FOO",
       },
       {
-         Expansion: "",
-         ExpansionPosition: {
-            LocOffsetEnd: 54,
-            LocOffsetStart: 54,
-         },
          IASTClass: "ASTMacroDefinition",
          IsActive: true,
          LocOffsetEnd: 54,
          LocOffsetStart: 43,
+         MacroBodyText: "",
          Name: "BAZ",
+         'Prop_MacroBodyLocation': {
+            IASTClass: "BodyPosition",
+            LocOffsetEnd: 54,
+            LocOffsetStart: 54,
+         },
       },
       {
          Condition: "BAR>5",
