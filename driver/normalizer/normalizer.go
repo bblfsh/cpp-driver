@@ -28,12 +28,6 @@ var Preprocessors = []Mapping{
 }
 
 var Normalizers = []Mapping{
-	// Empty {}
-	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
-		Obj{},
-		Obj{"Statements": Arr()},
-	)),
-
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
 		Obj{
 			"Prop_Statements": Var("statements"),
@@ -41,6 +35,12 @@ var Normalizers = []Mapping{
 		Obj{
 			"Statements": Var("statements"),
 		},
+	)),
+
+	// Empty {}
+	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
+		Obj{},
+		Obj{"Statements": Arr()},
 	)),
 
 	MapSemantic("CPPASTLiteralExpression", uast.String{}, MapObj(
