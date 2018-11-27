@@ -45,7 +45,7 @@ var Normalizers = []Mapping{
 
 	MapSemantic("CPPASTLiteralExpression", uast.String{}, MapObj(
 		Obj{
-			"LiteralValue": Var("val"),
+			"LiteralValue": Quote(Var("val")),
 			"kind":         String("string_literal"),
 		},
 		Obj{
