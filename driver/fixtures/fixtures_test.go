@@ -28,7 +28,7 @@ var Suite = &fixtures.Suite{
 			"CPPASTImplicitName",
 			"CPPASTName",
 			"CPPASTCompoundStatement",
-			"CPPASTQualifiedNames",
+			//"CPPASTQualifiedNames",
 			"CPPASTFunctionDefinition",
 		},
 	},

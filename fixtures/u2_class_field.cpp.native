@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "class",
             LocOffsetEnd: 60,
             LocOffsetStart: 0,
@@ -27,6 +36,7 @@
                         LocOffsetStart: 23,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 26,
                            LocOffsetStart: 23,
                            Name: "foo",
@@ -72,6 +82,7 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 37,
                            LocOffsetStart: 34,
                            Name: "bar",
@@ -92,6 +103,7 @@
                         LocOffsetStart: 49,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 52,
                            LocOffsetStart: 49,
                            Name: "baz",
@@ -105,6 +117,7 @@
                         LocOffsetStart: 54,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 57,
                            LocOffsetStart: 54,
                            Name: "pok",
@@ -116,6 +129,7 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
+               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",

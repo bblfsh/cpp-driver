@@ -136,16 +136,22 @@ var Annotations = []Mapping{
 	Map(Obj{
 		"IASTClass": String("CPPASTName"),
 		"Name": String(""),
+		"IsQualified": Var("isqual"),
 	}, Obj{
 		uast.KeyType: String("CPPASTName"),
 		uast.KeyRoles: Roles(role.Identifier),
 		uast.KeyToken: String(""),
+		"IsQualified": Var("isqual"),
 	}),
 
-	AnnotateType("CPPASTName", FieldRoles{"Name": {Rename: uast.KeyToken}}, role.Identifier),
+	AnnotateType("CPPASTName", FieldRoles{
+		"Name": {Rename: uast.KeyToken},
+	}, role.Identifier),
+
+	AnnotateType("CPPASTImplicitName", FieldRoles{
+		"Name": {Rename: uast.KeyToken},
+	}, role.Identifier),
 	AnnotateType("ASTInclusionStatement", FieldRoles{"Name": {Rename: uast.KeyToken}}, role.Import),
-	AnnotateType("CPPASTImplicitName", FieldRoles{"Name": {Rename: uast.KeyToken}},
-		role.Identifier),
 
 	AnnotateType("CPPASTIdExpression", nil, role.Expression, role.Variable),
 	AnnotateType("CPPASTNullStatement", nil, role.Literal, role.Null, role.Expression,
@@ -236,12 +242,12 @@ var Annotations = []Mapping{
 		"Operator": Var("operator"),
 		"Prop_Operand1": ObjectRoles("operand1"),
 		"Prop_Operand2": ObjectRoles("operand2"),
-		// Temporarily using the same name to detect if those are really duplicated
-		"Prop_InitOperand2": ObjectRoles("operand2"),
+		"Prop_InitOperand2": ObjectRoles("init_operand2"),
 	}, Obj{
 		uast.KeyToken: Var("operator"),
 		"Prop_Operand1": ObjectRoles("operand1", role.Binary, role.Expression, role.Left),
 		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
+		"Prop_InitOperand2": ObjectRoles("init_operand2", role.Binary, role.Expression, role.Right),
 	}), LookupArrOpVar("operator", binaryExprRoles)),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment,

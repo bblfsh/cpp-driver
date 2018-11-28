@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "class",
             LocOffsetEnd: 41,
             LocOffsetStart: 0,
@@ -27,6 +36,7 @@
                         LocOffsetStart: 30,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 38,
                            LocOffsetStart: 30,
                            Name: "classvar",
@@ -38,6 +48,7 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
+               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",

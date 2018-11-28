@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "struct",
             LocOffsetEnd: 107,
             LocOffsetStart: 0,
@@ -37,6 +46,7 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 31,
                            LocOffsetStart: 22,
                            Name: "bigfield1",
@@ -67,6 +77,7 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 56,
                            LocOffsetStart: 44,
                            Name: "littlefield1",
@@ -97,6 +108,7 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 77,
                            LocOffsetStart: 68,
                            Name: "bigfield2",
@@ -127,6 +139,7 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 102,
                            LocOffsetStart: 90,
                            Name: "littlefield2",
@@ -138,6 +151,7 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
+               IsQualified: false,
                LocOffsetEnd: 11,
                LocOffsetStart: 7,
                Name: "foo8",

@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "union",
             LocOffsetEnd: 29,
             LocOffsetStart: 0,
@@ -27,6 +36,7 @@
                         LocOffsetStart: 16,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 17,
                            LocOffsetStart: 16,
                            Name: "a",
@@ -47,6 +57,7 @@
                         LocOffsetStart: 26,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 27,
                            LocOffsetStart: 26,
                            Name: "b",
@@ -58,6 +69,7 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
+               IsQualified: false,
                LocOffsetEnd: 9,
                LocOffsetStart: 6,
                Name: "foo",
@@ -86,11 +98,21 @@
                      LocOffsetStart: 47,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTNamedTypeSpecifier",
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsInline: false,
+                        IsRestrict: false,
+                        IsThreadLocal: false,
                         IsTypeName: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 50,
                         LocOffsetStart: 47,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 50,
                            LocOffsetStart: 47,
                            Name: "foo",
@@ -153,6 +175,7 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
+                              IsQualified: false,
                               LocOffsetEnd: 52,
                               LocOffsetStart: 51,
                               Name: "f",
@@ -172,11 +195,21 @@
                      LocOffsetStart: 62,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTNamedTypeSpecifier",
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsInline: false,
+                        IsRestrict: false,
+                        IsThreadLocal: false,
                         IsTypeName: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 65,
                         LocOffsetStart: 62,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 65,
                            LocOffsetStart: 62,
                            Name: "foo",
@@ -205,6 +238,7 @@
                                        'Prop_Designators': [
                                           {
                                              IASTClass: "CPPASTName",
+                                             IsQualified: false,
                                              LocOffsetEnd: 73,
                                              LocOffsetStart: 72,
                                              Name: "a",
@@ -230,6 +264,7 @@
                                        'Prop_Designators': [
                                           {
                                              IASTClass: "CPPASTName",
+                                             IsQualified: false,
                                              LocOffsetEnd: 73,
                                              LocOffsetStart: 72,
                                              Name: "a",
@@ -252,6 +287,7 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
+                              IsQualified: false,
                               LocOffsetEnd: 67,
                               LocOffsetStart: 66,
                               Name: "g",
@@ -271,11 +307,21 @@
                      LocOffsetStart: 80,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTNamedTypeSpecifier",
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsInline: false,
+                        IsRestrict: false,
+                        IsThreadLocal: false,
                         IsTypeName: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 83,
                         LocOffsetStart: 80,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
+                           IsQualified: false,
                            LocOffsetEnd: 83,
                            LocOffsetStart: 80,
                            Name: "foo",
@@ -304,6 +350,7 @@
                                        'Prop_Designators': [
                                           {
                                              IASTClass: "CPPASTName",
+                                             IsQualified: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 90,
                                              Name: "b",
@@ -329,6 +376,7 @@
                                        'Prop_Designators': [
                                           {
                                              IASTClass: "CPPASTName",
+                                             IsQualified: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 90,
                                              Name: "b",
@@ -351,6 +399,7 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
+                              IsQualified: false,
                               LocOffsetEnd: 85,
                               LocOffsetStart: 84,
                               Name: "h",
@@ -364,6 +413,22 @@
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
+            IsComplex: false,
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
+            IsFriend: false,
+            IsImaginary: false,
+            IsInline: false,
+            IsLong: false,
+            IsLongLong: false,
+            IsRestrict: false,
+            IsShort: false,
+            IsSigned: false,
+            IsThreadLocal: false,
+            IsUnsigned: false,
+            IsVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 35,
             LocOffsetStart: 32,
             StorageClass: "unspecified",
@@ -371,10 +436,17 @@
          },
          'Prop_Declarator': {
             IASTClass: "CPPASTFunctionDeclarator",
+            IsConst: false,
+            IsFinal: false,
+            IsMutable: false,
+            IsOverride: false,
+            IsPureVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 42,
             LocOffsetStart: 36,
             'Prop_Name': {
                IASTClass: "CPPASTName",
+               IsQualified: false,
                LocOffsetEnd: 40,
                LocOffsetStart: 36,
                Name: "main",
