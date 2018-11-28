@@ -111,7 +111,7 @@
                               },
                            },
                            'Prop_InitializerValue': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -171,7 +171,7 @@
                               },
                            },
                            'Prop_InitializerValue': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -281,7 +281,7 @@
                            },
                         },
                         'Prop_InitializerValue': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -341,7 +341,7 @@
                            },
                         },
                         'Prop_InitializerValue': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -460,7 +460,7 @@
                               IsLValue: false,
                               'Prop_Expressions': [
                                  {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTIdExpression",
                                     IsLValue: false,
@@ -597,7 +597,7 @@
                            IsLValue: false,
                            'Prop_Expressions': [
                               {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTIdExpression",
                                  IsLValue: false,

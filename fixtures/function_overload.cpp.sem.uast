@@ -633,7 +633,7 @@
                                        col: 11,
                                     },
                                  },
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IsLValue: false,
                                  'Prop_Name': { '@type': "uast:Identifier",

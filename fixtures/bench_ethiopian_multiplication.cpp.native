@@ -2173,7 +2173,7 @@
                   LocOffsetEnd: 1385,
                   LocOffsetStart: 1319,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "PRVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: false,
@@ -2181,7 +2181,7 @@
                      LocOffsetStart: 1319,
                      Operator: "<<",
                      'Prop_InitOperand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -2220,7 +2220,7 @@
                         },
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: false,
@@ -2323,7 +2323,7 @@
                            },
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -2458,7 +2458,7 @@
                         },
                      },
                      'Prop_Operand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,

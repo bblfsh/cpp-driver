@@ -9,11 +9,13 @@ import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.lang.Comparable;
+import java.lang.Math;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
@@ -38,7 +40,6 @@ public class JsonASTVisitor extends ASTVisitor {
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
     private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
-    private Hashtable<IASTPreprocessorMacroDefinition, IASTNodeLocation[]> macroExpansions;
     private IASTNode lastTypeVisited = null;
 
     IOException error;
@@ -50,6 +51,123 @@ public class JsonASTVisitor extends ASTVisitor {
         public SyntaxErrorException(String message, Throwable cause) { super(message, cause); }
         public SyntaxErrorException(Throwable cause) { super(cause); }
     }
+
+    // Hold macro expansions and allows to check if a node if inside one
+    private class MacroExpansionContainer
+    {
+        private class MacroExpansionLocation implements Comparable<MacroExpansionLocation>
+        {
+            public String macroCodename;
+            public int startOffset;
+            public int endOffset;
+
+            MacroExpansionLocation(String codeName, int startOffset, int endOffset)
+            {
+                this.macroCodename = codeName;
+                this.startOffset = startOffset;
+                this.endOffset = endOffset;
+            }
+
+            @Override
+            public int compareTo(MacroExpansionLocation other)
+            {
+                return this.startOffset < other.startOffset ? -1
+                    : this.startOffset > other.startOffset ? 1
+                    : 0;
+            }
+        }
+
+        private List<MacroExpansionLocation> macroExpansions;
+        // Used to reparent macro expansions as children of macroDefinitions since they're
+        // separate lists on CDT.
+        private Hashtable<IASTPreprocessorMacroDefinition, Vector<IASTNodeLocation>> macroDef2Locations;
+        private int firstStartOffset;
+        private int lastEndOffset;
+
+        MacroExpansionContainer()
+        {
+            macroDef2Locations = new Hashtable<IASTPreprocessorMacroDefinition, Vector<IASTNodeLocation>>();
+            macroExpansions = new Vector<MacroExpansionLocation>();
+        }
+
+        private void addSingleExpansion(String macroCodename, int startOffset, int endOffset)
+        {
+            firstStartOffset = Math.min(startOffset, firstStartOffset);
+            lastEndOffset = Math.max(endOffset, lastEndOffset);
+            macroExpansions.add(new MacroExpansionLocation(macroCodename, startOffset, endOffset));
+        }
+
+        public void add(IASTPreprocessorMacroExpansion exp)
+        {
+            IASTPreprocessorMacroDefinition	def = exp.getMacroDefinition();
+            Vector<IASTNodeLocation> expLocations = new Vector<IASTNodeLocation>(Arrays.asList(exp.getNodeLocations()));
+            Vector<IASTNodeLocation> prevLocations = macroDef2Locations.get(def);
+
+            if (prevLocations == null) {
+                macroDef2Locations.put(def, expLocations);
+            } else {
+                prevLocations.addAll(expLocations);
+            }
+
+            for (IASTNodeLocation expLoc : expLocations) {
+                IASTFileLocation defLoc = def.getFileLocation();
+                if (defLoc == null)
+                    continue;
+
+                int defStartOffset = defLoc.getNodeOffset();
+
+                String macroCodename = def.getName().toString() + "_" +
+                    String.valueOf(defStartOffset) + ":" +
+                    String.valueOf(defStartOffset + defLoc.getNodeLength());
+
+
+                int expStartOffset = expLoc.getNodeOffset();
+                addSingleExpansion(macroCodename, expStartOffset,
+                                   expStartOffset + expLoc.getNodeLength());
+            }
+        }
+
+        public Vector<IASTNodeLocation> getMacroDefLocations(IASTPreprocessorMacroDefinition def)
+        {
+            return macroDef2Locations.get(def);
+        }
+
+        public void clearMap()
+        {
+            macroDef2Locations.clear();
+        }
+
+        // Call after all the expansions have been added. Sorts by macro.startOffset
+        public void sortByStartOffset()
+        {
+            //macroExpansions.sort();
+            Collections.sort(macroExpansions);
+        }
+
+        public String checkFromExpansion(IASTNode node)
+        {
+            IASTFileLocation loc = node.getFileLocation();
+            if (loc == null)
+                return null;
+
+            int nodeStart = loc.getNodeOffset();
+            if (nodeStart < firstStartOffset)
+                return null;
+
+            int nodeEnd = nodeStart + loc.getNodeLength();
+            if (nodeEnd > lastEndOffset)
+                return null;
+
+            for (MacroExpansionLocation expLoc : macroExpansions) {
+                if (nodeStart >= expLoc.startOffset && nodeEnd <= expLoc.endOffset)
+                    return expLoc.macroCodename;
+            }
+
+            return null;
+        }
+    }
+
+    private MacroExpansionContainer macroExpansionContainer;
 
     // The visitChildren method uses reflection to get the methods and return values
     // to retrieve children and assign them to properties instead of a flat list. That is
@@ -129,7 +247,7 @@ public class JsonASTVisitor extends ASTVisitor {
                     //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
-        macroExpansions = new Hashtable<IASTPreprocessorMacroDefinition, IASTNodeLocation[]>();
+        macroExpansionContainer = new MacroExpansionContainer();
     }
 
     private void enableErrorState(IOException e) {
@@ -159,6 +277,14 @@ public class JsonASTVisitor extends ASTVisitor {
             ASTNodeProperty propInParent = node.getPropertyInParent();
             if (propInParent != null) {
                 json.writeStringField("Role", propInParent.getName());
+            }
+        }
+
+        // Check if the node resulted from a macro expansion
+        if (!(node instanceof IASTPreprocessorStatement)) {
+            String expandedMacro = macroExpansionContainer.checkFromExpansion(node);
+            if (expandedMacro != null) {
+                json.writeStringField("ExpandedFromMacro", expandedMacro);
             }
         }
 
@@ -588,11 +714,14 @@ public class JsonASTVisitor extends ASTVisitor {
                 String exprType = node.getExpressionType().toString();
 
                 if (exprType.indexOf("ProblemType@") != -1) {
+                    // Disabled until we visit problem nodes since it doesnt provide any
+                    // information
+                    exprType = "";
                     // Trying to get the type of some untyped expressions give something like:
                     // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
-                    exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
+                    //exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
                 } else if (exprType.indexOf("TypeParameter@") != -1) { // ditto
                     exprType = "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter";
                 }
@@ -966,7 +1095,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
             json.writeStartObject();
             try {
-
                 serializeCommonData(node);
                 writeIfTrue("IsConst", node.isConst());
                 writeIfTrue("IsInline", node.isInline());
@@ -1278,14 +1406,12 @@ public class JsonASTVisitor extends ASTVisitor {
     private void storeMacroExpansions(IASTTranslationUnit unit) {
         IASTPreprocessorMacroExpansion[] expansions = unit.getMacroExpansions();
 
+        // FIXME XXX free after use
         for (IASTPreprocessorMacroExpansion exp : expansions) {
-            //IASTPreprocessorMacroDefinition def = exp.getMacroDefinition();
-            //if (def != null) {
-                //macroExpansions.put(def, exp.getNodeLocations());
-            //}
-            // XXX
-            macroExpansions.put(exp.getMacroDefinition(), exp.getNodeLocations());
+            macroExpansionContainer.add(exp);
         }
+
+        macroExpansionContainer.sortByStartOffset();
     }
 
     private void serializePreproStatements(IASTTranslationUnit unit) throws IOException {
@@ -1313,7 +1439,7 @@ public class JsonASTVisitor extends ASTVisitor {
                             json.writeEndObject();
                         }
 
-                        IASTNodeLocation[] expLocs = macroExpansions.get(stmt);
+                        Vector<IASTNodeLocation> expLocs = macroExpansionContainer.getMacroDefLocations(s);
 
                         if (expLocs != null) {
                             json.writeFieldName("Prop_Expansions");
@@ -1332,10 +1458,7 @@ public class JsonASTVisitor extends ASTVisitor {
                             } finally {
                                 json.writeEndArray();
                             }
-
                         }
-
-                        // TODO: serialize macro expansion positions
                     }
 
                     if (stmt instanceof IASTPreprocessorIfStatement) {
@@ -1408,6 +1531,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 storeMacroExpansions(node);
                 serializePreproStatements(node);
+                macroExpansionContainer.clearMap();
 
                 // Include directives
                 // TODO:
@@ -1490,7 +1614,6 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeBooleanField("IsParameterPack", node.isParameterPack());
-
                 serializeComments(node);
                 visitChildren(node);
             } finally {

@@ -31,7 +31,7 @@
                   LocOffsetEnd: 83,
                   LocOffsetStart: 59,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "PRVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: false,
@@ -49,7 +49,7 @@
                         kind: "string_literal",
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,

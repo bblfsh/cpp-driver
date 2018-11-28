@@ -114,7 +114,7 @@
                   LocOffsetEnd: 96,
                   LocOffsetStart: 79,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "PRVALUE",
                      IASTClass: "CPPASTFunctionCallExpression",
                      IsLValue: false,
@@ -133,7 +133,7 @@
                         },
                      ],
                      'Prop_FunctionNameExpression': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTFieldReference",
                         IsLValue: false,
@@ -148,7 +148,7 @@
                            Name: "push_back",
                         },
                         'Prop_FieldOwner': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: true,
@@ -376,14 +376,14 @@
                      LocOffsetStart: 139,
                      'Prop_Arguments': [
                         {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTFunctionCallExpression",
                            IsLValue: false,
                            LocOffsetEnd: 164,
                            LocOffsetStart: 153,
                            'Prop_FunctionNameExpression': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTFieldReference",
                               IsLValue: false,
@@ -398,7 +398,7 @@
                                  Name: "begin",
                               },
                               'Prop_FieldOwner': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "LVALUE",
                                  IASTClass: "CPPASTIdExpression",
                                  IsLValue: true,
@@ -414,14 +414,14 @@
                            },
                         },
                         {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTFunctionCallExpression",
                            IsLValue: false,
                            LocOffsetEnd: 175,
                            LocOffsetStart: 166,
                            'Prop_FunctionNameExpression': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTFieldReference",
                               IsLValue: false,
@@ -436,7 +436,7 @@
                                  Name: "end",
                               },
                               'Prop_FieldOwner': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "LVALUE",
                                  IASTClass: "CPPASTIdExpression",
                                  IsLValue: true,
@@ -467,7 +467,7 @@
                         },
                      ],
                      'Prop_FunctionNameExpression': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,

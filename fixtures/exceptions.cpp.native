@@ -312,14 +312,14 @@
                                  LocOffsetEnd: 256,
                                  LocOffsetStart: 247,
                                  'Prop_Expression': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTFunctionCallExpression",
                                     IsLValue: false,
                                     LocOffsetEnd: 255,
                                     LocOffsetStart: 247,
                                     'Prop_FunctionNameExpression': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTFieldReference",
                                        IsLValue: false,
@@ -334,7 +334,7 @@
                                           Name: "what",
                                        },
                                        'Prop_FieldOwner': {
-                                          ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                          ExpressionType: "",
                                           ExpressionValueCategory: "LVALUE",
                                           IASTClass: "CPPASTIdExpression",
                                           IsLValue: true,
@@ -449,7 +449,7 @@
                                     },
                                  ],
                                  'Prop_FunctionNameExpression': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTIdExpression",
                                     IsLValue: false,

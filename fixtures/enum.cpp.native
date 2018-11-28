@@ -33,7 +33,7 @@
                   LocOffsetStart: 9,
                   'Prop_Clauses': [
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -51,7 +51,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -76,7 +76,7 @@
                         },
                      },
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -94,7 +94,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -119,7 +119,7 @@
                         },
                      },
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -137,7 +137,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -166,7 +166,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -184,7 +184,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -209,7 +209,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -227,7 +227,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -255,7 +255,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -273,7 +273,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -298,7 +298,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -316,7 +316,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -344,7 +344,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -362,7 +362,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -387,7 +387,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -405,7 +405,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -497,7 +497,7 @@
                   LocOffsetEnd: 89,
                   LocOffsetStart: 76,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "LVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: true,
@@ -505,7 +505,7 @@
                      LocOffsetStart: 76,
                      Operator: "=",
                      'Prop_InitOperand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -544,7 +544,7 @@
                         },
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: true,
@@ -558,7 +558,7 @@
                         },
                      },
                      'Prop_Operand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -603,7 +603,7 @@
                   LocOffsetEnd: 100,
                   LocOffsetStart: 92,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "LVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: true,
@@ -611,7 +611,7 @@
                      LocOffsetStart: 92,
                      Operator: "=",
                      'Prop_InitOperand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -625,7 +625,7 @@
                         },
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: true,
@@ -639,7 +639,7 @@
                         },
                      },
                      'Prop_Operand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,

@@ -1,5 +1,6 @@
 #define FOO 1
 #define BAR 10
+#define POK 20
 
 #ifdef FOO
   #define BAZ

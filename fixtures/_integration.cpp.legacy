@@ -149,7 +149,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  Col: 33
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
+.  .  .  .  .  .  .  .  .  .  ExpressionType: 
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Expression
@@ -168,7 +168,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: 
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand1
