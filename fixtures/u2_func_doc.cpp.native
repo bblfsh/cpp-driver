@@ -33,7 +33,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 35,
             LocOffsetStart: 25,

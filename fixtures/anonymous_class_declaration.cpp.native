@@ -42,6 +42,7 @@
                   LocOffsetStart: 9,
                   Name: "instance1",
                },
+               'Prop_TypeNode': ~,
             },
          ],
       },

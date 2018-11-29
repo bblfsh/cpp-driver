@@ -23,7 +23,13 @@ var Suite = &fixtures.Suite{
 	BenchName: "dynamic_cast",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
-			// TODO: list native types that should be converted to semantic UAST
+			// LiteralValue (for strings) can't be added since its also used for other literals
+			"Comment",
+			"CPPASTImplicitName",
+			"CPPASTName",
+			"CPPASTCompoundStatement",
+			"CPPASTQualifiedNames",
+			"CPPASTFunctionDefinition",
 		},
 	},
 	Docker:fixtures.DockerConfig{

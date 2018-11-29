@@ -23,7 +23,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 33,
             LocOffsetStart: 5,
@@ -34,14 +33,6 @@
                Name: "testfnc1",
             },
             'Prop_Parameters': [
-               {
-                  IASTClass: "CPPASTSimpleDeclSpecifier",
-                  IsConst: true,
-                  LocOffsetEnd: 24,
-                  LocOffsetStart: 14,
-                  StorageClass: "unspecified",
-                  Type: "char",
-               },
                {
                   DeclaresParameterPack: false,
                   IASTClass: "CPPASTDeclarator",
@@ -54,6 +45,14 @@
                      Name: "fmt",
                   },
                   'Prop_PointerOperators': [],
+                  'Prop_TypeNode': {
+                     IASTClass: "CPPASTSimpleDeclSpecifier",
+                     IsConst: true,
+                     LocOffsetEnd: 24,
+                     LocOffsetStart: 14,
+                     StorageClass: "unspecified",
+                     Type: "char",
+                  },
                },
             ],
             TakesVarArgs: true,

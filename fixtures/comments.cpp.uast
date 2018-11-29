@@ -133,6 +133,7 @@
                      },
                   },
                },
+               'Prop_TypeNode': ~,
             },
          ],
          TrailingComments: [

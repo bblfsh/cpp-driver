@@ -439,6 +439,7 @@
                   LocOffsetStart: 5,
                   Name: "foo",
                },
+               'Prop_TypeNode': ~,
             },
          ],
       },
@@ -486,6 +487,7 @@
                               LocOffsetStart: 71,
                               Name: "f",
                            },
+                           'Prop_TypeNode': ~,
                         },
                      ],
                   },
@@ -662,7 +664,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 57,
             LocOffsetStart: 51,

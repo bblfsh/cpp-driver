@@ -21,7 +21,6 @@
                   LocOffsetStart: 19,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         IsPureVirtual: true,
                         LocOffsetEnd: 46,
@@ -48,7 +47,6 @@
                   LocOffsetStart: 59,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         LocOffsetEnd: 74,
                         LocOffsetStart: 64,
@@ -74,7 +72,6 @@
                   LocOffsetStart: 89,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         LocOffsetEnd: 104,
                         LocOffsetStart: 94,
@@ -100,7 +97,6 @@
                   LocOffsetStart: 116,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         LocOffsetEnd: 131,
                         LocOffsetStart: 121,
@@ -120,7 +116,6 @@
                   LocOffsetStart: 135,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         IsConst: true,
                         LocOffsetEnd: 156,
@@ -141,7 +136,6 @@
                   LocOffsetStart: 160,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         LocOffsetEnd: 182,
                         LocOffsetStart: 172,
@@ -161,7 +155,6 @@
                   LocOffsetStart: 186,
                   'Prop_Declarators': [
                      {
-                        DeclaresParameterPack: false,
                         IASTClass: "CPPASTFunctionDeclarator",
                         LocOffsetEnd: 208,
                         LocOffsetStart: 198,
@@ -204,7 +197,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 239,
             LocOffsetStart: 219,
@@ -261,7 +253,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 268,
             LocOffsetStart: 248,
@@ -318,7 +309,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 297,
             LocOffsetStart: 277,
@@ -375,7 +365,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             IsConst: true,
             LocOffsetEnd: 332,
@@ -433,7 +422,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 361,
             LocOffsetStart: 341,
@@ -490,7 +478,6 @@
             Type: "void",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 390,
             LocOffsetStart: 370,

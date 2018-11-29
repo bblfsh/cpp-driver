@@ -99,7 +99,6 @@
             Type: "int",
          },
          'Prop_Declarator': {
-            DeclaresParameterPack: false,
             IASTClass: "CPPASTFunctionDeclarator",
             LocOffsetEnd: 57,
             LocOffsetStart: 51,

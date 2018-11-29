@@ -38,6 +38,8 @@ public class JsonASTVisitor extends ASTVisitor {
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
     private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
+    private IASTNode lastTypeVisited = null;
+
     IOException error;
     boolean hasError = false;
 
@@ -152,8 +154,6 @@ public class JsonASTVisitor extends ASTVisitor {
         json.writeStringField("IASTClass", node.getClass().getSimpleName());
         if (verboseJson)
             json.writeStringField("Snippet", EclipseCPPParser.getSnippet(node));
-        //writeIfTrue("IsActive", node.isActive());
-        //writeIfTrue("IsFrozen", node.isFrozen());
 
         if (verboseJson) {
             ASTNodeProperty propInParent = node.getPropertyInParent();
@@ -588,8 +588,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 String exprType = node.getExpressionType().toString();
 
                 if (exprType.indexOf("ProblemType@") != -1) {
-                    // Trying to get the type of some untyped expressions give something
-                    // like:
+                    // Trying to get the type of some untyped expressions give something like:
                     // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
@@ -886,10 +885,6 @@ public class JsonASTVisitor extends ASTVisitor {
                     }
                 }
 
-                //if (node instanceof IASTProblemDeclaration) {
-                    //throw new IOException("Syntax error on file");
-                //}
-
                 serializeComments(node);
                 visitChildren(node);
             } finally {
@@ -930,9 +925,18 @@ public class JsonASTVisitor extends ASTVisitor {
                     }
                 }
 
-                if (node instanceof ICPPASTDeclarator) {
+                if (node instanceof IASTDeclarator && !(node instanceof IASTFunctionDeclarator)) {
                     ICPPASTDeclarator impl = (ICPPASTDeclarator) node;
                     json.writeBooleanField("DeclaresParameterPack", impl.declaresParameterPack());
+
+                    if (lastTypeVisited != null) {
+                        // Reparent the type node here
+                        json.writeFieldName("Prop_TypeNode");
+                        lastTypeVisited.accept(this);
+                        lastTypeVisited = null;
+                    } else {
+                        json.writeNullField("Prop_TypeNode");
+                    }
                 }
 
                 serializeComments(node);
@@ -950,8 +954,19 @@ public class JsonASTVisitor extends ASTVisitor {
     @Override
     public int visit(IASTDeclSpecifier node) {
         try {
+            if (lastTypeVisited == null &&
+               (node instanceof IASTSimpleDeclSpecifier ||
+                node instanceof IASTNamedTypeSpecifier) &&
+                node.getParent() instanceof IASTParameterDeclaration) {
+
+                // Will be visited as Prop_TypeNode child of the next Parameter->IASTDeclarator node
+                lastTypeVisited = node;
+                return PROCESS_SKIP;
+            }
+
             json.writeStartObject();
             try {
+
                 serializeCommonData(node);
                 writeIfTrue("IsConst", node.isConst());
                 writeIfTrue("IsInline", node.isInline());
@@ -984,10 +999,6 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 json.writeStringField("StorageClass", stStr);
-
-                if (node instanceof ICASTDeclSpecifier) {
-                    ICASTDeclSpecifier impl = (ICASTDeclSpecifier) node;
-                }
 
                 if (node instanceof ICPPASTDeclSpecifier) {
                     ICPPASTDeclSpecifier impl = (ICPPASTDeclSpecifier) node;
@@ -1126,9 +1137,9 @@ public class JsonASTVisitor extends ASTVisitor {
                         default:
                             typeStr = "unespecified";
                             break;
-                    }
+                        }
 
-                    json.writeStringField("Type", typeStr);
+                        json.writeStringField("Type", typeStr);
                 }
 
                 if (node instanceof ICPPASTEnumerationSpecifier) {
@@ -1139,7 +1150,6 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTNamedTypeSpecifier) {
                     IASTNamedTypeSpecifier impl = (IASTNamedTypeSpecifier) node;
-
                     if (node instanceof ICPPASTNamedTypeSpecifier) {
                         ICPPASTNamedTypeSpecifier impl2 = (ICPPASTNamedTypeSpecifier) node;
                         json.writeBooleanField("IsTypeName", impl2.isTypename());

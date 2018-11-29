@@ -26,7 +26,6 @@
                      LocOffsetStart: 38,
                      'Prop_Declarators': [
                         {
-                           DeclaresParameterPack: false,
                            IASTClass: "CPPASTFunctionDeclarator",
                            LocOffsetEnd: 50,
                            LocOffsetStart: 40,
@@ -95,7 +94,6 @@
                StorageClass: "unspecified",
             },
             'Prop_Declarator': {
-               DeclaresParameterPack: false,
                IASTClass: "CPPASTFunctionDeclarator",
                LocOffsetEnd: 100,
                LocOffsetStart: 77,
@@ -126,6 +124,7 @@
                                     IASTClass: "CPPASTName",
                                     Name: "",
                                  },
+                                 'Prop_TypeNode': ~,
                               },
                               'Prop_DeclSpecifier': {
                                  IASTClass: "CPPASTNamedTypeSpecifier",
@@ -177,6 +176,7 @@
                                     IASTClass: "CPPASTName",
                                     Name: "",
                                  },
+                                 'Prop_TypeNode': ~,
                               },
                               'Prop_DeclSpecifier': {
                                  IASTClass: "CPPASTNamedTypeSpecifier",

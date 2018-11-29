@@ -1,9 +1,9 @@
 name = "C++"
 language = "cpp"
 status = "beta"
-features = ["ast", "roles"]
+features = ["ast", "uast", "roles"]
 
 [runtime]
   os = "alpine"
-  go_version = "1.8"
+  go_version = "1.9"
   native_version = ["8.121.13-r0"]

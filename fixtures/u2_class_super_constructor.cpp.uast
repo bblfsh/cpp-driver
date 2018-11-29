@@ -123,7 +123,6 @@
                            col: 15,
                         },
                      },
-                     DeclaresParameterPack: false,
                      'Prop_Name': { '@type': "CPPASTName",
                         '@token': "testcls1",
                         '@role': [Declaration, Function, Identifier, Name],
@@ -306,7 +305,6 @@
                            col: 13,
                         },
                      },
-                     DeclaresParameterPack: false,
                      'Prop_ConstructorChain': [
                         { '@type': "CPPASTConstructorChainInitializer",
                            '@role': [Declaration, Incomplete, Initialization, Type],
