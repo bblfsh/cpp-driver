@@ -131,14 +131,11 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IsDefaulted", Op: Var("ignDefaulted")},
 			{Name: "IsDeleted", Op: Var("ignDeleted")},
-
-			// TODO: optional modifiers that only appear when true
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
-				// SimpleDeclSpecifier
 				Fields{
-					{Name: uast.KeyType, Op: Var("ignTypeRet")},
+					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
 					{Name: uast.KeyPos, Op: Var("ignPosRet")},
 					{Name: "IsComplex", Op: Var("ignIsComplex")},
 					{Name: "IsConst", Op: Var("ignIsConst")},
@@ -159,9 +156,8 @@ var Normalizers = []Mapping{
 					{Name: "StorageClass", Op: Var("StorageClass")},
 					{Name: "Type", Op: Var("retType")},
 				},
-				// NamedTypeSpecifier
 				Fields{
-					{Name: uast.KeyType, Op: Var("ignTypeRet")},
+					{Name: uast.KeyType, Op: String("CPPASTNamedTypeSpecifier")},
 					{Name: uast.KeyPos, Op: Var("ignPosRet")},
 					{Name: "StorageClass", Op: Var("StorageClass")},
 					{Name: "IsConst", Op: Var("ignIsConst")},
