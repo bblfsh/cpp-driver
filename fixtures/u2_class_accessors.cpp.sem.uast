@@ -330,7 +330,14 @@
          Nodes: [
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
-                  Name: "testcls1::get_x",
+                  Name: [
+                     { '@type': "uast:Identifier",
+                        Name: "testcls1",
+                     },
+                     { '@type': "uast:Identifier",
+                        Name: "get_x",
+                     },
+                  ],
                },
                Node: { '@type': "uast:Function",
                   Body: { '@type': "uast:Block",
@@ -464,7 +471,14 @@
          Nodes: [
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
-                  Name: "testcls1::set_x",
+                  Name: [
+                     { '@type': "uast:Identifier",
+                        Name: "testcls1",
+                     },
+                     { '@type': "uast:Identifier",
+                        Name: "set_x",
+                     },
+                  ],
                },
                Node: { '@type': "uast:Function",
                   Body: { '@type': "uast:Block",

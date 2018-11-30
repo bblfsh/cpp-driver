@@ -156,6 +156,16 @@ var Annotations = []Mapping{
 		"Name": {Rename: uast.KeyToken},
 	}, role.Import),
 
+	// Macros and Macro metainfo
+	AnnotateType("ExpansionLocation", nil, role.Noop),
+	AnnotateType("BodyPosition", nil, role.Noop),
+	AnnotateType("ASTMacroDefinition", nil, role.Declaration, role.Variable, role.Incomplete),
+	AnnotateType("ASTIfdef", nil, role.If, role.Then, role.Incomplete),
+	AnnotateType("ASTElif", nil, role.If, role.Else, role.Incomplete),
+	AnnotateType("ASTElse", nil, role.Else, role.Incomplete),
+	AnnotateType("ASTEndif", nil, role.Noop, role.Incomplete),
+
+	AnnotateType("CPPASTProblemDeclaration", nil, role.Noop),
 	AnnotateType("CPPASTIdExpression", nil, role.Expression, role.Variable),
 	AnnotateType("CPPASTNullStatement", nil, role.Literal, role.Null, role.Expression,
 		role.Primitive),
@@ -184,6 +194,7 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTDesignatedInitializer", nil, role.Expression,
 		role.Initialization),
 	AnnotateType("CPPASTConditionalExpression", nil, role.Expression, role.Condition),
+	AnnotateType("CPPASTEnumerationSpecifier", nil, role.Declaration, role.Type, role.Enumeration),
 
 	AnnotateTypeCustom("CPPASTUnaryExpression",
 		FieldRoles{
@@ -219,6 +230,9 @@ var Annotations = []Mapping{
 		"Name": {Rename: uast.KeyToken},
 	}, role.Declaration, role.Variable, role.Name),
 	AnnotateType("CPPASTDeclarator", nil, role.Declaration, role.Variable, role.Name),
+
+	AnnotateType("ASTFunctionStyleMacroDefinition", nil, role.Function, role.Declaration,
+		role.Incomplete),
 
 	AnnotateType("CPPASTFunctionDefinition", ObjRoles{
 		"Prop_Body": {role.Function, role.Declaration, role.Body},
@@ -264,6 +278,10 @@ var Annotations = []Mapping{
 		"Key": {Op: String("struct")},
 		"Prop_Members": {Arr: true, Roles: role.Roles{role.Declaration, role.Type}},
 	} , role.Declaration, role.Type),
+
+	AnnotateType("CPPASTElaboratedTypeSpecifier", FieldRoles{
+		"Kind": {Op: String("enum")},
+	} , role.Declaration, role.Type, role.Enumeration),
 
 	AnnotateType("CPPASTElaboratedTypeSpecifier", FieldRoles{
 		"Kind": {Op: String("enum")},
@@ -393,6 +411,10 @@ var Annotations = []Mapping{
 	AnnotateType("CPPASTQualifiedName", FieldRoles{
 		"Prop_AllSegments": {Arr: true, Roles: role.Roles{role.Qualified}},
 		"Prop_Qualifier": {Arr: true, Roles: role.Roles{role.Identifier}},
+	}, role.Qualified),
+
+	AnnotateType("CPPASTQualifiedName", FieldRoles{
+		"Prop_AllSegments": {Arr: true, Roles: role.Roles{role.Qualified}},
 	}, role.Qualified),
 
 	AnnotateType("CPPASTConstructorChainInitializer", ObjRoles{

@@ -16,7 +16,7 @@
    'Prop_Comments': [],
    'Prop_Declarations': [
       { '@type': "cpp:CPPASTProblemDeclaration",
-         '@role': [Unannotated],
+         '@role': [Noop],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,

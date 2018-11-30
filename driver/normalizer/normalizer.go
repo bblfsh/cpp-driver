@@ -124,6 +124,41 @@ var Normalizers = []Mapping{
 		},
 	)),
 
+	MapSemantic("CPPASTQualifiedName", uast.QualifiedIdentifier{}, MapObj(
+		Obj{
+			"Prop_AllSegments": Each("qualParts", Cases("caseQualParts",
+				Fields{
+					{Name: uast.KeyType, Op: String("uast:Identifier")},
+					{Name: uast.KeyPos, Op: Var("qualItemPos")},
+					{Name: "Name", Op: Var("name")},
+				},
+				Fields{
+					{Name: uast.KeyType, Op: String("CPPASTTemplateId")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
+					{Name: "Name", Op: Obj{
+						uast.KeyType: String("uast:Identifier"),
+						"Name": Var("name"),
+					}},
+					{Name: "Prop_TemplateArguments", Op: AnyNode(nil)},
+					{Name: "Prop_TemplateName", Op: AnyNode(nil)},
+				},
+				Fields{
+					{Name: uast.KeyType, Op: String("CPPASTConversionName")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
+					{Name: "Name", Op: Obj{
+						uast.KeyType: String("uast.Identifier"),
+						"Name": Var("name"),
+					}},
+				},
+			)),
+		},
+		Obj{
+			"Names": Each("qualParts",
+				UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+				})),
+		},
+	)),
 
 	MapSemantic("CPPASTFunctionDefinition", uast.FunctionGroup{}, MapObj(
 		Fields{
@@ -189,14 +224,10 @@ var Normalizers = []Mapping{
 						{Name: "Name", Op: Var("name")},
 					},
 					Fields{
-						// TODO: change to uast:QualifiedIdentifier when fixed
-						{Name: uast.KeyType, Op: String("CPPASTQualifiedName")},
+						{Name: uast.KeyType, Op: String("uast:QualifiedIdentifier")},
 						{Name: uast.KeyPos, Op: AnyNode(nil)},
-						{Name: "IsConversionOperator", Op: AnyNode(nil)},
-						{Name: "Prop_AllSegments", Op: AnyNode(nil)},
-						{Name: "Prop_Qualifier", Op: AnyNode(nil)},
-						{Name: "IsFullyQualified", Op: AnyNode(nil)},
-						{Name: "Name", Op: Var("name")},
+						// FIXME: join the Names into a single string
+						{Name: "Names", Op: Var("name")},
 					},
 				)},
 

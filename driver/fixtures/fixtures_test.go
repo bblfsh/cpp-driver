@@ -29,8 +29,7 @@ var Suite = &fixtures.Suite{
 			"CPPASTName",
 			"CPPASTOperatorName",
 			"CPPASTCompoundStatement",
-			// XXX FIXME enable when qualified names are correctly mapped
-			//"CPPASTQualifiedName",
+			"CPPASTQualifiedName",
 			"CPPASTFunctionDefinition",
 		},
 	},

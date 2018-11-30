@@ -562,7 +562,7 @@
                            ExpressionValueCategory: "PRVALUE",
                            IsLValue: false,
                            'Prop_Name': { '@type': "CPPASTQualifiedName",
-                              '@role': [Unannotated],
+                              '@role': [Qualified],
                               '@pos': { '@type': "uast:Positions",
                                  start: { '@type': "uast:Position",
                                     offset: 222,
@@ -581,7 +581,7 @@
                               'Prop_AllSegments': [
                                  { '@type': "CPPASTName",
                                     '@token': "tolower",
-                                    '@role': [Identifier],
+                                    '@role': [Identifier, Qualified],
                                     '@pos': { '@type': "uast:Positions",
                                        start: { '@type': "uast:Position",
                                           offset: 224,

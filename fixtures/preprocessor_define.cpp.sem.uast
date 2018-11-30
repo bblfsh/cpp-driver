@@ -222,7 +222,7 @@
    ],
    'Prop_PreprocStatements': [
       { '@type': "cpp:ASTMacroDefinition",
-         '@role': [Unannotated],
+         '@role': [Declaration, Incomplete, Variable],
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
@@ -240,7 +240,7 @@
          Name: "notreplaced",
          'Prop_Expansions': [
             { '@type': "cpp:ExpansionLocation",
-               '@role': [Unannotated],
+               '@role': [Noop],
                '@pos': { '@type': "uast:Positions",
                   start: { '@type': "uast:Position",
                      offset: 50,
@@ -256,7 +256,7 @@
             },
          ],
          'Prop_MacroBodyLocation': { '@type': "cpp:BodyPosition",
-            '@role': [Unannotated],
+            '@role': [Noop],
             '@pos': { '@type': "uast:Positions",
                start: { '@type': "uast:Position",
                   offset: 20,
