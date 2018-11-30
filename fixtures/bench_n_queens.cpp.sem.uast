@@ -11017,7 +11017,6 @@
                                           },
                                           IsConversionOperator: false,
                                           IsFullyQualified: false,
-                                          IsQualified: false,
                                           Name: "std::ostream",
                                           'Prop_AllSegments': [
                                              { '@type': "uast:Identifier",
@@ -11135,7 +11134,6 @@
                                           },
                                           IsConversionOperator: false,
                                           IsFullyQualified: false,
-                                          IsQualified: false,
                                           Name: "queens::solution_type",
                                           'Prop_AllSegments': [
                                              { '@type': "uast:Identifier",
@@ -11217,7 +11215,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::ostream",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -12735,7 +12732,6 @@
                                           },
                                           IsConversionOperator: false,
                                           IsFullyQualified: false,
-                                          IsQualified: false,
                                           Name: "std::ostream",
                                           'Prop_AllSegments': [
                                              { '@type': "uast:Identifier",
@@ -12879,7 +12875,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::ostream",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -13203,7 +13198,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::istringstream",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -13731,7 +13725,6 @@
                                              },
                                              IsConversionOperator: false,
                                              IsFullyQualified: false,
-                                             IsQualified: false,
                                              Name: "std::runtime_error",
                                              'Prop_AllSegments': [
                                                 { '@type': "uast:Identifier",
@@ -13936,7 +13929,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::string",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -14349,8 +14341,9 @@
                                                       col: 29,
                                                    },
                                                 },
-                                                IsQualified: false,
-                                                Name: "string_to<T>",
+                                                Name: { '@type': "uast:Identifier",
+                                                   Name: "string_to<T>",
+                                                },
                                                 'Prop_TemplateArguments': [
                                                    { '@type': "cpp:CPPASTTypeId",
                                                       '@role': [Type],
@@ -14530,8 +14523,9 @@
                                                       col: 29,
                                                    },
                                                 },
-                                                IsQualified: false,
-                                                Name: "string_to<T>",
+                                                Name: { '@type': "uast:Identifier",
+                                                   Name: "string_to<T>",
+                                                },
                                                 'Prop_TemplateArguments': [
                                                    { '@type': "cpp:CPPASTTypeId",
                                                       '@role': [Type],
@@ -14695,7 +14689,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::string",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -15091,7 +15084,6 @@
                                           },
                                           IsConversionOperator: false,
                                           IsFullyQualified: false,
-                                          IsQualified: false,
                                           Name: "std::cerr",
                                           'Prop_AllSegments': [
                                              { '@type': "uast:Identifier",
@@ -15336,7 +15328,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::string",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",
@@ -15934,8 +15925,9 @@
                                                             col: 43,
                                                          },
                                                       },
-                                                      IsQualified: false,
-                                                      Name: "string_to<signed, 0>",
+                                                      Name: { '@type': "uast:Identifier",
+                                                         Name: "string_to<signed, 0>",
+                                                      },
                                                       'Prop_TemplateArguments': [
                                                          { '@type': "cpp:CPPASTTypeId",
                                                             '@role': [Type],
@@ -16483,8 +16475,9 @@
                                                             col: 43,
                                                          },
                                                       },
-                                                      IsQualified: false,
-                                                      Name: "string_to<signed, 0>",
+                                                      Name: { '@type': "uast:Identifier",
+                                                         Name: "string_to<signed, 0>",
+                                                      },
                                                       'Prop_TemplateArguments': [
                                                          { '@type': "cpp:CPPASTTypeId",
                                                             '@role': [Type],
@@ -17252,7 +17245,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::cout",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",

@@ -21,7 +21,6 @@
                   LocOffsetStart: 15,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 25,
                      LocOffsetStart: 20,
                      Name: "label",
@@ -33,7 +32,6 @@
                   LocOffsetStart: 28,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 33,
                      LocOffsetStart: 28,
                      Name: "label",
@@ -81,7 +79,6 @@
             LocOffsetStart: 4,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 8,
                LocOffsetStart: 4,
                Name: "main",

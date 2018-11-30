@@ -11,7 +11,6 @@
          LocOffsetStart: 0,
          'Prop_QualifiedName': {
             IASTClass: "CPPASTName",
-            IsQualified: false,
             LocOffsetEnd: 19,
             LocOffsetStart: 16,
             Name: "std",
@@ -83,7 +82,6 @@
                      LocOffsetStart: 48,
                      'Prop_Name': {
                         IASTClass: "CPPASTName",
-                        IsQualified: false,
                         LocOffsetEnd: 53,
                         LocOffsetStart: 48,
                         Name: "dummy",
@@ -94,7 +92,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 32,
                LocOffsetStart: 28,
                Name: "Base",
@@ -129,14 +126,12 @@
                   LocOffsetStart: 77,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 88,
                      LocOffsetStart: 84,
                      Name: "Base",
                   },
                   'Prop_NameSpecifier': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 88,
                      LocOffsetStart: 84,
                      Name: "Base",
@@ -179,7 +174,6 @@
                         LocOffsetStart: 95,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 96,
                            LocOffsetStart: 95,
                            Name: "a",
@@ -191,7 +185,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 75,
                LocOffsetStart: 68,
                Name: "Derived",
@@ -234,7 +227,6 @@
                         LocOffsetStart: 119,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 123,
                            LocOffsetStart: 119,
                            Name: "Base",
@@ -272,7 +264,6 @@
                                        LocOffsetStart: 153,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           Name: "",
                                        },
                                        'Prop_TypeNode': ~,
@@ -293,7 +284,6 @@
                                        LocOffsetStart: 146,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 153,
                                           LocOffsetStart: 146,
                                           Name: "Derived",
@@ -323,7 +313,6 @@
                                        LocOffsetStart: 153,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           Name: "",
                                        },
                                        'Prop_TypeNode': ~,
@@ -344,7 +333,6 @@
                                        LocOffsetStart: 146,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 153,
                                           LocOffsetStart: 146,
                                           Name: "Derived",
@@ -356,7 +344,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 139,
                               LocOffsetStart: 126,
                               Name: "pbase_derived",
@@ -391,7 +378,6 @@
                         LocOffsetStart: 159,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 163,
                            LocOffsetStart: 159,
                            Name: "Base",
@@ -429,7 +415,6 @@
                                        LocOffsetStart: 187,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           Name: "",
                                        },
                                        'Prop_TypeNode': ~,
@@ -450,7 +435,6 @@
                                        LocOffsetStart: 183,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 187,
                                           LocOffsetStart: 183,
                                           Name: "Base",
@@ -480,7 +464,6 @@
                                        LocOffsetStart: 187,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           Name: "",
                                        },
                                        'Prop_TypeNode': ~,
@@ -501,7 +484,6 @@
                                        LocOffsetStart: 183,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 187,
                                           LocOffsetStart: 183,
                                           Name: "Base",
@@ -513,7 +495,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 176,
                               LocOffsetStart: 166,
                               Name: "pbase_base",
@@ -548,7 +529,6 @@
                         LocOffsetStart: 193,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 200,
                            LocOffsetStart: 193,
                            Name: "Derived",
@@ -563,7 +543,6 @@
                            LocOffsetStart: 201,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 211,
                               LocOffsetStart: 203,
                               Name: "pderived",
@@ -603,7 +582,6 @@
                            LocOffsetStart: 252,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 265,
                               LocOffsetStart: 252,
                               Name: "pbase_derived",
@@ -620,7 +598,6 @@
                               LocOffsetStart: 249,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
@@ -642,7 +619,6 @@
                               LocOffsetStart: 242,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 249,
                                  LocOffsetStart: 242,
                                  Name: "Derived",
@@ -660,7 +636,6 @@
                         LocOffsetStart: 218,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 226,
                            LocOffsetStart: 218,
                            Name: "pderived",
@@ -683,7 +658,6 @@
                            LocOffsetStart: 252,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 265,
                               LocOffsetStart: 252,
                               Name: "pbase_derived",
@@ -700,7 +674,6 @@
                               LocOffsetStart: 249,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
@@ -722,7 +695,6 @@
                               LocOffsetStart: 242,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 249,
                                  LocOffsetStart: 242,
                                  Name: "Derived",
@@ -762,7 +734,6 @@
                            LocOffsetStart: 306,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 316,
                               LocOffsetStart: 306,
                               Name: "pbase_base",
@@ -779,7 +750,6 @@
                               LocOffsetStart: 303,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
@@ -801,7 +771,6 @@
                               LocOffsetStart: 296,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 303,
                                  LocOffsetStart: 296,
                                  Name: "Derived",
@@ -819,7 +788,6 @@
                         LocOffsetStart: 272,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 280,
                            LocOffsetStart: 272,
                            Name: "pderived",
@@ -842,7 +810,6 @@
                            LocOffsetStart: 306,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 316,
                               LocOffsetStart: 306,
                               Name: "pbase_base",
@@ -859,7 +826,6 @@
                               LocOffsetStart: 303,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  Name: "",
                               },
                               'Prop_PointerOperators': [],
@@ -881,7 +847,6 @@
                               LocOffsetStart: 296,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 303,
                                  LocOffsetStart: 296,
                                  Name: "Derived",
@@ -938,7 +903,6 @@
             LocOffsetStart: 106,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 110,
                LocOffsetStart: 106,
                Name: "main",

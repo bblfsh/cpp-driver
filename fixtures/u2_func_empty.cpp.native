@@ -50,7 +50,6 @@
             LocOffsetStart: 5,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 13,
                LocOffsetStart: 5,
                Name: "testfnc1",

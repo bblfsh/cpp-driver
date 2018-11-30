@@ -65,7 +65,6 @@
                LocOffsetStart: 27,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 28,
                   LocOffsetStart: 27,
                   Name: "a",

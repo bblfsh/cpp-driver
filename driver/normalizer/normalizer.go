@@ -26,6 +26,17 @@ var Preprocessors = []Mapping{
 	}.Mapping(),
 }
 
+func mapIASTNameDerived(typ string) Mapping {
+	return MapSemantic(typ, uast.Identifier{}, MapObj(
+		Obj{
+			"Name":        Var("name"),
+		},
+		Obj{
+			"Name": Var("name"),
+		},
+	))
+}
+
 var Normalizers = []Mapping{
 
 	MapSemantic("ASTInclusionStatement", uast.InlineImport{}, MapObj(
@@ -85,91 +96,78 @@ var Normalizers = []Mapping{
 	Map(Obj{
 		"IASTClass":   String("CPPASTName"),
 		"Name":        String(""),
-		"IsQualified": Var("ignIsQual"),
 	}, Obj{
 		uast.KeyType: String("uast:Identifier"),
 		"Name":       String(""),
 	}),
 
-	MapSemantic("CPPASTName", uast.Identifier{}, MapObj(
-		Obj{
-			"Name":        Var("name"),
-			"IsQualified": Var("ignIsQual"),
+	mapIASTNameDerived("CPPASTName"),
+	mapIASTNameDerived("CPPASTOperatorName"),
+    AnnotateType("CPPASTTemplateId", MapObj(
+    	Obj{
+			"Name": Var("name"),
 		},
+		Obj{
+			"Name": UASTType(uast.Identifier{}, Obj{
+				"Name": Var("name"),
+			}),
+		},
+	)),
+	AnnotateType("CPPASTConversionName", MapObj(
 		Obj{
 			"Name": Var("name"),
 		},
-	)),
-
-	MapSemantic("CPPASTImplicitName", uast.Identifier{}, MapObj(
 		Obj{
-			"Name":                 Var("name"),
-			"IsQualified":          Var("ignIsQual"),
-			"IsAlternate":          Var("ignIsAlternate"),
-			"IsOverloadedOperator": Var("ignIsOver"),
-		},
-		Obj{
-			"Name": Var("name"),
+			"Name": UASTType(uast.Identifier{}, Obj{
+				"Name": Var("name"),
+			}),
 		},
 	)),
 
-	// Disabled: parts can be anything, not only identifiers (like function calls or object instantiations)
-	// and the SDK always expects identifiers (but should except Any[] for this object)
-	//MapSemantic("CPPASTQualifiedName", uast.QualifiedIdentifier{}, MapObj(
-	//	Obj{
-	//		"Prop_AllSegments": Var("names"),
-	//		"IsQualified": Var("ignIsQual"),
-	//		"IsConversionOperator": Var("ignIsConv"),
-	//		"IsFullyQualified": Var("ignFullyQual"),
-	//	},
-	//	Obj{
-	//		"Names": Var("names"),
-	//	},
-	//)),
 
 	MapSemantic("CPPASTFunctionDefinition", uast.FunctionGroup{}, MapObj(
 		Fields{
-			{Name: "IsDefaulted", Op: Var("ignDefaulted")},
-			{Name: "IsDeleted", Op: Var("ignDeleted")},
+			{Name: "IsDefaulted", Op: AnyNode(nil)},
+			{Name: "IsDeleted", Op: AnyNode(nil)},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
 				Fields{
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
-					{Name: uast.KeyPos, Op: Var("ignPosRet")},
-					{Name: "IsComplex", Op: Var("ignIsComplex")},
-					{Name: "IsConst", Op: Var("ignIsConst")},
-					{Name: "IsConstExpr", Op: Var("ignIsConstExpr")},
-					{Name: "IsExplicit", Op: Var("ignIsExplicit")},
-					{Name: "IsFriend", Op: Var("ignIsFriend")},
-					{Name: "IsImaginary", Op: Var("ignIsImaginary")},
-					{Name: "IsInline", Op: Var("ignIsInline")},
-					{Name: "IsLong", Op: Var("ignIsLong")},
-					{Name: "IsLongLong", Op: Var("ignIsLongLong")},
-					{Name: "IsRestrict", Op: Var("ignIsRestrict")},
-					{Name: "IsShort", Op: Var("ignIsShort")},
-					{Name: "IsSigned", Op: Var("ignIsSigned")},
-					{Name: "IsThreadLocal", Op: Var("ignIsThreadLocal")},
-					{Name: "IsUnsigned", Op: Var("ignIsUnsigned")},
-					{Name: "IsVirtual", Op: Var("ignIsVirtual")},
-					{Name: "IsVolatile", Op: Var("ignIsVol")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
+					{Name: "IsComplex", Op: AnyNode(nil)},
+					{Name: "IsConst", Op: AnyNode(nil)},
+					{Name: "IsConstExpr", Op: AnyNode(nil)},
+					{Name: "IsExplicit", Op: AnyNode(nil)},
+					{Name: "IsFriend", Op: AnyNode(nil)},
+					{Name: "IsImaginary", Op: AnyNode(nil)},
+					{Name: "IsInline", Op: AnyNode(nil)},
+					{Name: "IsLong", Op: AnyNode(nil)},
+					{Name: "IsLongLong", Op: AnyNode(nil)},
+					{Name: "IsRestrict", Op: AnyNode(nil)},
+					{Name: "IsShort", Op: AnyNode(nil)},
+					{Name: "IsSigned", Op: AnyNode(nil)},
+					{Name: "IsThreadLocal", Op: AnyNode(nil)},
+					{Name: "IsUnsigned", Op: AnyNode(nil)},
+					{Name: "IsVirtual", Op: AnyNode(nil)},
+					{Name: "IsVolatile", Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: Var("StorageClass")},
 					{Name: "Type", Op: Var("retType")},
 				},
 				Fields{
 					{Name: uast.KeyType, Op: String("CPPASTNamedTypeSpecifier")},
-					{Name: uast.KeyPos, Op: Var("ignPosRet")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: Var("StorageClass")},
-					{Name: "IsConst", Op: Var("ignIsConst")},
-					{Name: "IsConstExpr", Op: Var("ignIsConstExpr")},
-					{Name: "IsExplicit", Op: Var("ignIsExplicit")},
-					{Name: "IsFriend", Op: Var("ignIsFriend")},
-					{Name: "IsInline", Op: Var("ignIsInline")},
-					{Name: "IsRestrict", Op: Var("ignIsRestrict")},
-					{Name: "IsThreadLocal", Op: Var("ignIsThreadLocal")},
-					{Name: "IsTypeName", Op: Var("ignIsTypeName")},
-					{Name: "IsVirtual", Op: Var("ignIsVirtual")},
-					{Name: "IsVolatile", Op: Var("ignIsVolatile")},
+					{Name: "IsConst", Op: AnyNode(nil)},
+					{Name: "IsConstExpr", Op: AnyNode(nil)},
+					{Name: "IsExplicit", Op: AnyNode(nil)},
+					{Name: "IsFriend", Op: AnyNode(nil)},
+					{Name: "IsInline", Op: AnyNode(nil)},
+					{Name: "IsRestrict", Op: AnyNode(nil)},
+					{Name: "IsThreadLocal", Op: AnyNode(nil)},
+					{Name: "IsTypeName", Op: AnyNode(nil)},
+					{Name: "IsVirtual", Op: AnyNode(nil)},
+					{Name: "IsVolatile", Op: AnyNode(nil)},
 					{Name: "Prop_Name", Op: Var("retType")},
 				},
 			)},
@@ -177,41 +175,34 @@ var Normalizers = []Mapping{
 			{Name: "Prop_Declarator", Op: Fields{
 				{Name: uast.KeyType, Op: String("CPPASTFunctionDeclarator")},
 				{Name: uast.KeyPos, Op: Var("fdpos")},
-				{Name: "IsConst", Op: Var("ignIsConstFn")},
-				{Name: "IsFinal", Op: Var("ignIsFinalFn")},
-				{Name: "IsMutable", Op: Var("ignIsMutableFn")},
-				{Name: "IsOverride", Op: Var("ignIsOverrideFn")},
-				{Name: "IsPureVirtual", Op: Var("ignIsPureVirtualFn")},
-				{Name: "IsVolatile", Op: Var("ignIsVolatileFn")},
+				{Name: "IsConst", Op: AnyNode(nil)},
+				{Name: "IsFinal", Op: AnyNode(nil)},
+				{Name: "IsMutable", Op: AnyNode(nil)},
+				{Name: "IsOverride", Op: AnyNode(nil)},
+				{Name: "IsPureVirtual", Op: AnyNode(nil)},
+				{Name: "IsVolatile", Op: AnyNode(nil)},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
 					Fields{
 						{Name: uast.KeyType, Op: String("uast:Identifier")},
-						{Name: uast.KeyPos, Op: Var("ignPosName")},
+						{Name: uast.KeyPos, Op: AnyNode(nil)},
 						{Name: "Name", Op: Var("name")},
 					},
 					Fields{
 						// TODO: change to uast:QualifiedIdentifier when fixed
 						{Name: uast.KeyType, Op: String("CPPASTQualifiedName")},
-						{Name: uast.KeyPos, Op: Var("ignPosName")},
-						{Name: "IsConversionOperator", Op: Var("ignIsConvOp")},
-						{Name: "Prop_AllSegments", Op: Var("ignSegmentsName")},
-						{Name: "Prop_Qualifier", Op: Var("ignPropQual")},
-						{Name: "IsQualified", Op: Var("ignIsQual")},
-						{Name: "IsFullyQualified", Op: Var("ignIsFully")},
-						{Name: "Name", Op: Var("name")},
-					},
-					Fields{
-						{Name: uast.KeyType, Op: String("CPPASTOperatorName")},
-						{Name: uast.KeyPos, Op: Var("ignPosName")},
-						{Name: "IsQualified", Op: Var("ignIsQual")},
+						{Name: uast.KeyPos, Op: AnyNode(nil)},
+						{Name: "IsConversionOperator", Op: AnyNode(nil)},
+						{Name: "Prop_AllSegments", Op: AnyNode(nil)},
+						{Name: "Prop_Qualifier", Op: AnyNode(nil)},
+						{Name: "IsFullyQualified", Op: AnyNode(nil)},
 						{Name: "Name", Op: Var("name")},
 					},
 				)},
 
 				{Name: "TakesVarArgs", Op: Cases("takesVarArgs", Bool(false), Bool(true))},
-				{Name: "Prop_ConstructorChain", Optional: "optConsChain", Op: Var("ignConsChain")},
-				{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Var("ignPointerOps")},
+				{Name: "Prop_ConstructorChain", Optional: "optConsChain", Op: AnyNode(nil)},
+				{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 
 				{Name: "Prop_Parameters", Optional: "optArgs", Op: Each("args", Cases("caseParams",
 					Fields{
@@ -219,8 +210,8 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
-						{Name: "DeclaresParameterPack", Op: Var("ignParamPack")},
-						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Var("ignPointerOps2")},
+						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
+						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
 					},
 					Fields{
@@ -228,8 +219,8 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
-						{Name: "DeclaresParameterPack", Op: Var("ignParamPack")},
-						{Name: "Prop_ArrayModifiers", Op: Var("ignArrayMod")},
+						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
+						{Name: "Prop_ArrayModifiers", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
 					},
 				))},

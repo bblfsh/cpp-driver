@@ -148,7 +148,6 @@
                         col: 6,
                      },
                   },
-                  IsQualified: false,
                },
                'Prop_TypeNode': ~,
             },

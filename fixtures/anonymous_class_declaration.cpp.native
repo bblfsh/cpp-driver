@@ -25,7 +25,6 @@
             LocOffsetStart: 0,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                Name: "",
             },
             StorageClass: "unspecified",
@@ -38,7 +37,6 @@
                LocOffsetStart: 9,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 18,
                   LocOffsetStart: 9,
                   Name: "instance1",

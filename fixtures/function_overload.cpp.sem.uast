@@ -325,7 +325,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::string",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",

@@ -50,7 +50,6 @@
                            IASTClass: "CPPASTQualifiedName",
                            IsConversionOperator: false,
                            IsFullyQualified: false,
-                           IsQualified: false,
                            LocOffsetEnd: 79,
                            LocOffsetStart: 62,
                            Name: "std::cout",
@@ -58,7 +57,6 @@
                               {
                                  ExpandedFromMacro: "JOIN_21:45",
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 79,
                                  LocOffsetStart: 62,
                                  Name: "std",
@@ -66,7 +64,6 @@
                               {
                                  ExpandedFromMacro: "JOIN_21:45",
                                  IASTClass: "CPPASTName",
-                                 IsQualified: true,
                                  LocOffsetEnd: 79,
                                  LocOffsetStart: 62,
                                  Name: "cout",
@@ -76,7 +73,6 @@
                               {
                                  ExpandedFromMacro: "JOIN_21:45",
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 79,
                                  LocOffsetStart: 62,
                                  Name: "std",
@@ -162,7 +158,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 98,
                               LocOffsetStart: 97,
                               Name: "a",
@@ -209,7 +204,6 @@
             LocOffsetStart: 51,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 55,
                LocOffsetStart: 51,
                Name: "main",

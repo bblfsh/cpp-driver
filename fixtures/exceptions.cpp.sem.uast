@@ -924,7 +924,6 @@
                                           },
                                           IsConversionOperator: false,
                                           IsFullyQualified: false,
-                                          IsQualified: false,
                                           Name: "std::runtime_error",
                                           'Prop_AllSegments': [
                                              { '@type': "uast:Identifier",
@@ -1134,7 +1133,6 @@
                                                 },
                                                 IsConversionOperator: false,
                                                 IsFullyQualified: false,
-                                                IsQualified: false,
                                                 Name: "std::runtime_error",
                                                 'Prop_AllSegments': [
                                                    { '@type': "uast:Identifier",

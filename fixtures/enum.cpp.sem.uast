@@ -1164,7 +1164,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "foo::bar",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -1286,7 +1285,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "foo::bar",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",

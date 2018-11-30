@@ -79,7 +79,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 20,
                               LocOffsetStart: 19,
                               Name: "a",
@@ -129,7 +128,6 @@
                                  LocOffsetStart: 43,
                                  'Prop_Name': {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 44,
                                     LocOffsetStart: 43,
                                     Name: "a",
@@ -183,7 +181,6 @@
                                  LocOffsetStart: 66,
                                  'Prop_Name': {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 67,
                                     LocOffsetStart: 66,
                                     Name: "a",
@@ -235,7 +232,6 @@
                         LocOffsetStart: 95,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 96,
                            LocOffsetStart: 95,
                            Name: "a",
@@ -290,7 +286,6 @@
             LocOffsetStart: 4,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 8,
                LocOffsetStart: 4,
                Name: "main",

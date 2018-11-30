@@ -413,7 +413,6 @@
                                                    },
                                                    IsConversionOperator: false,
                                                    IsFullyQualified: false,
-                                                   IsQualified: false,
                                                    Name: "std::unique_ptr",
                                                    'Prop_AllSegments': [
                                                       { '@type': "uast:Identifier",
@@ -1253,7 +1252,6 @@
                                                    },
                                                    IsConversionOperator: false,
                                                    IsFullyQualified: false,
-                                                   IsQualified: false,
                                                    Name: "std::make_unique",
                                                    'Prop_AllSegments': [
                                                       { '@type': "uast:Identifier",
@@ -1678,7 +1676,6 @@
                                                    },
                                                    IsConversionOperator: false,
                                                    IsFullyQualified: false,
-                                                   IsQualified: false,
                                                    Name: "std::make_unique",
                                                    'Prop_AllSegments': [
                                                       { '@type': "uast:Identifier",
@@ -2082,7 +2079,6 @@
                                                 },
                                                 IsConversionOperator: false,
                                                 IsFullyQualified: false,
-                                                IsQualified: false,
                                                 Name: "std::move",
                                                 'Prop_AllSegments': [
                                                    { '@type': "uast:Identifier",
@@ -2224,7 +2220,6 @@
                                                 },
                                                 IsConversionOperator: false,
                                                 IsFullyQualified: false,
-                                                IsQualified: false,
                                                 Name: "std::move",
                                                 'Prop_AllSegments': [
                                                    { '@type': "uast:Identifier",

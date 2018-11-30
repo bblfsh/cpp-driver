@@ -61,7 +61,6 @@
                         },
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 26,
                            LocOffsetStart: 25,
                            Name: "x",
@@ -87,7 +86,6 @@
                         LocOffsetStart: 41,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 49,
                            LocOffsetStart: 41,
                            Name: "testfnc1",
@@ -99,7 +97,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",
@@ -151,7 +148,6 @@
                         LocOffsetStart: 89,
                         'Prop_FieldName': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 96,
                            LocOffsetStart: 95,
                            Name: "x",
@@ -218,21 +214,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 80,
                LocOffsetStart: 62,
                Name: "testcls1::testfnc1",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 70,
                      LocOffsetStart: 62,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 80,
                      LocOffsetStart: 72,
                      Name: "testfnc1",
@@ -241,7 +234,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 70,
                      LocOffsetStart: 62,
                      Name: "testcls1",

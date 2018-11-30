@@ -115,7 +115,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::vector<int>",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -148,8 +147,9 @@
                                                 col: 19,
                                              },
                                           },
-                                          IsQualified: true,
-                                          Name: "vector<int>",
+                                          Name: { '@type': "uast:Identifier",
+                                             Name: "vector<int>",
+                                          },
                                           'Prop_TemplateArguments': [
                                              { '@type': "cpp:CPPASTTypeId",
                                                 '@role': [Type],
@@ -1046,7 +1046,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::for_each",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",

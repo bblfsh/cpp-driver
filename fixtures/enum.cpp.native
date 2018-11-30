@@ -24,7 +24,6 @@
             LocOffsetStart: 0,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 4,
                LocOffsetStart: 0,
                Name: "mnum",
@@ -69,7 +68,6 @@
                            LocOffsetStart: 13,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 16,
                               LocOffsetStart: 13,
                               Name: "bar",
@@ -113,7 +111,6 @@
                            LocOffsetStart: 24,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 27,
                               LocOffsetStart: 24,
                               Name: "baz",
@@ -157,7 +154,6 @@
                            LocOffsetStart: 35,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 38,
                               LocOffsetStart: 35,
                               Name: "pok",
@@ -205,7 +201,6 @@
                               LocOffsetStart: 13,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 16,
                                  LocOffsetStart: 13,
                                  Name: "bar",
@@ -249,7 +244,6 @@
                               LocOffsetStart: 13,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 16,
                                  LocOffsetStart: 13,
                                  Name: "bar",
@@ -296,7 +290,6 @@
                               LocOffsetStart: 24,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 27,
                                  LocOffsetStart: 24,
                                  Name: "baz",
@@ -340,7 +333,6 @@
                               LocOffsetStart: 24,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 27,
                                  LocOffsetStart: 24,
                                  Name: "baz",
@@ -387,7 +379,6 @@
                               LocOffsetStart: 35,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 38,
                                  LocOffsetStart: 35,
                                  Name: "pok",
@@ -431,7 +422,6 @@
                               LocOffsetStart: 35,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 38,
                                  LocOffsetStart: 35,
                                  Name: "pok",
@@ -454,7 +444,6 @@
                },
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 8,
                   LocOffsetStart: 5,
                   Name: "foo",
@@ -498,7 +487,6 @@
                         LocOffsetStart: 62,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 70,
                            LocOffsetStart: 67,
                            Name: "foo",
@@ -513,7 +501,6 @@
                            LocOffsetStart: 71,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 72,
                               LocOffsetStart: 71,
                               Name: "f",
@@ -546,21 +533,18 @@
                            IASTClass: "CPPASTQualifiedName",
                            IsConversionOperator: false,
                            IsFullyQualified: false,
-                           IsQualified: false,
                            LocOffsetEnd: 88,
                            LocOffsetStart: 80,
                            Name: "foo::bar",
                            'Prop_AllSegments': [
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 83,
                                  LocOffsetStart: 80,
                                  Name: "foo",
                               },
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: true,
                                  LocOffsetEnd: 88,
                                  LocOffsetStart: 85,
                                  Name: "bar",
@@ -569,7 +553,6 @@
                            'Prop_Qualifier': [
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 83,
                                  LocOffsetStart: 80,
                                  Name: "foo",
@@ -586,7 +569,6 @@
                         LocOffsetStart: 76,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 77,
                            LocOffsetStart: 76,
                            Name: "f",
@@ -603,21 +585,18 @@
                            IASTClass: "CPPASTQualifiedName",
                            IsConversionOperator: false,
                            IsFullyQualified: false,
-                           IsQualified: false,
                            LocOffsetEnd: 88,
                            LocOffsetStart: 80,
                            Name: "foo::bar",
                            'Prop_AllSegments': [
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 83,
                                  LocOffsetStart: 80,
                                  Name: "foo",
                               },
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: true,
                                  LocOffsetEnd: 88,
                                  LocOffsetStart: 85,
                                  Name: "bar",
@@ -626,7 +605,6 @@
                            'Prop_Qualifier': [
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 83,
                                  LocOffsetStart: 80,
                                  Name: "foo",
@@ -657,7 +635,6 @@
                         LocOffsetStart: 96,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 99,
                            LocOffsetStart: 96,
                            Name: "pok",
@@ -672,7 +649,6 @@
                         LocOffsetStart: 92,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 93,
                            LocOffsetStart: 92,
                            Name: "f",
@@ -687,7 +663,6 @@
                         LocOffsetStart: 96,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 99,
                            LocOffsetStart: 96,
                            Name: "pok",
@@ -732,7 +707,6 @@
             LocOffsetStart: 51,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 55,
                LocOffsetStart: 51,
                Name: "main",

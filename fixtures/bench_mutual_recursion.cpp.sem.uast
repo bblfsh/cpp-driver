@@ -2587,8 +2587,9 @@
                                           col: 14,
                                        },
                                     },
-                                    IsQualified: false,
-                                    Name: "vector<int>",
+                                    Name: { '@type': "uast:Identifier",
+                                       Name: "vector<int>",
+                                    },
                                     'Prop_TemplateArguments': [
                                        { '@type': "cpp:CPPASTTypeId",
                                           '@role': [Type],
@@ -2891,7 +2892,6 @@
                                                    },
                                                    IsConversionOperator: false,
                                                    IsFullyQualified: false,
-                                                   IsQualified: false,
                                                    Name: "Hofstadter::F",
                                                    'Prop_AllSegments': [
                                                       { '@type': "uast:Identifier",
@@ -3136,7 +3136,6 @@
                                                    },
                                                    IsConversionOperator: false,
                                                    IsFullyQualified: false,
-                                                   IsQualified: false,
                                                    Name: "Hofstadter::M",
                                                    'Prop_AllSegments': [
                                                       { '@type': "uast:Identifier",
@@ -3822,8 +3821,9 @@
                                                 col: 29,
                                              },
                                           },
-                                          IsQualified: false,
-                                          Name: "ostream_iterator<int>",
+                                          Name: { '@type': "uast:Identifier",
+                                             Name: "ostream_iterator<int>",
+                                          },
                                           'Prop_TemplateArguments': [
                                              { '@type': "cpp:CPPASTTypeId",
                                                 '@role': [Type],
@@ -4385,8 +4385,9 @@
                                                 col: 29,
                                              },
                                           },
-                                          IsQualified: false,
-                                          Name: "ostream_iterator<int>",
+                                          Name: { '@type': "uast:Identifier",
+                                             Name: "ostream_iterator<int>",
+                                          },
                                           'Prop_TemplateArguments': [
                                              { '@type': "cpp:CPPASTTypeId",
                                                 '@role': [Type],

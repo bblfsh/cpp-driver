@@ -68,7 +68,6 @@
                },
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                Name: "std::string",
                'Prop_AllSegments': [
                   { '@type': "uast:Identifier",
@@ -567,7 +566,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: true,
-                                       IsQualified: false,
                                        Name: "::tolower",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -622,7 +620,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::transform",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -918,7 +915,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::sort",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -1386,7 +1382,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::includes",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -1839,7 +1834,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::includes",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -1960,7 +1954,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::string",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",
@@ -2369,7 +2362,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::ios::boolalpha",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -2525,7 +2517,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::cout",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -2678,7 +2669,6 @@
                                              },
                                              IsConversionOperator: false,
                                              IsFullyQualified: false,
-                                             IsQualified: false,
                                              Name: "std::endl",
                                              'Prop_AllSegments': [
                                                 { '@type': "uast:Identifier",
@@ -2872,7 +2862,6 @@
                                              },
                                              IsConversionOperator: false,
                                              IsFullyQualified: false,
-                                             IsQualified: false,
                                              Name: "std::endl",
                                              'Prop_AllSegments': [
                                                 { '@type': "uast:Identifier",

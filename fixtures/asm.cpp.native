@@ -51,7 +51,6 @@
                      LocOffsetStart: 36,
                      'Prop_Name': {
                         IASTClass: "CPPASTName",
-                        IsQualified: false,
                         LocOffsetEnd: 40,
                         LocOffsetStart: 36,
                         Name: "func",
@@ -136,7 +135,6 @@
                                     LocOffsetStart: 193,
                                     'Prop_Name': {
                                        IASTClass: "CPPASTName",
-                                       IsQualified: false,
                                        LocOffsetEnd: 197,
                                        LocOffsetStart: 193,
                                        Name: "func",
@@ -159,7 +157,6 @@
                                     LocOffsetStart: 193,
                                     'Prop_Name': {
                                        IASTClass: "CPPASTName",
-                                       IsQualified: false,
                                        LocOffsetEnd: 197,
                                        LocOffsetStart: 193,
                                        Name: "func",
@@ -169,7 +166,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 190,
                               LocOffsetStart: 189,
                               Name: "n",
@@ -256,7 +252,6 @@
             LocOffsetStart: 172,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 176,
                LocOffsetStart: 172,
                Name: "main",

@@ -39,7 +39,6 @@
                LocOffsetStart: 22,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 27,
                   LocOffsetStart: 22,
                   Name: "ulong",
@@ -54,7 +53,6 @@
          LocOffsetStart: 29,
          'Prop_Alias': {
             IASTClass: "CPPASTName",
-            IsQualified: false,
             LocOffsetEnd: 40,
             LocOffsetStart: 35,
             Name: "olong",
@@ -70,7 +68,6 @@
                LocOffsetStart: 56,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   Name: "",
                },
                'Prop_TypeNode': ~,
@@ -155,7 +152,6 @@
                         LocOffsetStart: 82,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 83,
                            LocOffsetStart: 82,
                            Name: "a",
@@ -199,7 +195,6 @@
                         LocOffsetStart: 91,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 92,
                            LocOffsetStart: 91,
                            Name: "b",
@@ -211,7 +206,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                Name: "",
             },
             StorageClass: "typedef",
@@ -224,7 +218,6 @@
                LocOffsetStart: 96,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 97,
                   LocOffsetStart: 96,
                   Name: "S",
@@ -238,7 +231,6 @@
                LocOffsetStart: 99,
                'Prop_Name': {
                   IASTClass: "CPPASTName",
-                  IsQualified: false,
                   LocOffsetEnd: 102,
                   LocOffsetStart: 100,
                   Name: "pS",
@@ -283,7 +275,6 @@
                         LocOffsetStart: 120,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 125,
                            LocOffsetStart: 120,
                            Name: "ulong",
@@ -298,7 +289,6 @@
                            LocOffsetStart: 126,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 127,
                               LocOffsetStart: 126,
                               Name: "g",
@@ -332,7 +322,6 @@
                         LocOffsetStart: 131,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 136,
                            LocOffsetStart: 131,
                            Name: "olong",
@@ -347,7 +336,6 @@
                            LocOffsetStart: 137,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 138,
                               LocOffsetStart: 137,
                               Name: "h",
@@ -381,7 +369,6 @@
                         LocOffsetStart: 142,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 143,
                            LocOffsetStart: 142,
                            Name: "S",
@@ -396,7 +383,6 @@
                            LocOffsetStart: 144,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 145,
                               LocOffsetStart: 144,
                               Name: "s",
@@ -443,7 +429,6 @@
             LocOffsetStart: 109,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 113,
                LocOffsetStart: 109,
                Name: "main",

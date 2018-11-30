@@ -36,7 +36,6 @@
                         LocOffsetStart: 21,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 22,
                            LocOffsetStart: 21,
                            Name: "x",
@@ -50,7 +49,6 @@
                         LocOffsetStart: 24,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 25,
                            LocOffsetStart: 24,
                            Name: "y",
@@ -62,7 +60,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 12,
                LocOffsetStart: 7,
                Name: "point",
@@ -105,7 +102,6 @@
                         LocOffsetStart: 46,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 51,
                            LocOffsetStart: 46,
                            Name: "point",
@@ -201,7 +197,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 53,
                               LocOffsetStart: 52,
                               Name: "p",
@@ -248,7 +243,6 @@
             LocOffsetStart: 35,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 39,
                LocOffsetStart: 35,
                Name: "main",

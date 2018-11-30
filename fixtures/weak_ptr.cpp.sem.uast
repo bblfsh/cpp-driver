@@ -984,8 +984,9 @@
                                           col: 16,
                                        },
                                     },
-                                    IsQualified: false,
-                                    Name: "weak_ptr<Foo>",
+                                    Name: { '@type': "uast:Identifier",
+                                       Name: "weak_ptr<Foo>",
+                                    },
                                     'Prop_TemplateArguments': [
                                        { '@type': "cpp:CPPASTTypeId",
                                           '@role': [Type],

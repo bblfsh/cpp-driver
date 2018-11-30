@@ -130,7 +130,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "Set::const_iterator",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -291,7 +290,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::set<Set>::const_iterator",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -324,8 +322,9 @@
                                                    col: 35,
                                                 },
                                              },
-                                             IsQualified: true,
-                                             Name: "set<Set>",
+                                             Name: { '@type': "uast:Identifier",
+                                                Name: "set<Set>",
+                                             },
                                              'Prop_TemplateArguments': [
                                                 { '@type': "cpp:CPPASTTypeId",
                                                    '@role': [Type],
@@ -468,8 +467,9 @@
                                                    col: 35,
                                                 },
                                              },
-                                             IsQualified: true,
-                                             Name: "set<Set>",
+                                             Name: { '@type': "uast:Identifier",
+                                                Name: "set<Set>",
+                                             },
                                              'Prop_TemplateArguments': [
                                                 { '@type': "cpp:CPPASTTypeId",
                                                    '@role': [Type],
@@ -672,7 +672,6 @@
                                        },
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        Name: "std::set<Set>",
                                        'Prop_AllSegments': [
                                           { '@type': "uast:Identifier",
@@ -705,8 +704,9 @@
                                                    col: 18,
                                                 },
                                              },
-                                             IsQualified: true,
-                                             Name: "set<Set>",
+                                             Name: { '@type': "uast:Identifier",
+                                                Name: "set<Set>",
+                                             },
                                              'Prop_TemplateArguments': [
                                                 { '@type': "cpp:CPPASTTypeId",
                                                    '@role': [Type],
@@ -1202,7 +1202,6 @@
                                                 },
                                                 IsConversionOperator: false,
                                                 IsFullyQualified: false,
-                                                IsQualified: false,
                                                 Name: "std::set<Set>",
                                                 'Prop_AllSegments': [
                                                    { '@type': "uast:Identifier",
@@ -1235,8 +1234,9 @@
                                                             col: 22,
                                                          },
                                                       },
-                                                      IsQualified: true,
-                                                      Name: "set<Set>",
+                                                      Name: { '@type': "uast:Identifier",
+                                                         Name: "set<Set>",
+                                                      },
                                                       'Prop_TemplateArguments': [
                                                          { '@type': "cpp:CPPASTTypeId",
                                                             '@role': [Type],
@@ -3436,7 +3436,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::set<Set>",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",
@@ -3469,8 +3468,9 @@
                                              col: 37,
                                           },
                                        },
-                                       IsQualified: true,
-                                       Name: "set<Set>",
+                                       Name: { '@type': "uast:Identifier",
+                                          Name: "set<Set>",
+                                       },
                                        'Prop_TemplateArguments': [
                                           { '@type': "cpp:CPPASTTypeId",
                                              '@role': [Type],
@@ -4123,7 +4123,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::set<Set>",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",
@@ -4156,8 +4155,9 @@
                                              col: 37,
                                           },
                                        },
-                                       IsQualified: true,
-                                       Name: "set<Set>",
+                                       Name: { '@type': "uast:Identifier",
+                                          Name: "set<Set>",
+                                       },
                                        'Prop_TemplateArguments': [
                                           { '@type': "cpp:CPPASTTypeId",
                                              '@role': [Type],

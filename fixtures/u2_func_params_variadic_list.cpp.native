@@ -50,7 +50,6 @@
             LocOffsetStart: 5,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 13,
                LocOffsetStart: 5,
                Name: "testfnc1",
@@ -63,7 +62,6 @@
                   LocOffsetStart: 24,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 29,
                      LocOffsetStart: 26,
                      Name: "fmt",
@@ -143,7 +141,6 @@
             LocOffsetStart: 43,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 51,
                LocOffsetStart: 43,
                Name: "testfnc2",
@@ -156,7 +153,6 @@
                   LocOffsetStart: 62,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 67,
                      LocOffsetStart: 64,
                      Name: "fmt",

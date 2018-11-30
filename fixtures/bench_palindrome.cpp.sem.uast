@@ -371,7 +371,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::equal",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -738,7 +737,6 @@
                                     },
                                     IsConversionOperator: false,
                                     IsFullyQualified: false,
-                                    IsQualified: false,
                                     Name: "std::equal",
                                     'Prop_AllSegments': [
                                        { '@type': "uast:Identifier",
@@ -859,7 +857,6 @@
                                  },
                                  IsConversionOperator: false,
                                  IsFullyQualified: false,
-                                 IsQualified: false,
                                  Name: "std::string",
                                  'Prop_AllSegments': [
                                     { '@type': "uast:Identifier",

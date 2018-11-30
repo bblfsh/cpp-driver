@@ -36,7 +36,6 @@
                         LocOffsetStart: 30,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 38,
                            LocOffsetStart: 30,
                            Name: "classvar",
@@ -48,7 +47,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",

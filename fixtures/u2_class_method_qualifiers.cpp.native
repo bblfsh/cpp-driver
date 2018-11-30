@@ -41,7 +41,6 @@
                         LocOffsetStart: 32,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 40,
                            LocOffsetStart: 32,
                            Name: "testfnc1",
@@ -73,7 +72,6 @@
                         LocOffsetStart: 64,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 72,
                            LocOffsetStart: 64,
                            Name: "testfnc2",
@@ -105,7 +103,6 @@
                         LocOffsetStart: 94,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 102,
                            LocOffsetStart: 94,
                            Name: "testfnc3",
@@ -137,7 +134,6 @@
                         LocOffsetStart: 121,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 129,
                            LocOffsetStart: 121,
                            Name: "testfnc4",
@@ -163,7 +159,6 @@
                         LocOffsetStart: 140,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 148,
                            LocOffsetStart: 140,
                            Name: "testfnc5",
@@ -189,7 +184,6 @@
                         LocOffsetStart: 172,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 180,
                            LocOffsetStart: 172,
                            Name: "testfnc6",
@@ -215,7 +209,6 @@
                         LocOffsetStart: 198,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 206,
                            LocOffsetStart: 198,
                            Name: "testfnc7",
@@ -227,7 +220,6 @@
             ],
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 14,
                LocOffsetStart: 6,
                Name: "testcls1",
@@ -283,21 +275,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 237,
                LocOffsetStart: 219,
                Name: "testcls1::testfnc2",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 227,
                      LocOffsetStart: 219,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 237,
                      LocOffsetStart: 229,
                      Name: "testfnc2",
@@ -306,7 +295,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 227,
                      LocOffsetStart: 219,
                      Name: "testcls1",
@@ -364,21 +352,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 266,
                LocOffsetStart: 248,
                Name: "testcls1::testfnc3",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 256,
                      LocOffsetStart: 248,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 266,
                      LocOffsetStart: 258,
                      Name: "testfnc3",
@@ -387,7 +372,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 256,
                      LocOffsetStart: 248,
                      Name: "testcls1",
@@ -445,21 +429,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 295,
                LocOffsetStart: 277,
                Name: "testcls1::testfnc4",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 285,
                      LocOffsetStart: 277,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 295,
                      LocOffsetStart: 287,
                      Name: "testfnc4",
@@ -468,7 +449,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 285,
                      LocOffsetStart: 277,
                      Name: "testcls1",
@@ -526,21 +506,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 324,
                LocOffsetStart: 306,
                Name: "testcls1::testfnc5",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 314,
                      LocOffsetStart: 306,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 324,
                      LocOffsetStart: 316,
                      Name: "testfnc5",
@@ -549,7 +526,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 314,
                      LocOffsetStart: 306,
                      Name: "testcls1",
@@ -607,21 +583,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 359,
                LocOffsetStart: 341,
                Name: "testcls1::testfnc6",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 349,
                      LocOffsetStart: 341,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 359,
                      LocOffsetStart: 351,
                      Name: "testfnc6",
@@ -630,7 +603,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 349,
                      LocOffsetStart: 341,
                      Name: "testcls1",
@@ -688,21 +660,18 @@
                IASTClass: "CPPASTQualifiedName",
                IsConversionOperator: false,
                IsFullyQualified: false,
-               IsQualified: false,
                LocOffsetEnd: 388,
                LocOffsetStart: 370,
                Name: "testcls1::testfnc7",
                'Prop_AllSegments': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 378,
                      LocOffsetStart: 370,
                      Name: "testcls1",
                   },
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: true,
                      LocOffsetEnd: 388,
                      LocOffsetStart: 380,
                      Name: "testfnc7",
@@ -711,7 +680,6 @@
                'Prop_Qualifier': [
                   {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 378,
                      LocOffsetStart: 370,
                      Name: "testcls1",

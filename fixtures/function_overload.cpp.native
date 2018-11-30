@@ -50,7 +50,6 @@
             LocOffsetStart: 24,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 32,
                LocOffsetStart: 24,
                Name: "somefunc",
@@ -63,7 +62,6 @@
                   LocOffsetStart: 37,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 38,
                      LocOffsetStart: 37,
                      Name: "a",
@@ -142,7 +140,6 @@
             LocOffsetStart: 48,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 56,
                LocOffsetStart: 48,
                Name: "somefunc",
@@ -155,7 +152,6 @@
                   LocOffsetStart: 64,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 65,
                      LocOffsetStart: 64,
                      Name: "b",
@@ -234,7 +230,6 @@
             LocOffsetStart: 75,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 83,
                LocOffsetStart: 75,
                Name: "somefunc",
@@ -247,7 +242,6 @@
                   LocOffsetStart: 96,
                   'Prop_Name': {
                      IASTClass: "CPPASTName",
-                     IsQualified: false,
                      LocOffsetEnd: 97,
                      LocOffsetStart: 96,
                      Name: "s",
@@ -270,21 +264,18 @@
                         IASTClass: "CPPASTQualifiedName",
                         IsConversionOperator: false,
                         IsFullyQualified: false,
-                        IsQualified: false,
                         LocOffsetEnd: 95,
                         LocOffsetStart: 84,
                         Name: "std::string",
                         'Prop_AllSegments': [
                            {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 87,
                               LocOffsetStart: 84,
                               Name: "std",
                            },
                            {
                               IASTClass: "CPPASTName",
-                              IsQualified: true,
                               LocOffsetEnd: 95,
                               LocOffsetStart: 89,
                               Name: "string",
@@ -293,7 +284,6 @@
                         'Prop_Qualifier': [
                            {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 87,
                               LocOffsetStart: 84,
                               Name: "std",
@@ -350,7 +340,6 @@
                         LocOffsetStart: 118,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 126,
                            LocOffsetStart: 118,
                            Name: "somefunc",
@@ -390,7 +379,6 @@
                         LocOffsetStart: 134,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 142,
                            LocOffsetStart: 134,
                            Name: "somefunc",
@@ -430,7 +418,6 @@
                         LocOffsetStart: 152,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 160,
                            LocOffsetStart: 152,
                            Name: "somefunc",
@@ -475,7 +462,6 @@
             LocOffsetStart: 107,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 111,
                LocOffsetStart: 107,
                Name: "main",

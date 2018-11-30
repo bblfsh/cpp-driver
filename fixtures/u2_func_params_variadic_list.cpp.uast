@@ -113,7 +113,6 @@
                      col: 14,
                   },
                },
-               IsQualified: false,
             },
             'Prop_Parameters': [
                { '@type': "CPPASTDeclarator",
@@ -146,7 +145,6 @@
                            col: 30,
                         },
                      },
-                     IsQualified: false,
                   },
                   'Prop_PointerOperators': [],
                   'Prop_TypeNode': { '@type': "CPPASTSimpleDeclSpecifier",
@@ -286,7 +284,6 @@
                      col: 14,
                   },
                },
-               IsQualified: false,
             },
             'Prop_Parameters': [
                { '@type': "CPPASTDeclarator",
@@ -319,7 +316,6 @@
                            col: 30,
                         },
                      },
-                     IsQualified: false,
                   },
                   'Prop_PointerOperators': [],
                   'Prop_TypeNode': { '@type': "CPPASTSimpleDeclSpecifier",

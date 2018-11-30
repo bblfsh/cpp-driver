@@ -120,7 +120,6 @@
                            },
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 49,
                               LocOffsetStart: 42,
                               Name: "is_open",
@@ -174,7 +173,6 @@
                            LocOffsetStart: 160,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 164,
                               LocOffsetStart: 160,
                               Name: "door",
@@ -241,7 +239,6 @@
                                        LocOffsetStart: 154,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 158,
                                           LocOffsetStart: 154,
                                           Name: "pass",
@@ -256,7 +253,6 @@
                                        LocOffsetStart: 154,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 158,
                                           LocOffsetStart: 154,
                                           Name: "pass",
@@ -265,7 +261,6 @@
                                  },
                                  'Prop_Name': {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 151,
                                     LocOffsetStart: 147,
                                     Name: "door",
@@ -310,7 +305,6 @@
                               LocOffsetStart: 180,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 184,
                                  LocOffsetStart: 180,
                                  Name: "pass",
@@ -336,7 +330,6 @@
                            LocOffsetStart: 172,
                            'Prop_Name': {
                               IASTClass: "CPPASTName",
-                              IsQualified: false,
                               LocOffsetEnd: 176,
                               LocOffsetStart: 172,
                               Name: "door",
@@ -369,7 +362,6 @@
                               LocOffsetStart: 180,
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 184,
                                  LocOffsetStart: 180,
                                  Name: "pass",
@@ -415,7 +407,6 @@
                         LocOffsetStart: 114,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 118,
                            LocOffsetStart: 114,
                            Name: "pass",
@@ -496,7 +487,6 @@
                               },
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 108,
                                  LocOffsetStart: 104,
                                  Name: "pass",
@@ -522,7 +512,6 @@
                         LocOffsetStart: 128,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 132,
                            LocOffsetStart: 128,
                            Name: "pass",
@@ -567,21 +556,18 @@
                               IASTClass: "CPPASTQualifiedName",
                               IsConversionOperator: false,
                               IsFullyQualified: false,
-                              IsQualified: false,
                               LocOffsetEnd: 388,
                               LocOffsetStart: 379,
                               Name: "std::endl",
                               'Prop_AllSegments': [
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 382,
                                     LocOffsetStart: 379,
                                     Name: "std",
                                  },
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: true,
                                     LocOffsetEnd: 388,
                                     LocOffsetStart: 384,
                                     Name: "endl",
@@ -590,7 +576,6 @@
                               'Prop_Qualifier': [
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 382,
                                     LocOffsetStart: 379,
                                     Name: "std",
@@ -636,7 +621,6 @@
                                        LocOffsetStart: 340,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 344,
                                           LocOffsetStart: 340,
                                           Name: "door",
@@ -651,7 +635,6 @@
                                        LocOffsetStart: 332,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 339,
                                           LocOffsetStart: 332,
                                           Name: "is_open",
@@ -666,7 +649,6 @@
                                        LocOffsetStart: 340,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 344,
                                           LocOffsetStart: 340,
                                           Name: "door",
@@ -731,7 +713,6 @@
                                     LocOffsetStart: 321,
                                     'Prop_Name': {
                                        IASTClass: "CPPASTName",
-                                       IsQualified: false,
                                        LocOffsetEnd: 325,
                                        LocOffsetStart: 321,
                                        Name: "door",
@@ -777,21 +758,18 @@
                                        IASTClass: "CPPASTQualifiedName",
                                        IsConversionOperator: false,
                                        IsFullyQualified: false,
-                                       IsQualified: false,
                                        LocOffsetEnd: 305,
                                        LocOffsetStart: 296,
                                        Name: "std::cout",
                                        'Prop_AllSegments': [
                                           {
                                              IASTClass: "CPPASTName",
-                                             IsQualified: false,
                                              LocOffsetEnd: 299,
                                              LocOffsetStart: 296,
                                              Name: "std",
                                           },
                                           {
                                              IASTClass: "CPPASTName",
-                                             IsQualified: true,
                                              LocOffsetEnd: 305,
                                              LocOffsetStart: 301,
                                              Name: "cout",
@@ -800,7 +778,6 @@
                                        'Prop_Qualifier': [
                                           {
                                              IASTClass: "CPPASTName",
-                                             IsQualified: false,
                                              LocOffsetEnd: 299,
                                              LocOffsetStart: 296,
                                              Name: "std",
@@ -846,7 +823,6 @@
                                     LocOffsetStart: 321,
                                     'Prop_Name': {
                                        IASTClass: "CPPASTName",
-                                       IsQualified: false,
                                        LocOffsetEnd: 325,
                                        LocOffsetStart: 321,
                                        Name: "door",
@@ -894,7 +870,6 @@
                                        LocOffsetStart: 340,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 344,
                                           LocOffsetStart: 340,
                                           Name: "door",
@@ -909,7 +884,6 @@
                                        LocOffsetStart: 332,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 339,
                                           LocOffsetStart: 332,
                                           Name: "is_open",
@@ -924,7 +898,6 @@
                                        LocOffsetStart: 340,
                                        'Prop_Name': {
                                           IASTClass: "CPPASTName",
-                                          IsQualified: false,
                                           LocOffsetEnd: 344,
                                           LocOffsetStart: 340,
                                           Name: "door",
@@ -966,21 +939,18 @@
                               IASTClass: "CPPASTQualifiedName",
                               IsConversionOperator: false,
                               IsFullyQualified: false,
-                              IsQualified: false,
                               LocOffsetEnd: 388,
                               LocOffsetStart: 379,
                               Name: "std::endl",
                               'Prop_AllSegments': [
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 382,
                                     LocOffsetStart: 379,
                                     Name: "std",
                                  },
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: true,
                                     LocOffsetEnd: 388,
                                     LocOffsetStart: 384,
                                     Name: "endl",
@@ -989,7 +959,6 @@
                               'Prop_Qualifier': [
                                  {
                                     IASTClass: "CPPASTName",
-                                    IsQualified: false,
                                     LocOffsetEnd: 382,
                                     LocOffsetStart: 379,
                                     Name: "std",
@@ -1026,7 +995,6 @@
                         LocOffsetStart: 272,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 276,
                            LocOffsetStart: 272,
                            Name: "door",
@@ -1107,7 +1075,6 @@
                               },
                               'Prop_Name': {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: false,
                                  LocOffsetEnd: 266,
                                  LocOffsetStart: 262,
                                  Name: "door",
@@ -1133,7 +1100,6 @@
                         LocOffsetStart: 286,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 290,
                            LocOffsetStart: 286,
                            Name: "door",
@@ -1204,7 +1170,6 @@
             LocOffsetStart: 26,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 30,
                LocOffsetStart: 26,
                Name: "main",

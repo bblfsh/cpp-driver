@@ -10,7 +10,6 @@
          LocOffsetStart: 20,
          'Prop_QualifiedName': {
             IASTClass: "CPPASTName",
-            IsQualified: false,
             LocOffsetEnd: 39,
             LocOffsetStart: 36,
             Name: "std",
@@ -58,7 +57,6 @@
                         LocOffsetStart: 59,
                         'Prop_Name': {
                            IASTClass: "CPPASTName",
-                           IsQualified: false,
                            LocOffsetEnd: 63,
                            LocOffsetStart: 59,
                            Name: "cout",
@@ -138,7 +136,6 @@
             LocOffsetStart: 46,
             'Prop_Name': {
                IASTClass: "CPPASTName",
-               IsQualified: false,
                LocOffsetEnd: 50,
                LocOffsetStart: 46,
                Name: "main",
