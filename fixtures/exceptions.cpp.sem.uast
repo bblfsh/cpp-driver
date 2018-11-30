@@ -1219,7 +1219,7 @@
       },
    ],
    'Prop_PreprocStatements': [
-      { '@type': "uast:Import",
+      { '@type': "uast:InlineImport",
          '@pos': { '@type': "uast:Positions",
             start: { '@type': "uast:Position",
                offset: 0,
