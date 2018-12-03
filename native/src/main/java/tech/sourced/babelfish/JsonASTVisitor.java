@@ -1,7 +1,6 @@
 package tech.sourced.babelfish;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonGenerationException;
 import org.eclipse.cdt.core.dom.ast.*;
 import org.eclipse.cdt.core.dom.ast.c.*;
 import org.eclipse.cdt.core.dom.ast.cpp.*;
@@ -9,13 +8,11 @@ import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
 import java.util.HashSet;
 import java.lang.Comparable;
-import java.lang.Math;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,14 +22,13 @@ import java.lang.reflect.InvocationTargetException;
 /// for every derived node because while IASTNode.getChildren will return all the
 /// children that derive for IASTNode (including all the ones returned by any method
 /// of that node returning an IASTNode-derived object), a lot of nodes also have
-/// other methods that return something not derived from IASTNode and this not returned
+/// other methods that return something not derived from IASTNode and thus not returned
 /// by getChildren. So for all these IASTNode subinterfaces we must call and store the
 /// value of those non-IASTNode-returning methods. The most infamous is probably the
 /// getOperator of some nodes that return an int than then you have to match in a switch
 /// because the possible values are not even declarated in an enum but as final int
-/// class members (thank god for [Idea]Vim macros!).
+/// class members.
 
-// Many Bothan agents died to bring us this class
 public class JsonASTVisitor extends ASTVisitor {
 
     private JsonGenerator json;
