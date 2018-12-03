@@ -2,7 +2,9 @@ package normalizer
 
 import (
 	"gopkg.in/bblfsh/sdk.v2/uast"
+	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
 	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
+	"strings"
 )
 
 var Preprocess = Transformers([][]Transformer{
@@ -29,13 +31,61 @@ var Preprocessors = []Mapping{
 func mapIASTNameDerived(typ string) Mapping {
 	return MapSemantic(typ, uast.Identifier{}, MapObj(
 		Obj{
-			"Name":        Var("name"),
+			"Name": Var("name"),
 		},
 		Obj{
 			"Name": Var("name"),
 		},
 	))
 }
+
+type opJoinNamesArray struct {
+	qualified Op
+}
+
+func (op opJoinNamesArray) Kinds() nodes.Kind {
+	return nodes.KindString
+}
+
+func (op opJoinNamesArray) Check(st *State, n nodes.Node) (bool, error) {
+	res, err := op.qualified.Check(st, n)
+	if err != nil || !res {
+		return false, err
+	}
+
+	return true, nil
+}
+
+func (op opJoinNamesArray) Construct(st *State, n nodes.Node) (nodes.Node, error) {
+	names, err := op.qualified.Construct(st, n)
+	if err != nil || names == nil {
+		return n, err
+	}
+
+	namesarr, ok := names.(nodes.Array)
+	if !ok && namesarr != nil {
+		return nil, ErrExpectedList.New(namesarr)
+	}
+
+	var tokens []string
+	for _, ident := range namesarr {
+		idento, ok := ident.(nodes.Object)
+		if !ok {
+			return nil, ErrExpectedObject.New(ident)
+		}
+
+		strname, ok := idento["Name"].(nodes.String)
+		if !ok {
+			return nil, ErrExpectedValue.New(idento["Name"])
+		}
+
+		tokens = append(tokens, string(strname))
+	}
+
+	return nodes.String(strings.Join(tokens, "::")), nil
+}
+
+var _ Op = opJoinNamesArray{}
 
 var Normalizers = []Mapping{
 
@@ -94,8 +144,8 @@ var Normalizers = []Mapping{
 
 	// Args in C can have type but be empty (typically in headers, but also in implementations): int main(int, char**)
 	Map(Obj{
-		"IASTClass":   String("CPPASTName"),
-		"Name":        String(""),
+		"IASTClass": String("CPPASTName"),
+		"Name":      String(""),
 	}, Obj{
 		uast.KeyType: String("uast:Identifier"),
 		"Name":       String(""),
@@ -103,8 +153,8 @@ var Normalizers = []Mapping{
 
 	mapIASTNameDerived("CPPASTName"),
 	mapIASTNameDerived("CPPASTOperatorName"),
-    AnnotateType("CPPASTTemplateId", MapObj(
-    	Obj{
+	AnnotateType("CPPASTTemplateId", MapObj(
+		Obj{
 			"Name": Var("name"),
 		},
 		Obj{
@@ -137,7 +187,7 @@ var Normalizers = []Mapping{
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "Name", Op: Obj{
 						uast.KeyType: String("uast:Identifier"),
-						"Name": Var("name"),
+						"Name":       Var("name"),
 					}},
 					{Name: "Prop_TemplateArguments", Op: AnyNode(nil)},
 					{Name: "Prop_TemplateName", Op: AnyNode(nil)},
@@ -147,7 +197,7 @@ var Normalizers = []Mapping{
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "Name", Op: Obj{
 						uast.KeyType: String("uast.Identifier"),
-						"Name": Var("name"),
+						"Name":       Var("name"),
 					}},
 				},
 			)),
@@ -227,7 +277,7 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyType, Op: String("uast:QualifiedIdentifier")},
 						{Name: uast.KeyPos, Op: AnyNode(nil)},
 						// FIXME: join the Names into a single string
-						{Name: "Names", Op: Var("name")},
+						{Name: "Names", Op: Var("qualnames")},
 					},
 				)},
 
@@ -260,9 +310,18 @@ var Normalizers = []Mapping{
 		Obj{
 			"Nodes": Arr(
 				UASTType(uast.Alias{}, Obj{
-					"Name": UASTType(uast.Identifier{}, Obj{
-						"Name": Var("name"),
-					}),
+					"Name": UASTType(uast.Identifier{}, CasesObj("caseName", Obj{},
+						Objs{
+							// Normal Identifier
+							{
+								"Name": Var("name"),
+							},
+							// Qualified Identifier
+							{
+								"Name": opJoinNamesArray{qualified: Var("qualnames")},
+							},
+						},
+					)),
 
 					"Node": UASTType(uast.Function{}, Fields{
 						{Name: "Body", Optional: "optBody", Op: Var("body")},
@@ -309,4 +368,5 @@ var Normalizers = []Mapping{
 				}),
 			),
 		},
-	))}
+	)),
+	}

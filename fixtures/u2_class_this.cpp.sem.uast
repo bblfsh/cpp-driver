@@ -248,14 +248,7 @@
          Nodes: [
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
-                  Name: [
-                     { '@type': "uast:Identifier",
-                        Name: "testcls1",
-                     },
-                     { '@type': "uast:Identifier",
-                        Name: "testfnc1",
-                     },
-                  ],
+                  Name: "testcls1::testfnc1",
                },
                Node: { '@type': "uast:Function",
                   Body: { '@type': "uast:Block",

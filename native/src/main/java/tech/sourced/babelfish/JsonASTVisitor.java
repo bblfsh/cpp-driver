@@ -1407,7 +1407,6 @@ public class JsonASTVisitor extends ASTVisitor {
     private void storeMacroExpansions(IASTTranslationUnit unit) {
         IASTPreprocessorMacroExpansion[] expansions = unit.getMacroExpansions();
 
-        // FIXME XXX free after use
         for (IASTPreprocessorMacroExpansion exp : expansions) {
             macroExpansionContainer.add(exp);
         }
