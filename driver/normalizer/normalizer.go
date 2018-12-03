@@ -369,4 +369,4 @@ var Normalizers = []Mapping{
 			),
 		},
 	)),
-	}
+}
