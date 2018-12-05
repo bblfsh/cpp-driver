@@ -94,8 +94,8 @@ var Normalizers = []Mapping{
 			"Name": Var("path"),
 		},
 		Obj{
-			"Path":  UASTType(uast.String{}, Obj{
-				"Value": Var("path"),
+			"Path": UASTType(uast.String{}, Obj{
+				"Value":  Var("path"),
 				"Format": String(""),
 			}),
 			"All":   Bool(true),
@@ -220,6 +220,53 @@ var Normalizers = []Mapping{
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
+				// FIXME XXX: use an Or("void", "unspecified") or the equivalent
+				// void
+				Fields{
+					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
+					{Name: "IsComplex", Op: AnyNode(nil)},
+					{Name: "IsConst", Op: AnyNode(nil)},
+					{Name: "IsConstExpr", Op: AnyNode(nil)},
+					{Name: "IsExplicit", Op: AnyNode(nil)},
+					{Name: "IsFriend", Op: AnyNode(nil)},
+					{Name: "IsImaginary", Op: AnyNode(nil)},
+					{Name: "IsInline", Op: AnyNode(nil)},
+					{Name: "IsLong", Op: AnyNode(nil)},
+					{Name: "IsLongLong", Op: AnyNode(nil)},
+					{Name: "IsRestrict", Op: AnyNode(nil)},
+					{Name: "IsShort", Op: AnyNode(nil)},
+					{Name: "IsSigned", Op: AnyNode(nil)},
+					{Name: "IsThreadLocal", Op: AnyNode(nil)},
+					{Name: "IsUnsigned", Op: AnyNode(nil)},
+					{Name: "IsVirtual", Op: AnyNode(nil)},
+					{Name: "IsVolatile", Op: AnyNode(nil)},
+					{Name: "StorageClass", Op: AnyNode(nil)},
+					{Name: "Type", Op: String("void")},
+				},
+				// unspecified (ie constructor/destructors)
+				Fields{
+					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
+					{Name: "IsComplex", Op: AnyNode(nil)},
+					{Name: "IsConst", Op: AnyNode(nil)},
+					{Name: "IsConstExpr", Op: AnyNode(nil)},
+					{Name: "IsExplicit", Op: AnyNode(nil)},
+					{Name: "IsFriend", Op: AnyNode(nil)},
+					{Name: "IsImaginary", Op: AnyNode(nil)},
+					{Name: "IsInline", Op: AnyNode(nil)},
+					{Name: "IsLong", Op: AnyNode(nil)},
+					{Name: "IsLongLong", Op: AnyNode(nil)},
+					{Name: "IsRestrict", Op: AnyNode(nil)},
+					{Name: "IsShort", Op: AnyNode(nil)},
+					{Name: "IsSigned", Op: AnyNode(nil)},
+					{Name: "IsThreadLocal", Op: AnyNode(nil)},
+					{Name: "IsUnsigned", Op: AnyNode(nil)},
+					{Name: "IsVirtual", Op: AnyNode(nil)},
+					{Name: "IsVolatile", Op: AnyNode(nil)},
+					{Name: "StorageClass", Op: AnyNode(nil)},
+					{Name: "Type", Op: String("unspecified")},
+				},
 				Fields{
 					// simpledeclspecifier
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
@@ -340,20 +387,22 @@ var Normalizers = []Mapping{
 						{Name: "Body", Optional: "optBody", Op: Var("body")},
 
 						{Name: "Type", Op: UASTType(uast.FunctionType{}, Fields{
-							{Name: "Returns", Op: Arr(UASTType(uast.Argument{}, CasesObj("retTypeCase", Obj{},
-								Objs{
-									// SimpleDeclSpecifier
-									{
+							{Name: "Returns", Op: Cases("retTypeCase",
+								// void or unspecified
+								AnyNode(nil),
+								AnyNode(nil),
+								// SimpleDeclSpecifier
+								Arr(UASTType(uast.Argument{},
+									Obj{
 										"Type": UASTType(uast.Identifier{}, Obj{
 											"Name": Var("retType"),
-										}),
-									},
-									// NamedTypeSpecifier
-									{
+										})})),
+								// NamedTypeSpecifier
+								Arr(UASTType(uast.Argument{},
+									Obj{
 										"Type": Var("retType"),
-									},
-								},
-							)))},
+									})),
+							)},
 
 							{Name: "Arguments", Optional: "optArgs", Op: Cases("takesVarArgs",
 								// False, no varargs
