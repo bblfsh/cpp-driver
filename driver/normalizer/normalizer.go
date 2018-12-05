@@ -64,6 +64,26 @@ func (op opJoinNamesArray) Kinds() nodes.Kind {
 }
 
 func (op opJoinNamesArray) Check(st *State, n nodes.Node) (bool, error) {
+	// Reverse op: split string into Identifiers, load the QualifiedIdentifer and check it.
+	s, ok := n.(nodes.String)
+	if !ok {
+		return false, ErrExpectedValue.New(n)
+	}
+
+	tokens := strings.Split(string(s), "::")
+	var qual = uast.QualifiedIdentifier{}
+
+	for _, t := range tokens {
+		//id := Obj(nil)
+		id := uast.Identifier{Name: t}
+		qual.Names = append(qual.Names, id)
+	}
+
+	n, err := uast.ToNode(qual)
+	if err != nil {
+		return false, err
+	}
+
 	res, err := op.qualified.Check(st, n)
 	if err != nil || !res {
 		return false, err
