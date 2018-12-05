@@ -176,7 +176,7 @@
                      ExpressionValueCategory: "LVALUE",
                      IsLValue: true,
                      'Prop_InitOperand2': { '@type': "CPPASTCastExpression",
-                        '@role': [Binary, Expression, Incomplete, Right],
+                        '@role': [Binary, Expression, Incomplete, Initialization, Right],
                         '@pos': { '@type': "uast:Positions",
                            start: { '@type': "uast:Position",
                               offset: 28,

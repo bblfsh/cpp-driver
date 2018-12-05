@@ -443,7 +443,7 @@
                               IsLValue: true,
                               'Prop_InitOperand2': { '@type': "cpp:CPPASTLiteralExpression",
                                  '@token': "10",
-                                 '@role': [Binary, Expression, Literal, Number, Right],
+                                 '@role': [Binary, Expression, Incomplete, Initialization, Literal, Number, Right],
                                  '@pos': { '@type': "uast:Positions",
                                     start: { '@type': "uast:Position",
                                        offset: 84,

@@ -264,7 +264,8 @@ var Annotations = []Mapping{
 		uast.KeyToken: Var("operator"),
 		"Prop_Operand1": ObjectRoles("operand1", role.Binary, role.Expression, role.Left),
 		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
-		"Prop_InitOperand2": ObjectRoles("init_operand2", role.Binary, role.Expression, role.Right),
+		"Prop_InitOperand2": ObjectRoles("init_operand2", role.Binary, role.Expression, role.Right,
+			role.Initialization, role.Incomplete),
 	}), LookupArrOpVar("operator", binaryExprRoles)),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment,

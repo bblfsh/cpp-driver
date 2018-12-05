@@ -94,9 +94,12 @@ var Normalizers = []Mapping{
 			"Name": Var("path"),
 		},
 		Obj{
-			"Path":  UASTType(uast.Identifier{}, Obj{"Name": Var("path")}),
+			"Path":  UASTType(uast.String{}, Obj{
+				"Value": Var("path"),
+				"Format": String(""),
+			}),
 			"All":   Bool(true),
-			"Names": Arr(),
+			"Names": Is(nil),
 		},
 	)),
 
@@ -148,8 +151,15 @@ var Normalizers = []Mapping{
 		"Name":      String(""),
 	}, Obj{
 		uast.KeyType: String("uast:Identifier"),
-		"Name":       String(""),
+		"Name":       Is(nil),
 	}),
+
+	Map(Obj{
+		"IASTClass": String("CPPASTName"),
+		"Name":      String(""),
+	},
+		Is(nil),
+	),
 
 	mapIASTNameDerived("CPPASTName"),
 	mapIASTNameDerived("CPPASTOperatorName"),
@@ -179,7 +189,7 @@ var Normalizers = []Mapping{
 			"Prop_AllSegments": Each("qualParts", Cases("caseQualParts",
 				Fields{
 					{Name: uast.KeyType, Op: String("uast:Identifier")},
-					{Name: uast.KeyPos, Op: Var("qualItemPos")},
+					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "Name", Op: Var("name")},
 				},
 				Fields{
@@ -204,6 +214,7 @@ var Normalizers = []Mapping{
 		},
 		Obj{
 			"Names": Each("qualParts",
+				// "caseQualParts" ommited since all 3 cases extract the "name" variable
 				UASTType(uast.Identifier{}, Obj{
 					"Name": Var("name"),
 				})),
@@ -218,6 +229,7 @@ var Normalizers = []Mapping{
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
 				Fields{
+					// simpledeclspecifier
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "IsComplex", Op: AnyNode(nil)},
@@ -240,6 +252,7 @@ var Normalizers = []Mapping{
 					{Name: "Type", Op: Var("retType")},
 				},
 				Fields{
+					// namedtypespecifier
 					{Name: uast.KeyType, Op: String("CPPASTNamedTypeSpecifier")},
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: Var("StorageClass")},
@@ -290,6 +303,19 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyType, Op: String("CPPASTDeclarator")},
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
+						//{Name: "Prop_Name", Op: Cases("caseParamsName",
+						//	// Named argument
+						//	Fields{
+						//		{Name: uast.KeyType, Op: String("uast:Identifier")},
+						//		{Name: uast.KeyPos, Op: Is(nil)},
+						//		{Name: "Name", Op: Var("aname")},
+						//	},
+						//	// Unnamed argument
+						//	Fields{
+						//		{Name: uast.KeyType, Op: String("CPPASTName")},
+						//		{Name: "Name", Op: String("")},
+						//	},
+						//)},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
 						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
@@ -346,6 +372,10 @@ var Normalizers = []Mapping{
 								// False, no varargs
 								Each("args", UASTType(uast.Argument{}, Obj{
 									"Name": Var("aname"),
+									//"Name": Cases("caseParamsName",
+									//	Var("aname"),
+									//	Is(nil),
+									//),
 									"Type": Var("atype"),
 									"Init": If("optInitializer", Var("ainit"), Is(nil)),
 								})),

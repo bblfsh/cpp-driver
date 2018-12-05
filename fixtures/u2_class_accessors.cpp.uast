@@ -623,7 +623,7 @@
                      ExpressionValueCategory: "LVALUE",
                      IsLValue: true,
                      'Prop_InitOperand2': { '@type': "CPPASTIdExpression",
-                        '@role': [Binary, Expression, Right, Variable],
+                        '@role': [Binary, Expression, Incomplete, Initialization, Right, Variable],
                         '@pos': { '@type': "uast:Positions",
                            start: { '@type': "uast:Position",
                               offset: 155,

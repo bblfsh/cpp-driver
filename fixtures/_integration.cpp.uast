@@ -79,7 +79,7 @@
                      IsLValue: false,
                      'Prop_InitOperand2': { '@type': "CPPASTLiteralExpression",
                         '@token': "\"Hello, World!\"",
-                        '@role': [Binary, Expression, Literal, Right, String],
+                        '@role': [Binary, Expression, Incomplete, Initialization, Literal, Right, String],
                         '@pos': { '@type': "uast:Positions",
                            start: { '@type': "uast:Position",
                               offset: 51,

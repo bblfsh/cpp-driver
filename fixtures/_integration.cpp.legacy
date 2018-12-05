@@ -271,7 +271,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  1: CPPASTLiteralExpression {
-.  .  .  .  .  .  .  .  .  .  .  Roles: Expression,Literal,String,Binary,Right
+.  .  .  .  .  .  .  .  .  .  .  Roles: Expression,Literal,String,Binary,Right,Initialization,Incomplete
 .  .  .  .  .  .  .  .  .  .  .  TOKEN ""Hello, World!""
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  .  .  Offset: 51

@@ -54,7 +54,7 @@
             IsVolatile: false,
             Key: "class",
             'Prop_Name': { '@type': "uast:Identifier",
-               Name: "",
+               Name: ~,
             },
             StorageClass: "unspecified",
          },
