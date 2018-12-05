@@ -31,6 +31,7 @@ var Suite = &fixtures.Suite{
 			"CPPASTCompoundStatement",
 			"CPPASTQualifiedName",
 			"CPPASTFunctionDefinition",
+			"ASTInclusionStatement",
 		},
 	},
 	Docker:fixtures.DockerConfig{

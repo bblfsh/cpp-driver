@@ -52,7 +52,7 @@
          Names: ~,
          Path: { '@type': "uast:String",
             Format: "",
-            Value: "foo/bar/baz.h",
+            Value: "./foo/bar/baz.h",
          },
          Target: ~,
       },

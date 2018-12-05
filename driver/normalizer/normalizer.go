@@ -39,6 +39,22 @@ func mapIASTNameDerived(typ string) Mapping {
 	))
 }
 
+func prependDotSlash(path string) (string, error) {
+	return "./" + path, nil
+}
+
+var _ StringFunc = prependDotSlash
+
+func removeDotSlash(path string) (string, error) {
+	if strings.HasPrefix(path, "./") {
+		return path[2 : len(path)-1], nil
+	}
+
+	return path, nil
+}
+
+var _ StringFunc = removeDotSlash
+
 type opJoinNamesArray struct {
 	qualified Op
 }
@@ -90,12 +106,20 @@ var _ Op = opJoinNamesArray{}
 var Normalizers = []Mapping{
 
 	MapSemantic("ASTInclusionStatement", uast.InlineImport{}, MapObj(
-		Obj{
-			"Name": Var("path"),
-		},
+		CasesObj("isSystemCase", Obj{},
+			Objs{
+				{
+					"Name":     Var("path"),
+					"IsSystem": Bool(true),
+				},
+				{
+					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
+					"IsSystem": Bool(false),
+				},
+			}),
 		Obj{
 			"Path": UASTType(uast.String{}, Obj{
-				"Value":  Var("path"),
+				"Value": Var("path"),
 				"Format": String(""),
 			}),
 			"All":   Bool(true),
