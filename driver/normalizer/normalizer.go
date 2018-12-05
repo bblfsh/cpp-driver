@@ -74,7 +74,6 @@ func (op opJoinNamesArray) Check(st *State, n nodes.Node) (bool, error) {
 	var qual = uast.QualifiedIdentifier{}
 
 	for _, t := range tokens {
-		//id := Obj(nil)
 		id := uast.Identifier{Name: t}
 		qual.Names = append(qual.Names, id)
 	}
