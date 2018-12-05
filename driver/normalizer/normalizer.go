@@ -149,14 +149,6 @@ var Normalizers = []Mapping{
 	Map(Obj{
 		"IASTClass": String("CPPASTName"),
 		"Name":      String(""),
-	}, Obj{
-		uast.KeyType: String("uast:Identifier"),
-		"Name":       Is(nil),
-	}),
-
-	Map(Obj{
-		"IASTClass": String("CPPASTName"),
-		"Name":      String(""),
 	},
 		Is(nil),
 	),
@@ -281,11 +273,15 @@ var Normalizers = []Mapping{
 				{Name: "IsVolatile", Op: AnyNode(nil)},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
+					// Empty identifier
+					Is(nil),
+					// Normal identifier
 					Fields{
 						{Name: uast.KeyType, Op: String("uast:Identifier")},
 						{Name: uast.KeyPos, Op: AnyNode(nil)},
 						{Name: "Name", Op: Var("name")},
 					},
+					// Qualified identifier
 					Fields{
 						{Name: uast.KeyType, Op: String("uast:QualifiedIdentifier")},
 						{Name: uast.KeyPos, Op: AnyNode(nil)},
@@ -303,19 +299,6 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyType, Op: String("CPPASTDeclarator")},
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
-						//{Name: "Prop_Name", Op: Cases("caseParamsName",
-						//	// Named argument
-						//	Fields{
-						//		{Name: uast.KeyType, Op: String("uast:Identifier")},
-						//		{Name: uast.KeyPos, Op: Is(nil)},
-						//		{Name: "Name", Op: Var("aname")},
-						//	},
-						//	// Unnamed argument
-						//	Fields{
-						//		{Name: uast.KeyType, Op: String("CPPASTName")},
-						//		{Name: "Name", Op: String("")},
-						//	},
-						//)},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
 						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
@@ -338,6 +321,10 @@ var Normalizers = []Mapping{
 				UASTType(uast.Alias{}, Obj{
 					"Name": UASTType(uast.Identifier{}, CasesObj("caseName", Obj{},
 						Objs{
+							// Empty identifier
+							{
+								"Name": AnyNode(nil),
+							},
 							// Normal Identifier
 							{
 								"Name": Var("name"),

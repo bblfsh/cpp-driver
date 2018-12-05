@@ -251,6 +251,8 @@ var Annotations = []Mapping{
 		"Prop_Name": {Roles: role.Roles{role.Function, role.Declaration, role.Name}},
 	}, role.Function, role.Declaration),
 
+	AnnotateType("CPPASTFunctionDeclarator", nil, role.Function, role.Declaration),
+
 	AnnotateType("CPPASTReturnStatement", ObjRoles{
 		"Prop_ReturnArgument": {role.Return, role.Value},
 	}, role.Statement, role.Return),
