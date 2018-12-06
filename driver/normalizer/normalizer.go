@@ -78,7 +78,7 @@ func (op opJoinNamesArray) Check(st *State, n nodes.Node) (bool, error) {
 		qual.Names = append(qual.Names, id)
 	}
 
-	n, err := uast.ToNode(qual)
+	n, err := uast.ToNode(qual.Names)
 	if err != nil {
 		return false, err
 	}
