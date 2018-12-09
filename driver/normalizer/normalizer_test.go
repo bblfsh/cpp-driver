@@ -44,5 +44,5 @@ func TestOpJoinNamesArray(t *testing.T) {
 	n4, ok := n3.(nodes.String)
 	require.True(t, ok)
 	require.Equal(t, n1, n4)
-	require.Equal(t, string(n4), "a::b::c")
+	require.Equal(t, "a::b::c", string(n4))
 }

@@ -71,14 +71,14 @@ func (op opJoinNamesArray) Check(st *State, n nodes.Node) (bool, error) {
 	}
 
 	tokens := strings.Split(string(s), "::")
-	var qual = uast.QualifiedIdentifier{}
+	var names []uast.Identifier
 
 	for _, t := range tokens {
 		id := uast.Identifier{Name: t}
-		qual.Names = append(qual.Names, id)
+		names = append(names, id)
 	}
 
-	n, err := uast.ToNode(qual.Names)
+	n, err := uast.ToNode(names)
 	if err != nil {
 		return false, err
 	}

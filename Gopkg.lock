@@ -29,12 +29,6 @@
   revision = "cd527374f1e5bff4938207604a14f2e38a9cf512"
 
 [[projects]]
-  name = "github.com/bblfsh/sdk"
-  packages = ["."]
-  revision = "1359c9931edf588eb90360a21dc693225ca08e0e"
-  version = "v0.1.0"
-
-[[projects]]
   branch = "master"
   name = "github.com/codahale/hdrhistogram"
   packages = ["."]
@@ -395,6 +389,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1c2e62da28b06378c76a2262bf659b618fd2f789442393cdf6946f1a5ccb20fc"
+  inputs-digest = "4496544751560ce929a407cbbc93e04d1a861fec3be82b3dea7de26b7547389d"
   solver-name = "gps-cdcl"
   solver-version = 1
