@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTNamedTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
             IsTypeName: false,
+            IsVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 4,
             LocOffsetStart: 0,
             'Prop_Name': {
@@ -33,7 +42,7 @@
                   LocOffsetStart: 9,
                   'Prop_Clauses': [
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -51,7 +60,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -76,7 +85,7 @@
                         },
                      },
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -94,7 +103,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -119,7 +128,7 @@
                         },
                      },
                      {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTBinaryExpression",
                         IsLValue: true,
@@ -137,7 +146,7 @@
                            kind: "integer_constant",
                         },
                         'Prop_Operand1': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "PRVALUE",
                            IASTClass: "CPPASTIdExpression",
                            IsLValue: false,
@@ -166,7 +175,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -184,7 +193,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -209,7 +218,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -227,7 +236,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -255,7 +264,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -273,7 +282,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -298,7 +307,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -316,7 +325,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -344,7 +353,7 @@
                      {
                         IASTClass: "CPPASTEqualsInitializer",
                         'Prop_Expression': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -362,7 +371,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -387,7 +396,7 @@
                            },
                         },
                         'Prop_InitializerClause': {
-                           ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                           ExpressionType: "",
                            ExpressionValueCategory: "LVALUE",
                            IASTClass: "CPPASTBinaryExpression",
                            IsLValue: true,
@@ -405,7 +414,7 @@
                               kind: "integer_constant",
                            },
                            'Prop_Operand1': {
-                              ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                              ExpressionType: "",
                               ExpressionValueCategory: "PRVALUE",
                               IASTClass: "CPPASTIdExpression",
                               IsLValue: false,
@@ -464,6 +473,15 @@
                      LocOffsetStart: 62,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTElaboratedTypeSpecifier",
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsInline: false,
+                        IsRestrict: false,
+                        IsThreadLocal: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         Kind: "enum",
                         LocOffsetEnd: 70,
                         LocOffsetStart: 62,
@@ -497,7 +515,7 @@
                   LocOffsetEnd: 89,
                   LocOffsetStart: 76,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "LVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: true,
@@ -505,7 +523,7 @@
                      LocOffsetStart: 76,
                      Operator: "=",
                      'Prop_InitOperand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -527,7 +545,6 @@
                               },
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: true,
                                  LocOffsetEnd: 88,
                                  LocOffsetStart: 85,
                                  Name: "bar",
@@ -544,7 +561,7 @@
                         },
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: true,
@@ -558,7 +575,7 @@
                         },
                      },
                      'Prop_Operand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -580,7 +597,6 @@
                               },
                               {
                                  IASTClass: "CPPASTName",
-                                 IsQualified: true,
                                  LocOffsetEnd: 88,
                                  LocOffsetStart: 85,
                                  Name: "bar",
@@ -603,7 +619,7 @@
                   LocOffsetEnd: 100,
                   LocOffsetStart: 92,
                   'Prop_Expression': {
-                     ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                     ExpressionType: "",
                      ExpressionValueCategory: "LVALUE",
                      IASTClass: "CPPASTBinaryExpression",
                      IsLValue: true,
@@ -611,7 +627,7 @@
                      LocOffsetStart: 92,
                      Operator: "=",
                      'Prop_InitOperand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -625,7 +641,7 @@
                         },
                      },
                      'Prop_Operand1': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "LVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: true,
@@ -639,7 +655,7 @@
                         },
                      },
                      'Prop_Operand2': {
-                        ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                        ExpressionType: "",
                         ExpressionValueCategory: "PRVALUE",
                         IASTClass: "CPPASTIdExpression",
                         IsLValue: false,
@@ -658,6 +674,22 @@
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
+            IsComplex: false,
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
+            IsFriend: false,
+            IsImaginary: false,
+            IsInline: false,
+            IsLong: false,
+            IsLongLong: false,
+            IsRestrict: false,
+            IsShort: false,
+            IsSigned: false,
+            IsThreadLocal: false,
+            IsUnsigned: false,
+            IsVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 50,
             LocOffsetStart: 47,
             StorageClass: "unspecified",
@@ -665,6 +697,12 @@
          },
          'Prop_Declarator': {
             IASTClass: "CPPASTFunctionDeclarator",
+            IsConst: false,
+            IsFinal: false,
+            IsMutable: false,
+            IsOverride: false,
+            IsPureVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 57,
             LocOffsetStart: 51,
             'Prop_Name': {
@@ -677,4 +715,5 @@
          },
       },
    ],
+   'Prop_PreprocStatements': [],
 }

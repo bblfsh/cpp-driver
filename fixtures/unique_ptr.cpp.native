@@ -2,7 +2,6 @@
    IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 176,
    LocOffsetStart: 0,
-   'Prop_AllPreprocessorStatements': [],
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Declarations': [
       {
@@ -11,7 +10,16 @@
          LocOffsetStart: 19,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "struct",
             LocOffsetEnd: 32,
             LocOffsetStart: 19,
@@ -45,6 +53,22 @@
                      LocOffsetStart: 50,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTSimpleDeclSpecifier",
+                        IsComplex: false,
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsImaginary: false,
+                        IsInline: false,
+                        IsLong: false,
+                        IsLongLong: false,
+                        IsRestrict: false,
+                        IsShort: false,
+                        IsSigned: false,
+                        IsThreadLocal: false,
+                        IsUnsigned: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 54,
                         LocOffsetStart: 50,
                         StorageClass: "unspecified",
@@ -61,7 +85,7 @@
                               LocOffsetEnd: 92,
                               LocOffsetStart: 61,
                               'Prop_Expression': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTBinaryExpression",
                                  IsLValue: false,
@@ -85,16 +109,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 91,
                                        LocOffsetStart: 84,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 91,
-                                             LocOffsetStart: 88,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 91,
@@ -112,7 +126,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 88,
                                              'Prop_Name': {
@@ -128,7 +151,7 @@
                                     operator: "op_bracketedPrimary",
                                  },
                                  'Prop_Operand1': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTBinaryExpression",
                                     IsLValue: false,
@@ -136,7 +159,7 @@
                                     LocOffsetStart: 63,
                                     Operator: "<",
                                     'Prop_InitOperand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -150,7 +173,7 @@
                                        },
                                     },
                                     'Prop_Operand1': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -172,7 +195,6 @@
                                              },
                                              {
                                                 IASTClass: "CPPASTName",
-                                                IsQualified: true,
                                                 LocOffsetEnd: 78,
                                                 LocOffsetStart: 68,
                                                 Name: "unique_ptr",
@@ -189,7 +211,7 @@
                                        },
                                     },
                                     'Prop_Operand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -220,16 +242,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 91,
                                        LocOffsetStart: 84,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 91,
-                                             LocOffsetStart: 88,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 91,
@@ -247,7 +259,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 88,
                                              'Prop_Name': {
@@ -264,7 +285,7 @@
                                  },
                               },
                               'Prop_InitializerClause': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTBinaryExpression",
                                  IsLValue: false,
@@ -288,16 +309,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 91,
                                        LocOffsetStart: 84,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 91,
-                                             LocOffsetStart: 88,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 91,
@@ -315,7 +326,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 88,
                                              'Prop_Name': {
@@ -331,7 +351,7 @@
                                     operator: "op_bracketedPrimary",
                                  },
                                  'Prop_Operand1': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTBinaryExpression",
                                     IsLValue: false,
@@ -339,7 +359,7 @@
                                     LocOffsetStart: 63,
                                     Operator: "<",
                                     'Prop_Operand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -370,16 +390,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 91,
                                        LocOffsetStart: 84,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 91,
-                                             LocOffsetStart: 88,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 91,
@@ -397,7 +407,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 91,
                                              LocOffsetStart: 88,
                                              'Prop_Name': {
@@ -435,6 +454,22 @@
                      LocOffsetStart: 96,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTSimpleDeclSpecifier",
+                        IsComplex: false,
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsImaginary: false,
+                        IsInline: false,
+                        IsLong: false,
+                        IsLongLong: false,
+                        IsRestrict: false,
+                        IsShort: false,
+                        IsSigned: false,
+                        IsThreadLocal: false,
+                        IsUnsigned: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 100,
                         LocOffsetStart: 96,
                         StorageClass: "unspecified",
@@ -451,7 +486,7 @@
                               LocOffsetEnd: 139,
                               LocOffsetStart: 107,
                               'Prop_Expression': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTBinaryExpression",
                                  IsLValue: false,
@@ -475,16 +510,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 138,
                                        LocOffsetStart: 131,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 138,
-                                             LocOffsetStart: 135,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 138,
@@ -502,7 +527,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 138,
                                              LocOffsetStart: 135,
                                              'Prop_Name': {
@@ -518,7 +552,7 @@
                                     operator: "op_bracketedPrimary",
                                  },
                                  'Prop_Operand1': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTBinaryExpression",
                                     IsLValue: false,
@@ -526,7 +560,7 @@
                                     LocOffsetStart: 109,
                                     Operator: "<",
                                     'Prop_InitOperand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -540,7 +574,7 @@
                                        },
                                     },
                                     'Prop_Operand1': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -562,7 +596,6 @@
                                              },
                                              {
                                                 IASTClass: "CPPASTName",
-                                                IsQualified: true,
                                                 LocOffsetEnd: 125,
                                                 LocOffsetStart: 114,
                                                 Name: "make_unique",
@@ -579,7 +612,7 @@
                                        },
                                     },
                                     'Prop_Operand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -610,16 +643,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 138,
                                        LocOffsetStart: 131,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 138,
-                                             LocOffsetStart: 135,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 138,
@@ -637,7 +660,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 138,
                                              LocOffsetStart: 135,
                                              'Prop_Name': {
@@ -654,7 +686,7 @@
                                  },
                               },
                               'Prop_InitializerClause': {
-                                 ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                 ExpressionType: "",
                                  ExpressionValueCategory: "PRVALUE",
                                  IASTClass: "CPPASTBinaryExpression",
                                  IsLValue: false,
@@ -678,16 +710,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 138,
                                        LocOffsetStart: 131,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 138,
-                                             LocOffsetStart: 135,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 138,
@@ -705,7 +727,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 138,
                                              LocOffsetStart: 135,
                                              'Prop_Name': {
@@ -721,7 +752,7 @@
                                     operator: "op_bracketedPrimary",
                                  },
                                  'Prop_Operand1': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTBinaryExpression",
                                     IsLValue: false,
@@ -729,7 +760,7 @@
                                     LocOffsetStart: 109,
                                     Operator: "<",
                                     'Prop_InitOperand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -743,7 +774,7 @@
                                        },
                                     },
                                     'Prop_Operand1': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -765,7 +796,6 @@
                                              },
                                              {
                                                 IASTClass: "CPPASTName",
-                                                IsQualified: true,
                                                 LocOffsetEnd: 125,
                                                 LocOffsetStart: 114,
                                                 Name: "make_unique",
@@ -782,7 +812,7 @@
                                        },
                                     },
                                     'Prop_Operand2': {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: false,
@@ -813,16 +843,6 @@
                                        IsNewTypeId: true,
                                        LocOffsetEnd: 138,
                                        LocOffsetStart: 131,
-                                       'Prop_ImplicitNames': [
-                                          {
-                                             IASTClass: "CPPASTImplicitName",
-                                             IsAlternate: false,
-                                             IsOverloadedOperator: false,
-                                             LocOffsetEnd: 138,
-                                             LocOffsetStart: 135,
-                                             Name: "Foo",
-                                          },
-                                       ],
                                        'Prop_TypeId': {
                                           IASTClass: "CPPASTTypeId",
                                           LocOffsetEnd: 138,
@@ -840,7 +860,16 @@
                                           },
                                           'Prop_DeclSpecifier': {
                                              IASTClass: "CPPASTNamedTypeSpecifier",
+                                             IsConst: false,
+                                             IsConstExpr: false,
+                                             IsExplicit: false,
+                                             IsFriend: false,
+                                             IsInline: false,
+                                             IsRestrict: false,
+                                             IsThreadLocal: false,
                                              IsTypeName: false,
+                                             IsVirtual: false,
+                                             IsVolatile: false,
                                              LocOffsetEnd: 138,
                                              LocOffsetStart: 135,
                                              'Prop_Name': {
@@ -878,6 +907,22 @@
                      LocOffsetStart: 143,
                      'Prop_DeclSpecifier': {
                         IASTClass: "CPPASTSimpleDeclSpecifier",
+                        IsComplex: false,
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsImaginary: false,
+                        IsInline: false,
+                        IsLong: false,
+                        IsLongLong: false,
+                        IsRestrict: false,
+                        IsShort: false,
+                        IsSigned: false,
+                        IsThreadLocal: false,
+                        IsUnsigned: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
                         LocOffsetEnd: 147,
                         LocOffsetStart: 143,
                         StorageClass: "unspecified",
@@ -902,7 +947,7 @@
                                  LocOffsetStart: 156,
                                  'Prop_Arguments': [
                                     {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "LVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: true,
@@ -917,7 +962,7 @@
                                     },
                                  ],
                                  'Prop_FunctionNameExpression': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTIdExpression",
                                     IsLValue: false,
@@ -939,7 +984,6 @@
                                           },
                                           {
                                              IASTClass: "CPPASTName",
-                                             IsQualified: true,
                                              LocOffsetEnd: 165,
                                              LocOffsetStart: 161,
                                              Name: "move",
@@ -965,7 +1009,7 @@
                                  LocOffsetStart: 156,
                                  'Prop_Arguments': [
                                     {
-                                       ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                       ExpressionType: "",
                                        ExpressionValueCategory: "LVALUE",
                                        IASTClass: "CPPASTIdExpression",
                                        IsLValue: true,
@@ -980,7 +1024,7 @@
                                     },
                                  ],
                                  'Prop_FunctionNameExpression': {
-                                    ExpressionType: "org.eclipse.cdt.internal.core.dom.parser.ProblemType",
+                                    ExpressionType: "",
                                     ExpressionValueCategory: "PRVALUE",
                                     IASTClass: "CPPASTIdExpression",
                                     IsLValue: false,
@@ -1002,7 +1046,6 @@
                                           },
                                           {
                                              IASTClass: "CPPASTName",
-                                             IsQualified: true,
                                              LocOffsetEnd: 165,
                                              LocOffsetStart: 161,
                                              Name: "move",
@@ -1035,6 +1078,22 @@
          },
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTSimpleDeclSpecifier",
+            IsComplex: false,
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
+            IsFriend: false,
+            IsImaginary: false,
+            IsInline: false,
+            IsLong: false,
+            IsLongLong: false,
+            IsRestrict: false,
+            IsShort: false,
+            IsSigned: false,
+            IsThreadLocal: false,
+            IsUnsigned: false,
+            IsVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 38,
             LocOffsetStart: 35,
             StorageClass: "unspecified",
@@ -1042,6 +1101,12 @@
          },
          'Prop_Declarator': {
             IASTClass: "CPPASTFunctionDeclarator",
+            IsConst: false,
+            IsFinal: false,
+            IsMutable: false,
+            IsOverride: false,
+            IsPureVirtual: false,
+            IsVolatile: false,
             LocOffsetEnd: 45,
             LocOffsetStart: 39,
             'Prop_Name': {
@@ -1054,6 +1119,16 @@
          },
       },
    ],
-   'Prop_IncludeDirectives': [],
+   'Prop_PreprocStatements': [
+      {
+         IASTClass: "ASTInclusionStatement",
+         IsSystem: true,
+         LocOffsetEnd: 17,
+         LocOffsetStart: 0,
+         Name: "memory",
+         Path: "",
+         Resolved: false,
+      },
+   ],
    'Prop_PreprocessorProblems': [],
 }

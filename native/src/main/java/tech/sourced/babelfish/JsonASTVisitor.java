@@ -1,7 +1,6 @@
 package tech.sourced.babelfish;
 
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonGenerationException;
 import org.eclipse.cdt.core.dom.ast.*;
 import org.eclipse.cdt.core.dom.ast.c.*;
 import org.eclipse.cdt.core.dom.ast.cpp.*;
@@ -23,14 +22,13 @@ import java.lang.reflect.InvocationTargetException;
 /// for every derived node because while IASTNode.getChildren will return all the
 /// children that derive for IASTNode (including all the ones returned by any method
 /// of that node returning an IASTNode-derived object), a lot of nodes also have
-/// other methods that return something not derived from IASTNode and this not returned
+/// other methods that return something not derived from IASTNode and thus not returned
 /// by getChildren. So for all these IASTNode subinterfaces we must call and store the
 /// value of those non-IASTNode-returning methods. The most infamous is probably the
 /// getOperator of some nodes that return an int than then you have to match in a switch
 /// because the possible values are not even declarated in an enum but as final int
-/// class members (thank god for [Idea]Vim macros!).
+/// class members.
 
-// Many Bothan agents died to bring us this class
 public class JsonASTVisitor extends ASTVisitor {
 
     private JsonGenerator json;
@@ -43,12 +41,7 @@ public class JsonASTVisitor extends ASTVisitor {
     IOException error;
     boolean hasError = false;
 
-    public class SyntaxErrorException extends Exception {
-        public SyntaxErrorException() { super(); }
-        public SyntaxErrorException(String message) { super(message); }
-        public SyntaxErrorException(String message, Throwable cause) { super(message, cause); }
-        public SyntaxErrorException(Throwable cause) { super(cause); }
-    }
+    private MacroExpansionContainer macroExpansionContainer;
 
     // The visitChildren method uses reflection to get the methods and return values
     // to retrieve children and assign them to properties instead of a flat list. That is
@@ -103,7 +96,7 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitNames = true;
         shouldVisitNamespaces = true;
         shouldVisitParameterDeclarations = true;
-        shouldVisitImplicitNames = true;
+        shouldVisitImplicitNames = false;
         shouldVisitPointerOperators = false;
         shouldVisitStatements = true;
         shouldVisitTemplateParameters = true;
@@ -120,11 +113,14 @@ public class JsonASTVisitor extends ASTVisitor {
                     "getTrailingSyntax", "getSyntax", "getNodeLocations",
                     "getExecution", "getDependencyTree", "getLastName",
                     "getAlignmentSpecifiers", "getAdapter", "getTypeStringCache",
-                    "getProblem", "getRoleForName"
-                    // ImplicitNames
-                    //"getImplicitNames", "getFunctionCallOperatorName", "getClosureTypeName"
+                    "getProblem", "getRoleForName", "getImplicitNames",
+                    // Called manually:
+                    "getIncludeDirectives", "getAllPreprocessorStatements", "getMacroExpansions",
+                    "getMacroDefinitions"
+                    //"getFunctionCallOperatorName", "getClosureTypeName"
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
+        macroExpansionContainer = new MacroExpansionContainer();
     }
 
     private void enableErrorState(IOException e) {
@@ -132,18 +128,13 @@ public class JsonASTVisitor extends ASTVisitor {
         hasError = true;
     }
 
-    private void serializeNodeLocation(IASTNode node) throws IOException {
-        IASTFileLocation loc = node.getFileLocation();
+    private void serializeLocation(IASTFileLocation loc) throws IOException {
         int lineStart = -1;
         int lineEnd = -1;
         int offsetStart = -1;
         int offsetLength = -1;
 
         if (loc != null) {
-            //lineStart = loc.getStartingLineNumber();
-            //lineEnd = loc.getEndingLineNumber();
-            //json.writeNumberField("LocLineStart", lineStart);
-            //json.writeNumberField("LocLineEnd", lineEnd);
             offsetStart = loc.getNodeOffset();
             json.writeNumberField("LocOffsetStart", offsetStart);
             json.writeNumberField("LocOffsetEnd", offsetStart + loc.getNodeLength());
@@ -162,7 +153,15 @@ public class JsonASTVisitor extends ASTVisitor {
             }
         }
 
-        serializeNodeLocation(node);
+        // Check if the node resulted from a macro expansion
+        if (!(node instanceof IASTPreprocessorStatement)) {
+            String expandedMacro = macroExpansionContainer.checkFromExpansion(node);
+            if (expandedMacro != null) {
+                json.writeStringField("ExpandedFromMacro", expandedMacro);
+            }
+        }
+
+        serializeLocation(node.getFileLocation());
     }
 
     private void serializeCommentList(List<IASTComment> comments, String commentType) throws IOException {
@@ -176,7 +175,7 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeStringField("IASTClass", "Comment");
                         json.writeStringField("Comment", comment.toString());
                         json.writeBooleanField("IsBlockComment", comment.isBlockComment());
-                        serializeNodeLocation(comment);
+                        serializeLocation(comment.getFileLocation());
                     } finally {
                         json.writeEndObject();
                     }
@@ -218,8 +217,10 @@ public class JsonASTVisitor extends ASTVisitor {
                 if (oChild == null || !(oChild instanceof IASTNode))
                     return;
 
-                json.writeFieldName(propertyName);
-                ((IASTNode)oChild).accept(this);
+                if (shouldVisitImplicitNames || !(oChild instanceof IASTImplicitName)) {
+                    json.writeFieldName(propertyName);
+                    ((IASTNode)oChild).accept(this);
+                }
             }
         } catch (IllegalAccessException e) {
             return;
@@ -552,7 +553,6 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeStringField("Name", node.toString());
-                writeIfTrue("IsQualified", node.isQualified());
 
                 if (shouldVisitImplicitNames && node instanceof IASTImplicitName) {
                     IASTImplicitName impl = (IASTImplicitName) node;
@@ -588,11 +588,14 @@ public class JsonASTVisitor extends ASTVisitor {
                 String exprType = node.getExpressionType().toString();
 
                 if (exprType.indexOf("ProblemType@") != -1) {
+                    // Disabled until we visit problem nodes since it doesnt provide any
+                    // information
+                    exprType = "";
                     // Trying to get the type of some untyped expressions give something like:
                     // org.eclipse.cdt.internal.core.dom.parser.ProblemType@50a638b5
                     // The last part is variable so integration tests will fail (and
                     // it doesn't give any information) so we remove it
-                    exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
+                    //exprType = "org.eclipse.cdt.internal.core.dom.parser.ProblemType";
                 } else if (exprType.indexOf("TypeParameter@") != -1) { // ditto
                     exprType = "org.eclipse.cdt.internal.core.dom.parser.cpp.CPPImplicitTTemplateTypeParameter";
                 }
@@ -759,10 +762,10 @@ public class JsonASTVisitor extends ASTVisitor {
                 serializeCommonData(node);
                 if (node instanceof ICASTArrayModifier) {
                     ICASTArrayModifier carr = (ICASTArrayModifier) node;
-                    writeIfTrue("IsConst", carr.isConst());
-                    writeIfTrue("IsRestrict", carr.isRestrict());
-                    writeIfTrue("IsStatic", carr.isStatic());
-                    writeIfTrue("IsVolatile", carr.isVolatile());
+                    json.writeBooleanField("IsConst", carr.isConst());
+                    json.writeBooleanField("IsRestrict", carr.isRestrict());
+                    json.writeBooleanField("IsStatic", carr.isStatic());
+                    json.writeBooleanField("IsVolatile", carr.isVolatile());
                 }
                 serializeComments(node);
                 visitChildren(node);
@@ -897,11 +900,12 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    private void writeIfTrue(String name, boolean field) throws IOException {
-        if (field) {
-            json.writeBooleanField(name, true);
-        }
-    }
+    // FIXME: remove if we don't use it at the end
+    //private void writeIfTrue(String name, boolean field) throws IOException {
+        //if (field) {
+            //json.writeBooleanField(name, true);
+        //}
+    //}
 
     @Override
     public int visit(IASTDeclarator node) {
@@ -916,12 +920,12 @@ public class JsonASTVisitor extends ASTVisitor {
 
                     if (node instanceof ICPPASTFunctionDeclarator) {
                         ICPPASTFunctionDeclarator impl2 = (ICPPASTFunctionDeclarator) node;
-                        writeIfTrue("IsConst", impl2.isConst());
-                        writeIfTrue("IsFinal", impl2.isFinal());
-                        writeIfTrue("IsMutable", impl2.isMutable());
-                        writeIfTrue("IsOverride", impl2.isOverride());
-                        writeIfTrue("IsPureVirtual", impl2.isPureVirtual());
-                        writeIfTrue("IsVolatile", impl2.isVolatile());
+                        json.writeBooleanField("IsConst", impl2.isConst());
+                        json.writeBooleanField("IsFinal", impl2.isFinal());
+                        json.writeBooleanField("IsMutable", impl2.isMutable());
+                        json.writeBooleanField("IsOverride", impl2.isOverride());
+                        json.writeBooleanField("IsPureVirtual", impl2.isPureVirtual());
+                        json.writeBooleanField("IsVolatile", impl2.isVolatile());
                     }
                 }
 
@@ -966,12 +970,11 @@ public class JsonASTVisitor extends ASTVisitor {
 
             json.writeStartObject();
             try {
-
                 serializeCommonData(node);
-                writeIfTrue("IsConst", node.isConst());
-                writeIfTrue("IsInline", node.isInline());
-                writeIfTrue("IsRestrict", node.isRestrict());
-                writeIfTrue("IsVolatile", node.isVolatile());
+                json.writeBooleanField("IsConst", node.isConst());
+                json.writeBooleanField("IsInline", node.isInline());
+                json.writeBooleanField("IsRestrict", node.isRestrict());
+                json.writeBooleanField("IsVolatile", node.isVolatile());
 
                 String stStr;
                 switch (node.getStorageClass()) {
@@ -1002,11 +1005,11 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof ICPPASTDeclSpecifier) {
                     ICPPASTDeclSpecifier impl = (ICPPASTDeclSpecifier) node;
-                    writeIfTrue("IsConstExpr", impl.isConstexpr());
-                    writeIfTrue("IsExplicit", impl.isExplicit());
-                    writeIfTrue("IsFriend", impl.isFriend());
-                    writeIfTrue("IsThreadLocal", impl.isThreadLocal());
-                    writeIfTrue("IsVirtual", impl.isVirtual());
+                    json.writeBooleanField("IsConstExpr", impl.isConstexpr());
+                    json.writeBooleanField("IsExplicit", impl.isExplicit());
+                    json.writeBooleanField("IsFriend", impl.isFriend());
+                    json.writeBooleanField("IsThreadLocal", impl.isThreadLocal());
+                    json.writeBooleanField("IsVirtual", impl.isVirtual());
                 }
 
                 if (node instanceof IASTCompositeTypeSpecifier) {
@@ -1069,13 +1072,13 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTSimpleDeclSpecifier) {
                     IASTSimpleDeclSpecifier impl = (IASTSimpleDeclSpecifier) node;
-                    writeIfTrue("IsComplex", impl.isComplex());
-                    writeIfTrue("IsImaginary", impl.isImaginary());
-                    writeIfTrue("IsLong", impl.isLong());
-                    writeIfTrue("IsLongLong", impl.isLongLong());
-                    writeIfTrue("IsShort", impl.isShort());
-                    writeIfTrue("IsSigned", impl.isSigned());
-                    writeIfTrue("IsUnsigned", impl.isUnsigned());
+                    json.writeBooleanField("IsComplex", impl.isComplex());
+                    json.writeBooleanField("IsImaginary", impl.isImaginary());
+                    json.writeBooleanField("IsLong", impl.isLong());
+                    json.writeBooleanField("IsLongLong", impl.isLongLong());
+                    json.writeBooleanField("IsShort", impl.isShort());
+                    json.writeBooleanField("IsSigned", impl.isSigned());
+                    json.writeBooleanField("IsUnsigned", impl.isUnsigned());
 
                     String typeStr;
 
@@ -1200,9 +1203,9 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (node instanceof IASTPointer) {
                     IASTPointer impl = (IASTPointer) node;
-                    writeIfTrue("IsConst", impl.isConst());
-                    writeIfTrue("IsRestrict", impl.isRestrict());
-                    writeIfTrue("IsVolatile", impl.isVolatile());
+                    json.writeBooleanField("IsConst", impl.isConst());
+                    json.writeBooleanField("IsRestrict", impl.isRestrict());
+                    json.writeBooleanField("IsVolatile", impl.isVolatile());
 
                     if (node instanceof ICPPASTPointerToMember) {
                         ICPPASTPointerToMember impl2 = (ICPPASTPointerToMember) node;
@@ -1272,26 +1275,141 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
+    // Store the macro expansions associated to their macro definitions in
+    // the macroExpansions hashtable so we can join the together later when
+    // writing the MacroDefinition nodes
+    private void storeMacroExpansions(IASTTranslationUnit unit) {
+        IASTPreprocessorMacroExpansion[] expansions = unit.getMacroExpansions();
+
+        for (IASTPreprocessorMacroExpansion exp : expansions) {
+            macroExpansionContainer.add(exp);
+        }
+
+        macroExpansionContainer.sortByStartOffset();
+    }
+
+    private void serializePreproStatements(IASTTranslationUnit unit) throws IOException {
+        IASTPreprocessorStatement[] stmts = unit.getAllPreprocessorStatements();
+        json.writeFieldName("Prop_PreprocStatements");
+        json.writeStartArray();
+        try {
+            for (IASTPreprocessorStatement stmt : stmts) {
+                json.writeStartObject();
+                try {
+                    serializeCommonData(stmt);
+
+                    if (stmt instanceof IASTPreprocessorMacroDefinition) {
+                        IASTPreprocessorMacroDefinition s = (IASTPreprocessorMacroDefinition)stmt;
+                        json.writeStringField("Name", s.getName().toString());
+                        json.writeBooleanField("IsActive", s.isActive());
+                        json.writeStringField("MacroBodyText", s.getExpansion());
+
+                        json.writeFieldName("Prop_MacroBodyLocation");
+                        json.writeStartObject();
+                        try {
+                            json.writeStringField("IASTClass", "BodyPosition");
+                            serializeLocation(s.getExpansionLocation());
+                        } finally {
+                            json.writeEndObject();
+                        }
+
+                        Vector<IASTNodeLocation> expLocs = macroExpansionContainer.getMacroDefLocations(s);
+
+                        if (expLocs != null) {
+                            json.writeFieldName("Prop_Expansions");
+                            json.writeStartArray();
+                            try {
+                                for (IASTNodeLocation l : expLocs) {
+                                    json.writeStartObject();
+                                    try {
+                                        json.writeStringField("IASTClass", "ExpansionLocation");
+                                        serializeLocation(l.asFileLocation());
+                                    } finally {
+                                        json.writeEndObject();
+                                    }
+                                }
+
+                            } finally {
+                                json.writeEndArray();
+                            }
+                        }
+                    }
+
+                    if (stmt instanceof IASTPreprocessorIfStatement) {
+                        IASTPreprocessorIfStatement s = (IASTPreprocessorIfStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorIncludeStatement) {
+                        IASTPreprocessorIncludeStatement s = (IASTPreprocessorIncludeStatement)stmt;
+                        json.writeStringField("Name", s.getName().toString());
+                        json.writeStringField("Path", s.getPath());
+                        json.writeBooleanField("Resolved", s.isResolved());
+                        json.writeBooleanField("IsSystem", s.isSystemInclude());
+                    } else if (stmt instanceof IASTPreprocessorIfndefStatement) {
+                        IASTPreprocessorIfndefStatement s = (IASTPreprocessorIfndefStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                    } else if (stmt instanceof IASTPreprocessorIfdefStatement) {
+                        IASTPreprocessorIfdefStatement s = (IASTPreprocessorIfdefStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                    } else if (stmt instanceof IASTPreprocessorElifStatement) {
+                        IASTPreprocessorElifStatement s = (IASTPreprocessorElifStatement)stmt;
+                        json.writeStringField("Condition", new String(s.getCondition()));
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorElseStatement) {
+                        IASTPreprocessorElseStatement s = (IASTPreprocessorElseStatement)stmt;
+                        json.writeBooleanField("IsTaken", s.taken());
+                    } else if (stmt instanceof IASTPreprocessorErrorStatement) {
+                        IASTPreprocessorErrorStatement s = (IASTPreprocessorErrorStatement)stmt;
+                        json.writeStringField("ErrorMsg", new String(s.getMessage()));
+                    } else if (stmt instanceof IASTPreprocessorFunctionStyleMacroDefinition) {
+                        IASTPreprocessorFunctionStyleMacroDefinition s = (IASTPreprocessorFunctionStyleMacroDefinition)stmt;
+                        IASTFunctionStyleMacroParameter[] params = s.getParameters();
+                        json.writeFieldName("Parameters");
+                        json.writeStartArray();
+                        try {
+                            for (IASTFunctionStyleMacroParameter param : params) {
+                                json.writeString(param.getParameter());
+                            }
+                        } finally {
+                            json.writeEndArray();
+                        }
+
+                    } else if (stmt instanceof IASTPreprocessorPragmaStatement) {
+                        IASTPreprocessorPragmaStatement s = (IASTPreprocessorPragmaStatement)stmt;
+                        json.writeStringField("Message", new String(s.getMessage()));
+                        json.writeBooleanField("IsPragmaOperator", s.isPragmaOperator());
+                    } else if (stmt instanceof IASTPreprocessorUndefStatement) {
+                        IASTPreprocessorUndefStatement s = (IASTPreprocessorUndefStatement)stmt;
+                        json.writeStringField("Name", s.getMacroName().toString());
+                        json.writeBooleanField("IsActive", s.isActive());
+                    }
+
+                } finally {
+                    json.writeEndObject();
+                }
+            }
+        } finally {
+            json.writeEndArray();
+        }
+    }
+
     @Override
     public int visit(IASTTranslationUnit node) {
         try {
             json.writeStartObject();
             try {
                 serializeCommonData(node);
-                // FIXME:
-                // This must be explored to get the preprocessor directives with:
-                // THIS
-                // getMacroDefinitions (non built in macros defined in this file)
-                // getMacroExpansions (where are they expanded)
-                // getBuildtinMacroDefinitions
-                // getIncludeDirectives
-                // getAllPreprocessorStatements
-                // isHeaderUnit
+                storeMacroExpansions(node);
+                serializePreproStatements(node);
+                macroExpansionContainer.clearMap();
+
+                // Include directives
+                // TODO:
                 // flattenLocationsToFile (try it)
-                // copy (to modify it)
-                // setSignificantMacros
-                //
-                // Plus: ICPPASTTranslationUnit getNamespaceScope, getMemberBindings, isInline
                 serializeComments(node);
                 visitChildren(node);
             } finally {
@@ -1370,7 +1488,6 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 json.writeBooleanField("IsParameterPack", node.isParameterPack());
-
                 serializeComments(node);
                 visitChildren(node);
             } finally {

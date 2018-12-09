@@ -15,7 +15,16 @@
             LocOffsetStart: 19,
             'Prop_DeclSpecifier': {
                IASTClass: "CPPASTCompositeTypeSpecifier",
+               IsConst: false,
+               IsConstExpr: false,
+               IsExplicit: false,
                IsFinal: false,
+               IsFriend: false,
+               IsInline: false,
+               IsRestrict: false,
+               IsThreadLocal: false,
+               IsVirtual: false,
+               IsVolatile: false,
                Key: "class",
                LocOffsetEnd: 53,
                LocOffsetStart: 19,
@@ -27,6 +36,12 @@
                      'Prop_Declarators': [
                         {
                            IASTClass: "CPPASTFunctionDeclarator",
+                           IsConst: false,
+                           IsFinal: false,
+                           IsMutable: false,
+                           IsOverride: false,
+                           IsPureVirtual: false,
+                           IsVolatile: false,
                            LocOffsetEnd: 50,
                            LocOffsetStart: 40,
                            'Prop_Name': {
@@ -82,7 +97,16 @@
             },
             'Prop_DeclSpecifier': {
                IASTClass: "CPPASTNamedTypeSpecifier",
+               IsConst: false,
+               IsConstExpr: false,
+               IsExplicit: false,
+               IsFriend: false,
+               IsInline: false,
+               IsRestrict: false,
+               IsThreadLocal: false,
                IsTypeName: false,
+               IsVirtual: false,
+               IsVolatile: false,
                LocOffsetEnd: 76,
                LocOffsetStart: 75,
                'Prop_Name': {
@@ -95,6 +119,12 @@
             },
             'Prop_Declarator': {
                IASTClass: "CPPASTFunctionDeclarator",
+               IsConst: false,
+               IsFinal: false,
+               IsMutable: false,
+               IsOverride: false,
+               IsPureVirtual: false,
+               IsVolatile: false,
                LocOffsetEnd: 100,
                LocOffsetStart: 77,
                'Prop_Name': {
@@ -128,7 +158,16 @@
                               },
                               'Prop_DeclSpecifier': {
                                  IASTClass: "CPPASTNamedTypeSpecifier",
+                                 IsConst: false,
+                                 IsConstExpr: false,
+                                 IsExplicit: false,
+                                 IsFriend: false,
+                                 IsInline: false,
+                                 IsRestrict: false,
+                                 IsThreadLocal: false,
                                  IsTypeName: false,
+                                 IsVirtual: false,
+                                 IsVolatile: false,
                                  LocOffsetEnd: 87,
                                  LocOffsetStart: 86,
                                  'Prop_Name': {
@@ -150,7 +189,6 @@
                      },
                      {
                         IASTClass: "CPPASTName",
-                        IsQualified: true,
                         LocOffsetEnd: 98,
                         LocOffsetStart: 90,
                         Name: "testfnc1",
@@ -180,7 +218,16 @@
                               },
                               'Prop_DeclSpecifier': {
                                  IASTClass: "CPPASTNamedTypeSpecifier",
+                                 IsConst: false,
+                                 IsConstExpr: false,
+                                 IsExplicit: false,
+                                 IsFriend: false,
+                                 IsInline: false,
+                                 IsRestrict: false,
+                                 IsThreadLocal: false,
                                  IsTypeName: false,
+                                 IsVirtual: false,
+                                 IsVolatile: false,
                                  LocOffsetEnd: 87,
                                  LocOffsetStart: 86,
                                  'Prop_Name': {
@@ -221,4 +268,5 @@
          ],
       },
    ],
+   'Prop_PreprocStatements': [],
 }

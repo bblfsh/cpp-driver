@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "class",
             LocOffsetEnd: 8,
             LocOffsetStart: 0,
@@ -26,16 +35,6 @@
                IASTClass: "CPPASTDeclarator",
                LocOffsetEnd: 18,
                LocOffsetStart: 9,
-               'Prop_ImplicitNames': [
-                  {
-                     IASTClass: "CPPASTImplicitName",
-                     IsAlternate: false,
-                     IsOverloadedOperator: false,
-                     LocOffsetEnd: 18,
-                     LocOffsetStart: 9,
-                     Name: "",
-                  },
-               ],
                'Prop_Name': {
                   IASTClass: "CPPASTName",
                   LocOffsetEnd: 18,
@@ -47,4 +46,5 @@
          ],
       },
    ],
+   'Prop_PreprocStatements': [],
 }

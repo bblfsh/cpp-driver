@@ -10,7 +10,16 @@
          LocOffsetStart: 0,
          'Prop_DeclSpecifier': {
             IASTClass: "CPPASTCompositeTypeSpecifier",
+            IsConst: false,
+            IsConstExpr: false,
+            IsExplicit: false,
             IsFinal: false,
+            IsFriend: false,
+            IsInline: false,
+            IsRestrict: false,
+            IsThreadLocal: false,
+            IsVirtual: false,
+            IsVolatile: false,
             Key: "class",
             LocOffsetEnd: 60,
             LocOffsetStart: 0,
@@ -124,4 +133,5 @@
          },
       },
    ],
+   'Prop_PreprocStatements': [],
 }

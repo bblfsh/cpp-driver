@@ -11,7 +11,27 @@ CPPASTTranslationUnit {
 .  .  Col: 1
 .  }
 .  Children: {
-.  .  0: CPPASTFunctionDefinition {
+.  .  0: ASTInclusionStatement {
+.  .  .  Roles: Import
+.  .  .  TOKEN "iostream"
+.  .  .  StartPosition: {
+.  .  .  .  Offset: 0
+.  .  .  .  Line: 1
+.  .  .  .  Col: 1
+.  .  .  }
+.  .  .  EndPosition: {
+.  .  .  .  Offset: 19
+.  .  .  .  Line: 1
+.  .  .  .  Col: 20
+.  .  .  }
+.  .  .  Properties: {
+.  .  .  .  IsSystem: true
+.  .  .  .  Path: 
+.  .  .  .  Resolved: false
+.  .  .  .  internalRole: Prop_PreprocStatements
+.  .  .  }
+.  .  }
+.  .  1: CPPASTFunctionDefinition {
 .  .  .  Roles: Function,Declaration
 .  .  .  StartPosition: {
 .  .  .  .  Offset: 21
@@ -43,6 +63,22 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 4
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
+.  .  .  .  .  .  IsComplex: false
+.  .  .  .  .  .  IsConst: false
+.  .  .  .  .  .  IsConstExpr: false
+.  .  .  .  .  .  IsExplicit: false
+.  .  .  .  .  .  IsFriend: false
+.  .  .  .  .  .  IsImaginary: false
+.  .  .  .  .  .  IsInline: false
+.  .  .  .  .  .  IsLong: false
+.  .  .  .  .  .  IsLongLong: false
+.  .  .  .  .  .  IsRestrict: false
+.  .  .  .  .  .  IsShort: false
+.  .  .  .  .  .  IsSigned: false
+.  .  .  .  .  .  IsThreadLocal: false
+.  .  .  .  .  .  IsUnsigned: false
+.  .  .  .  .  .  IsVirtual: false
+.  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  StorageClass: unspecified
 .  .  .  .  .  .  internalRole: Prop_DeclSpecifier
 .  .  .  .  .  }
@@ -60,6 +96,12 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  Col: 11
 .  .  .  .  .  }
 .  .  .  .  .  Properties: {
+.  .  .  .  .  .  IsConst: false
+.  .  .  .  .  .  IsFinal: false
+.  .  .  .  .  .  IsMutable: false
+.  .  .  .  .  .  IsOverride: false
+.  .  .  .  .  .  IsPureVirtual: false
+.  .  .  .  .  .  IsVolatile: false
 .  .  .  .  .  .  TakesVarArgs: false
 .  .  .  .  .  .  internalRole: Prop_Declarator
 .  .  .  .  .  }
@@ -129,7 +171,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  Col: 33
 .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
+.  .  .  .  .  .  .  .  .  .  ExpressionType: 
 .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Expression
@@ -148,7 +190,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: org.eclipse.cdt.internal.core.dom.parser.ProblemType
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: 
 .  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: PRVALUE
 .  .  .  .  .  .  .  .  .  .  .  .  IsLValue: false
 .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_Operand1
@@ -221,7 +263,6 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Col: 14
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Properties: {
-.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  IsQualified: true
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_AllSegments
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  .  .  .  .  }
@@ -230,6 +271,27 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  .  .  .  1: CPPASTLiteralExpression {
+.  .  .  .  .  .  .  .  .  .  .  Roles: Expression,Literal,String,Binary,Right,Initialization,Incomplete
+.  .  .  .  .  .  .  .  .  .  .  TOKEN ""Hello, World!""
+.  .  .  .  .  .  .  .  .  .  .  StartPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 51
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 18
+.  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  EndPosition: {
+.  .  .  .  .  .  .  .  .  .  .  .  Offset: 66
+.  .  .  .  .  .  .  .  .  .  .  .  Line: 5
+.  .  .  .  .  .  .  .  .  .  .  .  Col: 33
+.  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  .  Properties: {
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionType: const char [14]
+.  .  .  .  .  .  .  .  .  .  .  .  ExpressionValueCategory: LVALUE
+.  .  .  .  .  .  .  .  .  .  .  .  IsLValue: true
+.  .  .  .  .  .  .  .  .  .  .  .  internalRole: Prop_InitOperand2
+.  .  .  .  .  .  .  .  .  .  .  .  kind: string_literal
+.  .  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  }
+.  .  .  .  .  .  .  .  .  .  2: CPPASTLiteralExpression {
 .  .  .  .  .  .  .  .  .  .  .  Roles: Expression,Literal,String,Binary,Right
 .  .  .  .  .  .  .  .  .  .  .  TOKEN ""Hello, World!""
 .  .  .  .  .  .  .  .  .  .  .  StartPosition: {
