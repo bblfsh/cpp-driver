@@ -361,6 +361,7 @@ var Normalizers = []Mapping{
 				{Name: "IsOverride", Op: AnyNode(nil)},
 				{Name: "IsPureVirtual", Op: AnyNode(nil)},
 				{Name: "IsVolatile", Op: AnyNode(nil)},
+				{Name: "Prop_NoexceptExpression", Optional: "declNoExcept", Op: AnyNode(nil)},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
 					// Empty identifier
