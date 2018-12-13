@@ -44,7 +44,6 @@ public class JsonASTVisitor extends ASTVisitor {
     boolean hasError = false;
 
     private MacroExpansionContainer macroExpansionContainer;
-
     // The visitChildren method uses reflection to get the methods and return values
     // to retrieve children and assign them to properties instead of a flat list. That is
     // slow so we'll cache every inspected node using this class and the childrenMethod
@@ -76,7 +75,6 @@ public class JsonASTVisitor extends ASTVisitor {
             name = name_;
         }
 
-
         @Override
         public int compareTo(MethodWrapper m) {
             return m.name.compareTo(name);
@@ -107,7 +105,6 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitVirtSpecifiers = true;
         // FIXME: change when problem visiting is activated (and remove getProblem
         // from skipMethods below)
-        // XXX try with this to true
         shouldVisitProblems = false;
         skipMethods = new HashSet<String>(Arrays.asList("getClass", "getChildren",
                     "getCompletionContext", "getContainingFilename", "getFileLocation",
@@ -213,8 +210,10 @@ public class JsonASTVisitor extends ASTVisitor {
                 json.writeStartArray();
 
                 try {
-                    for(Object oChild : oChildren)
-                        ((IASTNode)oChild).accept(this);
+                    for(Object oChild : oChildren) {
+                        IASTNode nChild = (IASTNode)oChild;
+                        nChild.accept(this);
+                    }
                 } finally {
                     json.writeEndArray();
                 }
@@ -226,13 +225,17 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 if (shouldVisitImplicitNames || !(oChild instanceof IASTImplicitName)) {
                     try {
+                        IASTNode nChild = (IASTNode)oChild;
                         json.writeFieldName(propertyName);
-                        ((IASTNode)oChild).accept(this);
+                        nChild.accept(this);
+
                         if (doDebugLog)
-                            jsonDebugLog.add(parent.getClass().getSimpleName() + "." + propertyName);
+                            jsonDebugLog.add(parent.getClass().getSimpleName() +
+                                    "." + propertyName);
                     } catch (IOException e) {
                         if (doDebugLog)
-                            throw new IOException("jsonDebugLog: " + jsonDebugLog.toString(), e);
+                            throw new IOException("jsonDebugLog: " +
+                                    jsonDebugLog.toString(), e);
                         else
                             throw e;
                     }
