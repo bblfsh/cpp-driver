@@ -362,6 +362,7 @@ var Normalizers = []Mapping{
 				{Name: "IsPureVirtual", Op: AnyNode(nil)},
 				{Name: "IsVolatile", Op: AnyNode(nil)},
 				{Name: "Prop_NoexceptExpression", Optional: "declNoExcept", Op: AnyNode(nil)},
+				{Name: "Prop_VirtSpecifiers", Optional: "declVirtSpecs", Op: AnyNode(nil)},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
 					// Empty identifier
