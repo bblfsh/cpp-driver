@@ -36,7 +36,9 @@ public class JsonASTVisitor extends ASTVisitor {
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
     private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
+    private Vector<String> jsonDebugLog;
     private IASTNode lastTypeVisited = null;
+    private boolean doDebugLog = false;
 
     IOException error;
     boolean hasError = false;
@@ -102,8 +104,10 @@ public class JsonASTVisitor extends ASTVisitor {
         shouldVisitTemplateParameters = true;
         shouldVisitTranslationUnit = true;
         shouldVisitTypeIds = true;
+        shouldVisitVirtSpecifiers = true;
         // FIXME: change when problem visiting is activated (and remove getProblem
         // from skipMethods below)
+        // XXX try with this to true
         shouldVisitProblems = false;
         skipMethods = new HashSet<String>(Arrays.asList("getClass", "getChildren",
                     "getCompletionContext", "getContainingFilename", "getFileLocation",
@@ -121,6 +125,8 @@ public class JsonASTVisitor extends ASTVisitor {
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
         macroExpansionContainer = new MacroExpansionContainer();
+        if (doDebugLog)
+            jsonDebugLog = new Vector<String>();
     }
 
     private void enableErrorState(IOException e) {
@@ -164,7 +170,8 @@ public class JsonASTVisitor extends ASTVisitor {
         serializeLocation(node.getFileLocation());
     }
 
-    private void serializeCommentList(List<IASTComment> comments, String commentType) throws IOException {
+    private void serializeCommentList(List<IASTComment> comments, String commentType)
+        throws IOException {
         if (comments != null && comments.size() > 0) {
             json.writeFieldName(commentType + "Comments");
             json.writeStartArray();
@@ -218,8 +225,17 @@ public class JsonASTVisitor extends ASTVisitor {
                     return;
 
                 if (shouldVisitImplicitNames || !(oChild instanceof IASTImplicitName)) {
-                    json.writeFieldName(propertyName);
-                    ((IASTNode)oChild).accept(this);
+                    try {
+                        json.writeFieldName(propertyName);
+                        ((IASTNode)oChild).accept(this);
+                        if (doDebugLog)
+                            jsonDebugLog.add(parent.getClass().getSimpleName() + "." + propertyName);
+                    } catch (IOException e) {
+                        if (doDebugLog)
+                            throw new IOException("jsonDebugLog: " + jsonDebugLog.toString(), e);
+                        else
+                            throw e;
+                    }
                 }
             }
         } catch (IllegalAccessException e) {
@@ -568,6 +584,59 @@ public class JsonASTVisitor extends ASTVisitor {
 
                 serializeComments(node);
                 visitChildren(node);
+            } finally {
+                json.writeEndObject();
+            }
+        } catch (IOException e) {
+            enableErrorState(e);
+            return PROCESS_ABORT;
+        }
+        return PROCESS_SKIP;
+    }
+
+    @Override
+    public int visit(ICPPASTVirtSpecifier node) {
+        try {
+            json.writeStartObject();
+            try {
+                serializeCommonData(node);
+                String kindStr;
+                switch(node.getKind()) {
+                    case Final:
+                        kindStr = "final";
+                        break;
+                    case Override:
+                        kindStr = "override";
+                        break;
+                    default:
+                        kindStr = "unkown_virt_specifier_kind";
+                }
+                json.writeStringField("kind", kindStr);
+            } finally {
+                json.writeEndObject();
+            }
+        } catch (IOException e) {
+            enableErrorState(e);
+            return PROCESS_ABORT;
+        }
+        return PROCESS_SKIP;
+    }
+
+    @Override
+    public int visit(ICPPASTClassVirtSpecifier node) {
+        try {
+            json.writeStartObject();
+            try {
+                serializeCommonData(node);
+                String kindStr;
+                switch(node.getKind()) {
+                    case Final:
+                        kindStr = "final";
+                        break;
+                    default:
+                        kindStr = "unkown_class_virt_specifier_kind";
+                }
+                json.writeStringField("kind", kindStr);
             } finally {
                 json.writeEndObject();
             }
