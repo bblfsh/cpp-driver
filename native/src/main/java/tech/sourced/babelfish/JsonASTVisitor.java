@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
 import java.util.HashSet;
+import java.util.Stack;
 import java.lang.Comparable;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
@@ -36,9 +37,12 @@ public class JsonASTVisitor extends ASTVisitor {
     private boolean verboseJson = false;
     private HashSet<String> skipMethods;
     private Hashtable<String, Vector<ChildrenTypeCacheValue>> childrenMethodsCache;
-    private Vector<String> jsonDebugLog;
-    private IASTNode lastTypeVisited = null;
+    private Stack<IASTDeclSpecifier> typesVisited;
+
+    // If enabled, will store in the jsonDebugLog vector the list of visited nodes
+    // and print them if an exception happens:
     private boolean doDebugLog = false;
+    private Vector<String> jsonDebugLog;
 
     IOException error;
     boolean hasError = false;
@@ -122,6 +126,7 @@ public class JsonASTVisitor extends ASTVisitor {
         ));
         childrenMethodsCache = new Hashtable<String, Vector<ChildrenTypeCacheValue>>();
         macroExpansionContainer = new MacroExpansionContainer();
+        typesVisited = new Stack<IASTDeclSpecifier>();
         if (doDebugLog)
             jsonDebugLog = new Vector<String>();
     }
@@ -212,39 +217,39 @@ public class JsonASTVisitor extends ASTVisitor {
                 try {
                     for(Object oChild : oChildren) {
                         IASTNode nChild = (IASTNode)oChild;
+                        if (nChild == null)
+                            continue;
+
                         nChild.accept(this);
                     }
                 } finally {
                     json.writeEndArray();
                 }
             } else {
+                if (doDebugLog)
+                    jsonDebugLog.add(parent.getClass().getSimpleName() +
+                            "." + propertyName);
                 Object oChild = method.invoke(parent);
 
                 if (oChild == null || !(oChild instanceof IASTNode))
                     return;
 
                 if (shouldVisitImplicitNames || !(oChild instanceof IASTImplicitName)) {
-                    try {
-                        IASTNode nChild = (IASTNode)oChild;
-                        json.writeFieldName(propertyName);
-                        nChild.accept(this);
-
-                        if (doDebugLog)
-                            jsonDebugLog.add(parent.getClass().getSimpleName() +
-                                    "." + propertyName);
-                    } catch (IOException e) {
-                        if (doDebugLog)
-                            throw new IOException("jsonDebugLog: " +
-                                    jsonDebugLog.toString(), e);
-                        else
-                            throw e;
-                    }
+                    IASTNode nChild = (IASTNode)oChild;
+                    json.writeFieldName(propertyName);
+                    nChild.accept(this);
                 }
             }
         } catch (IllegalAccessException e) {
             return;
         } catch (InvocationTargetException e) {
             return;
+        } catch (Exception e) {
+            if (doDebugLog)
+                throw new IOException("jsonDebugLog: " +
+                        jsonDebugLog.toString(), e);
+            else
+                throw new IOException(e);
         }
     }
 
@@ -254,6 +259,10 @@ public class JsonASTVisitor extends ASTVisitor {
 
         if (catched != null) {
             for (ChildrenTypeCacheValue val : catched) {
+                if (doDebugLog)
+                    jsonDebugLog.add("Method_" + "catched_" +
+                            val.method.getDeclaringClass().getSimpleName()
+                            + "." + val.method.getName());
                 writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
             }
 
@@ -284,6 +293,9 @@ public class JsonASTVisitor extends ASTVisitor {
                 if (returnType.getName().indexOf("AST") == -1)
                     continue;
 
+                if (doDebugLog)
+                    jsonDebugLog.add("Method_" + mw.method.getDeclaringClass().getSimpleName()
+                            + "." +mw.method.getName());
                 writeChildProperty(node, mw.method, propName, returnType.isArray());
 
                 // Add the node and method information to the cache
@@ -673,7 +685,7 @@ public class JsonASTVisitor extends ASTVisitor {
                 }
 
                 json.writeStringField("ExpressionType", exprType);
-                json.writeStringField("ExpressionValueCategory",node.getValueCategory().toString());
+                json.writeStringField("ExpressionValueCategory", node.getValueCategory().toString());
                 json.writeBooleanField("IsLValue", node.isLValue());
 
                 if (node instanceof IASTBinaryExpression) {
@@ -1005,11 +1017,10 @@ public class JsonASTVisitor extends ASTVisitor {
                     ICPPASTDeclarator impl = (ICPPASTDeclarator) node;
                     json.writeBooleanField("DeclaresParameterPack", impl.declaresParameterPack());
 
-                    if (lastTypeVisited != null) {
+                    if (!typesVisited.empty()) {
                         // Reparent the type node here
                         json.writeFieldName("Prop_TypeNode");
-                        lastTypeVisited.accept(this);
-                        lastTypeVisited = null;
+                        visit_declSpec(typesVisited.pop());
                     } else {
                         json.writeNullField("Prop_TypeNode");
                     }
@@ -1027,19 +1038,9 @@ public class JsonASTVisitor extends ASTVisitor {
         return PROCESS_SKIP;
     }
 
-    @Override
-    public int visit(IASTDeclSpecifier node) {
+    private int visit_declSpec(IASTDeclSpecifier node)
+    {
         try {
-            if (lastTypeVisited == null &&
-               (node instanceof IASTSimpleDeclSpecifier ||
-                node instanceof IASTNamedTypeSpecifier) &&
-                node.getParent() instanceof IASTParameterDeclaration) {
-
-                // Will be visited as Prop_TypeNode child of the next Parameter->IASTDeclarator node
-                lastTypeVisited = node;
-                return PROCESS_SKIP;
-            }
-
             json.writeStartObject();
             try {
                 serializeCommonData(node);
@@ -1212,9 +1213,9 @@ public class JsonASTVisitor extends ASTVisitor {
                         default:
                             typeStr = "unespecified";
                             break;
-                        }
+                    }
 
-                        json.writeStringField("Type", typeStr);
+                    json.writeStringField("Type", typeStr);
                 }
 
                 if (node instanceof ICPPASTEnumerationSpecifier) {
@@ -1241,6 +1242,19 @@ public class JsonASTVisitor extends ASTVisitor {
             return PROCESS_ABORT;
         }
         return PROCESS_SKIP;
+    }
+
+    @Override
+    public int visit(IASTDeclSpecifier node)
+    {
+        if ((node instanceof IASTSimpleDeclSpecifier ||
+             node instanceof IASTNamedTypeSpecifier) &&
+             node.getParent() instanceof IASTParameterDeclaration) {
+            typesVisited.push(node);
+            return PROCESS_SKIP;
+        }
+
+        return visit_declSpec(node);
     }
 
     @Override
