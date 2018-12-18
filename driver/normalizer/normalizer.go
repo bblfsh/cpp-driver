@@ -220,8 +220,8 @@ var Normalizers = []Mapping{
 	)),
 
 	MapSemantic("CPPASTQualifiedName", uast.QualifiedIdentifier{}, MapObj(
-		Obj{
-			"Prop_AllSegments": Each("qualParts", Cases("caseQualParts",
+		Fields{
+			{Name: "Prop_AllSegments", Op: Each("qualParts", Cases("caseQualParts",
 				Fields{
 					{Name: uast.KeyType, Op: String("uast:Identifier")},
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
@@ -245,14 +245,24 @@ var Normalizers = []Mapping{
 						"Name":       Var("name"),
 					}},
 				},
-			)),
+				Is(nil),
+			))},
+			// Ignored: already on AllSegments
+			{Name: "Prop_Qualifier", Optional: "optPropQual", Op: AnyNode(nil)},
 		},
 		Obj{
-			"Names": Each("qualParts",
-				// "caseQualParts" ommited since all 3 cases extract the "name" variable
+			"Names": Each("qualParts", Cases("caseQualParts",
 				UASTType(uast.Identifier{}, Obj{
 					"Name": Var("name"),
-				})),
+				}),
+				UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+				}),
+				UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+				}),
+				Is(nil),
+			)),
 		},
 	)),
 
@@ -402,6 +412,7 @@ var Normalizers = []Mapping{
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
 						{Name: "ExpandedFromMacro", Optional: "optMacro7", Op: AnyNode(nil)},
+						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 					},
 					Fields{
 						{Name: uast.KeyType, Op: String("CPPASTArrayDeclarator")},
@@ -412,6 +423,7 @@ var Normalizers = []Mapping{
 						{Name: "Prop_ArrayModifiers", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
 						{Name: "ExpandedFromMacro", Optional: "optMacro8", Op: AnyNode(nil)},
+						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 					},
 				))},
 			}},
