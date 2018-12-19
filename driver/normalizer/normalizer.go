@@ -220,8 +220,8 @@ var Normalizers = []Mapping{
 	)),
 
 	MapSemantic("CPPASTQualifiedName", uast.QualifiedIdentifier{}, MapObj(
-		Obj{
-			"Prop_AllSegments": Each("qualParts", Cases("caseQualParts",
+		Fields{
+			{Name: "Prop_AllSegments", Op: Each("qualParts", Cases("caseQualParts",
 				Fields{
 					{Name: uast.KeyType, Op: String("uast:Identifier")},
 					{Name: uast.KeyPos, Op: AnyNode(nil)},
@@ -245,14 +245,24 @@ var Normalizers = []Mapping{
 						"Name":       Var("name"),
 					}},
 				},
-			)),
+				Is(nil),
+			))},
+			// Ignored: already on AllSegments
+			{Name: "Prop_Qualifier", Optional: "optPropQual", Op: AnyNode(nil)},
 		},
 		Obj{
-			"Names": Each("qualParts",
-				// "caseQualParts" ommited since all 3 cases extract the "name" variable
+			"Names": Each("qualParts", Cases("caseQualParts",
 				UASTType(uast.Identifier{}, Obj{
 					"Name": Var("name"),
-				})),
+				}),
+				UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+				}),
+				UASTType(uast.Identifier{}, Obj{
+					"Name": Var("name"),
+				}),
+				Is(nil),
+			)),
 		},
 	)),
 
@@ -260,6 +270,7 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IsDefaulted", Op: AnyNode(nil)},
 			{Name: "IsDeleted", Op: AnyNode(nil)},
+			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: AnyNode(nil)},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
@@ -285,6 +296,7 @@ var Normalizers = []Mapping{
 					{Name: "IsVirtual", Op: AnyNode(nil)},
 					{Name: "IsVolatile", Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: AnyNode(nil)},
+					{Name: "ExpandedFromMacro", Optional: "optMacro2", Op: AnyNode(nil)},
 					{Name: "Type", Op: String("void")},
 				},
 				// unspecified (ie constructor/destructors)
@@ -308,6 +320,7 @@ var Normalizers = []Mapping{
 					{Name: "IsVirtual", Op: AnyNode(nil)},
 					{Name: "IsVolatile", Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: AnyNode(nil)},
+					{Name: "ExpandedFromMacro", Optional: "optMacro3", Op: AnyNode(nil)},
 					{Name: "Type", Op: String("unspecified")},
 				},
 				Fields{
@@ -331,6 +344,7 @@ var Normalizers = []Mapping{
 					{Name: "IsVirtual", Op: AnyNode(nil)},
 					{Name: "IsVolatile", Op: AnyNode(nil)},
 					{Name: "StorageClass", Op: Var("StorageClass")},
+					{Name: "ExpandedFromMacro", Optional: "optMacro4", Op: AnyNode(nil)},
 					{Name: "Type", Op: Var("retType")},
 				},
 				Fields{
@@ -348,6 +362,7 @@ var Normalizers = []Mapping{
 					{Name: "IsTypeName", Op: AnyNode(nil)},
 					{Name: "IsVirtual", Op: AnyNode(nil)},
 					{Name: "IsVolatile", Op: AnyNode(nil)},
+					{Name: "ExpandedFromMacro", Optional: "optMacro5", Op: AnyNode(nil)},
 					{Name: "Prop_Name", Op: Var("retType")},
 				},
 			)},
@@ -361,6 +376,9 @@ var Normalizers = []Mapping{
 				{Name: "IsOverride", Op: AnyNode(nil)},
 				{Name: "IsPureVirtual", Op: AnyNode(nil)},
 				{Name: "IsVolatile", Op: AnyNode(nil)},
+				{Name: "ExpandedFromMacro", Optional: "optMacro6", Op: AnyNode(nil)},
+				{Name: "Prop_NoexceptExpression", Optional: "declNoExcept", Op: AnyNode(nil)},
+				{Name: "Prop_VirtSpecifiers", Optional: "declVirtSpecs", Op: AnyNode(nil)},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
 					// Empty identifier
@@ -393,6 +411,8 @@ var Normalizers = []Mapping{
 						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
+						{Name: "ExpandedFromMacro", Optional: "optMacro7", Op: AnyNode(nil)},
+						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 					},
 					Fields{
 						{Name: uast.KeyType, Op: String("CPPASTArrayDeclarator")},
@@ -402,6 +422,8 @@ var Normalizers = []Mapping{
 						{Name: "DeclaresParameterPack", Op: AnyNode(nil)},
 						{Name: "Prop_ArrayModifiers", Op: AnyNode(nil)},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
+						{Name: "ExpandedFromMacro", Optional: "optMacro8", Op: AnyNode(nil)},
+						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: AnyNode(nil)},
 					},
 				))},
 			}},
