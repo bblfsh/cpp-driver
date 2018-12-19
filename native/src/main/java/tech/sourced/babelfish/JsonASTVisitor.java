@@ -1174,7 +1174,6 @@ public class JsonASTVisitor extends ASTVisitor {
     @Override
     public int visit(IASTInitializer node) {
         return visitWrapper((IASTNode)node, () -> {
-            serializeCommonData(node);
             if (node instanceof IASTInitializerList) {
                 IASTInitializerList impl = (IASTInitializerList) node;
                 json.writeNumberField("Size", impl.getSize());
@@ -1216,7 +1215,6 @@ public class JsonASTVisitor extends ASTVisitor {
     @Override
     public int visit(IASTToken node) {
         return visitWrapper((IASTNode)node, () -> {
-            serializeCommonData(node);
             json.writeStringField("Image", String.valueOf(node.getTokenCharImage()));
             // FIXME: this returns and int which meaning is undocumented... try to infer them?
             json.writeNumberField("IntTokenType", node.getTokenType());
