@@ -38,12 +38,16 @@ public class DriverResponse {
         translationUnit = parser.parseCPP(source);
     }
 
+    // Note: since we're using the System.out output stream with Jackson, output will
+    // start to be written before this call so its not a deterministic "send everything".
+    // The reason to not use a ByteArrayOutputStream and send everything in one go is that
+    // sometimes memory can grow too much with some files.
     void send() throws ResponseSendException {
         // FIXME: this includes the errors in the already started document
         try {
             formatWritter.writeValue(this);
-            ByteArrayOutputStream byteOut = formatWritter.getByteOutputStream();
-            System.out.write(byteOut.toByteArray());
+            OutputStream byteOut = formatWritter.getOutputStream();
+            byteOut.flush();
             System.out.write('\n');
         } catch (IOException e) {
             throw new DriverResponse.ResponseSendException(e);

@@ -20,7 +20,7 @@ public class Main {
     private static ProcessCycle trySendError(String msg, Exception e) {
         try {
             final TranslationUnitJSONMapper responseJSONMapper =
-                    new TranslationUnitJSONMapper(false, new ByteArrayOutputStream());
+                    new TranslationUnitJSONMapper(false, System.out);
             DriverResponse response = new DriverResponse(responseJSONMapper);
             response.sendError(e, msg);
             return ProcessCycle.CONTINUE;
@@ -38,7 +38,7 @@ public class Main {
         try {
             final EclipseCPPParser parser = new EclipseCPPParser();
             final TranslationUnitJSONMapper responseJSONMapper =
-                new TranslationUnitJSONMapper(false, new ByteArrayOutputStream());
+                new TranslationUnitJSONMapper(false, System.out);
             response = new DriverResponse(responseJSONMapper);
 
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));

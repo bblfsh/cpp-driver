@@ -18,6 +18,8 @@ var Code = []CodeTransformer{
 	positioner.NewFillLineColFromOffset(),
 }
 
+var PreprocessCode = []CodeTransformer{}
+
 func annotateTypeToken(typ, token string, roles ...role.Role) Mapping {
 	return AnnotateType(typ,
 		FieldRoles{
