@@ -19,7 +19,7 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
     final JsonGenerator generator;
     final JsonFactory jsonFactory = new JsonFactory();
     final ObjectMapper mapper = new ObjectMapper();
-    private PrintStream printStream;
+    private OutputStream printStream;
 
     TranslationUnitJSONMapper(boolean prettyPrint, PrintStream byteOutput) throws IOException {
         this.printStream = byteOutput;
