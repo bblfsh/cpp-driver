@@ -1,6 +1,6 @@
 package tech.sourced.babelfish;
 
-import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.IOException;
 
 /**
@@ -10,5 +10,5 @@ import java.io.IOException;
 public interface IExchangeFormatWritter
 {
     void writeValue(DriverResponse response) throws IOException;
-    ByteArrayOutputStream getByteOutputStream();
+    OutputStream getOutputStream();
 }

@@ -10,7 +10,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.eclipse.cdt.core.dom.ast.IASTTranslationUnit;
 
-import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.io.IOException;
 
 class TranslationUnitJSONMapper implements IExchangeFormatWritter {
@@ -18,12 +19,12 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
     final JsonGenerator generator;
     final JsonFactory jsonFactory = new JsonFactory();
     final ObjectMapper mapper = new ObjectMapper();
-    private ByteArrayOutputStream byteOutputStream;
+    private PrintStream printStream;
 
-    TranslationUnitJSONMapper(boolean prettyPrint, ByteArrayOutputStream byteOutput) throws IOException {
-        this.byteOutputStream = byteOutput;
+    TranslationUnitJSONMapper(boolean prettyPrint, PrintStream byteOutput) throws IOException {
+        this.printStream = byteOutput;
 
-        generator = jsonFactory.createGenerator(byteOutputStream);
+        generator = jsonFactory.createGenerator(printStream);
         if (prettyPrint) {
             generator.setPrettyPrinter(new DefaultPrettyPrinter());
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -40,7 +41,7 @@ class TranslationUnitJSONMapper implements IExchangeFormatWritter {
         mapper.writeValue(generator, response);
     }
 
-    public ByteArrayOutputStream getByteOutputStream() {
-        return byteOutputStream;
+    public OutputStream getOutputStream() {
+        return printStream;
     }
 }
