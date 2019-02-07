@@ -1,10 +1,11 @@
 package normalizer
 
 import (
+	"strings"
+
 	"gopkg.in/bblfsh/sdk.v2/uast"
 	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
 	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
-	"strings"
 )
 
 var Preprocess = Transformers([][]Transformer{
@@ -274,8 +275,6 @@ var Normalizers = []Mapping{
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
-				// FIXME XXX: use an Or("void", "unspecified") or the equivalent
-				// void
 				Fields{
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
 					{Name: uast.KeyPos, Op: Any()},
@@ -411,7 +410,7 @@ var Normalizers = []Mapping{
 						{Name: "DeclaresParameterPack", Op: Any()},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
-						{Name: "ExpandedFromMacro", Optional: "optMacro7", Op: Any()},
+						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
 					},
 					Fields{
@@ -422,8 +421,26 @@ var Normalizers = []Mapping{
 						{Name: "DeclaresParameterPack", Op: Any()},
 						{Name: "Prop_ArrayModifiers", Op: Any()},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
-						{Name: "ExpandedFromMacro", Optional: "optMacro8", Op: Any()},
+						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
 						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
+					},
+					Fields{
+						{Name: uast.KeyType, Op: String("CPPASTElaboratedTypeSpecifier")},
+						{Name: uast.KeyPos, Op: Var("parampos")},
+						{Name: "Prop_Name", Op: Var("aname")},
+						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
+						{Name: "Kind", Op: Var("eltype")},
+						{Name: "IsConst", Op: Any()},
+						{Name: "IsConstExpr", Op: Any()},
+						{Name: "IsExplicit", Op: Any()},
+						{Name: "IsFriend", Op: Any()},
+						{Name: "IsInline", Op: Any()},
+						{Name: "IsRestrict", Op: Any()},
+						{Name: "IsThreadLocal", Op: Any()},
+						{Name: "IsVirtual", Op: Any()},
+						{Name: "IsVolatile", Op: Any()},
+						{Name: "StorageClass", Op: Any()},
+						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
 					},
 				))},
 			}},
@@ -471,15 +488,26 @@ var Normalizers = []Mapping{
 
 							{Name: "Arguments", Optional: "optArgs", Op: Cases("takesVarArgs",
 								// False, no varargs
-								Each("args", UASTType(uast.Argument{}, Obj{
-									"Name": Var("aname"),
-									//"Name": Cases("caseParamsName",
-									//	Var("aname"),
-									//	Is(nil),
-									//),
-									"Type": Var("atype"),
-									"Init": If("optInitializer", Var("ainit"), Is(nil)),
-								})),
+								Each("args", Cases("caseParams",
+									UASTType(uast.Argument{}, Obj{
+										"Name": Var("aname"),
+										"Type": Var("atype"),
+										"Init": If("optInitializer", Var("ainit"), Is(nil)),
+									}),
+									UASTType(uast.Argument{}, Obj{
+										"Name": Var("aname"),
+										"Type": Var("atype"),
+										"Init": If("optInitializer", Var("ainit"), Is(nil)),
+									}),
+									UASTType(uast.Argument{}, Obj{
+										"Name": Var("aname"),
+										"Type": UASTType(uast.Identifier{}, Obj{
+											"Name": Var("eltype"),
+										}),
+										"Init": If("optInitializer", Var("ainit"), Is(nil)),
+									})),
+								),
+
 								// True, the last arg is variadic
 								Append(
 									Each("args", UASTType(uast.Argument{}, Obj{

@@ -33,6 +33,28 @@
                      IASTClass: "CPPASTSimpleDeclaration",
                      LocOffsetEnd: 51,
                      LocOffsetStart: 38,
+                     'Prop_DeclSpecifier': {
+                        IASTClass: "CPPASTNamedTypeSpecifier",
+                        IsConst: false,
+                        IsConstExpr: false,
+                        IsExplicit: false,
+                        IsFriend: false,
+                        IsInline: false,
+                        IsRestrict: false,
+                        IsThreadLocal: false,
+                        IsTypeName: false,
+                        IsVirtual: false,
+                        IsVolatile: false,
+                        LocOffsetEnd: 39,
+                        LocOffsetStart: 38,
+                        'Prop_Name': {
+                           IASTClass: "CPPASTName",
+                           LocOffsetEnd: 39,
+                           LocOffsetStart: 38,
+                           Name: "T",
+                        },
+                        StorageClass: "unspecified",
+                     },
                      'Prop_Declarators': [
                         {
                            IASTClass: "CPPASTFunctionDeclarator",

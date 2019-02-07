@@ -208,9 +208,14 @@
                                  IsOverride: false,
                                  IsPureVirtual: false,
                                  IsVolatile: false,
+                                 'Prop_Name': {
+                                    '@role': [Declaration, Function, Name],
+                                    IASTClass: "CPPASTName",
+                                    Name: "",
+                                 },
                                  'Prop_Parameters': [
                                     { '@type': "CPPASTDeclarator",
-                                       '@role': [Declaration, Name, Variable],
+                                       '@role': [Argument, Declaration, Function, Name, Variable],
                                        '@pos': { '@type': "uast:Positions",
                                           start: { '@type': "uast:Position",
                                              offset: 25,

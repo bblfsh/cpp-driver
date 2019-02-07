@@ -131,6 +131,7 @@
                                           IsOverride: false,
                                           IsPureVirtual: false,
                                           IsVolatile: false,
+                                          'Prop_Name': ~,
                                           'Prop_Parameters': [
                                              { '@type': "cpp:CPPASTDeclarator",
                                                 '@role': [Declaration, Name, Variable],

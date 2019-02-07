@@ -1356,6 +1356,12 @@
                                        IsTemplate: false,
                                        LocOffsetEnd: 3178,
                                        LocOffsetStart: 3159,
+                                       'Prop_FieldName': {
+                                          IASTClass: "CPPASTName",
+                                          LocOffsetEnd: 3178,
+                                          LocOffsetStart: 3170,
+                                          Name: "platform",
+                                       },
                                        'Prop_FieldOwner': {
                                           ExpressionType: "A scope could not be created to represent the name ApplicationWayland",
                                           ExpressionValueCategory: "PRVALUE",
