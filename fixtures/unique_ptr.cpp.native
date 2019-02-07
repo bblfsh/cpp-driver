@@ -358,6 +358,58 @@
                                     LocOffsetEnd: 82,
                                     LocOffsetStart: 63,
                                     Operator: "<",
+                                    'Prop_InitOperand2': {
+                                       ExpressionType: "",
+                                       ExpressionValueCategory: "PRVALUE",
+                                       IASTClass: "CPPASTIdExpression",
+                                       IsLValue: false,
+                                       LocOffsetEnd: 82,
+                                       LocOffsetStart: 79,
+                                       'Prop_Name': {
+                                          IASTClass: "CPPASTName",
+                                          LocOffsetEnd: 82,
+                                          LocOffsetStart: 79,
+                                          Name: "Foo",
+                                       },
+                                    },
+                                    'Prop_Operand1': {
+                                       ExpressionType: "",
+                                       ExpressionValueCategory: "PRVALUE",
+                                       IASTClass: "CPPASTIdExpression",
+                                       IsLValue: false,
+                                       LocOffsetEnd: 78,
+                                       LocOffsetStart: 63,
+                                       'Prop_Name': {
+                                          IASTClass: "CPPASTQualifiedName",
+                                          IsConversionOperator: false,
+                                          IsFullyQualified: false,
+                                          LocOffsetEnd: 78,
+                                          LocOffsetStart: 63,
+                                          Name: "std::unique_ptr",
+                                          'Prop_AllSegments': [
+                                             {
+                                                IASTClass: "CPPASTName",
+                                                LocOffsetEnd: 66,
+                                                LocOffsetStart: 63,
+                                                Name: "std",
+                                             },
+                                             {
+                                                IASTClass: "CPPASTName",
+                                                LocOffsetEnd: 78,
+                                                LocOffsetStart: 68,
+                                                Name: "unique_ptr",
+                                             },
+                                          ],
+                                          'Prop_Qualifier': [
+                                             {
+                                                IASTClass: "CPPASTName",
+                                                LocOffsetEnd: 66,
+                                                LocOffsetStart: 63,
+                                                Name: "std",
+                                             },
+                                          ],
+                                       },
+                                    },
                                     'Prop_Operand2': {
                                        ExpressionType: "",
                                        ExpressionValueCategory: "PRVALUE",

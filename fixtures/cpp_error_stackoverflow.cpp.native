@@ -98,6 +98,10 @@
                                  IsVolatile: false,
                                  LocOffsetEnd: 26,
                                  LocOffsetStart: 21,
+                                 'Prop_Name': {
+                                    IASTClass: "CPPASTName",
+                                    Name: "",
+                                 },
                                  'Prop_Parameters': [
                                     {
                                        DeclaresParameterPack: false,

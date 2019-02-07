@@ -8,6 +8,7 @@ import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 import java.util.Hashtable;
@@ -76,9 +77,9 @@ public class JsonASTVisitor extends ASTVisitor {
         Method method;
         String name;
 
-        MethodWrapper(Method meth, String name_) {
+        MethodWrapper(Method meth) {
             method = meth;
-            name = name_;
+            name = meth.getName();
         }
 
         @Override
@@ -285,35 +286,29 @@ public class JsonASTVisitor extends ASTVisitor {
         String nodeClass = node.getClass().getSimpleName();
         Vector<ChildrenTypeCacheValue> catched = childrenMethodsCache.get(nodeClass);
 
-        if (catched != null) {
-            for (ChildrenTypeCacheValue val : catched) {
-                if (doDebugLog)
-                    jsonDebugLog.add("Method_" + "catched_" +
-                            val.method.getDeclaringClass().getSimpleName()
-                            + "." + val.method.getName());
-                writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
-            }
+        // Add this node's class methods to the cache
+        if (catched == null) {
+            catched = new Vector<ChildrenTypeCacheValue>();
+            childrenMethodsCache.put(nodeClass, catched);
 
-        } else {
             // Order of getMethods() changes between runs so we need to do this to
             // ensure that integration tests do not break
             Method[] methods = node.getClass().getMethods();
-            MethodWrapper[] methodWrappers = new MethodWrapper[methods.length];
-            int idx = 0;
+            List<MethodWrapper> methodWrappers = new Vector<MethodWrapper>();
 
             for (Method m : methods) {
-                methodWrappers[idx] = new MethodWrapper(m, m.getName());
-                ++idx;
-            }
+                String mname = m.getName();
 
-            Arrays.sort(methodWrappers);
+                if (!mname.startsWith("get") || skipMethods.contains(mname)
+                        || m.getParameterCount() > 0)
+                    continue;
+
+                methodWrappers.add(new MethodWrapper(m));
+            }
+            Collections.sort(methodWrappers);
 
             for (MethodWrapper mw : methodWrappers) {
                 String mname = mw.name;
-
-                if (!mname.startsWith("get") || skipMethods.contains(mname)
-                        || mw.method.getParameterCount() > 0)
-                    continue;
 
                 String propName = "Prop_" + mname.substring(3);
                 Class<?> returnType = mw.method.getReturnType();
@@ -327,15 +322,18 @@ public class JsonASTVisitor extends ASTVisitor {
                 writeChildProperty(node, mw.method, propName, returnType.isArray());
 
                 // Add the node and method information to the cache
-                ChildrenTypeCacheValue cacheVal = new ChildrenTypeCacheValue(
+                catched.add(new ChildrenTypeCacheValue(
                         propName, mw.method, mname, returnType.isArray()
-                );
-
-                if (!childrenMethodsCache.containsKey(nodeClass))
-                    childrenMethodsCache.put(nodeClass, new Vector<ChildrenTypeCacheValue>());
-
-                childrenMethodsCache.get(nodeClass).add(cacheVal);
+                ));
             }
+        }
+
+        for (ChildrenTypeCacheValue val : catched) {
+            if (doDebugLog)
+                jsonDebugLog.add("Method_" + "catched_" +
+                        val.method.getDeclaringClass().getSimpleName()
+                        + "." + val.method.getName());
+            writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
         }
     }
 
