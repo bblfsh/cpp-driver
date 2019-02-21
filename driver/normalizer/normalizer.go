@@ -31,8 +31,9 @@ var Preprocessors = []Mapping{
 
 func mapIASTNameDerived(typ string) Mapping {
 	return MapSemantic(typ, uast.Identifier{}, MapObj(
-		Obj{
-			"Name": Var("name"),
+		Fields{
+			{Name: "Name", Op: Var("name")},
+			{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
 		},
 		Obj{
 			"Name": Var("name"),
@@ -131,10 +132,17 @@ var Normalizers = []Mapping{
 				{
 					"Name":     Var("path"),
 					"IsSystem": Bool(true),
+					// Always empty on current tests, this should detect other cases
+					"Path": String(""),
+					// TODO(juanjux): save this once we've a way
+					"Resolved": Any(),
 				},
 				{
 					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
 					"IsSystem": Bool(false),
+					"Path": String(""),
+					// TODO(juanjux): save this once we've a way
+					"Resolved": Any(),
 				},
 			}),
 		Obj{
@@ -148,8 +156,14 @@ var Normalizers = []Mapping{
 	)),
 
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
-		Obj{
-			"Prop_Statements": Var("statements"),
+		Fields{
+			{Name: "Prop_Statements", Op: Var("statements")},
+			// TODO(juanjyux): save this once we have a way.
+			{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
+			// TODO(juanjux): do something to don't lose these
+			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Any()},
+			{Name: "FreestadingComments", Optional: "optFSComments", Op: Any()},
+			{Name: "TrailingComments", Optional: "optTlComments", Op: Any()},
 		},
 		Obj{
 			"Statements": Var("statements"),
@@ -158,7 +172,12 @@ var Normalizers = []Mapping{
 
 	// Empty {}
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
-		Obj{},
+		Fields{
+			// TODO(juanjux): do something to don't lose these
+			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Any()},
+			{Name: "FreestadingComments", Optional: "optFSComments", Op: Any()},
+			{Name: "TrailingComments", Optional: "optTlComments", Op: Any()},
+		},
 		Obj{"Statements": Arr()},
 	)),
 
@@ -166,6 +185,10 @@ var Normalizers = []Mapping{
 		Obj{
 			"LiteralValue": Quote(Var("val")),
 			"kind":         String("string_literal"),
+			"ExpressionValueCategory": String("LVALUE"),
+			"IsLValue": Bool(true),
+			// Will be const char[somenum]
+			"ExpressionType": Any(),
 		},
 		Obj{
 			"Value":  Var("val"),
@@ -190,10 +213,13 @@ var Normalizers = []Mapping{
 	)),
 
 	// Args in C can have type but be empty (typically in headers, but also in implementations): int main(int, char**)
-	Map(Obj{
-		"IASTClass": String("CPPASTName"),
-		"Name":      String(""),
-	},
+	Map(
+		Fields{
+			{Name: "IASTClass", Op: String("CPPASTName")},
+			{Name: "Name", Op:      String("")},
+			// TODO(juanjyux): save this once we have a way.
+			{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
+		},
 		Is(nil),
 	),
 
@@ -248,8 +274,14 @@ var Normalizers = []Mapping{
 				},
 				Is(nil),
 			))},
+			{Name: "IsConversionOperator", Op: Bool(false)},
 			// Ignored: already on AllSegments
 			{Name: "Prop_Qualifier", Optional: "optPropQual", Op: Any()},
+			// TODO(juanjux): save these two once we've a way
+			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: Any()},
+			{Name: "IsFullyQualified", Op: Any()},
+			// Same as Prop_AllSegments but in a single string ("foo::bar::baz") instead of a list
+			{Name: "Name", Op: Any()},
 		},
 		Obj{
 			"Names": Each("qualParts", Cases("caseQualParts",
@@ -271,8 +303,13 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IsDefaulted", Op: Any()},
 			{Name: "IsDeleted", Op: Any()},
+			// TODO(juanjux): save this once we've a way
 			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: Any()},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
+			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
+			{Name: "FreestadingComments", Optional: "optFSComments", Op: Var("fsComments")},
+			{Name: "TrailingComments", Optional: "optTlComments", Op: Var("tsComments")},
+			{Name: "Prop_MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
 				Fields{
@@ -447,6 +484,14 @@ var Normalizers = []Mapping{
 		},
 		Obj{
 			"Nodes": Arr(
+				Fields{
+                    {Name: "Comments", Op: Fields{
+						{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
+						{Name: "FreestadingComments", Optional: "optFSComments", Op: Var("fsComments")},
+						{Name: "TrailingComments", Optional: "optTlComments", Op: Var("tsComments")},
+					}},
+					{Name: "MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
+				},
 				UASTType(uast.Alias{}, Obj{
 					"Name": UASTType(uast.Identifier{}, CasesObj("caseName", Obj{},
 						Objs{

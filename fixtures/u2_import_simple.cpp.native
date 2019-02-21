@@ -1,6 +1,6 @@
 {
    IASTClass: "CPPASTTranslationUnit",
-   LocOffsetEnd: 54,
+   LocOffsetEnd: 82,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_PreprocStatements': [
@@ -28,6 +28,15 @@
          LocOffsetEnd: 53,
          LocOffsetStart: 37,
          Name: "foo.h",
+         Path: "",
+         Resolved: false,
+      },
+      {
+         IASTClass: "ASTInclusionStatement",
+         IsSystem: false,
+         LocOffsetEnd: 81,
+         LocOffsetStart: 54,
+         Name: "/home/path/bar.h",
          Path: "",
          Resolved: false,
       },

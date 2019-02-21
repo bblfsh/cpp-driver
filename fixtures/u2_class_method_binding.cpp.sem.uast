@@ -175,6 +175,9 @@
             },
          },
          Nodes: [
+            {
+               Comments: {},
+            },
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc1",

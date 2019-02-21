@@ -43,6 +43,9 @@
                },
             },
             Nodes: [
+               {
+                  Comments: {},
+               },
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "powerset",
@@ -3446,6 +3449,9 @@
                },
             },
             Nodes: [
+               {
+                  Comments: {},
+               },
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "powerset",

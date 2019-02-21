@@ -28,6 +28,9 @@
             },
          },
          Nodes: [
+            {
+               Comments: {},
+            },
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "happy_iteration",
@@ -1200,6 +1203,9 @@
             },
          },
          Nodes: [
+            {
+               Comments: {},
+            },
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "is_happy",
@@ -2526,6 +2532,9 @@
             },
          },
          Nodes: [
+            {
+               Comments: {},
+            },
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "main",
