@@ -134,14 +134,14 @@ var Normalizers = []Mapping{
 					"IsSystem": Bool(true),
 					// Always empty on current tests, this should detect other cases
 					"Path": String(""),
-					// TODO(juanjux): save this once we've a way
+					// FIXME(juanjux): save this once we've a way
 					"Resolved": Any(),
 				},
 				{
 					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
 					"IsSystem": Bool(false),
 					"Path": String(""),
-					// TODO(juanjux): save this once we've a way
+					// FIXME(juanjux): save this once we've a way
 					"Resolved": Any(),
 				},
 			}),
@@ -158,9 +158,8 @@ var Normalizers = []Mapping{
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
 		Fields{
 			{Name: "Prop_Statements", Op: Var("statements")},
-			// TODO(juanjyux): save this once we have a way.
+			// FIXME(juanjux): save all these once we have a way.
 			{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
-			// TODO(juanjux): do something to don't lose these
 			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Any()},
 			{Name: "FreestadingComments", Optional: "optFSComments", Op: Any()},
 			{Name: "TrailingComments", Optional: "optTlComments", Op: Any()},
@@ -173,7 +172,7 @@ var Normalizers = []Mapping{
 	// Empty {}
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
 		Fields{
-			// TODO(juanjux): do something to don't lose these
+			// FIXME(juanjux): save all these once we have a way
 			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Any()},
 			{Name: "FreestadingComments", Optional: "optFSComments", Op: Any()},
 			{Name: "TrailingComments", Optional: "optTlComments", Op: Any()},
@@ -217,7 +216,7 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IASTClass", Op: String("CPPASTName")},
 			{Name: "Name", Op:      String("")},
-			// TODO(juanjyux): save this once we have a way.
+			// FIXME(juanjux): save this once we have a way.
 			{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
 		},
 		Is(nil),
@@ -277,7 +276,7 @@ var Normalizers = []Mapping{
 			{Name: "IsConversionOperator", Op: Bool(false)},
 			// Ignored: already on AllSegments
 			{Name: "Prop_Qualifier", Optional: "optPropQual", Op: Any()},
-			// TODO(juanjux): save these two once we've a way
+			// FIXME(juanjux): save these two once we've a way
 			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: Any()},
 			{Name: "IsFullyQualified", Op: Any()},
 			// Same as Prop_AllSegments but in a single string ("foo::bar::baz") instead of a list
@@ -303,7 +302,7 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IsDefaulted", Op: Any()},
 			{Name: "IsDeleted", Op: Any()},
-			// TODO(juanjux): save this once we've a way
+			// FIXME(juanjux): save this once we've a way
 			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: Any()},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
 			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
