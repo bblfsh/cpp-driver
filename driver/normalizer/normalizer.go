@@ -31,8 +31,9 @@ var Preprocessors = []Mapping{
 
 func mapIASTNameDerived(typ string) Mapping {
 	return MapSemantic(typ, uast.Identifier{}, MapObj(
-		Obj{
-			"Name": Var("name"),
+		Fields{
+			{Name: "Name", Op: Var("name")},
+			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 		},
 		Obj{
 			"Name": Var("name"),
@@ -131,10 +132,17 @@ var Normalizers = []Mapping{
 				{
 					"Name":     Var("path"),
 					"IsSystem": Bool(true),
+					// Always empty on current tests, this should detect other cases
+					"Path": String(""),
+					// FIXME(juanjux): save this once we've a way
+					"Resolved": Any(),
 				},
 				{
 					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
 					"IsSystem": Bool(false),
+					"Path":     String(""),
+					// FIXME(juanjux): save this once we've a way
+					"Resolved": Any(),
 				},
 			}),
 		Obj{
@@ -148,8 +156,13 @@ var Normalizers = []Mapping{
 	)),
 
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
-		Obj{
-			"Prop_Statements": Var("statements"),
+		Fields{
+			{Name: "Prop_Statements", Op: Var("statements")},
+			// FIXME(juanjux): save all these once we have a way.
+			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+			{Name: "LeadingComments", Drop: true, Op: Any()},
+			{Name: "FreestadingComments", Drop: true, Op: Any()},
+			{Name: "TrailingComments", Drop: true, Op: Any()},
 		},
 		Obj{
 			"Statements": Var("statements"),
@@ -158,14 +171,23 @@ var Normalizers = []Mapping{
 
 	// Empty {}
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
-		Obj{},
+		Fields{
+			// FIXME(juanjux): save all these once we have a way
+			{Name: "LeadingComments", Drop: true, Op: Any()},
+			{Name: "FreestadingComments", Drop: true, Op: Any()},
+			{Name: "TrailingComments", Drop: true, Op: Any()},
+		},
 		Obj{"Statements": Arr()},
 	)),
 
 	MapSemantic("CPPASTLiteralExpression", uast.String{}, MapObj(
 		Obj{
-			"LiteralValue": Quote(Var("val")),
-			"kind":         String("string_literal"),
+			"LiteralValue":            Quote(Var("val")),
+			"kind":                    String("string_literal"),
+			"ExpressionValueCategory": String("LVALUE"),
+			"IsLValue":                Bool(true),
+			// Will be const char[somenum]
+			"ExpressionType": Any(),
 		},
 		Obj{
 			"Value":  Var("val"),
@@ -190,10 +212,13 @@ var Normalizers = []Mapping{
 	)),
 
 	// Args in C can have type but be empty (typically in headers, but also in implementations): int main(int, char**)
-	Map(Obj{
-		"IASTClass": String("CPPASTName"),
-		"Name":      String(""),
-	},
+	Map(
+		Fields{
+			{Name: "IASTClass", Op: String("CPPASTName")},
+			{Name: "Name", Op: String("")},
+			// FIXME(juanjux): save this once we have a way.
+			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+		},
 		Is(nil),
 	),
 
@@ -248,8 +273,14 @@ var Normalizers = []Mapping{
 				},
 				Is(nil),
 			))},
+			{Name: "IsConversionOperator", Op: Bool(false)},
 			// Ignored: already on AllSegments
-			{Name: "Prop_Qualifier", Optional: "optPropQual", Op: Any()},
+			{Name: "Prop_Qualifier", Drop: true, Op: Any()},
+			// FIXME(juanjux): save these two once we've a way
+			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+			{Name: "IsFullyQualified", Op: Any()},
+			// Same as Prop_AllSegments but in a single string ("foo::bar::baz") instead of a list
+			{Name: "Name", Op: Any()},
 		},
 		Obj{
 			"Names": Each("qualParts", Cases("caseQualParts",
@@ -271,55 +302,60 @@ var Normalizers = []Mapping{
 		Fields{
 			{Name: "IsDefaulted", Op: Any()},
 			{Name: "IsDeleted", Op: Any()},
-			{Name: "ExpandedFromMacro", Optional: "optMacro1", Op: Any()},
+			// FIXME(juanjux): save this once we've a way
+			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
+			{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
+			{Name: "FreestadingComments", Optional: "optFSComments", Op: Var("fsComments")},
+			{Name: "TrailingComments", Optional: "optTlComments", Op: Var("tsComments")},
+			{Name: "Prop_MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
 				Fields{
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
 					{Name: uast.KeyPos, Op: Any()},
-					{Name: "IsComplex", Op: Any()},
-					{Name: "IsConst", Op: Any()},
-					{Name: "IsConstExpr", Op: Any()},
-					{Name: "IsExplicit", Op: Any()},
-					{Name: "IsFriend", Op: Any()},
-					{Name: "IsImaginary", Op: Any()},
-					{Name: "IsInline", Op: Any()},
-					{Name: "IsLong", Op: Any()},
-					{Name: "IsLongLong", Op: Any()},
-					{Name: "IsRestrict", Op: Any()},
-					{Name: "IsShort", Op: Any()},
-					{Name: "IsSigned", Op: Any()},
-					{Name: "IsThreadLocal", Op: Any()},
-					{Name: "IsUnsigned", Op: Any()},
-					{Name: "IsVirtual", Op: Any()},
-					{Name: "IsVolatile", Op: Any()},
-					{Name: "StorageClass", Op: Any()},
-					{Name: "ExpandedFromMacro", Optional: "optMacro2", Op: Any()},
+					{Name: "IsComplex", Drop: true, Op: Any()},
+					{Name: "IsConst", Drop: true, Op: Any()},
+					{Name: "IsConstExpr", Drop: true, Op: Any()},
+					{Name: "IsExplicit", Drop: true, Op: Any()},
+					{Name: "IsFriend", Drop: true, Op: Any()},
+					{Name: "IsImaginary", Drop: true, Op: Any()},
+					{Name: "IsInline", Drop: true, Op: Any()},
+					{Name: "IsLong", Drop: true, Op: Any()},
+					{Name: "IsLongLong", Drop: true, Op: Any()},
+					{Name: "IsRestrict", Drop: true, Op: Any()},
+					{Name: "IsShort", Drop: true, Op: Any()},
+					{Name: "IsSigned", Drop: true, Op: Any()},
+					{Name: "IsThreadLocal", Drop: true, Op: Any()},
+					{Name: "IsUnsigned", Drop: true, Op: Any()},
+					{Name: "IsVirtual", Drop: true, Op: Any()},
+					{Name: "IsVolatile", Drop: true, Op: Any()},
+					{Name: "StorageClass", Drop: true, Op: Any()},
+					{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 					{Name: "Type", Op: String("void")},
 				},
 				// unspecified (ie constructor/destructors)
 				Fields{
 					{Name: uast.KeyType, Op: String("CPPASTSimpleDeclSpecifier")},
-					{Name: uast.KeyPos, Op: Any()},
-					{Name: "IsComplex", Op: Any()},
-					{Name: "IsConst", Op: Any()},
-					{Name: "IsConstExpr", Op: Any()},
-					{Name: "IsExplicit", Op: Any()},
-					{Name: "IsFriend", Op: Any()},
-					{Name: "IsImaginary", Op: Any()},
-					{Name: "IsInline", Op: Any()},
-					{Name: "IsLong", Op: Any()},
-					{Name: "IsLongLong", Op: Any()},
-					{Name: "IsRestrict", Op: Any()},
-					{Name: "IsShort", Op: Any()},
-					{Name: "IsSigned", Op: Any()},
-					{Name: "IsThreadLocal", Op: Any()},
-					{Name: "IsUnsigned", Op: Any()},
-					{Name: "IsVirtual", Op: Any()},
-					{Name: "IsVolatile", Op: Any()},
-					{Name: "StorageClass", Op: Any()},
-					{Name: "ExpandedFromMacro", Optional: "optMacro3", Op: Any()},
+					{Name: uast.KeyPos, Drop: true, Op: Any()},
+					{Name: "IsComplex", Drop: true, Op: Any()},
+					{Name: "IsConst", Drop: true, Op: Any()},
+					{Name: "IsConstExpr", Drop: true, Op: Any()},
+					{Name: "IsExplicit", Drop: true, Op: Any()},
+					{Name: "IsFriend", Drop: true, Op: Any()},
+					{Name: "IsImaginary", Drop: true, Op: Any()},
+					{Name: "IsInline", Drop: true, Op: Any()},
+					{Name: "IsLong", Drop: true, Op: Any()},
+					{Name: "IsLongLong", Drop: true, Op: Any()},
+					{Name: "IsRestrict", Drop: true, Op: Any()},
+					{Name: "IsShort", Drop: true, Op: Any()},
+					{Name: "IsSigned", Drop: true, Op: Any()},
+					{Name: "IsThreadLocal", Drop: true, Op: Any()},
+					{Name: "IsUnsigned", Drop: true, Op: Any()},
+					{Name: "IsVirtual", Drop: true, Op: Any()},
+					{Name: "IsVolatile", Drop: true, Op: Any()},
+					{Name: "StorageClass", Drop: true, Op: Any()},
+					{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 					{Name: "Type", Op: String("unspecified")},
 				},
 				Fields{
@@ -343,7 +379,7 @@ var Normalizers = []Mapping{
 					{Name: "IsVirtual", Op: Any()},
 					{Name: "IsVolatile", Op: Any()},
 					{Name: "StorageClass", Op: Var("StorageClass")},
-					{Name: "ExpandedFromMacro", Optional: "optMacro4", Op: Any()},
+					{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 					{Name: "Type", Op: Var("retType")},
 				},
 				Fields{
@@ -361,7 +397,7 @@ var Normalizers = []Mapping{
 					{Name: "IsTypeName", Op: Any()},
 					{Name: "IsVirtual", Op: Any()},
 					{Name: "IsVolatile", Op: Any()},
-					{Name: "ExpandedFromMacro", Optional: "optMacro5", Op: Any()},
+					{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 					{Name: "Prop_Name", Op: Var("retType")},
 				},
 			)},
@@ -375,9 +411,9 @@ var Normalizers = []Mapping{
 				{Name: "IsOverride", Op: Any()},
 				{Name: "IsPureVirtual", Op: Any()},
 				{Name: "IsVolatile", Op: Any()},
-				{Name: "ExpandedFromMacro", Optional: "optMacro6", Op: Any()},
-				{Name: "Prop_NoexceptExpression", Optional: "declNoExcept", Op: Any()},
-				{Name: "Prop_VirtSpecifiers", Optional: "declVirtSpecs", Op: Any()},
+				{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+				{Name: "Prop_NoexceptExpression", Drop: true, Op: Any()},
+				{Name: "Prop_VirtSpecifiers", Drop: true, Op: Any()},
 
 				{Name: "Prop_Name", Op: Cases("caseName",
 					// Empty identifier
@@ -398,8 +434,8 @@ var Normalizers = []Mapping{
 				)},
 
 				{Name: "TakesVarArgs", Op: Cases("takesVarArgs", Bool(false), Bool(true))},
-				{Name: "Prop_ConstructorChain", Optional: "optConsChain", Op: Any()},
-				{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
+				{Name: "Prop_ConstructorChain", Drop: true, Op: Any()},
+				{Name: "Prop_PointerOperators", Drop: true, Op: Any()},
 
 				{Name: "Prop_Parameters", Optional: "optArgs", Op: Each("args", Cases("caseParams",
 					Fields{
@@ -407,22 +443,24 @@ var Normalizers = []Mapping{
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
-						{Name: "DeclaresParameterPack", Op: Any()},
-						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
-						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
-						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
+						// FIXME(juanjux): save these once we've a way
+						{Name: "DeclaresParameterPack", Drop: true, Op: Any()},
+						{Name: "Prop_PointerOperators", Drop: true, Op: Any()},
+						{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+						{Name: "Prop_PointerOperators", Drop: true, Op: Any()},
 					},
 					Fields{
 						{Name: uast.KeyType, Op: String("CPPASTArrayDeclarator")},
 						{Name: uast.KeyPos, Op: Var("parampos")},
 						{Name: "Prop_Name", Op: Var("aname")},
 						{Name: "Prop_TypeNode", Op: Var("atype")},
-						{Name: "DeclaresParameterPack", Op: Any()},
-						{Name: "Prop_ArrayModifiers", Op: Any()},
 						{Name: "Prop_Initializer", Optional: "optInitializer", Op: Var("ainit")},
-						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
-						{Name: "Prop_PointerOperators", Optional: "optPointerOps", Op: Any()},
+						// FIXME(juanjux): save these once we've a way
+						{Name: "DeclaresParameterPack", Drop: true, Op: Any()},
+						{Name: "Prop_ArrayModifiers", Drop: true, Op: Any()},
+						{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
+						{Name: "Prop_PointerOperators", Drop: true, Op: Any()},
 					},
 					Fields{
 						{Name: uast.KeyType, Op: String("CPPASTElaboratedTypeSpecifier")},
@@ -440,13 +478,22 @@ var Normalizers = []Mapping{
 						{Name: "IsVirtual", Op: Any()},
 						{Name: "IsVolatile", Op: Any()},
 						{Name: "StorageClass", Op: Any()},
-						{Name: "ExpandedFromMacro", Optional: "optMacro", Op: Any()},
+						// FIXME(juanjux): save these once we've a way
+						{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 					},
 				))},
 			}},
 		},
 		Obj{
 			"Nodes": Arr(
+				Fields{
+					{Name: "Comments", Op: Fields{
+						{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
+						{Name: "FreestadingComments", Optional: "optFSComments", Op: Var("fsComments")},
+						{Name: "TrailingComments", Optional: "optTlComments", Op: Var("tsComments")},
+					}},
+					{Name: "MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
+				},
 				UASTType(uast.Alias{}, Obj{
 					"Name": UASTType(uast.Identifier{}, CasesObj("caseName", Obj{},
 						Objs{

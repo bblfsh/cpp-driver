@@ -175,6 +175,9 @@
             },
          },
          Nodes: [
+            {
+               Comments: {},
+            },
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::~testcls1",
@@ -268,6 +271,9 @@
                      },
                   },
                   Nodes: [
+                     {
+                        Comments: {},
+                     },
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "~testcls2",
@@ -365,6 +371,9 @@
                      },
                   },
                   Nodes: [
+                     {
+                        Comments: {},
+                     },
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "~testcls3",
