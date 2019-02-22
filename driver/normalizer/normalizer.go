@@ -140,7 +140,7 @@ var Normalizers = []Mapping{
 				{
 					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
 					"IsSystem": Bool(false),
-					"Path": String(""),
+					"Path":     String(""),
 					// FIXME(juanjux): save this once we've a way
 					"Resolved": Any(),
 				},
@@ -182,10 +182,10 @@ var Normalizers = []Mapping{
 
 	MapSemantic("CPPASTLiteralExpression", uast.String{}, MapObj(
 		Obj{
-			"LiteralValue": Quote(Var("val")),
-			"kind":         String("string_literal"),
+			"LiteralValue":            Quote(Var("val")),
+			"kind":                    String("string_literal"),
 			"ExpressionValueCategory": String("LVALUE"),
-			"IsLValue": Bool(true),
+			"IsLValue":                Bool(true),
 			// Will be const char[somenum]
 			"ExpressionType": Any(),
 		},
@@ -215,7 +215,7 @@ var Normalizers = []Mapping{
 	Map(
 		Fields{
 			{Name: "IASTClass", Op: String("CPPASTName")},
-			{Name: "Name", Op:      String("")},
+			{Name: "Name", Op: String("")},
 			// FIXME(juanjux): save this once we have a way.
 			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 		},
@@ -487,7 +487,7 @@ var Normalizers = []Mapping{
 		Obj{
 			"Nodes": Arr(
 				Fields{
-                    {Name: "Comments", Op: Fields{
+					{Name: "Comments", Op: Fields{
 						{Name: "LeadingComments", Optional: "optLeadingComments", Op: Var("leadingComments")},
 						{Name: "FreestadingComments", Optional: "optFSComments", Op: Var("fsComments")},
 						{Name: "TrailingComments", Optional: "optTlComments", Op: Var("tsComments")},
