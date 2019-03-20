@@ -6,5 +6,5 @@ target
 native/.idea/*
 native/src/main/java/tech/sourced/babelfish/j2cpp/*
 vendor/
-fixtures/*_got
 .idea/*
+*.iml

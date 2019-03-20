@@ -7,16 +7,15 @@ import org.eclipse.cdt.core.dom.ast.cpp.*;
 import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
-import java.util.Vector;
-import java.util.Hashtable;
 import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Stack;
-import java.lang.Comparable;
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
+import java.util.Vector;
 
 /// Visitor pattern implementation for the CPP AST. This will write every
 /// node in the Json output. Since CDT unfortunately doesnt have something like JDT
@@ -25,10 +24,10 @@ import java.lang.reflect.InvocationTargetException;
 /// children that derive for IASTNode (including all the ones returned by any method
 /// of that node returning an IASTNode-derived object), a lot of nodes also have
 /// other methods that return something not derived from IASTNode and thus not returned
-/// by getChildren. So for all these IASTNode subinterfaces we must call and store the
+/// by getChildren. So for all these IASTNode sub-interfaces we must call and store the
 /// value of those non-IASTNode-returning methods. The most infamous is probably the
 /// getOperator of some nodes that return an int than then you have to match in a switch
-/// because the possible values are not even declarated in an enum but as final int
+/// because the possible values are not even declared in an enum but as final int
 /// class members.
 
 public class JsonASTVisitor extends ASTVisitor {
@@ -1293,12 +1292,16 @@ public class JsonASTVisitor extends ASTVisitor {
                         IASTPreprocessorIfndefStatement s = (IASTPreprocessorIfndefStatement)stmt;
                         json.writeStringField("Condition", new String(s.getCondition()));
                         json.writeBooleanField("IsTaken", s.taken());
-                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                        if (s.getMacroReference() != null ) {
+                            json.writeStringField("MacroReference", s.getMacroReference().toString());
+                        }
                     } else if (stmt instanceof IASTPreprocessorIfdefStatement) {
                         IASTPreprocessorIfdefStatement s = (IASTPreprocessorIfdefStatement)stmt;
                         json.writeStringField("Condition", new String(s.getCondition()));
                         json.writeBooleanField("IsTaken", s.taken());
-                        json.writeStringField("MacroReference", s.getMacroReference().toString());
+                        if (s.getMacroReference() != null ) {
+                            json.writeStringField("MacroReference", s.getMacroReference().toString());
+                        }
                     } else if (stmt instanceof IASTPreprocessorElifStatement) {
                         IASTPreprocessorElifStatement s = (IASTPreprocessorElifStatement)stmt;
                         json.writeStringField("Condition", new String(s.getCondition()));

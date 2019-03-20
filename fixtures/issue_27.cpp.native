@@ -1,0 +1,32 @@
+{
+   IASTClass: "CPPASTTranslationUnit",
+   LocOffsetEnd: 41,
+   LocOffsetStart: 0,
+   'Prop_BuiltinMacroDefinitions': [],
+   'Prop_PreprocStatements': [
+      {
+         Condition: "E",
+         IASTClass: "ASTIf",
+         IsTaken: false,
+         LocOffsetEnd: 5,
+         LocOffsetStart: 0,
+      },
+      {
+         Condition: "F",
+         IASTClass: "ASTIfndef",
+         IsTaken: false,
+         LocOffsetEnd: 16,
+         LocOffsetStart: 7,
+      },
+      {
+         IASTClass: "ASTEndif",
+         LocOffsetEnd: 33,
+         LocOffsetStart: 27,
+      },
+      {
+         IASTClass: "ASTEndif",
+         LocOffsetEnd: 41,
+         LocOffsetStart: 35,
+      },
+   ],
+}
