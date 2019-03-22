@@ -19,8 +19,8 @@
 [[projects]]
   name = "github.com/Microsoft/go-winio"
   packages = ["."]
-  revision = "97e4973ce50b2ff5f09635a57e2b88a037aae829"
-  version = "v0.4.11"
+  revision = "1a8911d1ed007260465c3bfbbc785ac6915a0bb8"
+  version = "v0.4.12"
 
 [[projects]]
   branch = "master"
@@ -355,6 +355,9 @@
 [[projects]]
   name = "gopkg.in/bblfsh/sdk.v2"
   packages = [
+    "assets/build",
+    "assets/skeleton",
+    "build",
     "cmd",
     "driver",
     "driver/errors",
@@ -376,8 +379,8 @@
     "uast/viewer",
     "uast/yaml"
   ]
-  revision = "7f43f27c14a259a0a396cc70c911424b8e8b11c1"
-  version = "v2.15.0"
+  revision = "82ab50025f39a4d522a9124f69bd9cf5220ed6b9"
+  version = "v2.16.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-errors.v1"
@@ -394,6 +397,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8d00eb0db7571dd260ac8ee67bdd88185bc6e343403e506600c9cb95228b9d55"
+  inputs-digest = "96204bbe3f15ea0f710f2366cf9208b9453d39e11f88704526cd54c95eb6a6d2"
   solver-name = "gps-cdcl"
   solver-version = 1
