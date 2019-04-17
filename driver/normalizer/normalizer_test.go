@@ -1,11 +1,11 @@
 package normalizer
 
 import (
+	"github.com/bblfsh/sdk/v3/uast/nodes"
 	"github.com/stretchr/testify/require"
-	"gopkg.in/bblfsh/sdk.v2/uast/nodes"
 	"testing"
 
-	. "gopkg.in/bblfsh/sdk.v2/uast/transformer"
+	. "github.com/bblfsh/sdk/v3/uast/transformer"
 )
 
 func TestOpJoinNamesArray(t *testing.T) {
@@ -23,18 +23,18 @@ func TestOpJoinNamesArray(t *testing.T) {
 	require.Equal(t, nodes.Array{
 		nodes.Object{
 			"@type": nodes.String("uast:Identifier"),
-			"@pos":nodes.Object{"@type":nodes.String("uast:Positions")},
-			"Name": nodes.String("a"),
+			"@pos":  nodes.Object{"@type": nodes.String("uast:Positions")},
+			"Name":  nodes.String("a"),
 		},
 		nodes.Object{
 			"@type": nodes.String("uast:Identifier"),
-			"@pos":nodes.Object{"@type":nodes.String("uast:Positions")},
-			"Name": nodes.String("b"),
+			"@pos":  nodes.Object{"@type": nodes.String("uast:Positions")},
+			"Name":  nodes.String("b"),
 		},
 		nodes.Object{
 			"@type": nodes.String("uast:Identifier"),
-			"@pos":nodes.Object{"@type":nodes.String("uast:Positions")},
-			"Name": nodes.String("c"),
+			"@pos":  nodes.Object{"@type": nodes.String("uast:Positions")},
+			"Name":  nodes.String("c"),
 		},
 	}, n2)
 
