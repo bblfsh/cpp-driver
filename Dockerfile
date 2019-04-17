@@ -1,6 +1,13 @@
+# This file can be used directly with Docker.
+#
 # Prerequisites:
-#   dep ensure --vendor-only
+#   go mod vendor
 #   bblfsh-sdk release
+#
+# However, the preferred way is:
+#   go run ./build.go driver:tag
+#
+# This will regenerate all necessary files before building the driver.
 
 #==============================
 # Stage 1: Native Driver Build
@@ -35,10 +42,13 @@ FROM golang:1.10-alpine as driver
 ENV DRIVER_REPO=github.com/bblfsh/cpp-driver
 ENV DRIVER_REPO_PATH=/go/src/$DRIVER_REPO
 
+ADD go.* $DRIVER_REPO_PATH/
 ADD vendor $DRIVER_REPO_PATH/vendor
 ADD driver $DRIVER_REPO_PATH/driver
 
 WORKDIR $DRIVER_REPO_PATH/
+
+ENV GO111MODULE=on GOFLAGS=-mod=vendor
 
 # build server binary
 RUN go build -o /tmp/driver ./driver/main.go

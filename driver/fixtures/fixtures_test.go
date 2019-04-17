@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	"github.com/bblfsh/cpp-driver/driver/normalizer"
-	"gopkg.in/bblfsh/sdk.v2/driver"
-	"gopkg.in/bblfsh/sdk.v2/driver/fixtures"
-	"gopkg.in/bblfsh/sdk.v2/driver/native"
+	"github.com/bblfsh/sdk/v3/driver"
+	"github.com/bblfsh/sdk/v3/driver/fixtures"
+	"github.com/bblfsh/sdk/v3/driver/native"
 )
 
 const projectRoot = "../../"
@@ -20,7 +20,7 @@ var Suite = &fixtures.Suite{
 		return native.NewDriverAt(filepath.Join(projectRoot, "build/bin/native"), native.UTF8)
 	},
 	Transforms: normalizer.Transforms,
-	BenchName: "dynamic_cast",
+	BenchName:  "dynamic_cast",
 	Semantic: fixtures.SemanticConfig{
 		BlacklistTypes: []string{
 			// LiteralValue (for strings) can't be added since its also used for other literals
@@ -33,9 +33,6 @@ var Suite = &fixtures.Suite{
 			"CPPASTFunctionDefinition",
 			"ASTInclusionStatement",
 		},
-	},
-	Docker:fixtures.DockerConfig{
-		Image: "openjdk:8",
 	},
 }
 

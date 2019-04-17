@@ -1,6 +1,6 @@
 package normalizer
 
-import "gopkg.in/bblfsh/sdk.v2/driver"
+import "github.com/bblfsh/sdk/v3/driver"
 
 var Transforms = driver.Transforms{
 	Namespace:      "cpp",
@@ -8,5 +8,4 @@ var Transforms = driver.Transforms{
 	PreprocessCode: PreprocessCode,
 	Normalize:      Normalize,
 	Annotations:    Native,
-	Code:           Code,
 }
