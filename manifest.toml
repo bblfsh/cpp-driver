@@ -1,9 +1,5 @@
 name = "C++"
 language = "cpp"
+aliases = ["C++", "C"]
 status = "beta"
 features = ["ast", "uast", "roles"]
-
-[runtime]
-  os = "alpine"
-  go_version = "1.12"
-  native_version = ["8.121.13-r0"]
