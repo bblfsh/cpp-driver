@@ -12,7 +12,7 @@
 #==============================
 # Stage 1: Native Driver Build
 #==============================
-FROM openjdk:8-slim as native
+FROM openjdk:8u181-slim as native
 
 # install build dependencies
 RUN apt update && apt install -y maven
@@ -62,7 +62,7 @@ RUN go test -c -o /tmp/fixtures.test ./driver/fixtures/
 #=======================
 # Stage 3: Driver Build
 #=======================
-FROM openjdk:8-jre-alpine
+FROM openjdk:8u181-jre-alpine
 
 
 
