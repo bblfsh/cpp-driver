@@ -34,6 +34,14 @@ var Suite = &fixtures.Suite{
 			"ASTInclusionStatement",
 		},
 	},
+	// TODO: This won't really work because of the C++ macros expansion.
+	//       The native AST includes an expanded macros as a token
+	//       but we expect the token to match the source file exactly.
+	//VerifyTokens: []positioner.VerifyToken{
+	//	{Types: []string{
+	//		"CPPASTLiteralExpression",
+	//	}},
+	//},
 }
 
 func TestCppDriver(t *testing.T) {
