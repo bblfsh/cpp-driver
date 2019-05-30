@@ -19,7 +19,7 @@ var Preprocess = Transformers([][]Transformer{
 }...)
 
 var PreprocessCode = []CodeTransformer{
-	positioner.FromOffset(),
+	positioner.FromUTF16Offset(),
 }
 
 var Normalize = Transformers([][]Transformer{
