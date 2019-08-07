@@ -88,9 +88,11 @@ var (
 		"/": {role.Binary, role.Expression, role.Arithmetic, role.Divide},
 		"/=": {role.Binary, role.Expression, role.Arithmetic, role.Divide,
 			role.Assignment},
-		"->": {role.Binary, role.Expression, role.Incomplete},
-		".":  {role.Binary, role.Expression, role.Incomplete},
-		"<<": {role.Binary, role.Expression, role.Bitwise, role.LeftShift},
+		"->":       {role.Binary, role.Expression, role.Incomplete},
+		"arrow ->": {role.Binary, role.Expression, role.Incomplete},
+		".":        {role.Binary, role.Expression, role.Incomplete},
+		"dot .":    {role.Binary, role.Expression, role.Incomplete},
+		"<<":       {role.Binary, role.Expression, role.Bitwise, role.LeftShift},
 		"<<=": {role.Binary, role.Expression, role.Bitwise, role.LeftShift,
 			role.Assignment},
 		">>": {role.Binary, role.Expression, role.Bitwise, role.RightShift},
@@ -101,6 +103,7 @@ var (
 
 	unaryExprRoles = StringToRolesMap(map[string][]role.Role{
 		"op_alignof":             {role.Unary, role.Incomplete},
+		"op_alignOf":             {role.Unary, role.Incomplete},
 		"op_amper":               {role.Unary, role.Incomplete},
 		"op_bracketedPrimary":    {role.Unary, role.Incomplete},
 		"op_labelReference":      {role.Unary, role.Incomplete},
