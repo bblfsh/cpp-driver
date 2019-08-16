@@ -325,9 +325,9 @@ var Annotations = []Mapping{
 	}, role.Statement, role.While),
 
 	AnnotateType("CPPASTDoStatement", ObjRoles{
-		"Prop_Body":      {role.While},
-		"Prop_Condition": {role.While, role.Condition},
-	}, role.Statement, role.While),
+		"Prop_Body":      {role.DoWhile},
+		"Prop_Condition": {role.DoWhile, role.Condition},
+	}, role.Statement, role.DoWhile),
 
 	AnnotateType("CPPASTSwitchStatement", ObjRoles{
 		"Prop_Body":                 {role.Switch},
