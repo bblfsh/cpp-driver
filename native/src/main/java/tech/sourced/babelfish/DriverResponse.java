@@ -8,15 +8,55 @@ import java.util.ArrayList;
 
 public class DriverResponse {
     static class ResponseSendException extends IOException {
-        ResponseSendException(Throwable e) {
-            super(e);
+        private final static String cdtPackage = "org.eclipse.cdt";
+        private final static int maxDepth = 3;
+        private final Throwable e;
+
+        ResponseSendException(final Throwable e) { super(e); this.e = e; }
+        boolean isCDTCastException() {
+            Throwable t = this.e;
+            for (int i = 0; i < maxDepth; i++) {
+                if (t == null) {
+                    break;
+                }
+                if (!(t instanceof ClassCastException)) {
+                    t = t.getCause();
+                    continue;
+                }
+
+                final StackTraceElement[] st = t.getStackTrace();
+                return st.length > 0 && st[0].getClassName().startsWith(cdtPackage);
+            }
+
+            return false;
+        }
+    }
+
+    enum Status {
+        ok {
+            @Override
+            public String toString() {
+                return "ok";
+            }
+        },
+        error {
+            @Override
+            public String toString() {
+                return "error";
+            }
+        },
+        fatal {
+            @Override
+            public String toString() {
+                return "fatal";
+            }
         }
     }
 
     public String driver = "1.0.0";
     public String language = "C++";
     public String languageVersion = "14";
-    public String status = "ok";
+    public Status status = Status.ok;
     public ArrayList<String> errors = new ArrayList<String>(0);
     @JsonProperty("ast")
 
@@ -54,9 +94,7 @@ public class DriverResponse {
         }
     }
 
-    void sendError(Exception e, String errorString)
-            throws IOException {
-
+    void sendError(Exception e, String errorString) throws IOException {
         translationUnit = null;
         errors.add(e.getClass().getCanonicalName());
         errors.add(errorString + e.getMessage());
@@ -64,7 +102,15 @@ public class DriverResponse {
         PrintWriter pw = new PrintWriter(sw);
         e.printStackTrace(pw);
         errors.add(sw.toString());
-        status = "fatal";
+
+        if (e instanceof ResponseSendException) {
+            status = ((ResponseSendException)e).isCDTCastException() ?
+                    Status.error :
+                    Status.fatal;
+        } else {
+            status = Status.fatal;
+        }
+
         send();
     }
 }
