@@ -44711,6 +44711,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
+         LeadingComments: [
+            {
+               Comment: "/********************************************************************\n KWin - the KDE window manager\n This file is part of the KDE project.\n\nCopyright (C) 2014 Martin Gräßlin <mgraesslin@kde.org>\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n*********************************************************************/",
+               IASTClass: "Comment",
+               IsBlockComment: true,
+               LocOffsetEnd: 879,
+               LocOffsetStart: 0,
+            },
+         ],
          LocOffsetEnd: 905,
          LocOffsetStart: 880,
          Name: "main_wayland.h",
@@ -44756,6 +44765,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
+         LeadingComments: [
+            {
+               Comment: "// kwin",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1013,
+               LocOffsetStart: 1006,
+            },
+         ],
          LocOffsetEnd: 1035,
          LocOffsetStart: 1014,
          Name: "platform.h",
@@ -44801,6 +44819,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
+         LeadingComments: [
+            {
+               Comment: "// KWayland",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1150,
+               LocOffsetStart: 1139,
+            },
+         ],
          LocOffsetEnd: 1187,
          LocOffsetStart: 1151,
          Name: "KWayland/Server/display.h",
@@ -44819,6 +44846,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
+         LeadingComments: [
+            {
+               Comment: "// KDE",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1238,
+               LocOffsetStart: 1232,
+            },
+         ],
          LocOffsetEnd: 1266,
          LocOffsetStart: 1239,
          Name: "KLocalizedString",
@@ -44864,6 +44900,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
+         LeadingComments: [
+            {
+               Comment: "// Qt",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1383,
+               LocOffsetStart: 1378,
+            },
+         ],
          LocOffsetEnd: 1410,
          LocOffsetStart: 1384,
          Name: "qplatformdefs.h",
@@ -44982,6 +45027,15 @@
          Condition: "HAVE_UNISTD_H",
          IASTClass: "ASTIfdef",
          IsTaken: false,
+         LeadingComments: [
+            {
+               Comment: "// system",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1699,
+               LocOffsetStart: 1690,
+            },
+         ],
          LocOffsetEnd: 1720,
          LocOffsetStart: 1700,
          MacroReference: "HAVE_UNISTD_H",
@@ -44999,6 +45053,15 @@
          IASTClass: "ASTEndif",
          LocOffsetEnd: 1747,
          LocOffsetStart: 1741,
+         TrailingComments: [
+            {
+               Comment: "// HAVE_UNISTD_H",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1764,
+               LocOffsetStart: 1748,
+            },
+         ],
       },
       {
          Condition: "HAVE_SYS_PRCTL_H",
@@ -45174,6 +45237,29 @@
       },
       {
          IASTClass: "ASTEndif",
+         LeadingComments: [
+            {
+               Comment: "// check whether we are running under a debugger",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 15635,
+               LocOffsetStart: 15587,
+            },
+            {
+               Comment: "// debugger, don't adjust",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 15923,
+               LocOffsetStart: 15898,
+            },
+            {
+               Comment: "// disable ptrace in kwin_wayland",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 15984,
+               LocOffsetStart: 15951,
+            },
+         ],
          LocOffsetEnd: 16022,
          LocOffsetStart: 16016,
       },
@@ -45186,6 +45272,29 @@
       },
       {
          IASTClass: "ASTEndif",
+         LeadingComments: [
+            {
+               Comment: "// FreeBSD's rudimentary procfs does not support /proc/<pid>/exe",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 16115,
+               LocOffsetStart: 16051,
+            },
+            {
+               Comment: "// We could use the P_TRACED flag of the process to find out",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 16180,
+               LocOffsetStart: 16120,
+            },
+            {
+               Comment: "// if the process is being debugged ond FreeBSD.",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 16233,
+               LocOffsetStart: 16185,
+            },
+         ],
          LocOffsetEnd: 16332,
          LocOffsetStart: 16326,
       },

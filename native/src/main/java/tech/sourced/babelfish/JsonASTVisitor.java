@@ -1324,7 +1324,6 @@ public class JsonASTVisitor extends ASTVisitor {
                         } finally {
                             json.writeEndArray();
                         }
-
                     } else if (stmt instanceof IASTPreprocessorPragmaStatement) {
                         IASTPreprocessorPragmaStatement s = (IASTPreprocessorPragmaStatement)stmt;
                         json.writeStringField("Message", new String(s.getMessage()));
@@ -1334,7 +1333,7 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeStringField("Name", s.getMacroName().toString());
                         json.writeBooleanField("IsActive", s.isActive());
                     }
-
+                    serializeComments(stmt);
                 } finally {
                     json.writeEndObject();
                 }

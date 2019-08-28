@@ -131,25 +131,61 @@ var _ Op = opJoinNamesArray{}
 
 var Normalizers = []Mapping{
 
+	// Following two cases (MapSemantic("ASTInclusionStatement") are replacement
+	// for the previous case object:
+	// CasesObj("isSystemCase", Obj{},
+	// 	Objs{
+	// 		{
+	// 			"Name":     Var("path"),
+	// 			"IsSystem": Bool(true),
+	// 			// Always empty on current tests, this should detect other cases
+	// 			"Path": String(""),
+	// 			// FIXME(juanjux): save this once we've a way
+	// 			"Resolved": Any(),
+	// 		},
+	// 		{
+	// 			"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
+	// 			"IsSystem": Bool(false),
+	// 			"Path":     String(""),
+	// 			// FIXME(juanjux): save this once we've a way
+	// 			"Resolved": Any(),
+	// 		},
+	// 	}),
+	//
+	// After adding "LeadingComments" to pre-proc statements in native ast,
+	// we must drop them in the semantic representation.
+	//
+	// FIXME(kuba--): I don't know how to drop "LeadingComments" in CasesObj,
+	// and at the same time replace "ASTInclusionStatement" by "InlineImport".
+	// Adding "LeadingComments": Any(), to both cases,
+	// we keep the node name "ASTInclusionStatement" (instead of "InlineImport").
+	// Split was the easiest and the most intuitive approach.
 	MapSemantic("ASTInclusionStatement", uast.InlineImport{}, MapObj(
-		CasesObj("isSystemCase", Obj{},
-			Objs{
-				{
-					"Name":     Var("path"),
-					"IsSystem": Bool(true),
-					// Always empty on current tests, this should detect other cases
-					"Path": String(""),
-					// FIXME(juanjux): save this once we've a way
-					"Resolved": Any(),
-				},
-				{
-					"Name":     StringConv(Var("path"), prependDotSlash, removeDotSlash),
-					"IsSystem": Bool(false),
-					"Path":     String(""),
-					// FIXME(juanjux): save this once we've a way
-					"Resolved": Any(),
-				},
+		Fields{
+			{Name: "Name", Op: Var("path")},
+			{Name: "IsSystem", Op: Bool(true)},
+			{Name: "Path", Op: String("")},
+			{Name: "Resolved", Op: Any()},
+			{Name: "LeadingComments", Drop: true, Op: Any()},
+		},
+		Obj{
+			"Path": UASTType(uast.String{}, Obj{
+				"Value":  Var("path"),
+				"Format": String(""),
 			}),
+			"All":   Bool(true),
+			"Names": Is(nil),
+		},
+	)),
+
+	MapSemantic("ASTInclusionStatement", uast.InlineImport{}, MapObj(
+		Fields{
+			{Name: "Name", Op: StringConv(Var("path"), prependDotSlash, removeDotSlash)},
+			{Name: "IsSystem", Op: Bool(false)},
+			{Name: "Path", Op: String("")},
+			{Name: "Resolved", Op: Any()},
+			{Name: "LeadingComments", Drop: true, Op: Any()},
+		},
 		Obj{
 			"Path": UASTType(uast.String{}, Obj{
 				"Value":  Var("path"),

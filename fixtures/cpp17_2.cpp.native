@@ -36181,6 +36181,22 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
+         LeadingComments: [
+            {
+               Comment: "/********************************************************************\n KWin - the KDE window manager\n This file is part of the KDE project.\n\nCopyright (C) 2012 Martin Gräßlin <mgraesslin@kde.org>\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n*********************************************************************/",
+               IASTClass: "Comment",
+               IsBlockComment: true,
+               LocOffsetEnd: 879,
+               LocOffsetStart: 0,
+            },
+            {
+               Comment: "// own",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 887,
+               LocOffsetStart: 881,
+            },
+         ],
          LocOffsetEnd: 914,
          LocOffsetStart: 888,
          Name: "dbusinterface.h",
@@ -36208,6 +36224,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
+         LeadingComments: [
+            {
+               Comment: "// kwin",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 997,
+               LocOffsetStart: 990,
+            },
+         ],
          LocOffsetEnd: 1026,
          LocOffsetStart: 998,
          Name: "abstract_client.h",
@@ -36329,6 +36354,15 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
+         LeadingComments: [
+            {
+               Comment: "// Qt",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 1321,
+               LocOffsetStart: 1316,
+            },
+         ],
          LocOffsetEnd: 1347,
          LocOffsetStart: 1322,
          Name: "QOpenGLContext",
@@ -36347,6 +36381,15 @@
       {
          IASTClass: "ASTFunctionStyleMacroDefinition",
          IsActive: true,
+         LeadingComments: [
+            {
+               Comment: "// wrap void methods with no arguments to Workspace",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 3805,
+               LocOffsetStart: 3754,
+            },
+         ],
          LocOffsetEnd: 3892,
          LocOffsetStart: 3806,
          MacroBodyText: "void DBusInterface::name() { Workspace::self()->name();}",
@@ -36408,6 +36451,15 @@
       {
          IASTClass: "ASTFunctionStyleMacroDefinition",
          IsActive: true,
+         LeadingComments: [
+            {
+               Comment: "// wrap returning methods with no arguments to Workspace",
+               IASTClass: "Comment",
+               IsBlockComment: false,
+               LocOffsetEnd: 4207,
+               LocOffsetStart: 4151,
+            },
+         ],
          LocOffsetEnd: 4317,
          LocOffsetStart: 4208,
          MacroBodyText: "rettype DBusInterface::name( ) { return Workspace::self()->name(); }",
