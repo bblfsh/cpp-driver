@@ -1,5 +1,5 @@
 name = "C++"
 language = "cpp"
-aliases = ["C++", "C"]
+aliases = ["C++", "C", "CUDA", "OpenCL", "Metal"]
 status = "beta"
 features = ["ast", "uast", "roles"]

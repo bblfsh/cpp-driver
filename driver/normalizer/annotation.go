@@ -88,9 +88,11 @@ var (
 		"/": {role.Binary, role.Expression, role.Arithmetic, role.Divide},
 		"/=": {role.Binary, role.Expression, role.Arithmetic, role.Divide,
 			role.Assignment},
-		"->": {role.Binary, role.Expression, role.Incomplete},
-		".":  {role.Binary, role.Expression, role.Incomplete},
-		"<<": {role.Binary, role.Expression, role.Bitwise, role.LeftShift},
+		"->":       {role.Binary, role.Expression, role.Incomplete},
+		"arrow ->": {role.Binary, role.Expression, role.Incomplete},
+		".":        {role.Binary, role.Expression, role.Incomplete},
+		"dot .":    {role.Binary, role.Expression, role.Incomplete},
+		"<<":       {role.Binary, role.Expression, role.Bitwise, role.LeftShift},
 		"<<=": {role.Binary, role.Expression, role.Bitwise, role.LeftShift,
 			role.Assignment},
 		">>": {role.Binary, role.Expression, role.Bitwise, role.RightShift},
@@ -101,6 +103,7 @@ var (
 
 	unaryExprRoles = StringToRolesMap(map[string][]role.Role{
 		"op_alignof":             {role.Unary, role.Incomplete},
+		"op_alignOf":             {role.Unary, role.Incomplete},
 		"op_amper":               {role.Unary, role.Incomplete},
 		"op_bracketedPrimary":    {role.Unary, role.Incomplete},
 		"op_labelReference":      {role.Unary, role.Incomplete},
@@ -263,7 +266,7 @@ var Annotations = []Mapping{
 		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
 		"Prop_InitOperand2": ObjectRoles("init_operand2", role.Binary, role.Expression, role.Right,
 			role.Initialization, role.Incomplete),
-	}), LookupArrOpVar("operator", binaryExprRoles)),
+	}), LookupArrOpVar("operator", binaryExprRoles), role.Operator),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment,
 		role.Expression, role.Right),
@@ -322,9 +325,9 @@ var Annotations = []Mapping{
 	}, role.Statement, role.While),
 
 	AnnotateType("CPPASTDoStatement", ObjRoles{
-		"Prop_Body":      {role.While},
-		"Prop_Condition": {role.While, role.Condition},
-	}, role.Statement, role.While),
+		"Prop_Body":      {role.DoWhile},
+		"Prop_Condition": {role.DoWhile, role.Condition},
+	}, role.Statement, role.DoWhile),
 
 	AnnotateType("CPPASTSwitchStatement", ObjRoles{
 		"Prop_Body":                 {role.Switch},

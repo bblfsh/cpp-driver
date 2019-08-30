@@ -347,7 +347,7 @@
                   },
                   'Prop_Expression': { '@type': "CPPASTBinaryExpression",
                      '@token': "+=",
-                     '@role': [Add, Arithmetic, Assignment, Binary, Expression],
+                     '@role': [Add, Arithmetic, Assignment, Binary, Expression, Operator],
                      '@pos': { '@type': "uast:Positions",
                         start: { '@type': "uast:Position",
                            offset: 89,
