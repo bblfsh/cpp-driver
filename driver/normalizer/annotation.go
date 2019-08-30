@@ -348,10 +348,10 @@ var Annotations = []Mapping{
 	}, role.For, role.Statement),
 
 	AnnotateType("CPPASTRangeBasedForStatement", ObjRoles{
-		"Prop_Body":              {role.For},
+		"Prop_Body":              {role.For, role.Body},
 		"Prop_Declaration":       {role.For, role.Declaration, role.Variable},
 		"Prop_InitializerClause": {role.For, role.Iterator},
-	}, role.For, role.Statement),
+	}, role.For, role.Iterator, role.Statement),
 
 	AnnotateType("CPPASTIfStatement", ObjRoles{
 		"Prop_ThenClause":            {role.If, role.Then},

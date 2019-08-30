@@ -2697,7 +2697,7 @@
                   },
                },
                { '@type': "CPPASTRangeBasedForStatement",
-                  '@role': [For, Statement],
+                  '@role': [For, Iterator, Statement],
                   '@pos': { '@type': "uast:Positions",
                      start: { '@type': "uast:Position",
                         offset: 562,
