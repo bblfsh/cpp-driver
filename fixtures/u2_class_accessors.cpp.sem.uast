@@ -602,7 +602,7 @@
                            },
                            'Prop_Expression': { '@type': "cpp:CPPASTBinaryExpression",
                               '@token': "=",
-                              '@role': [Assignment, Binary, Expression],
+                              '@role': [Assignment, Binary, Expression, Operator],
                               '@pos': { '@type': "uast:Positions",
                                  start: { '@type': "uast:Position",
                                     offset: 150,

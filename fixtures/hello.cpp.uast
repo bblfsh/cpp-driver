@@ -92,7 +92,7 @@
                   },
                   'Prop_Expression': { '@type': "CPPASTBinaryExpression",
                      '@token': "<<",
-                     '@role': [Binary, Bitwise, Expression, LeftShift],
+                     '@role': [Binary, Bitwise, Expression, LeftShift, Operator],
                      '@pos': { '@type': "uast:Positions",
                         start: { '@type': "uast:Position",
                            offset: 59,

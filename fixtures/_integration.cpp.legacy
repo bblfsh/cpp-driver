@@ -158,7 +158,7 @@ CPPASTTranslationUnit {
 .  .  .  .  .  .  .  }
 .  .  .  .  .  .  .  Children: {
 .  .  .  .  .  .  .  .  0: CPPASTBinaryExpression {
-.  .  .  .  .  .  .  .  .  Roles: Binary,Expression,Bitwise,LeftShift
+.  .  .  .  .  .  .  .  .  Roles: Binary,Expression,Bitwise,LeftShift,Operator
 .  .  .  .  .  .  .  .  .  TOKEN "<<"
 .  .  .  .  .  .  .  .  .  StartPosition: {
 .  .  .  .  .  .  .  .  .  .  Offset: 38

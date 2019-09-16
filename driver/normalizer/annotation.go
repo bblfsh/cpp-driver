@@ -266,7 +266,7 @@ var Annotations = []Mapping{
 		"Prop_Operand2": ObjectRoles("operand2", role.Binary, role.Expression, role.Right),
 		"Prop_InitOperand2": ObjectRoles("init_operand2", role.Binary, role.Expression, role.Right,
 			role.Initialization, role.Incomplete),
-	}), LookupArrOpVar("operator", binaryExprRoles)),
+	}), LookupArrOpVar("operator", binaryExprRoles), role.Operator),
 
 	AnnotateType("CPPASTEqualsInitializer", nil, role.Declaration, role.Assignment,
 		role.Expression, role.Right),
