@@ -1,37 +1,37 @@
 {
+   FreestadingComments: [
+      {
+         Comment: "/* Multi line\n * comment */",
+         IASTClass: "Comment",
+         IsBlockComment: true,
+         LocOffsetEnd: 79,
+         LocOffsetStart: 52,
+      },
+      {
+         Comment: "/** Unnoficial doxygen comment */",
+         IASTClass: "Comment",
+         IsBlockComment: true,
+         LocOffsetEnd: 114,
+         LocOffsetStart: 81,
+      },
+   ],
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "// single line comment",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 22,
+         LocOffsetStart: 0,
+      },
+   ],
    LocOffsetEnd: 115,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
    'Prop_Comments': [],
    'Prop_Declarations': [
       {
-         FreestadingComments: [
-            {
-               Comment: "/* Multi line\n * comment */",
-               IASTClass: "Comment",
-               IsBlockComment: true,
-               LocOffsetEnd: 79,
-               LocOffsetStart: 52,
-            },
-            {
-               Comment: "/** Unnoficial doxygen comment */",
-               IASTClass: "Comment",
-               IsBlockComment: true,
-               LocOffsetEnd: 114,
-               LocOffsetStart: 81,
-            },
-         ],
          IASTClass: "CPPASTSimpleDeclaration",
-         LeadingComments: [
-            {
-               Comment: "// single line comment",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 22,
-               LocOffsetStart: 0,
-            },
-         ],
          LocOffsetEnd: 29,
          LocOffsetStart: 23,
          'Prop_DeclSpecifier': {
@@ -72,16 +72,16 @@
                'Prop_TypeNode': ~,
             },
          ],
-         TrailingComments: [
-            {
-               Comment: "// single line after",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 50,
-               LocOffsetStart: 30,
-            },
-         ],
       },
    ],
    'Prop_PreprocStatements': [],
+   TrailingComments: [
+      {
+         Comment: "// single line after",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 50,
+         LocOffsetStart: 30,
+      },
+   ],
 }

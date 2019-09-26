@@ -1,5 +1,14 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "/**\n * This is the doc\n */",
+         IASTClass: "Comment",
+         IsBlockComment: true,
+         LocOffsetEnd: 26,
+         LocOffsetStart: 0,
+      },
+   ],
    LocOffsetEnd: 46,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -7,15 +16,6 @@
    'Prop_Declarations': [
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         LeadingComments: [
-            {
-               Comment: "/**\n * This is the doc\n */",
-               IASTClass: "Comment",
-               IsBlockComment: true,
-               LocOffsetEnd: 26,
-               LocOffsetStart: 0,
-            },
-         ],
          LocOffsetEnd: 45,
          LocOffsetStart: 27,
          'Prop_DeclSpecifier': {

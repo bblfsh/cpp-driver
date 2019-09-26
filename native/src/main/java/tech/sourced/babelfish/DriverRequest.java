@@ -8,36 +8,26 @@ import java.io.*;
  * Class for the C/C++ driver request.
  */
 
-
+// To ignore any unknown properties in JSON input without exception
+@JsonIgnoreProperties(ignoreUnknown = true)
 class DriverRequest {
-
     static class RequestLoadException extends IOException {
         RequestLoadException(Throwable e) {
             super(e);
         }
     }
+
     public String action;
     public String language;
     public String languageVersion;
     public String content;
-    public String Encoding;
-    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String encoding;
 
     public DriverRequest() {} // Dummy constructor, jackson needs this
-
-    // TODO: check if Jackson needs this
-    DriverRequest(String action, String language, String languageVersion, String content) {
-        this.content = content;
-        this.action = action;
-        this.language = language;
-        this.languageVersion = languageVersion;
-    }
-
     static DriverRequest load(String in) throws RequestLoadException {
-        // NOTE: If we add new protocols this need to be declouped from jackson through an
+        // NOTE: If we add new protocols this need to be decoupled from jackson through an
         // intermediate interface (IExchangeFormatReader) like DriverResponse is, but for now with a single protocol is overkill
         // to add more layers
-
         ObjectMapper mapper = new ObjectMapper();
         try {
             return mapper.readValue(in, DriverRequest.class);

@@ -1,5 +1,245 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "/********************************************************************\n KWin - the KDE window manager\n This file is part of the KDE project.\n\nCopyright (C) 2014 Martin Gräßlin <mgraesslin@kde.org>\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n*********************************************************************/",
+         IASTClass: "Comment",
+         IsBlockComment: true,
+         LocOffsetEnd: 879,
+         LocOffsetStart: 0,
+      },
+      {
+         Comment: "// about to quit",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 6059,
+         LocOffsetStart: 6043,
+      },
+      {
+         Comment: "// note: this will kill the started process when we exit",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 10076,
+         LocOffsetStart: 10020,
+      },
+      {
+         Comment: "// this is going to happen anyway as we are the wayland and X server the app connects to",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 10177,
+         LocOffsetStart: 10089,
+      },
+      {
+         Comment: "// check whether we are running under a debugger",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 15635,
+         LocOffsetStart: 15587,
+      },
+      {
+         Comment: "// debugger, don't adjust",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 15923,
+         LocOffsetStart: 15898,
+      },
+      {
+         Comment: "// disable ptrace in kwin_wayland",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 15984,
+         LocOffsetStart: 15951,
+      },
+      {
+         Comment: "// enforce our internal qpa plugin, unfortunately command line switch has precedence",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 18080,
+         LocOffsetStart: 17996,
+      },
+      {
+         Comment: "// first load options - done internally by a different thread",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 4340,
+         LocOffsetStart: 4279,
+      },
+      {
+         Comment: "// KWayland",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1150,
+         LocOffsetStart: 1139,
+      },
+      {
+         Comment: "// start the applications passed to us as command line arguments",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 9897,
+         LocOffsetStart: 9833,
+      },
+      {
+         Comment: "// kwin",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1013,
+         LocOffsetStart: 1006,
+      },
+      {
+         Comment: "// close our pipe",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 14556,
+         LocOffsetStart: 14539,
+      },
+      {
+         Comment: "// FreeBSD's rudimentary procfs does not support /proc/<pid>/exe",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 16115,
+         LocOffsetStart: 16051,
+      },
+      {
+         Comment: "// We could use the P_TRACED flag of the process to find out",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 16180,
+         LocOffsetStart: 16120,
+      },
+      {
+         Comment: "// if the process is being debugged ond FreeBSD.",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 16233,
+         LocOffsetStart: 16185,
+      },
+      {
+         Comment: "// try creating the Wayland Backend",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 4451,
+         LocOffsetStart: 4416,
+      },
+      {
+         Comment: "// create selection owner for WM_S0 - magic X display number expected by XWayland",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 6913,
+         LocOffsetStart: 6832,
+      },
+      {
+         Comment: "// Qt",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1383,
+         LocOffsetStart: 1378,
+      },
+      {
+         Comment: "// need to unload all effects prior to destroying X connection as they might do X calls",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 3305,
+         LocOffsetStart: 3218,
+      },
+      {
+         Comment: "// system",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1699,
+         LocOffsetStart: 1690,
+      },
+      {
+         Comment: "// TODO: create backend without having the server running",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 28556,
+         LocOffsetStart: 28499,
+      },
+      {
+         Comment: "// Check  whether another windowmanager is running",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 7094,
+         LocOffsetStart: 7044,
+      },
+      {
+         Comment: "// ensure that no thread takes SIGUSR",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 17721,
+         LocOffsetStart: 17684,
+      },
+      {
+         Comment: "// KDE",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1238,
+         LocOffsetStart: 1232,
+      },
+      {
+         Comment: "// now libinput thread has been created, adjust scheduler to not leak into other processes",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 4565,
+         LocOffsetStart: 4475,
+      },
+      {
+         Comment: "// run immediately, before Q_CORE_STARTUP functions",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2197,
+         LocOffsetStart: 2146,
+      },
+      {
+         Comment: "// that would enable drkonqi",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2226,
+         LocOffsetStart: 2198,
+      },
+      {
+         Comment: "// we don't support X11 multi-head in Wayland",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 10936,
+         LocOffsetStart: 10891,
+      },
+      {
+         Comment: "// reset QT_QPA_PLATFORM to a sane value for any processes started from KWin",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 18493,
+         LocOffsetStart: 18417,
+      },
+      {
+         Comment: "//************************************",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2836,
+         LocOffsetStart: 2798,
+      },
+      {
+         Comment: "// ApplicationWayland",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2858,
+         LocOffsetStart: 2837,
+      },
+      {
+         Comment: "//************************************",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2897,
+         LocOffsetStart: 2859,
+      },
+      {
+         Comment: "// start session",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 9408,
+         LocOffsetStart: 9392,
+      },
+   ],
    LocOffsetEnd: 30198,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -272,22 +512,6 @@
       },
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         LeadingComments: [
-            {
-               Comment: "// run immediately, before Q_CORE_STARTUP functions",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 2197,
-               LocOffsetStart: 2146,
-            },
-            {
-               Comment: "// that would enable drkonqi",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 2226,
-               LocOffsetStart: 2198,
-            },
-         ],
          LocOffsetEnd: 2265,
          LocOffsetStart: 2227,
          'Prop_DeclSpecifier': {
@@ -694,29 +918,6 @@
          IASTClass: "CPPASTFunctionDefinition",
          IsDefaulted: false,
          IsDeleted: false,
-         LeadingComments: [
-            {
-               Comment: "//************************************",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 2836,
-               LocOffsetStart: 2798,
-            },
-            {
-               Comment: "// ApplicationWayland",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 2858,
-               LocOffsetStart: 2837,
-            },
-            {
-               Comment: "//************************************",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 2897,
-               LocOffsetStart: 2859,
-            },
-         ],
          LocOffsetEnd: 3021,
          LocOffsetStart: 2899,
          'Prop_Body': {
@@ -1394,15 +1595,6 @@
                },
                {
                   IASTClass: "CPPASTIfStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// need to unload all effects prior to destroying X connection as they might do X calls",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 3305,
-                        LocOffsetStart: 3218,
-                     },
-                  ],
                   LocOffsetEnd: 3401,
                   LocOffsetStart: 3310,
                   'Prop_ConditionExpression': {
@@ -2675,15 +2867,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// first load options - done internally by a different thread",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 4340,
-                        LocOffsetStart: 4279,
-                     },
-                  ],
                   LocOffsetEnd: 4361,
                   LocOffsetStart: 4345,
                   'Prop_Expression': {
@@ -2762,15 +2945,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// try creating the Wayland Backend",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 4451,
-                        LocOffsetStart: 4416,
-                     },
-                  ],
                   LocOffsetEnd: 4470,
                   LocOffsetStart: 4456,
                   'Prop_Expression': {
@@ -2798,15 +2972,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// now libinput thread has been created, adjust scheduler to not leak into other processes",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 4565,
-                        LocOffsetStart: 4475,
-                     },
-                  ],
                   LocOffsetEnd: 4611,
                   LocOffsetStart: 4570,
                   'Prop_Expression': {
@@ -5014,15 +5179,6 @@
                      'Prop_Statements': [
                         {
                            IASTClass: "CPPASTReturnStatement",
-                           LeadingComments: [
-                              {
-                                 Comment: "// about to quit",
-                                 IASTClass: "Comment",
-                                 IsBlockComment: false,
-                                 LocOffsetEnd: 6059,
-                                 LocOffsetStart: 6043,
-                              },
-                           ],
                            LocOffsetEnd: 6075,
                            LocOffsetStart: 6068,
                         },
@@ -7231,15 +7387,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// create selection owner for WM_S0 - magic X display number expected by XWayland",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 6913,
-                        LocOffsetStart: 6832,
-                     },
-                  ],
                   LocOffsetEnd: 6969,
                   LocOffsetStart: 6918,
                   'Prop_Declaration': {
@@ -7503,15 +7650,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// Check  whether another windowmanager is running",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 7094,
-                        LocOffsetStart: 7044,
-                     },
-                  ],
                   LocOffsetEnd: 7168,
                   LocOffsetStart: 7099,
                   'Prop_Declaration': {
@@ -8519,15 +8657,6 @@
                         },
                      },
                   },
-                  TrailingComments: [
-                     {
-                        Comment: "// Trigger possible errors, there's still a chance to abort",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 8163,
-                        LocOffsetStart: 8104,
-                     },
-                  ],
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
@@ -10592,15 +10721,6 @@
                },
                {
                   IASTClass: "CPPASTIfStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// start session",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 9408,
-                        LocOffsetStart: 9392,
-                     },
-                  ],
                   LocOffsetEnd: 9828,
                   LocOffsetStart: 9413,
                   'Prop_ConditionExpression': {
@@ -11717,15 +11837,6 @@
                },
                {
                   IASTClass: "CPPASTIfStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// start the applications passed to us as command line arguments",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 9897,
-                        LocOffsetStart: 9833,
-                     },
-                  ],
                   LocOffsetEnd: 10397,
                   LocOffsetStart: 9902,
                   'Prop_ConditionExpression': {
@@ -11791,22 +11902,6 @@
                               'Prop_Statements': [
                                  {
                                     IASTClass: "CPPASTDeclarationStatement",
-                                    LeadingComments: [
-                                       {
-                                          Comment: "// note: this will kill the started process when we exit",
-                                          IASTClass: "Comment",
-                                          IsBlockComment: false,
-                                          LocOffsetEnd: 10076,
-                                          LocOffsetStart: 10020,
-                                       },
-                                       {
-                                          Comment: "// this is going to happen anyway as we are the wayland and X server the app connects to",
-                                          IASTClass: "Comment",
-                                          IsBlockComment: false,
-                                          LocOffsetEnd: 10177,
-                                          LocOffsetStart: 10089,
-                                       },
-                                    ],
                                     LocOffsetEnd: 10222,
                                     LocOffsetStart: 10190,
                                     'Prop_Declaration': {
@@ -13284,15 +13379,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// we don't support X11 multi-head in Wayland",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 10936,
-                        LocOffsetStart: 10891,
-                     },
-                  ],
                   LocOffsetEnd: 10974,
                   LocOffsetStart: 10941,
                   'Prop_Expression': {
@@ -21724,15 +21810,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// close our pipe",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 14556,
-                        LocOffsetStart: 14539,
-                     },
-                  ],
                   LocOffsetEnd: 14573,
                   LocOffsetStart: 14561,
                   'Prop_Expression': {
@@ -24144,15 +24221,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// ensure that no thread takes SIGUSR",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 17721,
-                        LocOffsetStart: 17684,
-                     },
-                  ],
                   LocOffsetEnd: 17747,
                   LocOffsetStart: 17726,
                   'Prop_Declaration': {
@@ -24604,15 +24672,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// enforce our internal qpa plugin, unfortunately command line switch has precedence",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 18080,
-                        LocOffsetStart: 17996,
-                     },
-                  ],
                   LocOffsetEnd: 18145,
                   LocOffsetStart: 18085,
                   'Prop_Expression': {
@@ -25085,15 +25144,6 @@
                },
                {
                   IASTClass: "CPPASTExpressionStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// reset QT_QPA_PLATFORM to a sane value for any processes started from KWin",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 18493,
-                        LocOffsetStart: 18417,
-                     },
-                  ],
                   LocOffsetEnd: 18541,
                   LocOffsetStart: 18498,
                   'Prop_Expression': {
@@ -41697,15 +41747,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// TODO: create backend without having the server running",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 28556,
-                        LocOffsetStart: 28499,
-                     },
-                  ],
                   LocOffsetEnd: 28623,
                   LocOffsetStart: 28561,
                   'Prop_Declaration': {
@@ -44711,15 +44752,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
-         LeadingComments: [
-            {
-               Comment: "/********************************************************************\n KWin - the KDE window manager\n This file is part of the KDE project.\n\nCopyright (C) 2014 Martin Gräßlin <mgraesslin@kde.org>\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n*********************************************************************/",
-               IASTClass: "Comment",
-               IsBlockComment: true,
-               LocOffsetEnd: 879,
-               LocOffsetStart: 0,
-            },
-         ],
          LocOffsetEnd: 905,
          LocOffsetStart: 880,
          Name: "main_wayland.h",
@@ -44765,15 +44797,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: false,
-         LeadingComments: [
-            {
-               Comment: "// kwin",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1013,
-               LocOffsetStart: 1006,
-            },
-         ],
          LocOffsetEnd: 1035,
          LocOffsetStart: 1014,
          Name: "platform.h",
@@ -44819,15 +44842,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
-         LeadingComments: [
-            {
-               Comment: "// KWayland",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1150,
-               LocOffsetStart: 1139,
-            },
-         ],
          LocOffsetEnd: 1187,
          LocOffsetStart: 1151,
          Name: "KWayland/Server/display.h",
@@ -44846,15 +44860,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
-         LeadingComments: [
-            {
-               Comment: "// KDE",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1238,
-               LocOffsetStart: 1232,
-            },
-         ],
          LocOffsetEnd: 1266,
          LocOffsetStart: 1239,
          Name: "KLocalizedString",
@@ -44900,15 +44905,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
-         LeadingComments: [
-            {
-               Comment: "// Qt",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1383,
-               LocOffsetStart: 1378,
-            },
-         ],
          LocOffsetEnd: 1410,
          LocOffsetStart: 1384,
          Name: "qplatformdefs.h",
@@ -45027,15 +45023,6 @@
          Condition: "HAVE_UNISTD_H",
          IASTClass: "ASTIfdef",
          IsTaken: false,
-         LeadingComments: [
-            {
-               Comment: "// system",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1699,
-               LocOffsetStart: 1690,
-            },
-         ],
          LocOffsetEnd: 1720,
          LocOffsetStart: 1700,
          MacroReference: "HAVE_UNISTD_H",
@@ -45053,15 +45040,6 @@
          IASTClass: "ASTEndif",
          LocOffsetEnd: 1747,
          LocOffsetStart: 1741,
-         TrailingComments: [
-            {
-               Comment: "// HAVE_UNISTD_H",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 1764,
-               LocOffsetStart: 1748,
-            },
-         ],
       },
       {
          Condition: "HAVE_SYS_PRCTL_H",
@@ -45237,29 +45215,6 @@
       },
       {
          IASTClass: "ASTEndif",
-         LeadingComments: [
-            {
-               Comment: "// check whether we are running under a debugger",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 15635,
-               LocOffsetStart: 15587,
-            },
-            {
-               Comment: "// debugger, don't adjust",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 15923,
-               LocOffsetStart: 15898,
-            },
-            {
-               Comment: "// disable ptrace in kwin_wayland",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 15984,
-               LocOffsetStart: 15951,
-            },
-         ],
          LocOffsetEnd: 16022,
          LocOffsetStart: 16016,
       },
@@ -45272,29 +45227,6 @@
       },
       {
          IASTClass: "ASTEndif",
-         LeadingComments: [
-            {
-               Comment: "// FreeBSD's rudimentary procfs does not support /proc/<pid>/exe",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 16115,
-               LocOffsetStart: 16051,
-            },
-            {
-               Comment: "// We could use the P_TRACED flag of the process to find out",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 16180,
-               LocOffsetStart: 16120,
-            },
-            {
-               Comment: "// if the process is being debugged ond FreeBSD.",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 16233,
-               LocOffsetStart: 16185,
-            },
-         ],
          LocOffsetEnd: 16332,
          LocOffsetStart: 16326,
       },
@@ -45409,4 +45341,27 @@
       },
    ],
    'Prop_PreprocessorProblems': [],
+   TrailingComments: [
+      {
+         Comment: "// namespace",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 16964,
+         LocOffsetStart: 16952,
+      },
+      {
+         Comment: "// Trigger possible errors, there's still a chance to abort",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 8163,
+         LocOffsetStart: 8104,
+      },
+      {
+         Comment: "// HAVE_UNISTD_H",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1764,
+         LocOffsetStart: 1748,
+      },
+   ],
 }

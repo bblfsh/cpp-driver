@@ -1,5 +1,21 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "// Greatest Common Denominator using Euclidian Algorithm",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 768,
+         LocOffsetStart: 712,
+      },
+      {
+         Comment: "// Gist: https://gist.github.com/SecretDeveloper/6c426f8993873f1a05f7",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 838,
+         LocOffsetStart: 769,
+      },
+   ],
    LocOffsetEnd: 909,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -14,22 +30,6 @@
          IASTClass: "CPPASTFunctionDefinition",
          IsDefaulted: false,
          IsDeleted: false,
-         LeadingComments: [
-            {
-               Comment: "// Greatest Common Denominator using Euclidian Algorithm",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 768,
-               LocOffsetStart: 712,
-            },
-            {
-               Comment: "// Gist: https://gist.github.com/SecretDeveloper/6c426f8993873f1a05f7",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 838,
-               LocOffsetStart: 769,
-            },
-         ],
          LocOffsetEnd: 906,
          LocOffsetStart: 839,
          'Prop_Body': {

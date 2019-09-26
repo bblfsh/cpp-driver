@@ -1,5 +1,42 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "// comment 4",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 118,
+         LocOffsetStart: 106,
+      },
+      {
+         Comment: "// comment 2",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 38,
+         LocOffsetStart: 26,
+      },
+      {
+         Comment: "// comment 5",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 145,
+         LocOffsetStart: 133,
+      },
+      {
+         Comment: "// comment 1",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 12,
+         LocOffsetStart: 0,
+      },
+      {
+         Comment: "// comment 3",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 76,
+         LocOffsetStart: 64,
+      },
+   ],
    LocOffsetEnd: 235,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -13,15 +50,6 @@
       },
       {
          IASTClass: "CPPASTSimpleDeclaration",
-         LeadingComments: [
-            {
-               Comment: "// comment 5",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 145,
-               LocOffsetStart: 133,
-            },
-         ],
          LocOffsetEnd: 231,
          LocOffsetStart: 148,
          'Prop_DeclSpecifier': {
@@ -190,15 +218,6 @@
       {
          IASTClass: "ASTPragma",
          IsPragmaOperator: false,
-         LeadingComments: [
-            {
-               Comment: "// comment 1",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 12,
-               LocOffsetStart: 0,
-            },
-         ],
          LocOffsetEnd: 25,
          LocOffsetStart: 13,
          Message: "once",
@@ -206,15 +225,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
-         LeadingComments: [
-            {
-               Comment: "// comment 2",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 38,
-               LocOffsetStart: 26,
-            },
-         ],
          LocOffsetEnd: 63,
          LocOffsetStart: 39,
          Name: "unordered_map",
@@ -224,15 +234,6 @@
       {
          IASTClass: "ASTInclusionStatement",
          IsSystem: true,
-         LeadingComments: [
-            {
-               Comment: "// comment 3",
-               IASTClass: "Comment",
-               IsBlockComment: false,
-               LocOffsetEnd: 76,
-               LocOffsetStart: 64,
-            },
-         ],
          LocOffsetEnd: 105,
          LocOffsetStart: 77,
          Name: "SFML/Graphics.hpp",
