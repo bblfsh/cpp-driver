@@ -1,5 +1,21 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "// do the 100 passes",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 92,
+         LocOffsetStart: 72,
+      },
+      {
+         Comment: "// output the result",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 250,
+         LocOffsetStart: 230,
+      },
+   ],
    LocOffsetEnd: 405,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -131,15 +147,6 @@
                },
                {
                   IASTClass: "CPPASTForStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// do the 100 passes",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 92,
-                        LocOffsetStart: 72,
-                     },
-                  ],
                   LocOffsetEnd: 225,
                   LocOffsetStart: 95,
                   'Prop_Body': {
@@ -704,15 +711,6 @@
                },
                {
                   IASTClass: "CPPASTForStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// output the result",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 250,
-                        LocOffsetStart: 230,
-                     },
-                  ],
                   LocOffsetEnd: 389,
                   LocOffsetStart: 253,
                   'Prop_Body': {

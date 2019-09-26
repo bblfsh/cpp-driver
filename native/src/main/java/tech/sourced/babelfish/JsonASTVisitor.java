@@ -9,13 +9,7 @@ import org.eclipse.cdt.internal.core.dom.rewrite.commenthandler.NodeCommentMap;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Stack;
-import java.util.Vector;
+import java.util.*;
 
 /// Visitor pattern implementation for the CPP AST. This will write every
 /// node in the Json output. Since CDT unfortunately doesnt have something like JDT
@@ -151,7 +145,7 @@ public class JsonASTVisitor extends ASTVisitor {
             try {
                 serializeCommonData(node);
                 visitor.visit();
-                serializeComments(node);
+                serializeAllCommentsOnce();
                 visitChildren(node);
             } finally {
                 json.writeEndObject();
@@ -223,10 +217,27 @@ public class JsonASTVisitor extends ASTVisitor {
         }
     }
 
-    private void serializeComments(IASTNode node) throws IOException {
-        serializeCommentList(commentMap.getLeadingCommentsForNode(node), "Leading");
-        serializeCommentList(commentMap.getFreestandingCommentsForNode(node), "Freestading");
-        serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
+    /**
+     * serializeAllCommentsOnce serializes all extracted comments only once.
+     * After the call comment maps will be cleared.
+     *
+     * @throws IOException
+     */
+    private void serializeAllCommentsOnce() throws IOException {
+        ArrayList<IASTComment> leadingComments = new ArrayList<>();
+        commentMap.getLeadingMap().values().forEach(leadingComments::addAll);
+        serializeCommentList(leadingComments, "Leading");
+        commentMap.getLeadingMap().clear();
+
+        ArrayList<IASTComment> freeComments = new ArrayList<>();
+        commentMap.getFreestandingMap().values().forEach(freeComments::addAll);
+        serializeCommentList(freeComments, "Freestading");
+        commentMap.getFreestandingMap().clear();
+
+        ArrayList<IASTComment> trailingComments = new ArrayList<>();
+        commentMap.getTrailingMap().values().forEach(trailingComments::addAll);
+        serializeCommentList(trailingComments, "Trailing");
+        commentMap.getTrailingMap().clear();
     }
 
     private void writeChildProperty(IASTNode parent, Method method,
@@ -283,12 +294,12 @@ public class JsonASTVisitor extends ASTVisitor {
 
     private void visitChildren(IASTNode node) throws IOException {
         String nodeClass = node.getClass().getSimpleName();
-        Vector<ChildrenTypeCacheValue> catched = childrenMethodsCache.get(nodeClass);
+        Vector<ChildrenTypeCacheValue> cached = childrenMethodsCache.get(nodeClass);
 
         // Add this node's class methods to the cache
-        if (catched == null) {
-            catched = new Vector<ChildrenTypeCacheValue>();
-            childrenMethodsCache.put(nodeClass, catched);
+        if (cached == null) {
+            cached = new Vector<ChildrenTypeCacheValue>();
+            childrenMethodsCache.put(nodeClass, cached);
 
             // Order of getMethods() changes between runs so we need to do this to
             // ensure that integration tests do not break
@@ -321,15 +332,15 @@ public class JsonASTVisitor extends ASTVisitor {
                 writeChildProperty(node, mw.method, propName, returnType.isArray());
 
                 // Add the node and method information to the cache
-                catched.add(new ChildrenTypeCacheValue(
+                cached.add(new ChildrenTypeCacheValue(
                         propName, mw.method, mname, returnType.isArray()
                 ));
             }
         }
 
-        for (ChildrenTypeCacheValue val : catched) {
+        for (ChildrenTypeCacheValue val : cached) {
             if (doDebugLog)
-                jsonDebugLog.add("Method_" + "catched_" +
+                jsonDebugLog.add("Method_" + "cached_" +
                         val.method.getDeclaringClass().getSimpleName()
                         + "." + val.method.getName());
             writeChildProperty(node, val.method, val.propertyName, val.returnsArray);
@@ -1333,7 +1344,6 @@ public class JsonASTVisitor extends ASTVisitor {
                         json.writeStringField("Name", s.getMacroName().toString());
                         json.writeBooleanField("IsActive", s.isActive());
                     }
-                    serializeComments(stmt);
                 } finally {
                     json.writeEndObject();
                 }

@@ -1,5 +1,21 @@
 {
    IASTClass: "CPPASTTranslationUnit",
+   LeadingComments: [
+      {
+         Comment: "// standard inline assembly",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 335,
+         LocOffsetStart: 308,
+      },
+      {
+         Comment: "// extended inline assembly",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 232,
+         LocOffsetStart: 205,
+      },
+   ],
    LocOffsetEnd: 419,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -177,15 +193,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// extended inline assembly",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 232,
-                        LocOffsetStart: 205,
-                     },
-                  ],
                   LocOffsetEnd: 302,
                   LocOffsetStart: 237,
                   'Prop_Declaration': {
@@ -197,15 +204,6 @@
                },
                {
                   IASTClass: "CPPASTDeclarationStatement",
-                  LeadingComments: [
-                     {
-                        Comment: "// standard inline assembly",
-                        IASTClass: "Comment",
-                        IsBlockComment: false,
-                        LocOffsetEnd: 335,
-                        LocOffsetStart: 308,
-                     },
-                  ],
                   LocOffsetEnd: 416,
                   LocOffsetStart: 340,
                   'Prop_Declaration': {

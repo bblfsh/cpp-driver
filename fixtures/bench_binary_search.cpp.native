@@ -1014,15 +1014,6 @@
                         },
                         operator: "op_minus",
                      },
-                     TrailingComments: [
-                        {
-                           Comment: "// indicate not found ",
-                           IASTClass: "Comment",
-                           IsBlockComment: false,
-                           LocOffsetEnd: 324,
-                           LocOffsetStart: 302,
-                        },
-                     ],
                   },
                ],
             },
@@ -1197,4 +1188,13 @@
       },
    ],
    'Prop_PreprocStatements': [],
+   TrailingComments: [
+      {
+         Comment: "// indicate not found ",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 324,
+         LocOffsetStart: 302,
+      },
+   ],
 }
