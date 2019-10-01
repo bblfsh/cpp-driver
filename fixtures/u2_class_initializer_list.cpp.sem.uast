@@ -184,7 +184,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],
@@ -646,7 +645,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],

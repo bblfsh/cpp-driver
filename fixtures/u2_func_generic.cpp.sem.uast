@@ -43,9 +43,7 @@
                },
             },
             Nodes: [
-               {
-                  Comments: {},
-               },
+               {},
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "testfnc1",
@@ -305,9 +303,7 @@
                },
             },
             Nodes: [
-               {
-                  Comments: {},
-               },
+               {},
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "testfnc2",

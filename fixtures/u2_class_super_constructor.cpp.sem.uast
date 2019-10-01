@@ -85,9 +85,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "testcls1",
@@ -249,7 +247,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],

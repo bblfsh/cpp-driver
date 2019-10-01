@@ -28,9 +28,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "somefunc",
@@ -128,9 +126,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "somefunc",
@@ -228,9 +224,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "somefunc",
@@ -343,9 +337,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "main",

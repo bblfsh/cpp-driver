@@ -131,8 +131,6 @@ var _ Op = opJoinNamesArray{}
 
 var Normalizers = []Mapping{
 
-	// After adding "Comments" to pre-proc statements in native ast,
-	// we must drop them in the semantic representation.
 	MapSemantic("ASTInclusionStatement", uast.InlineImport{}, MapObj(
 		Fields{
 			{Name: "Name", Op: Var("path")},
@@ -141,7 +139,6 @@ var Normalizers = []Mapping{
 			{Name: "Path", Op: String("")},
 			// FIXME(juanjux): save this once we've a way
 			{Name: "Resolved", Op: Any()},
-			{Name: "Comments", Drop: true, Op: Any()},
 		},
 		Obj{
 			"Path": UASTType(uast.String{}, Obj{
@@ -161,7 +158,6 @@ var Normalizers = []Mapping{
 			{Name: "Path", Op: String("")},
 			// FIXME(juanjux): save this once we've a way
 			{Name: "Resolved", Op: Any()},
-			{Name: "Comments", Drop: true, Op: Any()},
 		},
 		Obj{
 			"Path": UASTType(uast.String{}, Obj{
@@ -178,7 +174,6 @@ var Normalizers = []Mapping{
 			{Name: "Prop_Statements", Op: Var("statements")},
 			// FIXME(juanjux): save all these once we have a way.
 			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
-			{Name: "Comments", Drop: true, Op: Any()},
 		},
 		Obj{
 			"Statements": Var("statements"),
@@ -189,7 +184,6 @@ var Normalizers = []Mapping{
 	MapSemantic("CPPASTCompoundStatement", uast.Block{}, MapObj(
 		Fields{
 			// FIXME(juanjux): save all these once we have a way
-			{Name: "Comments", Drop: true, Op: Any()},
 		},
 		Obj{"Statements": Arr()},
 	)),
@@ -319,7 +313,6 @@ var Normalizers = []Mapping{
 			// FIXME(juanjux): save this once we've a way
 			{Name: "ExpandedFromMacro", Drop: true, Op: Any()},
 			{Name: "Prop_Body", Optional: "optBody", Op: Var("body")},
-			{Name: "Comments", Optional: "optComments", Op: Var("comments")},
 			{Name: "Prop_MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
 
 			{Name: "Prop_DeclSpecifier", Op: Cases("retTypeCase",
@@ -499,9 +492,6 @@ var Normalizers = []Mapping{
 		Obj{
 			"Nodes": Arr(
 				Fields{
-					{Name: "Comments", Op: Fields{
-						{Name: "Comments", Optional: "optComments", Op: Var("comments")},
-					}},
 					{Name: "MemberInitializers", Optional: "optMemberInitializers", Op: Var("memberInitializers")},
 				},
 				UASTType(uast.Alias{}, Obj{

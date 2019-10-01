@@ -176,9 +176,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "is_pangram",
@@ -1743,9 +1741,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "main",

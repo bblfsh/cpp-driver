@@ -751,9 +751,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc2",
@@ -795,9 +793,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc3",
@@ -839,9 +835,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc4",
@@ -883,9 +877,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc5",
@@ -927,9 +919,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc6",
@@ -971,9 +961,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::testfnc7",
