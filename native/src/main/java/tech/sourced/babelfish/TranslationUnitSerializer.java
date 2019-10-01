@@ -45,8 +45,6 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
 {
     // TODO: add the includes and other macro information to the root node
     // in the JSON
-
-    private NodeCommentMap commentMap;
     JsonGenerator json;
 
     TranslationUnitSerializer() {
@@ -64,7 +62,6 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
         JsonASTVisitor visitor = new JsonASTVisitor(jsonGenerator, unit.commentMap);
 
         this.json = jsonGenerator;
-        this.commentMap = unit.commentMap;
 
         unit.rootNode.accept(visitor);
         serializeNode(unit.rootNode);
@@ -127,8 +124,6 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
         if (node instanceof IASTBinaryExpression) {
             serializeBinaryOperator(node);
         }
-
-        serializeComments(node);
 
         IASTNode[] children = node.getChildren();
         if (children != null && children.length > 0) {
@@ -283,36 +278,5 @@ public class TranslationUnitSerializer extends StdSerializer<TranslationUnit>
         }
         json.writeFieldName("Operator");
         json.writeString(opStr);
-    }
-
-    private void serializeCommentList(List<IASTComment> comments, String commentType) throws IOException {
-        if (comments != null && comments.size() > 0) {
-            json.writeFieldName(commentType + "Comments");
-            json.writeStartArray();
-            try {
-                for (IASTComment comment : comments) {
-                    json.writeStartObject();
-                    try {
-                        json.writeFieldName(commentType + "RelatedComments");
-                        json.writeString(comment.toString());
-
-                        json.writeFieldName("IsBlockComment");
-                        json.writeBoolean(comment.isBlockComment());
-
-                        serializeNodeLocation(comment);
-                    } finally {
-                        json.writeEndObject();
-                    }
-                }
-            } finally {
-                json.writeEndArray();
-            }
-        }
-    }
-
-    private void serializeComments(IASTNode node) throws IOException {
-        serializeCommentList(commentMap.getLeadingCommentsForNode(node), "Leading");
-        serializeCommentList(commentMap.getFreestandingCommentsForNode(node), "Freestading");
-        serializeCommentList(commentMap.getTrailingCommentsForNode(node), "Trailing");
     }
 }

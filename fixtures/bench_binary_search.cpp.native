@@ -1,4 +1,13 @@
 {
+   Comments: [
+      {
+         Comment: "// indicate not found ",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 324,
+         LocOffsetStart: 302,
+      },
+   ],
    IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 327,
    LocOffsetStart: 0,
@@ -1188,13 +1197,4 @@
       },
    ],
    'Prop_PreprocStatements': [],
-   TrailingComments: [
-      {
-         Comment: "// indicate not found ",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 324,
-         LocOffsetStart: 302,
-      },
-   ],
 }

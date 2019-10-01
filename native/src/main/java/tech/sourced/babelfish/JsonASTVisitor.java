@@ -159,13 +159,8 @@ public class JsonASTVisitor extends ASTVisitor {
 
 
     private void serializeLocation(IASTFileLocation loc) throws IOException {
-        int lineStart = -1;
-        int lineEnd = -1;
-        int offsetStart = -1;
-        int offsetLength = -1;
-
         if (loc != null) {
-            offsetStart = loc.getNodeOffset();
+            int offsetStart = loc.getNodeOffset();
             json.writeNumberField("LocOffsetStart", offsetStart);
             json.writeNumberField("LocOffsetEnd", offsetStart + loc.getNodeLength());
         }
@@ -194,10 +189,10 @@ public class JsonASTVisitor extends ASTVisitor {
         serializeLocation(node.getFileLocation());
     }
 
-    private void serializeCommentList(List<IASTComment> comments, String commentType)
+    private void serializeCommentList(List<IASTComment> comments)
         throws IOException {
         if (comments != null && comments.size() > 0) {
-            json.writeFieldName(commentType + "Comments");
+            json.writeFieldName("Comments");
             json.writeStartArray();
             try {
                 for (IASTComment comment : comments) {
@@ -224,20 +219,18 @@ public class JsonASTVisitor extends ASTVisitor {
      * @throws IOException
      */
     private void serializeAllCommentsOnce() throws IOException {
-        ArrayList<IASTComment> leadingComments = new ArrayList<>();
-        commentMap.getLeadingMap().values().forEach(leadingComments::addAll);
-        serializeCommentList(leadingComments, "Leading");
+        ArrayList<IASTComment> comments = new ArrayList<>();
+
+        commentMap.getLeadingMap().values().forEach(comments::addAll);
         commentMap.getLeadingMap().clear();
 
-        ArrayList<IASTComment> freeComments = new ArrayList<>();
-        commentMap.getFreestandingMap().values().forEach(freeComments::addAll);
-        serializeCommentList(freeComments, "Freestading");
+        commentMap.getFreestandingMap().values().forEach(comments::addAll);
         commentMap.getFreestandingMap().clear();
 
-        ArrayList<IASTComment> trailingComments = new ArrayList<>();
-        commentMap.getTrailingMap().values().forEach(trailingComments::addAll);
-        serializeCommentList(trailingComments, "Trailing");
+        commentMap.getTrailingMap().values().forEach(comments::addAll);
         commentMap.getTrailingMap().clear();
+
+        serializeCommentList(comments);
     }
 
     private void writeChildProperty(IASTNode parent, Method method,

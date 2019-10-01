@@ -1,6 +1,5 @@
 {
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
+   Comments: [
       {
          Comment: "/**\n * Some doc\n */",
          IASTClass: "Comment",
@@ -9,6 +8,7 @@
          LocOffsetStart: 0,
       },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 39,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],

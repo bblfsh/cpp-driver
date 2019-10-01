@@ -1,4 +1,13 @@
 {
+   Comments: [
+      {
+         Comment: "// pderived = nullptr",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 340,
+         LocOffsetStart: 319,
+      },
+   ],
    IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 343,
    LocOffsetStart: 0,
@@ -903,13 +912,4 @@
       },
    ],
    'Prop_PreprocStatements': [],
-   TrailingComments: [
-      {
-         Comment: "// pderived = nullptr",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 340,
-         LocOffsetStart: 319,
-      },
-   ],
 }

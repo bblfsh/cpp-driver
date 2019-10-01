@@ -1,6 +1,5 @@
 {
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
+   Comments: [
       {
          Comment: "// Greatest Common Denominator using Euclidian Algorithm",
          IASTClass: "Comment",
@@ -16,6 +15,7 @@
          LocOffsetStart: 769,
       },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 909,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
