@@ -86,7 +86,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],
@@ -494,7 +493,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],
@@ -901,9 +899,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "operator ()",
@@ -1779,9 +1775,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "operator ()",
@@ -3097,9 +3091,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "main",

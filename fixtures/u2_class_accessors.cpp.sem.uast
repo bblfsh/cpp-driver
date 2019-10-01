@@ -427,9 +427,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::get_x",
@@ -564,9 +562,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "testcls1::set_x",

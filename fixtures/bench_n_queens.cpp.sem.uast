@@ -1342,7 +1342,6 @@
                            },
                            Nodes: [
                               {
-                                 Comments: {},
                                  MemberInitializers: [
                                     { '@type': "cpp:CPPASTConstructorChainInitializer",
                                        '@role': [Declaration, Incomplete, Initialization, Type],
@@ -1752,7 +1751,6 @@
                            },
                            Nodes: [
                               {
-                                 Comments: {},
                                  MemberInitializers: [
                                     { '@type': "cpp:CPPASTConstructorChainInitializer",
                                        '@role': [Declaration, Incomplete, Initialization, Type],
@@ -2020,9 +2018,7 @@
                               },
                            },
                            Nodes: [
-                              {
-                                 Comments: {},
-                              },
+                              {},
                               { '@type': "uast:Alias",
                                  Name: { '@type': "uast:Identifier",
                                     Name: "operator <",
@@ -4414,9 +4410,7 @@
                               },
                            },
                            Nodes: [
-                              {
-                                 Comments: {},
-                              },
+                              {},
                               { '@type': "uast:Alias",
                                  Name: { '@type': "uast:Identifier",
                                     Name: "vflip",
@@ -4637,9 +4631,7 @@
                               },
                            },
                            Nodes: [
-                              {
-                                 Comments: {},
-                              },
+                              {},
                               { '@type': "uast:Alias",
                                  Name: { '@type': "uast:Identifier",
                                     Name: "hflip",
@@ -5277,9 +5269,7 @@
                               },
                            },
                            Nodes: [
-                              {
-                                 Comments: {},
-                              },
+                              {},
                               { '@type': "uast:Alias",
                                  Name: { '@type': "uast:Identifier",
                                     Name: "transpose",
@@ -6763,7 +6753,6 @@
                   },
                   Nodes: [
                      {
-                        Comments: {},
                         MemberInitializers: [
                            { '@type': "cpp:CPPASTConstructorChainInitializer",
                               '@role': [Declaration, Incomplete, Initialization, Type],
@@ -11947,9 +11936,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "ok",
@@ -14797,9 +14784,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "operator <<",
@@ -18284,9 +18269,7 @@
                      },
                   },
                   Nodes: [
-                     {
-                        Comments: {},
-                     },
+                     {},
                      { '@type': "uast:Alias",
                         Name: { '@type': "uast:Identifier",
                            Name: "operator <<",
@@ -19965,9 +19948,7 @@
                },
             },
             Nodes: [
-               {
-                  Comments: {},
-               },
+               {},
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "string_to",
@@ -20898,9 +20879,7 @@
                },
             },
             Nodes: [
-               {
-                  Comments: {},
-               },
+               {},
                { '@type': "uast:Alias",
                   Name: { '@type': "uast:Identifier",
                      Name: "string_to",
@@ -21666,9 +21645,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "usage",
@@ -22094,9 +22071,7 @@
             },
          },
          Nodes: [
-            {
-               Comments: {},
-            },
+            {},
             { '@type': "uast:Alias",
                Name: { '@type': "uast:Identifier",
                   Name: "main",
