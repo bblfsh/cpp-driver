@@ -1,4 +1,20 @@
 {
+   Comments: [
+      {
+         Comment: "// stdio.h",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 50,
+         LocOffsetStart: 40,
+      },
+      {
+         Comment: "// trailing comment",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 77,
+         LocOffsetStart: 58,
+      },
+   ],
    IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 78,
    LocOffsetStart: 0,
@@ -33,22 +49,6 @@
          IASTClass: "ASTEndif",
          LocOffsetEnd: 57,
          LocOffsetStart: 51,
-      },
-   ],
-   TrailingComments: [
-      {
-         Comment: "// trailing comment",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 77,
-         LocOffsetStart: 58,
-      },
-      {
-         Comment: "// stdio.h",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 50,
-         LocOffsetStart: 40,
       },
    ],
 }

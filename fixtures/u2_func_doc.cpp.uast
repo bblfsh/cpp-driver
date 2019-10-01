@@ -12,7 +12,7 @@
          col: 1,
       },
    },
-   LeadingComments: [
+   Comments: [
       { '@type': "Comment",
          '@token': "*\n * Some doc\n ",
          '@role': [Comment, Noop],

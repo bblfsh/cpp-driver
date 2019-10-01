@@ -1,13 +1,5 @@
 {
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
-      {
-         Comment: "// standard inline assembly",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 335,
-         LocOffsetStart: 308,
-      },
+   Comments: [
       {
          Comment: "// extended inline assembly",
          IASTClass: "Comment",
@@ -15,7 +7,15 @@
          LocOffsetEnd: 232,
          LocOffsetStart: 205,
       },
+      {
+         Comment: "// standard inline assembly",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 335,
+         LocOffsetStart: 308,
+      },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 419,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],

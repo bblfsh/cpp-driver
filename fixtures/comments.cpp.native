@@ -1,5 +1,12 @@
 {
-   FreestadingComments: [
+   Comments: [
+      {
+         Comment: "// single line comment",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 22,
+         LocOffsetStart: 0,
+      },
       {
          Comment: "/* Multi line\n * comment */",
          IASTClass: "Comment",
@@ -14,17 +21,15 @@
          LocOffsetEnd: 114,
          LocOffsetStart: 81,
       },
-   ],
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
       {
-         Comment: "// single line comment",
+         Comment: "// single line after",
          IASTClass: "Comment",
          IsBlockComment: false,
-         LocOffsetEnd: 22,
-         LocOffsetStart: 0,
+         LocOffsetEnd: 50,
+         LocOffsetStart: 30,
       },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 115,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -75,13 +80,4 @@
       },
    ],
    'Prop_PreprocStatements': [],
-   TrailingComments: [
-      {
-         Comment: "// single line after",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 50,
-         LocOffsetStart: 30,
-      },
-   ],
 }

@@ -1,26 +1,11 @@
 {
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
+   Comments: [
       {
-         Comment: "// comment 4",
+         Comment: "// comment 3",
          IASTClass: "Comment",
          IsBlockComment: false,
-         LocOffsetEnd: 118,
-         LocOffsetStart: 106,
-      },
-      {
-         Comment: "// comment 2",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 38,
-         LocOffsetStart: 26,
-      },
-      {
-         Comment: "// comment 5",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 145,
-         LocOffsetStart: 133,
+         LocOffsetEnd: 76,
+         LocOffsetStart: 64,
       },
       {
          Comment: "// comment 1",
@@ -30,13 +15,28 @@
          LocOffsetStart: 0,
       },
       {
-         Comment: "// comment 3",
+         Comment: "// comment 2",
          IASTClass: "Comment",
          IsBlockComment: false,
-         LocOffsetEnd: 76,
-         LocOffsetStart: 64,
+         LocOffsetEnd: 38,
+         LocOffsetStart: 26,
+      },
+      {
+         Comment: "// comment 4",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 118,
+         LocOffsetStart: 106,
+      },
+      {
+         Comment: "// comment 5",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 145,
+         LocOffsetStart: 133,
       },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 235,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],

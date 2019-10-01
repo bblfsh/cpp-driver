@@ -12,7 +12,7 @@
          col: 1,
       },
    },
-   LeadingComments: [
+   Comments: [
       { '@type': "Comment",
          '@token': " Greatest Common Denominator using Euclidian Algorithm",
          '@role': [Comment, Noop],

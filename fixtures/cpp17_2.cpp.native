@@ -1,27 +1,5 @@
 {
-   IASTClass: "CPPASTTranslationUnit",
-   LeadingComments: [
-      {
-         Comment: "// KApplication automatically also grabs org.kde.kwin, so it's often been used externally - ensure to free it as well",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 3137,
-         LocOffsetStart: 3020,
-      },
-      {
-         Comment: "// wrap returning methods with no arguments to Workspace",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 4207,
-         LocOffsetStart: 4151,
-      },
-      {
-         Comment: "// kwin",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 997,
-         LocOffsetStart: 990,
-      },
+   Comments: [
       {
          Comment: "/********************************************************************\n KWin - the KDE window manager\n This file is part of the KDE project.\n\nCopyright (C) 2012 Martin Gräßlin <mgraesslin@kde.org>\n\nThis program is free software; you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation; either version 2 of the License, or\n(at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program.  If not, see <http://www.gnu.org/licenses/>.\n*********************************************************************/",
          IASTClass: "Comment",
@@ -37,20 +15,6 @@
          LocOffsetStart: 881,
       },
       {
-         Comment: "// Qt",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 1321,
-         LocOffsetStart: 1316,
-      },
-      {
-         Comment: "// wrap void methods with no arguments to Workspace",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 3805,
-         LocOffsetStart: 3754,
-      },
-      {
          Comment: "// TODO: this watchdog exists to make really safe that we at some point get the service",
          IASTClass: "Comment",
          IsBlockComment: false,
@@ -64,7 +28,57 @@
          LocOffsetEnd: 2715,
          LocOffsetStart: 2612,
       },
+      {
+         Comment: "// KApplication automatically also grabs org.kde.kwin, so it's often been used externally - ensure to free it as well",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 3137,
+         LocOffsetStart: 3020,
+      },
+      {
+         Comment: "// kwin",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 997,
+         LocOffsetStart: 990,
+      },
+      {
+         Comment: "// wrap void methods with no arguments to Workspace",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 3805,
+         LocOffsetStart: 3754,
+      },
+      {
+         Comment: "// Qt",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1321,
+         LocOffsetStart: 1316,
+      },
+      {
+         Comment: "// wrap returning methods with no arguments to Workspace",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 4207,
+         LocOffsetStart: 4151,
+      },
+      {
+         Comment: "// bye doggy :'(",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2877,
+         LocOffsetStart: 2861,
+      },
+      {
+         Comment: "// namespace",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 15795,
+         LocOffsetStart: 15783,
+      },
    ],
+   IASTClass: "CPPASTTranslationUnit",
    LocOffsetEnd: 15796,
    LocOffsetStart: 0,
    'Prop_BuiltinMacroDefinitions': [],
@@ -36516,20 +36530,4 @@
       },
    ],
    'Prop_PreprocessorProblems': [],
-   TrailingComments: [
-      {
-         Comment: "// namespace",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 15795,
-         LocOffsetStart: 15783,
-      },
-      {
-         Comment: "// bye doggy :'(",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 2877,
-         LocOffsetStart: 2861,
-      },
-   ],
 }
