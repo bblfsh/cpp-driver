@@ -129,6 +129,25 @@ func (op opJoinNamesArray) Construct(st *State, n nodes.Node) (nodes.Node, error
 
 var _ Op = opJoinNamesArray{}
 
+var argCases = Cases("caseParams",
+	UASTType(uast.Argument{}, Obj{
+		"Name": Var("aname"),
+		"Type": Var("atype"),
+		"Init": If("optInitializer", Var("ainit"), Is(nil)),
+	}),
+	UASTType(uast.Argument{}, Obj{
+		"Name": Var("aname"),
+		"Type": Var("atype"),
+		"Init": If("optInitializer", Var("ainit"), Is(nil)),
+	}),
+	UASTType(uast.Argument{}, Obj{
+		"Name": Var("aname"),
+		"Type": UASTType(uast.Identifier{}, Obj{
+			"Name": Var("eltype"),
+		}),
+		"Init": If("optInitializer", Var("ainit"), Is(nil)),
+	}))
+
 var Normalizers = []Mapping{
 
 	// After adding "LeadingComments" to pre-proc statements in native ast,
@@ -555,33 +574,11 @@ var Normalizers = []Mapping{
 
 							{Name: "Arguments", Optional: "optArgs", Op: Cases("takesVarArgs",
 								// False, no varargs
-								Each("args", Cases("caseParams",
-									UASTType(uast.Argument{}, Obj{
-										"Name": Var("aname"),
-										"Type": Var("atype"),
-										"Init": If("optInitializer", Var("ainit"), Is(nil)),
-									}),
-									UASTType(uast.Argument{}, Obj{
-										"Name": Var("aname"),
-										"Type": Var("atype"),
-										"Init": If("optInitializer", Var("ainit"), Is(nil)),
-									}),
-									UASTType(uast.Argument{}, Obj{
-										"Name": Var("aname"),
-										"Type": UASTType(uast.Identifier{}, Obj{
-											"Name": Var("eltype"),
-										}),
-										"Init": If("optInitializer", Var("ainit"), Is(nil)),
-									})),
-								),
+								Each("args", argCases),
 
 								// True, the last arg is variadic
 								Append(
-									Each("args", UASTType(uast.Argument{}, Obj{
-										"Name": Var("aname"),
-										"Type": Var("atype"),
-										"Init": If("optInitializer", Var("ainit"), Is(nil)),
-									})),
+									Each("args", argCases),
 									Arr(
 										UASTType(uast.Argument{}, Obj{
 											"Variadic": Bool(true),
