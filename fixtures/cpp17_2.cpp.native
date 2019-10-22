@@ -15,6 +15,20 @@
          LocOffsetStart: 881,
       },
       {
+         Comment: "// kwin",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 997,
+         LocOffsetStart: 990,
+      },
+      {
+         Comment: "// Qt",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 1321,
+         LocOffsetStart: 1316,
+      },
+      {
          Comment: "// TODO: this watchdog exists to make really safe that we at some point get the service",
          IASTClass: "Comment",
          IsBlockComment: false,
@@ -29,18 +43,18 @@
          LocOffsetStart: 2612,
       },
       {
+         Comment: "// bye doggy :'(",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 2877,
+         LocOffsetStart: 2861,
+      },
+      {
          Comment: "// KApplication automatically also grabs org.kde.kwin, so it's often been used externally - ensure to free it as well",
          IASTClass: "Comment",
          IsBlockComment: false,
          LocOffsetEnd: 3137,
          LocOffsetStart: 3020,
-      },
-      {
-         Comment: "// kwin",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 997,
-         LocOffsetStart: 990,
       },
       {
          Comment: "// wrap void methods with no arguments to Workspace",
@@ -50,25 +64,11 @@
          LocOffsetStart: 3754,
       },
       {
-         Comment: "// Qt",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 1321,
-         LocOffsetStart: 1316,
-      },
-      {
          Comment: "// wrap returning methods with no arguments to Workspace",
          IASTClass: "Comment",
          IsBlockComment: false,
          LocOffsetEnd: 4207,
          LocOffsetStart: 4151,
-      },
-      {
-         Comment: "// bye doggy :'(",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 2877,
-         LocOffsetStart: 2861,
       },
       {
          Comment: "// namespace",

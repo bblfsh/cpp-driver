@@ -1,18 +1,18 @@
 {
    Comments: [
       {
-         Comment: "// output the result",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 250,
-         LocOffsetStart: 230,
-      },
-      {
          Comment: "// do the 100 passes",
          IASTClass: "Comment",
          IsBlockComment: false,
          LocOffsetEnd: 92,
          LocOffsetStart: 72,
+      },
+      {
+         Comment: "// output the result",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 250,
+         LocOffsetStart: 230,
       },
    ],
    IASTClass: "CPPASTTranslationUnit",

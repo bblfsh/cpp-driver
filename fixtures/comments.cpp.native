@@ -8,6 +8,13 @@
          LocOffsetStart: 0,
       },
       {
+         Comment: "// single line after",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 50,
+         LocOffsetStart: 30,
+      },
+      {
          Comment: "/* Multi line\n * comment */",
          IASTClass: "Comment",
          IsBlockComment: true,
@@ -20,13 +27,6 @@
          IsBlockComment: true,
          LocOffsetEnd: 114,
          LocOffsetStart: 81,
-      },
-      {
-         Comment: "// single line after",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 50,
-         LocOffsetStart: 30,
       },
    ],
    IASTClass: "CPPASTTranslationUnit",

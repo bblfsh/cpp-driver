@@ -1,13 +1,6 @@
 {
    Comments: [
       {
-         Comment: "// comment 3",
-         IASTClass: "Comment",
-         IsBlockComment: false,
-         LocOffsetEnd: 76,
-         LocOffsetStart: 64,
-      },
-      {
          Comment: "// comment 1",
          IASTClass: "Comment",
          IsBlockComment: false,
@@ -20,6 +13,13 @@
          IsBlockComment: false,
          LocOffsetEnd: 38,
          LocOffsetStart: 26,
+      },
+      {
+         Comment: "// comment 3",
+         IASTClass: "Comment",
+         IsBlockComment: false,
+         LocOffsetEnd: 76,
+         LocOffsetStart: 64,
       },
       {
          Comment: "// comment 4",

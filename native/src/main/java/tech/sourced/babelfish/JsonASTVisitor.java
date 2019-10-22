@@ -212,6 +212,14 @@ public class JsonASTVisitor extends ASTVisitor {
         }
     }
 
+    private class SortByLocOffset implements Comparator<IASTComment>
+    {
+        public int compare(IASTComment a, IASTComment b)
+        {
+            return a.getFileLocation().getNodeOffset() - b.getFileLocation().getNodeOffset();
+        }
+    }
+
     /**
      * serializeAllCommentsOnce serializes all extracted comments only once.
      * After the call comment maps will be cleared.
@@ -229,6 +237,8 @@ public class JsonASTVisitor extends ASTVisitor {
 
         commentMap.getTrailingMap().values().forEach(comments::addAll);
         commentMap.getTrailingMap().clear();
+
+        Collections.sort(comments, new SortByLocOffset());
 
         serializeCommentList(comments);
     }
