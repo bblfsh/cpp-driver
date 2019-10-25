@@ -1,7 +1,7 @@
 sdk: '2'
 language: cpp
 go-runtime:
-  version: '1.12-alpine'
+  version: '1.13-alpine'
 native:
   image: 'openjdk:8u181-jre-alpine'
   static:
